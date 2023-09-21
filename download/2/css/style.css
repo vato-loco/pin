@@ -1,0 +1,73 @@
+    select:-moz-focusring {color:transparent;text-shadow:0 0 0 #000;}
+        a:focus,a:active,button::-moz-focus-inner,input[type="reset"]::-moz-focus-inner,input[type="button"]::-moz-focus-inner,input[type="submit"]::-moz-focus-inner,select::-moz-focus-inner,input[type="file"]>input[type="button"]::-moz-focus-inner {border:0;outline:0;}
+        textarea,input,input[type="text"],input[type="button"],input[type="submit"],input[type="image"] {-webkit-appearance:none;opacity:1;outline:0;}
+        button {-webkit-appearance:none;outline:none;border:none;}
+        a {text-decoration:none;}
+        .wrapper {margin:0 auto;text-align:center;}
+        .show {display:block;}
+        .hide {display:none;}
+        .clear {clear:both;}
+        .ltr {direction:ltr;display:inline-block;}
+        .rtl {direction:rtl;display:inline-block;}
+		*, *:before, *:after {-webkit-box-sizing:border-box;-moz-box-sizing:border-box;box-sizing:border-box;}
+        body {
+            margin:0; padding:0; width:100%; height:100%;
+            font-family:'Roboto', Arial, Helvetica, sans-serif; font-size:16px; color:#4a4d51;
+            background:#fff;
+        }
+        .wrap { padding:40px 10px; }
+        .imgpict { margin:0 auto 25px; width:100%; max-width:172px; }
+        .txt0 { color:#242629; font-size:30px; line-height:36px; font-weight:700; }
+        .contentwrap {
+            margin:32px auto; max-width:385px; padding:40px 10px;
+            border-radius:10px; -moz-border-radius:10px; -webkit-border-radius:10px;
+            background-color:#fff; border:1px solid #e0e0e0;
+        }
+        .txt { font-size:22px; line-height:24px; font-weight:700; }
+        .txt1 { padding:20px 0; font-size:18px; line-height:22px; font-weight:400; }
+        .txt2 { font-size:16px; line-height:20px; font-weight:400; }
+        .txt3 { font-size:16px; line-height:20px; font-weight:400; }
+        .txt3 span a { text-decoration:underline; color:#4aae00; }
+        .btnclick {
+            margin:0 auto; max-width:150px;
+            animation:shake 10s linear infinite; -webkit-animation:shake 10s linear infinite; -moz-animation:shake 10s linear infinite;
+        }
+        @-moz-keyframes shake {
+            2%, 6%, 10%, 14%, 18% { -moz-transform: translate3d(-5px, 0, 0); }
+            4%, 8%, 16%, 12% { -moz-transform: translate3d(5px, 0, 0); }
+            18.1% { -moz-transform: translate3d(0px, 0, 0); }
+        }
+        @-webkit-keyframes shake {
+            2%, 6%, 10%, 14%, 18% { -webkit-transform: translate3d(-5px, 0, 0); }
+            4%, 8%, 16%, 12% { -webkit-transform: translate3d(5px, 0, 0); }
+            18.1% { -webkit-transform: translate3d(0px, 0, 0); }
+        }
+        @keyframes  shake {
+            2%, 6%, 10%, 14%, 18% { transform: translate3d(-5px, 0, 0); }
+            4%, 8%, 16%, 12% { transform: translate3d(5px, 0, 0); }
+            18.1% { transform: translate3d(0px, 0, 0); }
+        }
+        .btnclick:hover { animation-play-state:paused; -webkit-animation-play-state:paused; -moz-animation-play-state:paused; }
+        .button {
+            width:100%; padding:12px 0; display:inline-block; cursor:pointer;
+            color:#4a4d51; text-align:center; text-decoration:none; font-weight:500; font-size:18px;
+            border:1px solid #e2e2e2;
+            border-radius:5px; -moz-border-radius:5px; -webkit-border-radius:5px;
+            box-shadow:0 4px 0 #d6d6d6; -webkit-box-shadow:0 4px 0 #d6d6d6; -moz-box-shadow:0 4px 0 #d6d6d6;
+            background:-moz-linear-gradient(top, #f2f2f2 0%, #f2f2f2 100%);
+            background:-webkit-linear-gradient(top, #f2f2f2 0%, #f2f2f2 100%);
+            background:-o-linear-gradient(top, #f2f2f2 0%, #f2f2f2 100%);
+            background:-ms-linear-gradient(top, #f2f2f2 0%, #f2f2f2 100%);
+            background:linear-gradient(to bottom, #f2f2f2 0%, #f2f2f2 100%);
+            filter:progid:DXImageTransform.Microsoft.gradient(startColorstr='#f2f2f2', endColorstr='#f2f2f2', GradientType=0);
+            background-color:#f2f2f2;
+            -webkit-transition:all 0.1s; -moz-transition:all 0.1s; transition:all 0.1s;
+        }
+        .button:active {
+            position:relative; top:2px;
+            box-shadow:0 1px 0 #d6d6d6; -webkit-box-shadow:0 1px 0 #d6d6d6; -moz-box-shadow:0 1px 0 #d6d6d6;
+        }
+        @media  only screen and (max-width:500px) {
+            .txt0 { font-size:26px; line-height:32px; }
+            .txt2, .txt3 { font-size:15px; line-height:19px; }
+        }

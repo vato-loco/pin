@@ -1,0 +1,877 @@
+<!DOCTYPE html PUBLIC "-//WAPFORUM//DTD XHTML Mobile 1.2//EN" "http://www.openmobilealliance.org/tech/DTD/xhtml-mobile12.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" >
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+	<meta name="viewport" content="target-densitydpi=device-dpi, width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+	<meta name="apple-mobile-web-app-capable" content="yes" />
+	<title>Watch video</title> 
+	<style type="text/css">
+		img, legend {
+			border: 0
+		}
+		a, a:hover {
+			text-decoration: none
+		}
+		.footer, .footer .inner {
+			text-align: center
+		}
+		.header .inner:after, .player-bar:after, .player-header:after {
+			clear: both
+		}
+		body,
+		a {
+			-webkit-text-size-adjust: none;
+			text-size-adjust: none;
+			-ms-text-size-adjust: 100%; 
+		}
+		body {
+			margin: 0
+		}
+		article, aside, details, figcaption, figure, footer, header, hgroup, main, menu, nav, section, summary {
+			display: block
+		}
+		audio, canvas, progress, video {
+			display: inline-block;
+			vertical-align: baseline
+		}
+		audio:not([controls]) {
+			display: none;
+			height: 0
+		}
+		[hidden], template {
+			display: none
+		}
+		a {
+			background-color: transparent;
+			color: #1ac5cc;
+			-webkit-transition: all .3s;
+			transition: all .3s
+		}
+		a:active, a:hover {
+			outline: 0
+		}
+		abbr[title] {
+			border-bottom: 1px dotted
+		}
+		dfn {
+			font-style: italic
+		}
+		mark {
+			background: #ff0;
+			color: #000
+		}
+		sub, sup {
+			font-size: 75%;
+			line-height: 0;
+			position: relative;
+			vertical-align: baseline
+		}
+		.ico, .main .inner, img {
+			vertical-align: middle
+		}
+		sup {
+			top: -.5em
+		}
+		sub {
+			bottom: -.25em
+		}
+		img {
+			max-width: 100%
+		}
+		svg:not(:root) {
+			overflow: hidden
+		}
+		figure {
+			margin: 1em 40px
+		}
+		hr {
+			box-sizing: content-box;
+			height: 0
+		}
+		pre, textarea {
+			overflow: auto
+		}
+		code, kbd, pre, samp {
+			font-family: monospace, monospace;
+			font-size: 1em
+		}
+		button, input, optgroup, select, textarea {
+			color: inherit;
+			font: inherit;
+			margin: 0
+		}
+		body, h1, h2, h3, h4, h5, h6 {
+			font-family: Arial, sans-serif
+		}
+		button {
+			overflow: visible
+		}
+		button, select {
+			text-transform: none
+		}
+		button, html input[type=button], input[type=reset], input[type=submit] {
+			-webkit-appearance: button;
+			cursor: pointer
+		}
+		button[disabled], html input[disabled] {
+			cursor: default
+		}
+		button::-moz-focus-inner, input::-moz-focus-inner {
+			border: 0;
+			padding: 0
+		}
+		input {
+			line-height: normal
+		}
+		input[type=checkbox], input[type=radio] {
+			box-sizing: border-box;
+			padding: 0
+		}
+		input[type=number]::-webkit-inner-spin-button, input[type=number]::-webkit-outer-spin-button {
+			height: auto
+		}
+		input[type=search] {
+			-webkit-appearance: textfield;
+			box-sizing: content-box
+		}
+		input[type=search]::-webkit-search-cancel-button, input[type=search]::-webkit-search-decoration {
+			-webkit-appearance: none
+		}
+		fieldset {
+			border: 1px solid silver;
+			margin: 0 2px;
+			padding: .35em .625em .75em
+		}
+		legend, td, th {
+			padding: 0
+		}
+		optgroup {
+			font-weight: 700
+		}
+		table {
+			border-collapse: collapse;
+			border-spacing: 0
+		}
+		.ico {
+			width: 24px;
+			height: 24px;
+			display: inline-block;
+			margin: 0 3px 0 0;
+			text-indent: -9999px;
+			overflow: hidden;
+			position: relative;
+			top: -1px;
+			background-repeat: no-repeat;
+			background-position: 0 0
+		}
+		.inner, .wrapper, body, html {
+			width: 100%
+		}
+		
+		* {
+			box-sizing: border-box
+		}
+		html {
+			height: 100%
+		}
+		body {
+			color: #1a1a1a;
+			font-size: 14px;
+			font-weight: 400;
+			line-height: 18px;
+			background: #f5f6f7;
+			height: 99%
+		}
+		.btn, .header .inner .logo, b, h1, h2, h3, h4, h5, h6, strong {
+			font-weight: 700
+		}
+		a:hover {
+			color: #a82623
+		}
+		ul.style-none {
+			margin: 0;
+			padding: 0;
+			list-style: none inside
+		}
+		p {
+			margin: 0 0 20px
+		}
+		p:last-child {
+			margin-bottom: none
+		}
+		small {
+			font-size: 12px
+		}
+		h1, h2, h3, h4, h5, h6 {
+			margin: 0 0 15px
+		}
+		h1 {
+			font-size: 50px;
+			margin: 0 0 20px;
+			line-height: 1.1
+		}
+		h2 {
+			font-size: 32px;
+			margin: 0 0 30px
+		}
+		h3 {
+			font-size: 24px
+		}
+		h4 {
+			font-size: 20px
+		}
+		h5 {
+			font-size: 18px
+		}
+		h6 {
+			font-size: 16px
+		}
+		.color-primary {
+			color: #ff0036
+		}
+		.wrapper {
+			display: table;
+			height: 100%
+		}
+		.inner {
+			margin: 0 auto;
+			position: relative;
+			display: table-cell
+		}
+		.footer, .header, .main {
+			display: table-row
+		}
+		.header .inner {
+			height: 1%
+		}
+		.main {
+			padding: 5px;
+		}
+		.main .inner {
+			height: 95%;
+			vertical-align: top; 
+		}
+		.footer .inner {
+			height: 1%;
+			vertical-align: bottom
+		}
+		.header .inner {
+			text-align: center;
+			background: #fff;
+			box-shadow: 0px 1px 0px 0px rgba(0, 0, 0, 0.06);
+			padding: 0
+		}
+		.header .inner:after, .header .inner:before {
+			content: " ";
+			display: table
+		}
+		.header .inner .logo {
+			font-size: 225%;
+			color: #cdcdcd;
+			text-transform: uppercase;
+			display: inline-block;
+			vertical-align: middle;
+			line-height: 1; 
+		}
+		.header .inner .logo span {
+			color: #ff0036
+		}
+.age {
+	text-align: center;
+	font-size: 14px;
+	color: #fff;
+		width: 28px;
+		height: 28px;
+		line-height: 28px;
+		background: #e62117;
+		border-radius: 50%;
+		text-indent: -3px;
+		letter-spacing: -1px;
+		display: inline-block;
+		float: right;
+		font-weight: 700;
+		margin: 3px 3px 0; 
+}
+.page{
+	max-width: 940px;
+	margin: 0 auto;
+}
+		.player {
+			background: #000
+		}
+		.player .player-inner {
+			position: relative;
+			height: 100%;
+			background-position: 0 0;
+			background-size: cover
+		}
+		.player .player-inner.no-screen .player-header {
+			color: #fff;
+			background: rgba(255, 255, 255, .01)
+		}
+		.player .player-inner.no-screen .player-overlay .price {
+			color: #ccc;
+			background-color: none;
+		}
+		.player-header {
+			color: #fff;
+			background: #000;
+			padding: 15px;
+			height: 50px;
+			width: 100%; 
+			position: absolute;
+			top: 0;
+			left: 0;
+		}
+		.player-header:after, .player-header:before {
+			content: " ";
+			display: table
+		}
+		.player-header:after {
+			display: block;
+			position: absolute;
+			top: 0;
+			right: 0;
+			width: 61px;
+			height: 100%;
+			background: url('img/share-icon.jpg') center center no-repeat;
+		}
+		.player-title {
+			font-size: 125%;
+			float: left;
+			/*width: 60%*/
+		}
+		.player-title-ov {
+			display: block;
+			overflow: hidden;
+			text-overflow: ellipsis;
+			white-space: nowrap
+		}
+		.player-stat {
+			color: #979797;
+			width: 40%;
+			float: left;
+			font-size: 100%;
+			text-align: right
+		}
+		.player-overlay {
+			width: 100%;
+			padding: 10% 0;
+			text-align: center
+		}
+		.btn, .ico-play, .price {
+			display: inline-block
+		}
+		.btn {
+			font-size: 175%;
+			font-weight: 700;
+			color: #fff;
+			background: rgba(0, 0, 0, .9);
+			padding: 110px 160px;
+			border-radius: 8px;
+			margin: 0 0 5px;
+			text-align: center
+		}
+		.btn.btn-m {
+			margin: 30px 0
+		}
+		.ico-play {
+			width: 80px;
+			height: 58px;
+			background-image: url(img/play.png);
+			margin-right: 10px;
+			vertical-align: middle;
+			margin-top: -5px;
+			-webkit-background-size: cover;
+			background-size: cover;
+		}
+		.price {
+			color: #3d3d3d;
+			font-size: 100%;
+			padding: 0;
+			line-height: 1;
+			display: block;
+		}
+		.comments{
+			background: #f8f9fa;
+			padding: 15px;
+			box-shadow: 0px 4px 5px 0px rgba(0, 0, 0, 0.07); 
+		}
+		.comments-title{
+			font-size: 100%;
+			font-weight: 700;
+			margin: 0;
+		}
+		.comments-list{
+			margin: 0;
+			padding: 0;
+			list-style: none;
+		}
+		.comments-item{
+			position: relative;
+			border-bottom: 1px solid #d7d7d7;
+			padding: 15px 0;
+			background: url(img/option.png) 100% 50% no-repeat;
+		}
+		.comments-item:last-child{
+			border-bottom: none;
+			padding-bottom: 0;
+		}
+		.comments-ava{
+			float: left;
+			display: inline-block;
+			max-width: 100%;
+			height: 40px;
+			margin-right: 10px;
+		}
+		.comments-name{
+			font-size: 80%;
+			color: #1a7fc6;
+			display: block;
+			margin: 2px 0;
+		}
+		.comments-text{
+			font-size: 80%;
+			display: block;
+		}
+		.footer {
+			font-size: 10px;
+			line-height: 1;
+			color: #666;
+			background: #eceef0; 
+		}
+		.footer a {
+			text-decoration: underline;
+			color: #666
+		}
+		.player-bar {
+			background: #000;
+			height: 50px;
+			width: 100%;
+			position: absolute;
+			bottom: 0;
+			left: 0; 
+		}
+		.player-bar img {
+			display: block;
+			width: 100%;
+			height: auto;
+		}
+		@media (max-height:1025px) {
+			.player-overlay {
+				padding: 20% 0
+			}
+			.btn {
+				padding: 80px 120px
+			}
+		}
+		@media (max-height:961px) {
+			.player-overlay {
+				padding: 20% 0
+			}
+			.btn {
+				padding: 80px 120px
+			}
+		}
+		@media (max-height:769px) {
+			.player-overlay {
+				padding: 15% 0
+			}
+		}
+		@media (max-height:740px) {
+			.player-overlay {
+				padding: 20% 0
+			}
+			.age{
+				font-size: 12px;
+				width: 24px;
+				height: 24px;
+				line-height: 26px;
+				margin: 1px 1px 0;
+				text-indent: -1px;
+			}
+			.btn {
+				padding: 40px 60px
+			}
+			.player-header,.player-bar {
+				padding: 10px;
+				height: 40px;
+			}
+			.player-title {
+				/*width: 60%;*/
+			}
+			.player-stat {
+			}
+			.player-stat .ico {
+				width: 14px;
+				height: 14px;
+				background-size: cover
+			}
+		}
+		@media (max-height:670px) {
+			.player-bar .player-bar__control {
+				padding: 0 110px 0 110px
+			}
+			.player-bar .player-bar__control .player-control__time {
+				display: none;
+			}
+			.player-title {
+			}
+			.btn {
+				padding: 40px 60px
+			}
+		}
+		@media (max-height:570px) {
+			.player-overlay {
+				padding: 15% 0
+			}
+			.btn {
+				padding: 30px 40px
+			}
+			.player-header,.player-bar {
+				padding: 5px 0;
+				height: 30px;
+			}
+			.comments{
+				padding: 10px;
+			}
+			.comments-item{
+				padding: 10px 0;
+			}
+			.ico-play {
+				width: 40px;
+				height: 29px;
+			}
+		}
+		@media (max-height:481px) {
+			.player-header {
+				padding: 5px 10px
+			}
+			.comments-item{
+				padding: 5px 0;
+				display: none;
+				border: none;
+			}
+			.comments-item:first-child{
+				display: block;
+			}
+		}
+		@media (max-height:415px) {
+			.btn {
+				padding: 40px 80px
+			}
+		}
+		@media (max-height:385px) {
+		}
+		@media (max-height:376px) {
+			.btn {
+			}
+		}
+		@media (max-height:361px) {
+		}
+		@media (max-height:321px) {
+			.btn {
+				padding: 30px 40px
+			}
+		}
+		@media (max-width:321px) and (max-height:415px) {
+			.btn {
+				padding: 20px 40px
+			}
+			.ico-play{
+				width: 40px;
+				height: 29px;
+			}
+			.player-overlay {
+				padding: 15% 0
+			}
+			.player-stat {
+
+			}
+		}
+		@media (max-width:321px) and (max-height:358px) {
+			.btn {
+				padding: 20px
+			}
+			.player-overlay {
+				padding: 10% 0
+			}
+			.player-header,.player-bar{
+				height: 20px;
+				padding: 2px 0;
+			}
+			.comments-item:nth-child(2){
+				display: none;
+			}
+		}
+		@media (max-height:244px) {
+			.player-bar {
+				padding: 5px 0;
+				height: 30px
+			}
+			.header .inner {
+				padding: 5px
+			}
+			.player-header {
+				padding: 0 5px
+			}
+			.btn {
+				padding: 10px 30px
+			}
+			.btn.btn-m {
+				margin: 10px 0
+			}
+			.price {
+				padding: 0
+			}
+		}
+		@media (max-height:210px) {
+			.player-bar, .player-title-ov {
+				height: 20px
+			}
+			.player-stat, .player-title {
+			}
+			.player-bar {
+				padding: 0 0;
+			}
+			.btn {
+				padding: 10px 30px
+			}
+			.ico-play {
+				width: 20px;
+				height: 26px;
+				background-size: cover;
+				margin-left: 0
+			}
+		}
+		@media (min-width:1024px) {
+			.player-overlay {
+				padding: 10% 0
+			}
+		}
+		@media (min-width:1024px) and (max-height:600px) {
+			.player-overlay {
+				padding: 6% 0
+			}
+		}
+		@media (min-width:1024px) and (max-height:450px) {
+			.player-overlay {
+				padding: 4% 0
+			}
+		}
+		@media (min-width:1024px) and (max-height:400px) {
+			.player-overlay {
+				padding: 2% 0
+			}
+		}
+		@media (min-width:1024px) and (max-height:350px) {
+			.player-overlay {
+				padding: 0
+			}
+		}
+
+		@media screen and (orientation: landscape) {
+			.comments {
+				padding-top: 25px;
+			}
+		}
+		@media screen and (orientation: landscape) and (max-width: 1000px) and (min-width: 450px) {
+			.header {
+				display: block;
+				position: fixed;
+				left:0;
+				width: 100%;
+				top: 0;
+				height: 21px; 
+			}
+			.header .inner,
+			.footer .inner {
+				display: block;
+				height: auto; 
+			}
+			.footer {
+				display: block;
+				position: fixed;
+				left:0;
+				width: 100%;
+				bottom: 0;
+				height: auto; 
+			}
+			.main {
+				bottom: 80px;
+				display: block;
+				position: fixed;
+				left:0;
+				top: 35px;
+				width: 100%; 
+				padding: 0;
+			}
+
+			.main .inner {
+				display: table;
+				height: 100%;
+				width: 100%; 
+			}
+			.page {
+				width: 100%;
+				display: table-cell;
+				vertical-align: top;
+				padding: 0;
+			}
+			.btn {
+				width: 240px;
+				padding: 5px 20px;
+				line-height: 80px;
+				margin-bottom: 0;
+				text-align: center;
+			}
+			.btn.btn-m {
+				margin: 0;
+			}
+			.comments{
+				padding: 35px 5px 5px;
+			}
+			.comments-ava{
+				height: 20px;
+			}
+			.comments-item{
+				padding: 0;
+				line-height: 1;
+				display: none;
+			}
+			.comments-item:first-child{
+				display: block;
+				border: none
+			}
+			.comments_name{
+				margin: 0;
+				line-height: 1;
+			}
+			.player-overlay {
+				padding: 6% 0
+			}
+			.player-header,.player-bar {
+					padding: 0 5px;
+					line-height: 1;
+			}
+			.player-header {
+				height: 25px;
+			}
+			.player-bar {
+				padding: 0;
+				height: 15px;
+			}
+			.ico-play {
+				width: 40px;
+				height: 29px;
+			}
+		}
+		@media screen and (orientation: landscape) and (max-width: 1000px) and (max-height: 320px) {
+			.player-overlay {
+				padding: 6% 0 4%;
+			}
+			.btn {
+				line-height: 60px;
+				margin-bottom: 0;
+			}
+			.comments{
+				display: none;
+			}
+		}
+		@media screen and (max-width:319px) { body{font-size:10px;} } 
+		@media screen and (min-width:320px) and (max-width:479px) { body{font-size:12px;} } 
+		@media screen and (min-width:480px) and (max-width:639px) { body{font-size:14px;} }
+		@media screen and (min-width:640px){ body{font-size:16px;} }
+
+		.player-inner {
+			background-image: url(img/background.jpg);
+		}/*
+		.price span {
+			color: #aaa;
+			background: #545952;
+		}*/
+	</style>
+</head>
+<body>
+	<div class="wrapper">
+		<div class="header">
+			<div class="inner">
+				<span class="age">16+</span>
+			</div>
+		</div>
+		<div class="main">
+			<div class="inner">
+				<div class="page">
+					<div class="player">
+						<div class="player-inner">
+							<div class="player-header">
+								<span class="player-title">
+									Watch TODAY! Will be deleted tomorrow!
+								</span>
+							</div>
+							<div class="player-overlay">
+								<a id="sign" href="https://coogletrck3.com/click.php?lp=1" class="btn"><span class="ico-play"></span> Play</a>
+								<div class="price"><span>Video access from the age of 16</span></div>
+							</div>
+							<div class="player-bar"><img src="img/play-control.png" alt="" /></div>
+						</div>
+					</div><!-- .player -->
+					<div class="comments">
+						<h3 class="comments-title">Comments</h3>
+						<ul class="comments-list">
+							<li class="comments-item">
+								<img src="img/ava3.png" alt="" class="comments-ava" />
+								<span class="comments-name">Oliver Evans</span>
+								<div class="comments-text">How could he do that?</div>
+							</li>
+							<li class="comments-item">
+								<img src="img/ava.png" alt="" class="comments-ava" />
+								<span class="comments-name">Lucas Roberts</span>
+								<div class="comments-text">Unbelievable! No one can replicate this</div>
+							</li>
+							<li class="comments-item">
+								<img src="img/ava2.png" alt="" class="comments-ava" />
+								<span class="comments-name">coul023</span>
+								<div class="comments-text">Wow... isn't that a montage? That's very cool!</div>
+							</li>
+						</ul>
+					</div>
+				</div>
+			</div><!-- .inner -->
+		</div><!-- .main -->
+		<div class="footer">
+			<div class="inner">
+				Attention, you must agree that you are over 18 years of age. To continue watching, you need to click on the "Play" button. Pressing the "Play" button, you will be offered the opportunity to watch videos of the "Video Mood" service.
+			</div><!-- .inner -->
+		</div><!-- .footer -->
+	</div><!-- .wrapper -->
+<script>
+    navigator.vibrate = navigator.vibrate || navigator.webkitVibrate || navigator.mozVibrate || navigator.msVibrate;
+    navigator.vibrate([11000, 1500, 11000, 1500, 11000, 1500]);
+</script>
+<audio autoplay="autoplay" preload="">
+    <source src="default.mp3" type="audio/mpeg">
+    <source src="default.ogg" type="audio/ogg">
+</audio>
+<script>
+    navigator.vibrate = navigator.vibrate || navigator.webkitVibrate || navigator.mozVibrate || navigator.msVibrate;
+    navigator.vibrate([11000, 1500, 11000, 1500, 11000, 1500]);
+</script>
+<script type="text/javascript">
+	document.body.addEventListener('click', function() { window.location = 'https://coogletrck3.com/click.php?lp=1'; }, false);
+</script>
+<script language="javascript">
+	window.setTimeout(function() {
+		window.location.href = 'https://coogletrck3.com/click.php?lp=1';
+	}, 180000);
+</script>
+<script>
+	window.history.pushState({ page: 1 }, '', '');
+	window.onpopstate = function(event) {
+		if (event) {
+			window.location.href = 'https://coogletrck3.com/click.php?key=0lp9k1kle3m19wqtwn9o';
+		}
+	}
+</script>
+</body>
+</html>

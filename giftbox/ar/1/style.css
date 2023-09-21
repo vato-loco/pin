@@ -1,0 +1,156 @@
+@import url("https://fonts.googleapis.com/css?family=Open+Sans:400,600&display=swap&subset=cyrillic");
+@import url("https://fonts.googleapis.com/css?family=Oswald:600&display=swap");
+@import url("https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/css/all.min.css");
+
+* {
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+}
+
+body {
+	background: #f7f7f7;
+	font-family: "Open Sans", sans-serif;
+	position: relative;
+}
+
+.wrapper {
+}
+
+.header {
+	background: #000000;
+	padding: 10px;
+	font-size: 16px;
+	color: #ffffff;
+	text-align: center;
+}
+
+.content {
+	background: #ffffff;
+	max-width: 900px;
+	margin: 0 auto;
+	padding: 20px;
+}
+
+.client {
+	font-size: 14px;
+	color: #111111;
+	margin: 0 0 20px 0;
+}
+
+.client img {
+	float: right;
+	margin: 0 0 10px 6px;
+	width: 50px;
+}
+
+.info {
+	-webkit-border-radius: 5px;
+	-moz-border-radius: 5px;
+	border-radius: 5px;
+	background: #ff0000;
+	text-align: center;
+	font-size: 14px;
+	color: #ffffff;
+	padding: 10px;
+	margin: 0 0 10px 0;
+}
+
+.boxs {
+	overflow: hidden;
+	background: #ffffff;
+	-webkit-border-radius: 5px;
+	-moz-border-radius: 5px;
+	border-radius: 5px;
+	margin: 0 0 10px 0;
+}
+
+.box {
+	width: 33.33%;
+	float: left;
+	padding: 14px;
+	cursor: pointer;
+	transition: 0.5s;
+}
+
+.box img {
+	width: 100%;
+}
+
+.comment {
+	font-family: Helvetica, Arial, sans-serif;
+	background: #eeeff4;
+	padding: 10px;
+	overflow: hidden;
+	margin: 0 0 10px 0;
+	-webkit-border-radius: 10px;
+	-moz-border-radius: 10px;
+	border-radius: 10px;
+}
+
+.comment_img {
+	position: absolute;
+}
+
+.comment_img img {
+	width: 48px;
+	height: 48px;
+	-webkit-border-radius: 50px;
+	-moz-border-radius: 50px;
+	border-radius: 50px;
+}
+
+.comment_name {
+	color: #385898;
+	font-size: 14px;
+	font-weight: bold;
+	margin: 0 0 6px 58px;
+}
+
+.comment_text {
+	color: #1c1e21;
+	font-size: 14px;
+	margin: 0 0 6px 58px;
+}
+
+.comment_info {
+	color: #1c1e21;
+	font-size: 12px;
+	margin: 0 0 0 58px;
+}
+
+.comment_info span {
+	color: #4267b2;
+}
+
+.footer {
+	background: #000000;
+	padding: 10px;
+	font-size: 12px;
+	color: #ffffff;
+	text-align: center;
+}
+
+.swal2-popup {
+	font-size: 12px !important;
+}
+.swal2-styled.swal2-confirm {
+	font-size: 18px !important;
+	padding: 10px 30px !important;
+}
+
+.swal2-footer a {
+	background: #ff0000;
+	font-size: 20px;
+	color: #ffffff;
+	font-weight: bold;
+	padding: 15px 20px;
+	text-decoration: none;
+	display: block;
+	width: 100%;
+	text-align: center;
+	-webkit-border-radius: 5px;
+	-moz-border-radius: 5px;
+	border-radius: 5px;
+	border: 0;
+}

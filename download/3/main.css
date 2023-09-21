@@ -1,0 +1,78 @@
+@import url('https://fonts.googleapis.com/css?family=Open+Sans:400,600&display=swap&subset=cyrillic');
+@import url('https://fonts.googleapis.com/css?family=Oswald:600&display=swap');
+@import url('https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/css/all.min.css');
+
+* {
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+}
+
+body {
+	font-family: 'Open Sans', sans-serif;
+	color: #020202;
+}
+
+.wrapper {
+	text-align: center;
+	margin: 0 auto;
+	max-width: 415px;
+	padding: 15px;
+}
+
+img {
+	margin: 0 0 15px 0;
+}
+
+h2 {
+	margin: 0 0 15px 0;
+}
+
+h4 {
+	margin: 0 0 35px 0;
+}
+
+i {
+	font-size: 14px;
+}
+
+a.button {
+font-family: 'Oswald', sans-serif;
+padding: 25px;
+background: #f2f2f2;
+display: block;
+text-decoration: none;
+border: 1px solid #e2e2e2;
+color: #4a4d51;
+font-size: 28px;
+font-weight: 600;
+box-shadow: 0 5px 0 #d6d6d6;
+margin: 0 0 45px 0;
+-webkit-border-radius: 5px;
+-moz-border-radius: 5px;
+border-radius: 5px;
+-webkit-animation: button 0.4s cubic-bezier(0.390, 0.575, 0.565, 1.000) both;
+animation: button 0.4s cubic-bezier(0.390, 0.575, 0.565, 1.000) both;
+}
+
+
+@-webkit-keyframes button {
+  0% {
+    -webkit-transform: scale(0.5);
+            transform: scale(0.5);
+  }
+  100% {
+    -webkit-transform: scale(1);
+            transform: scale(1);
+  }
+}
+@keyframes button {
+  0% {
+    -webkit-transform: scale(0.5);
+            transform: scale(0.5);
+  }
+  100% {
+    -webkit-transform: scale(1);
+            transform: scale(1);
+  }
+}

