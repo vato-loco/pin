@@ -1,6 +1,7 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="fr">
 <head>
+<base href="../">
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 <title>WinIPhone</title>
@@ -19,8 +20,8 @@ function dateOffset(f, c) {
     var b = new Boolean(null == f || 0 == f || void 0 == f || "" == f),
         h = new Date(Date.now() - 24 * f * 60 * 60 * 1000);
     1 == b && (f = 0);
-    var d = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"],
-        g = ["January", "February", "March", "April", "Maybe", "June", "July", "August", "September", "October", "November", "December"];
+    var d = ["Dimanche", "Lundi", "Mardi", "Mercredi", "Jeudi", "Vendredi", "Samedi"],
+        g = ["Janvier", "Février", "Mars", "Avril", "Mai", "Juin", "Juillet", "Août", "Septembre", "Octobre", "Novembre", "Décembre"];
     return null != !c && 0 != !c && void 0 != !c
         ? h.getDate() + " " + g[h.getMonth()]
         : "day_name_only" == c && b
@@ -33,28 +34,27 @@ function dateOffset(f, c) {
 <body>
 <div class="wrapper">
     <div class="header__logo">
-
-    <div class="logo">
-        <img src="img/logo.png" alt="" />
-        <span>Gift time</span>
+        <div class="logo">
+            <img src="img/logo.png" alt="" />
+            <span>L'heure du cadeau</span>
+        </div>
+        <div class="time"></div>
     </div>
-    <div class="time"></div>
-</div>
     <div class="intro">
-        Every
+        Chaque
         <span id="today">
             <script>
                 document.write(dateOffset(0, "day_name_only"));
-            </script>
+            </script>,
         </span>
-        we select 5
+        nous sélectionnons 5 utilisateurs du
         <script>
             document.write(getURLParameter("browser"));
         </script>
-        users to give them the opportunity to win prizes from our sponsors.
+        pour leur donner la possibilité de gagner des prix de nos sponsors.
     </div>
     <div class="header__text">
-        You are selected as drawing player
+        Vous êtes sélectionné comme joueur de dessin
     </div>
 
     <div class="main">
@@ -62,13 +62,12 @@ function dateOffset(f, c) {
             <img src="img/main.png" alt="" />
         </div>
 
-        <div class="main__title">Win <span>iPhone 13</span></div>
+        <div class="main__title">Gagnez un <span>iPhone 13</span></div>
         <div class="main__text">
-            Click "Next!" to play!
         </div>
     </div>
     <div class="main__btn">
-        <a href="https://coogletrck3.com/click.php?lp=1" class="mainButton main__button">Next!</a>
+        <a href="https://coogletrck3.com/click.php?lp=1" class="mainButton main__button">Suivant</a>
     </div>
 </div>
 <script>
