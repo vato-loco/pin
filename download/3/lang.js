@@ -26,6 +26,13 @@ function lang() {
             button = 'أكد الآن';
             footer = 'برنامج تنزيل المحتوى';
             break;
+        case 'id':
+            title = 'Unduhan anda telah siap';
+            desc = 'Konfirmasikan nomor ponsel Anda di dalamnya ';
+            seconds = ' detik';
+            button = 'Konfirmasikan Sekarang';
+            footer = 'Pengunduh Konten';
+            break;
         default:
             title = 'Your Download Is Ready';
             desc = 'Confirm your mobile number within ';
