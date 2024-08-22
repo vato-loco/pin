@@ -1,0 +1,299 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+<!-- Google Tag Manager -->
+<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+})(window,document,'script','dataLayer','GTM-P2SQDXB');</script>
+<!-- End Google Tag Manager -->
+<meta http-equiv="content-type" content="text/html; charset=UTF-8">
+<meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Congratulations!</title>
+<script type="text/javascript">
+function getQueryStringValue (key) {  
+  return decodeURIComponent(window.location.search.replace(new RegExp("^(?:.*[&\\?]" + encodeURIComponent(key).replace(/[\.\+\*]/g, "\\$&") + "(?:\\=([^&]*))?)?.*$", "i"), "$1"));  
+}
+</script>
+<link rel="stylesheet" href="index_files/bootstrap.css">
+<link rel="stylesheet" href="index_files/modal.css">
+<link rel="stylesheet" href="index_files/app.css">
+<script type="text/javascript">
+    function getURLParameter(name) {
+      return decodeURI(
+      (RegExp(name + '=' + '(.+?)(&|$)').exec(location.search)||[,null])[1] || ''
+      );
+    }
+</script>
+<script src="index_files/modernizr.js"></script>
+<meta name="robots" content="noindex, nofollow">
+<style>
+    .jackpot-slot .slot-machine__reel-container .slot-machine__reel{
+        background-image: url('index_files/spinnerfreespins.png');
+    }
+
+    .jackpot {
+        background: url("index_files/bg_casino_pattern.jpg");
+        padding-top: 52px;
+        overflow: hidden;
+    }
+    .sun_ray{
+        position: absolute;
+        top: -197px;
+        left: calc(50% - 467px);
+        -webkit-animation: rotation 14s infinite linear;
+    }
+
+    @-webkit-keyframes rotation {
+		from {
+				-webkit-transform: rotate(0deg);
+		}
+		to {
+				-webkit-transform: rotate(359deg);
+		}
+    }
+</style>
+<style media="all"></style><style media="all"></style><style media="all">@media screen and (max-width: 860px) {}.md-show.md-effect-16 ~ .container{-ms-filter:blur(3px);-webkit-filter:blur(3px);-moz-filter:blur(3px);-o-filter:blur(3px);filter: url(#blur3px)}
+@media screen and (max-width: 32em) {}</style><style media="all"></style><style media="all">@media screen and (max-width: 860px) {}.md-show.md-effect-16 ~ .container{-ms-filter:blur(3px);-webkit-filter:blur(3px);-moz-filter:blur(3px);-o-filter:blur(3px);filter: url(#blur3px)}
+@media screen and (max-width: 32em) {}</style><style media="all">@media screen and (max-width: 768px) {}.jackpot-slot .slot-machine::before{}
+@media screen and (max-width: 768px) {}@media screen and (max-width: 768px){}</style><style media="all"></style><style media="all">@media screen and (max-width: 860px) {}.md-show.md-effect-16 ~ .container{-ms-filter:blur(3px);-webkit-filter:blur(3px);-moz-filter:blur(3px);-o-filter:blur(3px);filter: url(#blur3px)}
+@media screen and (max-width: 32em) {}</style><style media="all">@media screen and (max-width: 768px) {}.jackpot-slot .slot-machine::before{}
+@media screen and (max-width: 768px) {}@media screen and (max-width: 768px){}</style><style media="all"></style></head>
+<body>
+<!-- Google Tag Manager (noscript) -->
+<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-P2SQDXB"
+height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+<!-- End Google Tag Manager (noscript) -->
+<audio id="sound1" src="index_files/spin-sound.m4a" preload="auto"></audio>
+<audio id="sound2" src="index_files/spin-win.m4a" preload="auto"></audio>
+<div class="cvwayjh4ptonz" style="display:none;"></div>
+
+    <button class="btn btn-block btn--scroll" id="scrollBtn" style="margin-top: 0;">
+       Hurry before its gone. Spin to become the next millionaire!
+    </button>
+
+    <div class="container-fluid jackpot">
+        <img class="sun_ray" src="index_files/red_light.png" alt="">
+        <div class="row jackpot-slot">
+            <div class="col-xs-12 text-center">
+                <!-- <p>Over $ 3 million in jackpot prizes were paid out last month.</p>
+				<p>Spin the wheel below to start playing!</p> -->
+
+                <div class="slot-machine">
+                    <img class="slot-machine__frame" src="index_files/machine-v5.png">
+                    <span class="slot-machine__ticker progressive-jackpot-ticker" id="amount"></span>
+
+                    <div class="slot-machine__reel-container">
+                        <img class="slot-machine__reel slot-machine__reel-1" src="index_files/slot.html" style="margin-top: -4688px;">
+                    </div>
+                    <div class="slot-machine__reel-container">
+                        <img class="slot-machine__reel slot-machine__reel-2" src="index_files/slot.html" style="margin-top: -4616px;">
+                    </div>
+                    <div class="slot-machine__reel-container">
+                        <img class="slot-machine__reel slot-machine__reel-3" src="index_files/slot.html" style="margin-top: -4544px;">
+                    </div>
+                </div>
+
+                <button class="btn btn-block btn--spin" id="spinBtn">SPIN NOW!</button>
+
+
+                <div class="spin-remainder" id="spinRemainder">
+                    <p>SORRY YOU MISSED!</p>
+                    <p><strong><u>YOU HAVE (<span id="remainderCount">4</span>) MORE SPINS</u></strong></p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="container-fluid introduction">
+        <div class="row">
+            <div class="col-xs-12 text-center">
+                <h1>Previous Winners</h1>
+
+                <div class="winners-wrapper">
+                    <img class="winners-image" id="winnersImageDP" src="index_files/winner-1.png" style="display: none;">
+                    <img class="winners-image" id="winnersImageGM" src="index_files/winner-2.png" style="display: none;">
+                    <img class="winners-image" id="winnersImageIR" src="index_files/winner-3.png" style="display: inline; opacity: 0.211214;">
+                    <div class="winners-caption" id="winnersCaption">Irene <span>won</span> $ 3.3 million using her cellphone</div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div style="background-color: #111; height: 50px;">
+        <button id="btn-win" class="md-trigger" data-modal="modal-1" style="visibility: hidden;"></button>
+    </div>
+
+    <div class="md-modal md-effect-4" id="modal-1">
+        <div class="md-content">
+            <h3>Congratulations!</h3>
+            <div style="text-align: left;">
+                <p>
+					You could be our next MILLIONAIRE!
+                    </p><p>
+                    1) Register on the next page
+                    <br>
+                    2) Deposit $10 minimum to claim your BONUS
+                    <br>
+                    3) Use your bonus to win the JACKPOT
+					<script>document.write(getURLParameter('prize'))</script>
+				</p>
+				<a class="btn btn-block btn--cta" href="https://coogletrck.com/click.php?lp=1">Claim my bonus</a>
+            </div>
+        </div>
+    </div>
+
+    <div class="md-overlay"></div>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.0/jquery.min.js" type="text/javascript"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" type="text/javascript"></script>
+<script>
+window.onload=function(){
+var amount = document.getElementById('amount');
+var start = new Date("February 1, 2013 00:00:00");
+var current;
+update();
+setInterval(update,1500);
+    
+function update() {
+var current = ((new Date()-start)/(24*3600*1000));
+current = (current * 100000)-203000000-23000000;
+
+amount.innerText = formatMoney(current);
+}
+    
+function formatMoney(amount) {
+    var dollars = Math.floor(amount).toString().split('');
+    var str = '';
+    for(i=dollars.length-1; i>=0; i--){
+        str += dollars.splice(0,1);
+        if(i%3 == 0 && i != 0) str += ',';
+    }
+    return '$ ' + str;
+}
+
+}
+</script>
+<script>$(document).progressiveJackpotTicker({});</script>
+<script>
+
+        // Loop through the winners
+        (function winnerRotation() {
+            var step = 4000;
+            window.animationOffset = 250;
+
+            setTimeout("$('#winnersImageDP').fadeOut(animationOffset);", step);
+
+            setTimeout("$('#winnersImageIR').fadeIn(animationOffset);", step += animationOffset);
+            setTimeout("$('#winnersCaption').html('Irene <span>won</span> $ 3.3 million using her cellphone');", step);
+            setTimeout("$('#winnersImageIR').fadeOut(animationOffset);", step += step);
+
+            setTimeout("$('#winnersImageGM').fadeIn(animationOffset);", step += animationOffset);
+            setTimeout("$('#winnersCaption').html('Greg <span>won</span> $ 3.9 million free sign up bonus');", step);
+            setTimeout("$('#winnersImageGM').fadeOut(animationOffset);", step += step);
+
+            setTimeout("$('#winnersImageDP').fadeIn(animationOffset);", step += animationOffset);
+            setTimeout("$('#winnersCaption').html('Darlene <span>won</span> $ 11.6 million to set a new casino world record ');", step);
+
+            setTimeout(winnerRotation, step);
+        })();
+
+        // Makes page scroll to spinning wheel
+        $("#scrollBtn").click(function () {
+            $("html, body").animate({
+                scrollTop: $('#spinBtn').offset().top
+            }, 1000);
+        });
+
+        // Each spin produces a different result, needs a counter
+        var spinCount = 0;
+
+        // Makes wheel scrolls
+        $("#spinBtn").click(function () {
+            if(spinCount == 0) {
+                $(".slot-machine__reel-1").css("margin-top", "-9852px");
+                $(".slot-machine__reel-2").css("margin-top", "-9713px");
+                $(".slot-machine__reel-3").css("margin-top", "-9643px");
+                document.getElementById('sound1').play();
+                setTimeout("$('#spinBtn').html('TRY AGAIN');", 3000);
+                setTimeout("$('#spinRemainder').show(1000);", 3000);
+//                 setTimeout("$('html, body').animate({ scrollTop: '2000' });", 4000);
+            } else if (spinCount == 1) {
+                $('#spinRemainder').hide(1000);
+                setTimeout("$('#remainderCount').html('3');", 1001);
+                $(".slot-machine__reel-1").css("margin-top", "-4688px");
+                $(".slot-machine__reel-2").css("margin-top", "-4616px");
+                $(".slot-machine__reel-3").css("margin-top", "-4544px");
+                document.getElementById('sound1').play();
+                setTimeout("$('#spinRemainder').show(1000);", 3000);
+//                 setTimeout("$('html, body').animate({ scrollTop: '2000' });", 4000);
+            } else if (spinCount == 2) {
+                $('#spinRemainder').hide(1000);
+
+                $(".slot-machine__reel-1").css("transition", "margin-top 4s");
+                $(".slot-machine__reel-2").css("transition", "margin-top 3s");
+                $(".slot-machine__reel-3").css("transition", "margin-top 7s");
+
+                $(".slot-machine__reel-1").css("margin-top", "-295px");
+                $(".slot-machine__reel-2").css("margin-top", "-295px");
+                $(".slot-machine__reel-3").css("margin-top", "-295px");
+                document.getElementById('sound2').play();
+
+                // Then fade the slot area out, and put the survey in
+                setTimeout(function(){
+                  $('#btn-win').click();
+                }, 8500);
+
+/*
+                setTimeout("$('.jackpot').fadeOut(250);", 8000);
+                setTimeout("$('.survey').fadeIn(250);", 8250);
+
+                // Change the text in the red bar
+                setTimeout("$('#scrollBtn').html('Congratulations! You’ve won 50 chances for just $5!');", 8250);
+*/
+            }
+
+            spinCount++;
+        });
+
+        // Fading things in and out when survey choice clicked
+        $(".btn-question-1").click(function () {
+            $("#question-1").fadeOut(0);
+            $("#question-2").fadeIn(500);
+        });
+        $(".btn-question-2").click(function () {
+            $("#question-2").fadeOut(0);
+            $("#question-3").fadeIn(500);
+        });
+        $(".btn-question-3").click(function () {
+            $("#question-3").fadeOut(0);
+            $("#question-4").fadeIn(500);
+        });
+        $(".btn-question-4").click(function () {
+            $("#question-4").fadeOut(0);
+
+            // Starts the 'loading' sequence
+            $(".loading").fadeIn(0);
+
+            // Checks messages.
+            setTimeout(function () { $("#check1").fadeIn(1000); }, 3000);
+            setTimeout(function () { $("#check2").fadeIn(1000); }, 4500);
+            setTimeout(function () { $("#check3").fadeIn(1000); }, 6000);
+
+            // Removes loading and adds CTA
+            setTimeout(function () { $(".loading").fadeOut(); }, 7500);
+            setTimeout(function () { $(".cta").fadeIn(); }, 7500);
+        });
+    </script>
+<script src="index_files/classie.js"></script>
+<script src="index_files/modalEffects.js"></script>
+<script>
+	// this is important for IEs
+	var polyfilter_scriptpath = '/assets/';
+</script>
+<script src="index_files/cssParser.js"></script>
+<script src="index_files/css-filters-polyfill.js"></script>
+<svg width="0" height="0" style="position:absolute"><filter id="blur3px"><feGaussianBlur in="SourceGraphic" stdDeviation="3"></feGaussianBlur></filter></svg>
+</body></html>

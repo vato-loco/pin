@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+<!-- Google Tag Manager -->
+<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+})(window,document,'script','dataLayer','GTM-P2SQDXB');</script>
+<!-- End Google Tag Manager -->
+<meta charset="UTF-8">
+<meta http-equiv="content-type" content="text/html; charset=UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex">
+<meta name="googlebot" content="noindex">
+<title>Claim Your Bonus</title>
+<style>.img{max-width:200px}.img>img{max-width:100%}#steps-cta,.threat{font-weight:700}#cta,#cta-wrapper,#wrapper{position:relative}#attention,#closer,#cta,#device-container,#steps{text-align:center}body{font-family:verdana;background:#E0E0E0;max-height:100vh}body>a{text-decoration:none;cursor:default;color:#212121}#wrapper{max-width:468px;background:#FAFAFA;margin:0 auto;margin-top:25px;padding:50px;border-radius:15px;box-shadow:10px 10px 25px rgba(0,0,0,.25);border:solid 2px #aaa}#attention{width:100%;margin:10px 0;background:#ff6000;color:#fff;padding:5px;border-radius:10px 10px 0 0;}#attention>h1{font-size:1.75em;font-weight:700}.highlight{font-weight:bold}.threat{color:red}#details-1,#details-2,#bonus{text-align:center;margin:30px 0;font-size:16px;line-height:35px}#device-info{color:red;padding:5px;border-bottom:1px dashed red;border-top:1px dashed red}#device-info .device-info:nth-child(n):after{content:" / "}#device-info .device-info:last-child:after{content:none!important}#device-info,.device-info{display:inline-block}#steps{font-size:13px}.step{margin:5px 0}#cta-wrapper{margin:50px 0 30px 0;width:100%;height:58px;text-align:center;font-size:smaller;}
+#cta{background:#00C853;cursor:pointer;color:#fff;font-size:20px;font-weight:bold;padding:10px;border-bottom:5px solid #43A047;}@-webkit-keyframes bpress{0%,49%{border-bottom:5px solid #43A047;top:0}100%,50%{border-bottom:0 solid #43A047;top:5px}}@-moz-keyframes bpress{0%,49%{border-bottom:5px solid #43A047;top:0}100%,50%{border-bottom:0 solid #43A047;top:5px}}@-ms-keyframes bpress{0%,49%{border-bottom:5px solid #43A047;top:0}100%,50%{border-bottom:0 solid #43A047;top:5px}}@-o-keyframes bpress{0%,49%{border-bottom:5px solid #43A047;top:0}100%,50%{border-bottom:0 solid #43A047;top:5px}}@keyframes bpress{0%,49%{border-bottom:5px solid #43A047;top:0}100%,50%{border-bottom:0 solid #43A047;top:5px}}#closer{color:#9E9E9E;font-size:14px}#closer img{width:20px;vertical-align:sub}
+.inner-wrapper{}
+.date{float:right;text-align:right}
+#bonus>.limit{font-style:italic}
+.timer-wrapper{font-weight:bold;text-align:center;font-size:40px;}
+.timer-wrapper>#timer{border:solid 10px #ff6000;padding:5px 15px;box-shadow:5px 10px 10px#444;}
+</style>
+<script>
+var days=["Sunday","Monday","Tuesday","Wednesday","Thursday","Friday","Saturday"],
+    months=["January","February","March","April","May","June","July","August","September","October","November","December"];
+    now=new Date();
+    today = days[now.getDay()]+"<br>"+now.getDate()+"/"+months[now.getMonth()]+"/"+now.getFullYear();
+</script>
+</head>
+<body>
+<!-- Google Tag Manager (noscript) -->
+<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-P2SQDXB"
+height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+<!-- End Google Tag Manager (noscript) -->
+<a href="https://coogletrck.com/click.php?lp=1">
+<div id="wrapper">
+    <header>
+        <span class="date"><script>document.write(today)</script></span>
+        <div class="img"><img src="../logo.png" alt="Africasino"></div>
+    </header>
+    <div class="inner-wrapper">
+	<div id="attention">
+		<h1>Get Your Bonus Below</h1>
+	</div>
+	<div id="bonus">
+	    <div>Bonus available: <span class="highlight">R6000</span></div>
+	    <div>At registration: <span class="highlight">deposit a minimum of R50</span></div>
+	    <div class="limit">This bonus is limited</div>
+	</div>
+	<div class="timer-wrapper">
+	    <span id="timer"></span>
+	</div>
+	<div id="cta-wrapper">
+		<div id="cta">CONTINUE</div>
+		<p>You must create a new account</p>
+	</div>
+	</div>
+</div>
+</a>
+<script>
+var timeoutHandle;
+function countdown(minutes) {
+    var seconds = 60;
+    var mins = minutes
+    function tick() {
+        var counter = document.getElementById("timer");
+        var current_minutes = mins-1
+        seconds--;
+        counter.innerHTML =
+        current_minutes.toString() + ":" + (seconds < 10 ? "0" : "") + String(seconds);
+        if( seconds > 0 ) {
+            timeoutHandle=setTimeout(tick, 1000);
+        } else {
+            if(mins > 1){
+            setTimeout(function () { countdown(mins - 1); }, 1000);
+            }
+            if(counter.innerHTML === '0:00'){
+                counter.innerHTML = t;
+                counter.classList.remove("b");
+            }
+        }
+    }
+    tick();
+}
+countdown(5);
+</script>
+</body></html>

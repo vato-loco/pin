@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="es"><head>
+<!-- Google Tag Manager -->
+<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+})(window,document,'script','dataLayer','GTM-P2SQDXB');</script>
+<!-- End Google Tag Manager -->
+<meta http-equiv="content-type" content="text/html; charset=UTF-8">
+<meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>GRAN PREMIO</title>
+    <link rel="manifest" href="#">
+    <link rel="stylesheet" href="5e621fe55ca5a_v.css">
+    <link href="5e621fa473f70_v.css" rel="stylesheet">
+    <link id="anstrexCustomLink" rel="stylesheet" type="text/css" href="5e621fa5b3a0f_v.css">
+</head>
+<body>
+<!-- Google Tag Manager (noscript) -->
+<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-P2SQDXB"
+height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+<!-- End Google Tag Manager (noscript) -->
+    <div class="header text-center">
+        <div class="head-top"> Gira para tener la oportunidad de ganar el PREMIO MAYOR </div> <img class="grandprize-text" src="5e621fa4d1bed_v.png" alt="">
+        <div class="grandprize-value text-center"> $5,000,000 </div>
+    </div>
+    <div class="text-center" style="margin-top: 20px;"> </div>
+    <div class="spinner-wrapper">
+        <div class="spinner">
+            <div class="spinner-col spinner-col1">
+                <div class="img"> </div>
+            </div>
+            <div class="spinner-col spinner-col2">
+                <div class="img"> </div>
+            </div>
+            <div class="spinner-col spinner-col3">
+                <div class="img"> </div>
+            </div>
+        </div>
+    </div>
+    <div class="text-center">
+        <button type="button" name="button" class="btn-spin active">Girar</button>
+    </div>
+    <div class="spin-error text-center"> Lo siento, te perdiste!  TIENES (<span class="spinremaining">5</span>) GIRAS MÁS </div>
+    <div class="spin-modal-backdrop"> </div>
+    <div class="spin-modal">
+        <div class="spin-modal-header"> Felicidades! </div>
+        <div class="content"> Has sido seleccionado para ganar 200 tiradas gratis. Siga los pasos para recoger su premio:
+            <br>
+            <br> 1. Regístrese con sus datos en la página siguiente.
+            <br> 2. Eso es todo, sus 200 giros gratis y un bono del 125% se agregarán a su cuenta automáticamente una vez que complete los pasos anteriores.
+            <script type="text/javascript">
+                document.write('<a href="https://coogletrck.com/click.php?lp=1" class="finalButton text-center">RECLAMA MI PREMIO</a>');
+            </script>
+    </div>
+    <script src="5e621fa56a338_v.js"></script>
+    <script type="text/javascript" src="5e621fa5976d0_v.js"></script>
+    <canvas id="firework-canvas" width="1600" height="800" style="display: block; pointer-events: none; position: fixed; z-index: 1; left: 0px; top: 0px; width: 100%; height: 100%; opacity: 0.85;"></canvas>
+    <script type="text/javascript">
+        var spinloop = 0;
+        var spinremaining = 6;
+        $('.btn-spin').click(function() {
+            spinloop++;
+            spinremaining--;
+            $this = $(this);
+            $this.prop('disabled', true);
+            $this.css('display', 'none');
+            $('.spinremaining').html(spinremaining);
+            $('.spin-error').removeClass('active');
+            $('.spinner-col').addClass('spinned-' + spinloop);
+            $('.spinner-col').css('opacity', '0.80');
+            setTimeout(function() {
+                $('.spinner-col1').css('opacity', '1');
+                if (spinloop == 1) {}
+            }, 3000);
+            setTimeout(function() {
+                $('.spinner-col2').css('opacity', '1');
+                if (spinloop == 2) {}
+            }, 4000);
+            setTimeout(function() {
+                if (spinloop < 3) {
+                    $this.prop('disabled', false);
+                    $this.css('display', 'initial');
+                    $('.spin-error').addClass('active');
+                }
+                $('.spinner-col3').css('opacity', '1');
+                showMessage(spinloop);
+            }, 5600);
+        })
+
+        function showMessage(spinloop) {
+            if (spinloop < 3) {}
+            if (spinloop == 3) {
+                $('.spin-modal-backdrop').addClass('open').css('display', 'block');
+                $('body').addClass('modal-open').css('overflow', 'hidden');
+                $('.spin-modal').addClass('open');
+                $(".spin-modal-backdrop").animate({
+                    opacity: 1,
+                }, 1000, function() {});
+                $('.btn-spin').removeClass('active');
+            }
+        }
+    </script>
+	
+</body>
+
+</html>

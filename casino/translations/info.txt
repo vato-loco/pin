@@ -1,0 +1,13 @@
+FI:
+- TRY AGAIN btn text too big?
+
+IT:
+- winner text on 1 and 2 lines, pushing questions up & down
+
+RU:
+- winner text on 1 and 2 lines, pushing questions up & down
+- [Last jackpot] text on 4 lines by ugly breaks
+- SPIN NOW btn text too big?
+
+SI:
+- SPIN NOW btn text too big?

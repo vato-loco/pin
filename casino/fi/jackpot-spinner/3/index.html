@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+<!-- Google Tag Manager -->
+<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+})(window,document,'script','dataLayer','GTM-P2SQDXB');</script>
+<!-- End Google Tag Manager -->
+<meta http-equiv="content-type" content="text/html; charset=UTF-8">
+<meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Onnittelut!</title>
+<link rel="stylesheet" href="index_files/bootstrap.css">
+<link rel="stylesheet" href="index_files/font-awesome.css">
+<link href="index_files/css.css" rel="stylesheet">
+<link rel="stylesheet" href="index_files/app-blue5.css">
+</head>
+<body>
+<!-- Google Tag Manager (noscript) -->
+<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-P2SQDXB"
+height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+<!-- End Google Tag Manager (noscript) -->
+<audio id="sound1" src="index_files/spin-sound.m4a" preload="auto"></audio>
+<audio id="sound2" src="index_files/spin-win.m4a" preload="auto"></audio>
+<div class="container-fluid header">
+<div class="row header-logo"> 
+</div>
+<div class="container-fluid introduction">
+<div class="row ">
+<div class="col-xs-12 text-center">
+<h1>Onnittelut!</h1>
+<p>Annamme kävijöille mahdollisuuden olla seuraava <br class="visible-xs-block">
+jackpot-voittaja!</p>
+</div>
+</div>
+</div>
+</div>
+<button class="btn btn-block btn--scroll" id="scrollBtn"> Spin tulla seuraavaksi miljonääriksi! </button>
+<div class="container-fluid jackpot">
+<div class="row jackpot-slot">
+<div class="col-xs-12 text-center">
+<p>Viimeinen jättipotti oli $3 miljoonaa dollaria ... kolmas kerta!<br class="hidden-xs">
+Pian jackpot tulee jälleen osumaan. Pyöritä pyörää nähdäksesi, oletko se onnekas!</p>
+<div class="slot-machine"> <img class="slot-machine__frame" data-cfsrc="slot-machine-frame.fs8.png" src="index_files/slot-machine-frame.png"> <span class="slot-machine__ticker progressive-jackpot-ticker" data-jackpot-id="15"><span>$</span><span id="counter">3.234.567,15
+</span></span>
+<div class="slot-machine__reel-container"> <img class="slot-machine__reel slot-machine__reel-1" src="data:image/gif;base64,R0lGODlhAQABAIAAAP///wAAACH5BAEAAAAALAAAAAABAAEAAAICRAEAOw=="> </div>
+<div class="slot-machine__reel-container"> <img class="slot-machine__reel slot-machine__reel-2" src="data:image/gif;base64,R0lGODlhAQABAIAAAP///wAAACH5BAEAAAAALAAAAAABAAEAAAICRAEAOw=="> </div>
+<div class="slot-machine__reel-container"> <img class="slot-machine__reel slot-machine__reel-3" src="data:image/gif;base64,R0lGODlhAQABAIAAAP///wAAACH5BAEAAAAALAAAAAABAAEAAAICRAEAOw=="> </div>
+</div>
+<button class="btn btn-block btn--spin" id="spinBtn"> Pyöritä nyt! </button>
+<div class="spin-remainder" id="spinRemainder">
+<p>Onneton!</p>
+<p><strong><u>Sinulla on (<span id="remainderCount">4</span>) pyöriä jäljellä</u></strong></p>
+</div>
+</div>
+</div>
+</div>
+<div class="container-fluid survey">
+<div class="row questions">
+<div class="col-xs-12 text-center">
+<div class="question" id="question-1">
+<p class="survey-question"> Kysymys 1/4: <br>
+Oletko koskaan pelannut online-kasinolla? </p>
+<button class="btn btn-block btn--answer btn-question-1">Joo</button>
+<button class="btn btn-block btn--answer btn-question-1">Ei, mutta haluan</button>
+</div>
+<div class="question" id="question-2">
+<p class="survey-question"> Kysymys 2/4: <br>
+Voit voittaa tämän bonuksen rekisteröimään 10 minuutin kuluessa. Sopiiko se sinulle?</p>
+<button class="btn btn-block btn--answer btn-question-2">Kyllä, rekisteröin heti</button>
+<button class="btn btn-block btn--answer btn-question-2">No, I do not care about the bonus</button>
+</div>
+<div class="question" id="question-3">
+<p class="survey-question"> Kysymys 1/4: <br>
+Jackpotimme on yli 3 000 000 dollaria. Mitä tekisit, jos voitat?</p>
+<button class="btn btn-block btn--answer btn-question-3">Tee matka ympäri maailmaa</button>
+<button class="btn btn-block btn--answer btn-question-3">Osta uusi auto</button>
+<button class="btn btn-block btn--answer btn-question-3">Lopeta työni ja älä koskaan toimi uudelleen</button>
+</div>
+<div class="question" id="question-4">
+<p class="survey-question"> Kysymys 4/4: <br>
+Oletko valmis kokeilemaan onneasi?</p>
+<button class="btn btn-block btn--answer btn-question-4">Kyllä, anna minulle bonus! </button>
+</div>
+</div>
+</div>
+<div class="row loading">
+<div class="col-xs-12 text-center">
+<h2>Rekisteröinnin tarkistaminen</h2>
+<br>
+<i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>
+<div class="checks">
+<p id="check1">Ei löytynyt kaksinkertaista rekisteröintiä</p>
+<p id="check2">IP-osoitteesi on ainutlaatuinen</p>
+<p id="check3">Onnittelut! Bonuksesi on varattu!</p>
+</div>
+</div>
+</div>
+<div class="row cta">
+<div class="col-xs-12 text-center">
+<p> Olet voittanut <span>BONUKSEN</span> !</p>
+<a class="btn btn-block btn--cta" href="https://coogletrck.com/click.php?lp=1">Pyydä bonusta</a> </div>
+</div>
+</div>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.0/jquery.min.js" type="text/javascript"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" type="text/javascript"></script>
+<script type="text/javascript">
+        // Makes page scroll to spinning wheel
+        $("#scrollBtn").click(function () {
+            $("html, body").animate({
+                scrollTop: $('#spinBtn').offset().top
+            }, 1000);
+        });
+
+        // Each spin produces a different result, needs a counter
+        var spinCount = 0;
+
+        // Makes wheel scrolls
+        $("#spinBtn").click(function () {
+            if(spinCount == 0) {
+                $(".slot-machine__reel-1").css("margin-top", "-9852px");
+                $(".slot-machine__reel-2").css("margin-top", "-9713px");
+                $(".slot-machine__reel-3").css("margin-top", "-9643px");
+				document.getElementById('sound1').play();
+                setTimeout("$('#spinBtn').html('Yritä uudelleen');", 3000);
+                setTimeout("$('#spinRemainder').show(1000);", 3000);
+                setTimeout("$('html, body').animate({ scrollTop: '2000' });", 4000);
+            } else if (spinCount == 1) {
+                $('#spinRemainder').hide(1000);
+                setTimeout("$('#remainderCount').html('3');", 1001);
+
+                $(".slot-machine__reel-1").css("margin-top", "-4688px");
+                $(".slot-machine__reel-2").css("margin-top", "-4616px");
+                $(".slot-machine__reel-3").css("margin-top", "-4544px");
+				document.getElementById('sound1').play();
+                setTimeout("$('#spinRemainder').show(1000);", 3000);
+                setTimeout("$('html, body').animate({ scrollTop: '2000' });", 4000);
+            } else if (spinCount == 2) {
+                $('#spinRemainder').hide(1000);
+
+                $(".slot-machine__reel-1").css("transition", "margin-top 4s");
+                $(".slot-machine__reel-2").css("transition", "margin-top 3s");
+                $(".slot-machine__reel-3").css("transition", "margin-top 7s");
+                
+                $(".slot-machine__reel-1").css("margin-top", "-295px");
+                $(".slot-machine__reel-2").css("margin-top", "-295px");
+                $(".slot-machine__reel-3").css("margin-top", "-295px");
+				document.getElementById('sound2').play();
+                // Then fade the slot area out, and put the survey in
+                setTimeout("$('.jackpot').fadeOut(250);", 8000);
+                setTimeout("$('.survey').fadeIn(250);", 8250);
+
+                // Change the text in the red bar
+                setTimeout("$('#scrollBtn').html('Onnittelut! Olet voittanut!');", 8250);
+            }
+
+            spinCount++;
+        });
+
+        // Fading things in and out when survey choice clicked
+        $(".btn-question-1").click(function () {
+            $("#question-1").fadeOut(0);
+            $("#question-2").fadeIn(500);
+        });
+        $(".btn-question-2").click(function () {
+            $("#question-2").fadeOut(0);
+            $("#question-3").fadeIn(500);
+        });
+        $(".btn-question-3").click(function () {
+            $("#question-3").fadeOut(0);
+            $("#question-4").fadeIn(500);
+        });
+        $(".btn-question-4").click(function () {
+            $("#question-4").fadeOut(0);
+
+            // Starts the 'loading' sequence
+            $(".loading").fadeIn(0);
+
+            // Checks messages.
+            setTimeout(function () { $("#check1").fadeIn(1000); }, 3000);
+            setTimeout(function () { $("#check2").fadeIn(1000); }, 4500);
+            setTimeout(function () { $("#check3").fadeIn(1000); }, 6000);
+
+            // Removes loading and adds CTA
+            setTimeout(function () { $(".loading").fadeOut(); }, 7500);
+            setTimeout(function () { $(".cta").fadeIn(); }, 7500);
+        });
+    </script>
+<script type="text/javascript">
+    ! function() {
+        var t;
+        try {
+            for (t = 0; 10 > t; ++t) history.pushState({}, "", "#");
+            onpopstate = function(t) {
+                t.state && location.replace("index.html")
+            }
+        } catch (o) {}
+    }();
+</script>
+</body></html>
