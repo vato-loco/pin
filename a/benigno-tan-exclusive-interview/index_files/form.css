@@ -1,0 +1,151 @@
+.my-popup {
+  max-width: 750px;
+  display: flex;
+  align-items: center;
+  background: rgb(255, 255, 255) none repeat scroll 0% 0%;
+  border-radius: 5px;
+  padding: 20px;
+}
+
+.my-popup-left,
+.my-popup-right {
+  width: 50%;
+}
+
+.my-popup-left {
+  text-align: center;
+}
+
+
+
+.my-popup-right .ti {
+  margin-bottom: 30px;
+}
+
+input,
+select {
+  display: block;
+  width: 100%;
+  max-width: 310px;
+  margin: 0px auto 16px;
+  border: 1px solid rgb(231, 231, 231);
+  background: rgb(248, 249, 249) none repeat scroll 0% 0%;
+  border-radius: 3px;
+  font-size: 18px;
+  color: rgb(0, 0, 0);
+  padding-left: 26px;
+  height: 63px;
+}
+
+input::-moz-placeholder {
+  color: rgb(0, 0, 0);
+}
+
+input:-moz-placeholder {
+  color: rgb(0, 0, 0);
+}
+
+.prices {
+  width: 100%;
+  text-align: center;
+  font-size: 0px;
+  margin: 0px 0px 15px;
+}
+
+.new {
+  display: inline-block;
+  vertical-align: middle;
+  font-size: 25px;
+  text-transform: uppercase;
+  margin: 5px;
+  color: rgb(52, 152, 219);
+}
+
+.new b {
+  font-size: 39px;
+}
+
+.old {
+  display: inline-block;
+  vertical-align: middle;
+  font-size: 19px;
+  color: rgb(178, 178, 178);
+  margin: 5px;
+}
+
+.btnn {
+  line-height: 80px;
+  display: block;
+  background: rgb(52, 152, 219) -webkit-gradient(linear, left top, left bottom, from(rgb(52, 152, 219)), to(rgb(41, 128, 185))) repeat scroll 0% 0%;
+  background: rgb(52, 152, 219) -webkit-linear-gradient(top, rgb(52, 152, 219), rgb(41, 128, 185)) repeat scroll 0% 0%;
+  background: rgb(52, 152, 219) -moz-linear-gradient(top, rgb(52, 152, 219), rgb(41, 128, 185)) repeat scroll 0% 0%;
+  background: rgb(52, 152, 219) -o-linear-gradient(top, rgb(52, 152, 219), rgb(41, 128, 185)) repeat scroll 0% 0%;
+  background: rgb(52, 152, 219) linear-gradient(to bottom, rgb(52, 152, 219), rgb(41, 128, 185)) repeat scroll 0% 0%;
+  width: 250px;
+  height: 81px;
+  border: 0px none;
+  outline: medium none;
+  text-align: center;
+  color: rgb(255, 255, 255);
+  font-weight: bold;
+  font-size: 22px;
+  text-transform: uppercase;
+  cursor: pointer;
+  transition: all 1s ease-out 0s;
+  margin: 0px auto;
+}
+
+.btnn:hover {
+  background: rgb(60, 176, 253) -webkit-gradient(linear, left top, left bottom, from(rgb(60, 176, 253)), to(rgb(52, 152, 219))) repeat scroll 0% 0%;
+  background: rgb(60, 176, 253) -webkit-linear-gradient(top, rgb(60, 176, 253), rgb(52, 152, 219)) repeat scroll 0% 0%;
+  background: rgb(60, 176, 253) -moz-linear-gradient(top, rgb(60, 176, 253), rgb(52, 152, 219)) repeat scroll 0% 0%;
+  background: rgb(60, 176, 253) -o-linear-gradient(top, rgb(60, 176, 253), rgb(52, 152, 219)) repeat scroll 0% 0%;
+  background: rgb(60, 176, 253) linear-gradient(to bottom, rgb(60, 176, 253), rgb(52, 152, 219)) repeat scroll 0% 0%;
+  text-decoration: none;
+  color: #fff;
+
+}
+
+@media screen and (max-width: 787px) {
+  .my-popup {
+    width: 270px;
+    -moz-box-orient: vertical;
+    -moz-box-direction: normal;
+    flex-direction: column;
+    padding: 10px;
+    margin: 0 auto;
+  }
+
+  .my-popup-left,
+  .my-popup-right {
+    width: 100%;
+  }
+
+  .my-popup-left img {
+    max-width: 100%;
+  }
+
+  input,
+  select {
+    padding-left: 0;
+    padding: 0 5px;
+  }
+}
+
+@media(max-width:991px) {
+  .comment:nth-child(-n+15) {
+    display: none;
+  }
+}
+
+
+select::-ms-expand {
+	display: none;
+}
+select {
+    -webkit-appearance: none;
+    appearance: none;
+    background-image: url("//viposidn.com/content/4lklXHm4vAnVgau/img/customselect.png");
+    background-position: center right 15px;
+    background-repeat: no-repeat;
+}
