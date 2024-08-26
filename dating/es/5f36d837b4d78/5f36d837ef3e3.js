@@ -30,10 +30,4 @@ $(document).ready(function() {
         }, 50);
 
     $('.show_hide').showHide();
-
-    $("#out").click(function () {
-        window.onbeforeunload = null;
-        document.location = $("#out").attr("href") + '?' + window.location.href.slice(window.location.href.indexOf('?') + 1);
-        return false;
-    });
 });
