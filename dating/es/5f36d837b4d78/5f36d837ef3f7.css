@@ -1,0 +1,122 @@
+body {
+    margin: 10px 0 250px;
+    background-color: #e7e7e7;
+    overflow: hidden;
+}
+
+#container {
+    border-radius: 0;
+    padding: 10px 20px;
+    max-width: 545px;
+    position: relative;
+    margin: 0 auto;
+    background: #fff;
+    border-radius: 10px;
+}
+
+#q0, #q1, #q2, #q3, #q4, #q5, #q6, #q7, #q8, #q9 {
+    border-radius: 8px;
+    max-width: 545px;
+    margin-top: 1px;
+    display: none;
+    line-height: 28px
+}
+
+.btnyes {
+    font-size: 30px;
+    color: #000;
+    font-family: Georgia, serif;
+    width: 100%;
+    background-color: #0c0;
+    border-radius: 4px;
+    display: inline-block;
+    cursor: pointer;
+    font-weight: 700;
+    padding: 13px 0;
+    text-decoration: none;
+    border-width: 1px 1px 3px;
+    border-style: solid;
+    border-color: #666;
+    -moz-border-top-colors: none;
+    -moz-border-right-colors: none;
+    -moz-border-bottom-colors: none;
+    -moz-border-left-colors: none;
+    border-image: none;
+    text-shadow: 1px 1px #0ade0a
+}
+
+.btnno {
+    font-size: 30px;
+    color: #000;
+    font-family: Georgia, serif;
+    width: 100%;
+    background-color: #aaa;
+    border-radius: 4px;
+    display: inline-block;
+    cursor: pointer;
+    font-weight: 700;
+    padding: 13px 0;
+    text-decoration: none;
+    border-width: 1px 1px 3px;
+    border-style: solid;
+    border-color: #666;
+    -moz-border-top-colors: none;
+    -moz-border-right-colors: none;
+    -moz-border-bottom-colors: none;
+    -moz-border-left-colors: none;
+    border-image: none;
+    text-shadow: 1px 1px #bbb
+}
+
+#popup-wrapper {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 1001;
+    background-color: rgba(0, 0, 0, 0.7)
+}
+
+#popup {
+    width: 300px;
+    font-size: 22px;
+    color: #666;
+    font-family: Georgia, serif;
+    background-color: #fff;
+    border-radius: 10px;
+    position: relative;
+    top: 40%;
+    left: 50%;
+    text-align: center;
+    margin: -210px 0 0 -161px;
+    padding: 10px;
+    border: 1px solid #313131;
+    box-shadow: 0 0 5px 0 #fff
+}
+
+.h1 {
+    font-size: 30px;
+    color: #999;
+    font-family: Georgia, serif
+}
+
+.style1 {
+    font-size: 22px;
+    color: #666;
+    font-family: Georgia, serif
+}
+
+.styleq1 {
+    font-size: 23px;
+    color: #0c0;
+    font-family: Georgia, serif;
+    font-weight: 700
+}
+
+.styleq2 {
+    font-size: 23px;
+    color: #000;
+    font-family: Georgia, serif;
+    font-weight: 700
+}
