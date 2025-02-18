@@ -83,28 +83,6 @@ select:-moz-focusring {color:transparent;text-shadow:0 0 0 #000;}
 </style>
 </head>
 <body>
-	<div class="wrapper">
-		<div class="wrap"><img class="imgpict" src="pict.jpg" alt="" />
-			<div class="txt0">การดาวน์โหลดของคุณพร้อมแล้ว</div>
-			<div class="contentwrap">
-				<div class="txt">ยืนยันหมายเลขโทรศัพท์มือถือของคุณภายใน
-					<span id="cdown4948"></span>
-					<script>
-						countdown("cdown4948", 60, "s", "");
-					</script>
-					วินาที
-				</div>
-				<div class="txt1"></div>
-				<div class="btnclick mainButton"><a href="https://08deh.bemobtrcks.com/click/1" class="button">ยืนยันตอนนี้</a></div>
-			</div>
-			<div class="txt2"><span style="font-size: 12px;">&copy; เครื่องมือดาวน์โหลดเนื้อหา #1</span></div>
-		</div>
-	</div>
-	<style>
-		.dtpcnt {
-			opacity: 0;
-		}
-	</style>
 <script>
 function _nn(n){
 	return n > 9 ? "" + n: "0" + n;
@@ -151,6 +129,7 @@ function countdown(elementName,seconds,format,redirect=false)
 			m = Math.floor((seconds / 60) % 60);
 			s = seconds % 60;	
 			document.getElementById(elementName).innerText = _nn(h)+":"+_nn(m)+":"+_nn(s);
+
 			if(seconds<=0)
 			{
 				clearInterval(counter_inter);
@@ -164,6 +143,28 @@ function countdown(elementName,seconds,format,redirect=false)
 	}	
 }
 </script>
+	<div class="wrapper">
+		<div class="wrap"><img class="imgpict" src="pict.jpg" alt="" />
+			<div class="txt0">การดาวน์โหลดของคุณพร้อมแล้ว</div>
+			<div class="contentwrap">
+				<div class="txt">ยืนยันหมายเลขโทรศัพท์มือถือของคุณภายใน
+					<span id="cdown4948"></span>
+					<script>
+						countdown("cdown4948", 60, "s", "");
+					</script>
+					วินาที
+				</div>
+				<div class="txt1"></div>
+				<div class="btnclick mainButton"><a href="https://08deh.bemobtrcks.com/click/1" class="button">ยืนยันตอนนี้</a></div>
+			</div>
+			<div class="txt2"><span style="font-size: 12px;">&copy; เครื่องมือดาวน์โหลดเนื้อหา #1</span></div>
+		</div>
+	</div>
+	<style>
+		.dtpcnt {
+			opacity: 0;
+		}
+	</style>
 <script>
 var cta = 'mainButton';
 var back = 'https://08deh.bemobtrcks.com/click/2';
