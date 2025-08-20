@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+<title>Subway Dash - Play Now</title>
+<style>
+  :root{--bg:#0a0f1a;--card:#121a27;--accent:#ffcc00;--accent2:#00d084;--txt:#e8f0ff;}
+  *{box-sizing:border-box}
+  body{margin:0;font-family:system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;background:radial-gradient(1200px 600px at 50% -100px,#19324a 0,#0a0f1a 60%);color:var(--txt);}
+  .wrap{max-width:520px;margin:0 auto;padding:16px 14px 24px;}
+  .card{background:linear-gradient(180deg,rgba(255,255,255,.03),rgba(0,0,0,.2));border:1px solid rgba(255,255,255,.08);box-shadow:0 10px 30px rgba(0,0,0,.25);border-radius:18px;padding:18px;}
+  .title{display:flex;gap:10px;align-items:center;margin:6px 0 2px}
+  .flag{font-size:22px}
+  h1{font-size:22px;line-height:1.2;margin:0;font-weight:800;letter-spacing:.2px}
+  .tag{display:inline-flex;gap:6px;align-items:center;background:#0e1420;border:1px solid rgba(255,255,255,.08);border-radius:999px;padding:6px 10px;margin-top:8px;font-size:12px;opacity:.9}
+  .hero{margin:14px 0;border-radius:16px;overflow:hidden;position:relative;aspect-ratio:10/7;background:conic-gradient(from 180deg at 50% 50%,#243b55,#141e30,#1a2a40,#243b55);display:flex;align-items:center;justify-content:center;}
+  .coin{position:absolute;width:46px;height:46px;border-radius:50%;background:radial-gradient(circle at 30% 30%,#ffe57f,#ffcc00 40%,#b78c00 70%);box-shadow:0 8px 18px rgba(0,0,0,.35);animation:float 2.6s ease-in-out infinite}
+  .coin:nth-child(1){left:14%;top:16%;animation-delay:.1s}
+  .coin:nth-child(2){left:74%;top:28%;animation-delay:.4s}
+  .coin:nth-child(3){left:20%;bottom:14%;animation-delay:.9s}
+  .runner{width:58%;filter:drop-shadow(0 10px 24px rgba(0,0,0,.5))}
+  @keyframes float{0%,100%{transform:translateY(0)}50%{transform:translateY(-10px)}}
+  .copy{font-size:15px;opacity:.95}
+  .bullets{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin:14px 0 6px}
+  .b{background:rgba(0,0,0,.25);border:1px solid rgba(255,255,255,.08);padding:10px;border-radius:12px;font-size:13px}
+  .progress{height:14px;background:#0d1421;border-radius:999px;border:1px solid rgba(255,255,255,.08);overflow:hidden;margin:10px 0 2px}
+  .bar{height:100%;width:0;background:linear-gradient(90deg,var(--accent),var(--accent2));transition:width .6s}
+  .cta{display:block;text-align:center;background:linear-gradient(90deg,#ffd400,#00e39a);color:#07131b;text-decoration:none;font-weight:900;border-radius:14px;padding:14px 16px;margin:12px 0 4px;font-size:18px;letter-spacing:.3px;box-shadow:0 10px 25px rgba(0,0,0,.35);}
+  .timer{font-size:12px;opacity:.8;text-align:center}
+  .trust{display:flex;gap:10px;justify-content:center;align-items:center;margin-top:12px;font-size:12px;opacity:.8}
+  .trust span{display:inline-flex;gap:6px;align-items:center}
+  .footer{margin-top:14px;text-align:center;font-size:11px;opacity:.6}
+  .pulse{animation:pulse 1.4s infinite}
+  @keyframes pulse{0%{transform:scale(1)}50%{transform:scale(1.03)}100%{transform:scale(1)}}
+</style>
+</head>
+<body>
+  <div class="wrap">
+    <div class="card">
+      <div class="title">
+        <div class="flag">🇬🇭</div>
+        <h1>Play Subway Dash – Ghana Edition</h1>
+      </div>
+      <div class="tag">MTN users • Instant Access • 1000+ games</div>
+
+      <div class="hero">
+        <div class="coin"></div><div class="coin"></div><div class="coin"></div>
+        <svg class="runner" viewBox="0 0 200 160">
+          <circle cx="60" cy="35" r="16" fill="#ffcc00"/>
+          <rect x="40" y="48" width="40" height="32" rx="8" fill="#ff7f50"/>
+        </svg>
+      </div>
+
+      <p class="copy">Tap below to enter the Game Store. MTN billing supported. No long forms — get playing in seconds.</p>
+
+      <div class="bullets">
+        <div class="b">✅ 2-Click access</div>
+        <div class="b">🎮 1000+ games</div>
+        <div class="b">⚡ Fast & secure</div>
+        <div class="b">📱 Android friendly</div>
+      </div>
+
+      <div class="progress"><div class="bar" id="bar"></div></div>
+      <div class="timer" id="timer">Preparing access…</div>
+
+      <a class="cta pulse" id="cta" href="#">PLAY NOW</a>
+
+      <div class="trust">
+        <span>🔒 Secure Billing</span>
+        <span>📶 MTN + WiFi</span>
+        <span>⭐ Popular in GH</span>
+      </div>
+      <div class="footer">By continuing you agree to the service terms. Carrier charges may apply.</div>
+    </div>
+  </div>
+
+<script>
+  const OFFER_URL = "https://08deh.bemobtrk.com/click"; // Replace with your tracking link
+
+  function withParams(url){
+    const u = new URL(url);
+    const incoming = new URLSearchParams(location.search);
+    incoming.forEach((v,k)=>{ if(!u.searchParams.has(k)) u.searchParams.set(k,v); });
+    return u.toString();
+  }
+
+  const bar = document.getElementById('bar');
+  const timer = document.getElementById('timer');
+  let p = 0;
+  const t = setInterval(()=>{
+    p = Math.min(100, p + Math.random()*18);
+    bar.style.width = p + '%';
+    timer.textContent = p < 100 ? 'Loading bonus pack… ' + Math.round(p) + '%' : 'Ready!';
+    if(p>=100) clearInterval(t);
+  }, 400);
+
+  document.getElementById('cta').addEventListener('click', (e)=>{
+    e.preventDefault();
+    location.href = withParams(OFFER_URL);
+  });
+</script>
+</body>
+</html>
+

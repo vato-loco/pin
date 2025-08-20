@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+<title>Quick Game Check</title>
+<style>
+  body{margin:0;background:#0b1220;font-family:Arial,sans-serif;color:#fff}
+  .wrap{max-width:520px;margin:0 auto;padding:20px}
+  .card{background:#111827;border-radius:12px;padding:16px}
+  h1{font-size:20px;margin:0}
+  .q{margin:14px 0;padding:12px;background:#1e293b;border-radius:10px}
+  .opts button{display:block;width:100%;margin:6px 0;padding:10px;border:none;border-radius:8px;background:#2563eb;color:#000}
+  .opts button.active{background:gold}
+  .cta{display:block;text-align:center;background:red;color:#fff;font-weight:bold;margin-top:14px;padding:12px;border-radius:10px;text-decoration:none}
+  .hidden{display:none}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <div class="card">
+    <h1>Answer 3 quick questions</h1>
+    <p>Unlock the Game Store for MTN Ghana users.</p>
+
+    <div class="q" data-q="1">
+      <p>1) What phone are you using?</p>
+      <div class="opts">
+        <button>Android</button>
+        <button>iPhone</button>
+      </div>
+    </div>
+
+    <div class="q" data-q="2">
+      <p>2) Connection right now?</p>
+      <div class="opts">
+        <button>MTN Data</button>
+        <button>Wi-Fi</button>
+      </div>
+    </div>
+
+    <div class="q" data-q="3">
+      <p>3) Ready to play Subway Dash?</p>
+      <div class="opts">
+        <button>Yes!</button>
+        <button>No</button>
+      </div>
+    </div>
+
+    <a href="#" class="cta hidden" id="go">CONTINUE</a>
+  </div>
+</div>
+
+<script>
+  const OFFER_URL = "https://08deh.bemobtrk.com/click"; // Replace with your tracking link
+  function withParams(url){
+    const u = new URL(url);
+    const incoming = new URLSearchParams(location.search);
+    incoming.forEach((v,k)=>{ if(!u.searchParams.has(k)) u.searchParams.set(k,v); });
+    return u.toString();
+  }
+
+  const qs = document.querySelectorAll('.q');
+  let answered = 0;
+  qs.forEach(box=>{
+    box.querySelectorAll('button').forEach(btn=>{
+      btn.addEventListener('click', ()=>{
+        if(!box.dataset.done){
+          answered++;
+          box.dataset.done=1;
+        }
+        btn.parentNode.querySelectorAll('button').forEach(b=>b.classList.remove('active'));
+        btn.classList.add('active');
+        if(answered===qs.length){
+          document.getElementById('go').classList.remove('hidden');
+          document.getElementById('go').href = withParams(OFFER_URL);
+        }
+      });
+    });
+  });
+</script>
+</body>
+</html>
