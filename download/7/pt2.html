@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="pt" dir="ltr">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Processando o download...</title>
+<style>
+  :root {
+    --red: #e60000;
+    --blue: #2492ff;
+    --bg: #0f1115;
+    --card: #1a1c22;
+    --text: #ffffff;
+  }
+  body {
+    background: var(--bg);
+    font-family: Arial, Helvetica, sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+    color: var(--text);
+  }
+  .card {
+    background: var(--card);
+    border-radius: 8px;
+    padding: 28px 30px 18px;
+    text-align: center;
+    box-shadow: 0 0 12px rgba(0,0,0,0.7);
+    width: 370px;
+  }
+  h1 {
+    color: var(--red);
+    font-size: 22px;
+    margin: 0 0 18px;
+  }
+  .progress-wrap {
+    background: #333a45;
+    border-radius: 6px;
+    padding: 5px;
+    margin-bottom: 20px;
+  }
+  .progress {
+    display: grid;
+    grid-template-columns: repeat(13, 1fr);
+    gap: 4px;
+  }
+  .progress span {
+    height: 16px;
+    background: var(--blue);
+    border-radius: 3px;
+    opacity: 0.25;
+    animation: load 1.3s linear infinite;
+  }
+  @keyframes load {
+    0% { opacity: 0.25; }
+    40% { opacity: 1; }
+    100% { opacity: 0.25; }
+  }
+  .progress span:nth-child(n) { animation-delay: calc(var(--i) * 0.1s); }
+  .progress span:nth-child(1) { --i: 0; }
+  .progress span:nth-child(2) { --i: 1; }
+  .progress span:nth-child(3) { --i: 2; }
+  .progress span:nth-child(4) { --i: 3; }
+  .progress span:nth-child(5) { --i: 4; }
+  .progress span:nth-child(6) { --i: 5; }
+  .progress span:nth-child(7) { --i: 6; }
+  .progress span:nth-child(8) { --i: 7; }
+  .progress span:nth-child(9) { --i: 8; }
+  .progress span:nth-child(10) { --i: 9; }
+  .progress span:nth-child(11) { --i: 10; }
+  .progress span:nth-child(12) { --i: 11; }
+  .progress span:nth-child(13) { --i: 12; }
+
+  p {
+    margin: 0 0 10px;
+    font-size: 15px;
+  }
+  .highlight {
+    font-weight: 700;
+    color: #fff;
+  }
+  a.btn {
+    display: inline-block;
+    background: var(--red);
+    color: #fff;
+    text-decoration: none;
+    padding: 12px 45px;
+    border-radius: 6px;
+    font-weight: bold;
+    margin: 15px 0 8px;
+  }
+  .timer {
+    font-size: 14px;
+    color: #ccc;
+  }
+  .timer span {
+    color: var(--red);
+    font-weight: bold;
+  }
+</style>
+</head>
+<body>
+  <div class="card">
+    <h1>Processando o download...</h1>
+    <div class="progress-wrap">
+      <div class="progress">
+        <span></span><span></span><span></span><span></span><span></span><span></span>
+        <span></span><span></span><span></span><span></span><span></span><span></span>
+        <span></span>
+      </div>
+    </div>
+    <p>Se o download não começar automaticamente,</p>
+    <p class="highlight">clique em "OK" para concluir o download</p>
+    <a class="btn" href="https://08deh.bemobtrk.com/click">OK</a>
+    <div class="timer">Válido por: <span id="counter">5</span> segundos</div>
+  </div>
+  <script>
+    let counter = 5;
+    const el = document.getElementById("counter");
+    const timer = setInterval(() => {
+      counter--;
+      if (counter <= 0) { counter = 0; clearInterval(timer); }
+      el.textContent = counter;
+    }, 1000);
+  </script>
+</body>
+</html>
