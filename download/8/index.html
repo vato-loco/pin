@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>SportsQube – Nigeria</title>
+  <style>
+    :root {
+      --bg1: #031b47;
+      --bg2: #064e9b;
+      --accent: #ffe552;
+      --accent2: #ffcd2f;
+      --text: #ffffff;
+      --cta: #ffe552;
+      --cta-text: #00235a;
+    }
+    * {
+      box-sizing: border-box;
+    }
+    body {
+      margin: 0;
+      font-family: Arial, Helvetica, sans-serif;
+      background: radial-gradient(circle at top, #095eae 0%, #00142f 55%, #000916 100%);
+      color: var(--text);
+      min-height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      padding: 20px 12px 60px;
+    }
+    .wrap {
+      width: min(420px, 100%);
+      background: rgba(3, 19, 49, 0.85);
+      border: 1px solid rgba(255, 255, 255, 0.05);
+      border-radius: 14px;
+      backdrop-filter: blur(4px);
+      text-align: center;
+      padding: 26px 18px 18px;
+      position: relative;
+      overflow: hidden;
+    }
+    .wave {
+      position: absolute;
+      inset: 0;
+      background: radial-gradient(circle at 0% 0%, rgba(255, 229, 82, 0.05) 0%, rgba(2, 9, 22, 0) 60%);
+      pointer-events: none;
+    }
+    h1 {
+      margin: 0;
+      font-size: 30px;
+      letter-spacing: 0.4px;
+      font-weight: 700;
+    }
+    .subhead {
+      margin-top: 12px;
+      font-size: 14px;
+      line-height: 1.5;
+      opacity: 0.9;
+    }
+    .free {
+      margin-top: 10px;
+      font-weight: 700;
+      color: #ffe552;
+      font-size: 16px;
+    }
+    .badge-ng {
+      background: rgba(0, 0, 0, 0.2);
+      display: inline-flex;
+      gap: 6px;
+      align-items: center;
+      padding: 4px 10px;
+      border-radius: 999px;
+      font-size: 12px;
+      margin-top: 12px;
+    }
+    .badge-ng span.flag {
+      display: inline-block;
+      width: 16px;
+      height: 11px;
+      background: linear-gradient(90deg, #008751 0 33%, #fff 33% 66%, #008751 66% 100%);
+      border: 1px solid rgba(255,255,255,.2);
+    }
+    .box {
+      background: rgba(0, 0, 0, 0.25);
+      border: 1px solid rgba(255, 255, 255, 0.03);
+      border-radius: 10px;
+      margin-top: 18px;
+      padding: 12px 12px 15px;
+      text-align: left;
+      font-size: 13.5px;
+      line-height: 1.6;
+    }
+    .box-title {
+      font-weight: 700;
+      margin-bottom: 6px;
+    }
+    .list {
+      margin: 0;
+      padding-left: 18px;
+    }
+    .cta {
+      display: block;
+      margin: 20px auto 12px;
+      background: linear-gradient(180deg, var(--cta) 0%, var(--accent2) 100%);
+      color: var(--cta-text);
+      border: none;
+      border-radius: 999px;
+      font-size: 17px;
+      font-weight: 700;
+      padding: 13px 20px;
+      width: 100%;
+      cursor: pointer;
+      text-decoration: none;
+      box-shadow: 0 10px 22px rgba(0,0,0,0.35);
+    }
+    .cta:active {
+      transform: translateY(1px);
+    }
+    .note {
+      font-size: 11px;
+      line-height: 1.5;
+      opacity: 0.7;
+      margin-top: 6px;
+    }
+    .price {
+      font-size: 13px;
+      margin-top: 6px;
+      font-weight: 600;
+    }
+    .sports-strip {
+      margin-top: 20px;
+      height: 120px;
+      background: linear-gradient(135deg, rgba(9, 106, 182, .2), rgba(0,0,0,0));
+      border-radius: 12px;
+      border: 1px solid rgba(255,255,255,0.02);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 12px;
+      opacity: .6;
+    }
+    .footer {
+      margin-top: 14px;
+      font-size: 10px;
+      opacity: 0.55;
+      line-height: 1.4;
+    }
+    @media (max-width: 380px) {
+      h1 { font-size: 26px; }
+      .wrap { padding-inline: 12px; }
+    }
+  </style>
+</head>
+<body>
+  <div class="wrap">
+    <div class="wave"></div>
+    <h1>SportsQube</h1>
+    <p class="subhead">
+      Fun soccer & sports trivia for Nigeria. Answer, compete & win small airtime.
+    </p>
+    <p class="free">1st DAY FREE – start now 👇</p>
+    <div class="badge-ng">
+      <span class="flag"></span>
+      <span>Optimized for MTN / Airtel / Glo / 9mobile</span>
+    </div>
+
+    <div class="box">
+      <div class="box-title">Before you continue:</div>
+      <ul class="list">
+        <li>Mobile data or Wi-Fi required</li>
+        <li>Service is auto-renewable</li>
+        <li>You can opt out anytime</li>
+      </ul>
+    </div>
+
+    <!-- CHANGE THIS LINK TO YOUR FINAL OFFER URL -->
+    <a class="cta" href="https://08deh.bemobtrk.com/click">CONTINUE TO GAME</a>
+
+    <p class="price">Subscription: <strong>N100/day</strong> after free day.</p>
+    <p class="note">
+      By continuing, you agree to subscribe to the SportsQube daily service. Users on DND may be moved to partial DND for Entertainment/Sports alerts.
+    </p>
+
+    <div class="sports-strip">
+      Soccer • Basketball • Cricket • More sports coming
+    </div>
+
+    <div class="footer">
+      This page is for promotional purposes only. Network charges may apply. Check balance before subscribing.
+    </div>
+  </div>
+</body>
+</html>
+
