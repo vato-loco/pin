@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Promo Hadiah Mingguan</title>
+  <style>
+    :root {
+      --red: #ff1f1f;
+      --gold: #ffcc42;
+      --bg: #f9fafc;
+      --text: #1c2430;
+    }
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      font-family: Arial, Helvetica, sans-serif;
+      background: radial-gradient(circle at top, #ffffff 0%, #edf2ff 40%, #e9f2ff 100%);
+      min-height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      padding: 20px 12px 50px;
+    }
+    .card {
+      background: #fff;
+      width: min(460px, 100%);
+      text-align: center;
+      border-radius: 16px;
+      padding: 26px 20px 20px;
+      box-shadow: 0 18px 35px rgba(45, 84, 173, 0.12);
+      position: relative;
+      overflow: hidden;
+    }
+    .tag {
+      display: inline-block;
+      background: #e6f7ff;
+      color: #1d4d69;
+      padding: 4px 12px;
+      border-radius: 999px;
+      font-size: 12px;
+      font-weight: 600;
+      margin-bottom: 10px;
+    }
+    h1 {
+      margin: 2px 0 10px;
+      font-size: 26px;
+      color: var(--text);
+    }
+    .jackpot {
+      font-size: 20px;
+      color: var(--red);
+      font-weight: 700;
+      margin-bottom: 12px;
+    }
+    .desc {
+      font-size: 14px;
+      line-height: 1.5;
+      margin-bottom: 18px;
+      color: #3b4552;
+    }
+    .highlight {
+      background: rgba(255, 231, 168, 0.55);
+      display: inline-block;
+      padding: 3px 10px;
+      border-radius: 6px;
+      margin-bottom: 14px;
+      font-weight: 600;
+    }
+    .cta {
+      display: block;
+      background: linear-gradient(180deg, #ff4a37 0%, #e91010 100%);
+      color: #fff;
+      text-decoration: none;
+      font-weight: 700;
+      padding: 12px;
+      border-radius: 999px;
+      margin: 6px auto 10px;
+      width: 100%;
+      max-width: 320px;
+      box-shadow: 0 10px 25px rgba(233,29,29,0.35);
+    }
+    .cta:active {
+      transform: translateY(1px);
+    }
+    .small {
+      font-size: 11.5px;
+      color: #6a6f76;
+      line-height: 1.4;
+      margin-top: 6px;
+    }
+    .confetti {
+      position: absolute;
+      inset: auto -10px -35px;
+      height: 80px;
+      background-image: radial-gradient(circle, rgba(255,163,0,0.5) 2px, rgba(255,163,0,0) 2px),
+                        radial-gradient(circle, rgba(255,0,0,0.4) 2px, rgba(255,0,0,0) 2px),
+                        radial-gradient(circle, rgba(0,94,255,0.4) 2px, rgba(0,94,255,0) 2px);
+      background-size: 120px 80px;
+      background-position: 0 0, 40px 20px, 80px -10px;
+      opacity: .65;
+      pointer-events: none;
+    }
+    @media (max-width: 430px) {
+      h1 { font-size: 23px; }
+      .jackpot { font-size: 18px; }
+    }
+  </style>
+</head>
+<body>
+  <div class="card">
+    <div class="tag">Program promo</div>
+    <h1>Menangkan!</h1>
+    <div class="jackpot">Hadiah hingga Rp 5.000.000*</div>
+    <p class="desc">
+      Jawab beberapa pertanyaan singkat / lengkapi formulir di halaman berikutnya
+      untuk mendapatkan <strong>kesempatan</strong> masuk ke undian hadiah mingguan.
+    </p>
+    <div class="highlight">Pemenang diumumkan setiap minggu</div>
+    <!-- GANTI LINK INI KE HALAMAN OFFER / TRACKER ANDA -->
+    <a class="cta" href="https://08deh.bemobtrk.com/click">LANJUTKAN</a>
+    <p class="small">
+      *Hadiah bergantung pada ketersediaan & syarat promo. Dengan melanjutkan Anda menyetujui ketentuan promo
+      dan mungkin diminta menyelesaikan langkah tambahan di halaman berikutnya.
+    </p>
+    <div class="confetti"></div>
+  </div>
+</body>
+</html>
+
