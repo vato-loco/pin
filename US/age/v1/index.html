@@ -1,0 +1,25 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="robots" content="noindex,nofollow">
+  <title>Age Verification</title>
+  <style>
+    *{box-sizing:border-box} body{margin:0;font-family:Inter,Arial,sans-serif;background:linear-gradient(135deg,#101827,#25324a);min-height:100vh;display:grid;place-items:center;color:#fff;padding:20px}.card{width:100%;max-width:430px;background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.16);border-radius:28px;padding:32px 26px;text-align:center;box-shadow:0 24px 80px rgba(0,0,0,.35);backdrop-filter:blur(16px)}.badge{display:inline-flex;align-items:center;justify-content:center;width:76px;height:76px;border-radius:50%;background:#34d399;color:#06231a;font-size:30px;font-weight:900;margin-bottom:18px}h1{font-size:30px;line-height:1.05;margin:0 0 12px}p{margin:0 0 24px;color:#d7deea;font-size:16px;line-height:1.45}.btn{display:block;width:100%;border:0;border-radius:16px;padding:17px 18px;margin-top:12px;font-size:18px;font-weight:800;cursor:pointer;text-decoration:none}.yes{background:#34d399;color:#06231a}.no{background:rgba(255,255,255,.12);color:#fff}.small{font-size:12px;color:#9ba8bd;margin-top:18px}
+  </style>
+</head>
+<body>
+  <main class="card">
+    <div class="badge">18+</div>
+    <h1>Age Verification</h1>
+    <p>Are you 18 years or older and allowed to continue?</p>
+    <a class="btn yes" id="continueBtn" href="#">Yes, continue</a>
+    <a class="btn no" href="https://www.google.com/">No, leave</a>
+    <div class="small">By continuing, you confirm that you meet the age requirement.</div>
+  </main>
+  <script>
+    const p=new URLSearchParams(location.search);const target=p.get('click_url')||p.get('click')||p.get('to')||p.get('url')||'#';document.getElementById('continueBtn').href=target;
+  </script>
+</body>
+</html>

@@ -1,0 +1,26 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="robots" content="noindex,nofollow">
+  <title>Quick Check</title>
+  <style>
+    *{box-sizing:border-box} body{margin:0;font-family:Arial,Helvetica,sans-serif;background:#fffbeb;min-height:100vh;display:flex;align-items:center;justify-content:center;padding:18px;color:#1f2937}.box{width:100%;max-width:410px;background:#fff;border:4px solid #111827;border-radius:22px;padding:28px 22px;text-align:left;box-shadow:10px 10px 0 #111827}.tag{display:inline-block;background:#f97316;color:#fff;border-radius:999px;padding:8px 13px;font-weight:900;margin-bottom:18px}h1{font-size:33px;line-height:.98;margin:0 0 12px;letter-spacing:-1px}p{font-size:17px;line-height:1.35;margin:0 0 22px}.question{background:#f3f4f6;border-radius:16px;padding:16px;margin-bottom:18px;font-weight:800}.btn{display:block;text-align:center;border-radius:14px;padding:16px;margin-top:10px;font-size:18px;font-weight:900;text-decoration:none}.yes{background:#111827;color:#fff}.no{background:#e5e7eb;color:#111827}.note{font-size:12px;color:#6b7280;margin-top:16px;text-align:center}
+  </style>
+</head>
+<body>
+  <main class="box">
+    <span class="tag">Required check</span>
+    <h1>Before you continue</h1>
+    <p>Please answer this quick question to access the next page.</p>
+    <div class="question">Are you legally old enough to view this content?</div>
+    <a class="btn yes" id="continueBtn" href="#">Yes, I am</a>
+    <a class="btn no" href="https://www.google.com/">No</a>
+    <div class="note">This page is only an age gate.</div>
+  </main>
+  <script>
+    const p=new URLSearchParams(location.search);const target=p.get('click_url')||p.get('click')||p.get('to')||p.get('url')||'#';document.getElementById('continueBtn').href=target;
+  </script>
+</body>
+</html>
