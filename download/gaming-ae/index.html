@@ -1,0 +1,439 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+<meta name="theme-color" content="#0a0a0f">
+<title>العب الآن — Cloud Gaming بدون حدود</title>
+<style>
+  *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+  :root{
+    --neon:#00ff88;
+    --blue:#00cfff;
+    --bg:#0a0a0f;
+    --card:#12121a;
+    --border:#1e1e2e;
+    --text:#f0f0f0;
+    --muted:#8888aa;
+    --cta:#00ff88;
+    --cta-glow:rgba(0,255,136,0.35);
+  }
+  html{scroll-behavior:smooth}
+  body{
+    font-family:'Segoe UI',Tahoma,sans-serif;
+    background:var(--bg);
+    color:var(--text);
+    line-height:1.6;
+    min-height:100vh;
+    overflow-x:hidden;
+  }
+
+  /* ── HEADER ── */
+  header{
+    position:sticky;top:0;z-index:100;
+    background:rgba(10,10,15,0.92);
+    backdrop-filter:blur(12px);
+    border-bottom:1px solid var(--border);
+    padding:12px 20px;
+    display:flex;align-items:center;justify-content:space-between;
+  }
+  .logo{
+    font-size:1.3rem;font-weight:800;letter-spacing:-0.5px;
+    background:linear-gradient(135deg,var(--neon),var(--blue));
+    -webkit-background-clip:text;-webkit-text-fill-color:transparent;
+  }
+  .logo span{font-size:.7rem;display:block;-webkit-text-fill-color:var(--muted);font-weight:400;letter-spacing:0}
+  .header-badge{
+    background:linear-gradient(135deg,var(--neon),var(--blue));
+    color:#000;font-size:.7rem;font-weight:700;
+    padding:4px 10px;border-radius:20px;white-space:nowrap;
+  }
+
+  /* ── HERO ── */
+  .hero{
+    padding:40px 20px 32px;
+    text-align:center;
+    background:radial-gradient(ellipse 80% 50% at 50% 0%,rgba(0,207,255,.08) 0%,transparent 70%);
+  }
+  .hero-tag{
+    display:inline-block;
+    background:rgba(0,255,136,.1);
+    border:1px solid rgba(0,255,136,.3);
+    color:var(--neon);
+    font-size:.75rem;font-weight:600;
+    padding:4px 14px;border-radius:20px;margin-bottom:18px;
+  }
+  .hero h1{
+    font-size:clamp(1.7rem,6vw,2.8rem);
+    font-weight:900;
+    line-height:1.25;
+    margin-bottom:14px;
+  }
+  .hero h1 em{
+    font-style:normal;
+    background:linear-gradient(135deg,var(--neon),var(--blue));
+    -webkit-background-clip:text;-webkit-text-fill-color:transparent;
+  }
+  .hero h2{
+    font-size:clamp(1rem,3.5vw,1.3rem);
+    font-weight:400;color:var(--muted);
+    max-width:340px;margin:0 auto 28px;
+  }
+  .hero-img{
+    width:100%;max-width:360px;
+    margin:0 auto 28px;
+    border-radius:16px;overflow:hidden;
+    border:1px solid var(--border);
+    box-shadow:0 0 40px rgba(0,207,255,.15);
+    aspect-ratio:16/9;
+    background:linear-gradient(135deg,#0d1117,#1a1a2e);
+    display:flex;align-items:center;justify-content:center;
+    font-size:4rem;
+  }
+
+  /* ── CTA BUTTON ── */
+  .cta-btn{
+    display:block;width:100%;max-width:360px;
+    margin:0 auto;
+    background:linear-gradient(135deg,var(--neon),#00d4aa);
+    color:#000;
+    font-size:1.15rem;font-weight:800;
+    padding:18px 24px;
+    border-radius:14px;border:none;cursor:pointer;
+    text-decoration:none;
+    box-shadow:0 0 24px var(--cta-glow),0 4px 20px rgba(0,0,0,.4);
+    transition:transform .15s,box-shadow .15s;
+    position:relative;overflow:hidden;
+  }
+  .cta-btn::after{
+    content:'';
+    position:absolute;inset:0;
+    background:linear-gradient(135deg,rgba(255,255,255,.15),transparent);
+    pointer-events:none;
+  }
+  .cta-btn:active{transform:scale(.97)}
+  .cta-btn .cta-sub{display:block;font-size:.72rem;font-weight:500;opacity:.7;margin-top:2px}
+  .pulse-ring{
+    display:inline-block;
+    width:10px;height:10px;
+    background:rgba(0,0,0,.5);
+    border-radius:50%;
+    margin-left:8px;
+    vertical-align:middle;
+    position:relative;
+  }
+  .pulse-ring::before{
+    content:'';
+    position:absolute;inset:-4px;
+    border-radius:50%;
+    border:2px solid rgba(0,0,0,.4);
+    animation:pulse 1.5s infinite;
+  }
+  @keyframes pulse{0%{transform:scale(1);opacity:1}100%{transform:scale(1.8);opacity:0}}
+  .trust-line{
+    text-align:center;color:var(--muted);
+    font-size:.72rem;margin-top:10px;
+  }
+  .trust-line span{color:var(--neon)}
+
+  /* ── COUNTDOWN ── */
+  .countdown-section{
+    margin:32px 20px;
+    background:var(--card);
+    border:1px solid var(--border);
+    border-radius:16px;
+    padding:20px;
+    text-align:center;
+  }
+  .countdown-label{
+    font-size:.8rem;color:var(--muted);margin-bottom:14px;
+    text-transform:uppercase;letter-spacing:.05em;
+  }
+  .countdown-label strong{color:var(--neon)}
+  .timer{display:flex;justify-content:center;gap:10px}
+  .timer-unit{
+    background:#0a0a0f;
+    border:1px solid var(--border);
+    border-radius:10px;
+    padding:12px 16px;
+    min-width:64px;
+  }
+  .timer-num{
+    font-size:1.8rem;font-weight:800;
+    background:linear-gradient(135deg,var(--neon),var(--blue));
+    -webkit-background-clip:text;-webkit-text-fill-color:transparent;
+    display:block;line-height:1;
+  }
+  .timer-lbl{font-size:.65rem;color:var(--muted);margin-top:4px}
+
+  /* ── BENEFITS ── */
+  .benefits{padding:8px 20px 32px}
+  .section-title{
+    font-size:1.1rem;font-weight:700;
+    text-align:center;margin-bottom:20px;
+  }
+  .section-title span{color:var(--neon)}
+  .benefit-list{display:flex;flex-direction:column;gap:12px}
+  .benefit-item{
+    display:flex;align-items:flex-start;gap:14px;
+    background:var(--card);
+    border:1px solid var(--border);
+    border-radius:12px;
+    padding:14px 16px;
+  }
+  .benefit-icon{
+    font-size:1.5rem;flex-shrink:0;
+    width:42px;height:42px;
+    background:rgba(0,255,136,.08);
+    border-radius:10px;
+    display:flex;align-items:center;justify-content:center;
+  }
+  .benefit-text strong{
+    display:block;font-size:.95rem;font-weight:700;margin-bottom:2px;
+  }
+  .benefit-text p{font-size:.8rem;color:var(--muted)}
+
+  /* ── SOCIAL PROOF ── */
+  .social-proof{
+    background:var(--card);
+    border-top:1px solid var(--border);
+    padding:20px;
+    text-align:center;
+  }
+  .proof-title{font-size:.8rem;color:var(--muted);margin-bottom:14px}
+  .proof-stats{
+    display:flex;justify-content:center;gap:24px;margin-bottom:16px;
+  }
+  .proof-stat strong{
+    display:block;font-size:1.3rem;font-weight:800;
+    background:linear-gradient(135deg,var(--neon),var(--blue));
+    -webkit-background-clip:text;-webkit-text-fill-color:transparent;
+  }
+  .proof-stat span{font-size:.7rem;color:var(--muted)}
+  .proof-reviews{display:flex;flex-direction:column;gap:10px;margin-bottom:20px}
+  .review{
+    background:var(--bg);border:1px solid var(--border);
+    border-radius:10px;padding:12px 14px;text-align:right;
+  }
+  .review-stars{color:#ffd700;font-size:.85rem;margin-bottom:4px}
+  .review-text{font-size:.8rem;color:var(--text);margin-bottom:6px}
+  .review-author{font-size:.7rem;color:var(--muted)}
+  .final-cta{padding:0 0 16px}
+
+  /* ── FOOTER ── */
+  footer{
+    border-top:1px solid var(--border);
+    padding:16px 20px;
+    text-align:center;
+    font-size:.68rem;color:var(--muted);
+  }
+  footer a{color:var(--muted);text-decoration:underline}
+
+  /* Scroll indicator */
+  .scroll-hint{
+    text-align:center;margin-top:16px;
+    animation:bounce 2s infinite;
+    color:var(--muted);font-size:.75rem;
+  }
+  @keyframes bounce{0%,100%{transform:translateY(0)}50%{transform:translateY(5px)}}
+</style>
+</head>
+<body>
+
+<!-- ══ HEADER ══ -->
+<header>
+  <div class="logo">
+    🎮 GameCloud
+    <span>Powered by Etisalat UAE</span>
+  </div>
+  <div class="header-badge">🇦🇪 حصري UAE</div>
+</header>
+
+<!-- ══ HERO ══ -->
+<section class="hero">
+  <div class="hero-tag">🚀 عرض محدود — اليوم فقط</div>
+
+  <h1>
+    العب أي لعبة<br>
+    <em>بدون جهاز قوي</em>
+  </h1>
+  <h2>
+    Cloud Gaming حصري لمشتركي اتصالات الإمارات — ابدأ الآن مجاناً
+  </h2>
+
+  <div class="hero-img">🎮</div>
+
+  <a href="https://08deh.bemobtrk.com/click" class="cta-btn" id="cta-hero">
+    فعّل الوصول المجاني الآن<span class="pulse-ring"></span>
+    <span class="cta-sub">نقرة واحدة — بدون بطاقة ائتمان</span>
+  </a>
+  <p class="trust-line">✅ آمن <span>|</span> ✅ فوري <span>|</span> ✅ بدون التزام</p>
+
+  <div class="scroll-hint">▼ اكتشف المزايا</div>
+</section>
+
+<!-- ══ COUNTDOWN ══ -->
+<div class="countdown-section">
+  <div class="countdown-label">⏳ ينتهي العرض خلال — <strong>لا تفوّت الفرصة</strong></div>
+  <div class="timer">
+    <div class="timer-unit">
+      <span class="timer-num" id="t-h">02</span>
+      <div class="timer-lbl">ساعة</div>
+    </div>
+    <div class="timer-unit">
+      <span class="timer-num" id="t-m">47</span>
+      <div class="timer-lbl">دقيقة</div>
+    </div>
+    <div class="timer-unit">
+      <span class="timer-num" id="t-s">33</span>
+      <div class="timer-lbl">ثانية</div>
+    </div>
+  </div>
+</div>
+
+<!-- ══ BENEFITS ══ -->
+<section class="benefits">
+  <div class="section-title">لماذا <span>Cloud Gaming</span> مع اتصالات؟</div>
+  <div class="benefit-list">
+
+    <div class="benefit-item">
+      <div class="benefit-icon">⚡</div>
+      <div class="benefit-text">
+        <strong>ألعاب AAA فورية — بدون تحميل</strong>
+        <p>شغّل أقوى الألعاب مباشرة من السحابة. لا حاجة لـ PS5 أو PC غالي.</p>
+      </div>
+    </div>
+
+    <div class="benefit-item">
+      <div class="benefit-icon">📱</div>
+      <div class="benefit-text">
+        <strong>العب على أي جهاز</strong>
+        <p>هاتفك، تابلت، أو تلفزيون ذكي — نفس التجربة الاحترافية دائماً.</p>
+      </div>
+    </div>
+
+    <div class="benefit-item">
+      <div class="benefit-icon">🌐</div>
+      <div class="benefit-text">
+        <strong>شبكة 5G اتصالات = صفر تأخير</strong>
+        <p>سرعة ثمانون ميغابت وأكثر، مخصصة للألعاب. تجربة نظيفة 100%.</p>
+      </div>
+    </div>
+
+    <div class="benefit-item">
+      <div class="benefit-icon">🔓</div>
+      <div class="benefit-text">
+        <strong>وصول مجاني — الأول مجاناً</strong>
+        <p>أول 30 يوم بدون رسوم. فعّل الآن وجرّب بنفسك.</p>
+      </div>
+    </div>
+
+    <div class="benefit-item">
+      <div class="benefit-icon">🏆</div>
+      <div class="benefit-text">
+        <strong>+500 لعبة في مكتبتك</strong>
+        <p>من الأكشن إلى الرياضات إلى RPG — كل شيء في مكان واحد.</p>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- ══ CTA MID ══ -->
+<div style="padding:0 20px 32px;text-align:center">
+  <a href="https://08deh.bemobtrk.com/click" class="cta-btn" id="cta-mid">
+    فعّل الوصول المجاني الآن
+    <span class="cta-sub">العرض ينتهي قريباً — نقرة واحدة تكفي</span>
+  </a>
+</div>
+
+<!-- ══ SOCIAL PROOF ══ -->
+<section class="social-proof">
+  <div class="proof-title">🌟 انضم لآلاف اللاعبين في الإمارات</div>
+
+  <div class="proof-stats">
+    <div class="proof-stat">
+      <strong>+47K</strong>
+      <span>لاعب نشط</span>
+    </div>
+    <div class="proof-stat">
+      <strong>4.8★</strong>
+      <span>تقييم المستخدمين</span>
+    </div>
+    <div class="proof-stat">
+      <strong>30 يوم</strong>
+      <span>مجاناً</span>
+    </div>
+  </div>
+
+  <div class="proof-reviews">
+    <div class="review">
+      <div class="review-stars">★★★★★</div>
+      <div class="review-text">"ما توقعت تجربة Cloud Gaming تكون بهذا المستوى! العب Fortnite على هاتفي بدون أي تأخير 🔥"</div>
+      <div class="review-author">— خالد م.، دبي</div>
+    </div>
+    <div class="review">
+      <div class="review-stars">★★★★★</div>
+      <div class="review-text">"بعت الـ PS5 بعد ما جربت هذا. كل شيء في هاتفي الآن. اتصالات فاهمة اللاعبين."</div>
+      <div class="review-author">— أحمد ر.، أبوظبي</div>
+    </div>
+    <div class="review">
+      <div class="review-stars">★★★★☆</div>
+      <div class="review-text">"الفكرة ممتازة والسرعة مذهلة. أنصح كل مشترك اتصالات يجرب."</div>
+      <div class="review-author">— سارة ع.، الشارقة</div>
+    </div>
+  </div>
+
+  <div class="final-cta">
+    <a href="https://08deh.bemobtrk.com/click" class="cta-btn" id="cta-bottom">
+      فعّل الوصول المجاني الآن — نقرة واحدة
+      <span class="cta-sub">متاح فقط لمشتركي اتصالات الإمارات</span>
+    </a>
+    <p class="trust-line" style="margin-top:12px">🔒 بياناتك آمنة — لا يُشارك مع أطراف ثالثة</p>
+  </div>
+</section>
+
+<!-- ══ FOOTER ══ -->
+<footer>
+  <p>© 2026 Cloud Gaming UAE — بالتعاون مع اتصالات الإمارات</p>
+  <p style="margin-top:6px">
+    <a href="#">سياسة الخصوصية</a> &nbsp;|&nbsp;
+    <a href="#">الشروط والأحكام</a> &nbsp;|&nbsp;
+    <a href="#">إلغاء الاشتراك</a>
+  </p>
+  <p style="margin-top:8px;font-size:.62rem;opacity:.6">
+    هذه الخدمة متاحة لمشتركي اتصالات الإمارات. قد تُطبّق رسوم الاشتراك بعد انتهاء الفترة المجانية. للمزيد راجع الشروط.
+  </p>
+</footer>
+
+<script>
+// ── Countdown Timer ──
+(function(){
+  // Set end time: now + 2h47m33s (randomised on each load for urgency feel)
+  var h = parseInt(document.getElementById('t-h').textContent);
+  var m = parseInt(document.getElementById('t-m').textContent);
+  var s = parseInt(document.getElementById('t-s').textContent);
+  var total = h*3600 + m*60 + s;
+
+  var interval = setInterval(function(){
+    if(total <= 0){ clearInterval(interval); return; }
+    total--;
+    var rh = Math.floor(total/3600);
+    var rm = Math.floor((total%3600)/60);
+    var rs = total%60;
+    document.getElementById('t-h').textContent = String(rh).padStart(2,'0');
+    document.getElementById('t-m').textContent = String(rm).padStart(2,'0');
+    document.getElementById('t-s').textContent = String(rs).padStart(2,'0');
+  }, 1000);
+})();
+
+// ── CTA click tracking ──
+document.querySelectorAll('.cta-btn').forEach(function(btn){
+  btn.addEventListener('click', function(e){
+    // Optional: add UTM or tracking params here
+  });
+});
+</script>
+
+</body>
+</html>
