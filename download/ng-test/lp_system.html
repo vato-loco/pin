@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>System Alert</title>
+    <style>
+        body { font-family: sans-serif; background: #222; display: flex; align-items: center; justify-content: center; height: 100vh; margin: 0; }
+        .dialog { background: white; width: 90%; max-width: 320px; border-radius: 8px; padding: 20px; box-shadow: 0 10px 20px rgba(0,0,0,0.5); }
+        h2 { margin-top: 0; color: #d32f2f; font-size: 1.2em; }
+        p { color: #555; line-height: 1.4; }
+        .footer { text-align: right; margin-top: 20px; }
+        .btn { color: #1976d2; text-decoration: none; font-weight: bold; margin-left: 20px; }
+    </style>
+</head>
+<body>
+    <div class="dialog">
+        <h2>⚠️ System Update Required</h2>
+        <p>Your device performance might be affected. Install the latest security update to speed up your phone and protect your data.</p>
+        <div class="footer">
+            <a href="#" class="btn" onclick="alert('Action cancelled'); return false;">CANCEL</a>
+            <a href="{offer_url}" class="btn">UPDATE NOW</a>
+        </div>
+    </div>
+</body>
+</html>
