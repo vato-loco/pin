@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="ne">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+<meta name="theme-color" content="#128C7E">
+<title>Talk to Expert | Chat</title>
+<style>
+  *{margin:0;padding:0;box-sizing:border-box}
+  body{font-family:'Segoe UI',Arial,sans-serif;background:#ECE5DD;color:#111;min-height:100vh;display:flex;flex-direction:column}
+  .topbar{background:#128C7E;padding:12px 16px;display:flex;align-items:center;gap:12px;position:sticky;top:0;z-index:10;box-shadow:0 2px 8px rgba(0,0,0,.2)}
+  .avatar{width:40px;height:40px;background:#075E54;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:20px;flex-shrink:0}
+  .topbar-info h2{font-size:15px;font-weight:700;color:#fff}
+  .topbar-info p{font-size:11px;color:#b2dfdb}
+  .online-dot{width:8px;height:8px;background:#4CAF50;border-radius:50%;display:inline-block;margin-right:4px;animation:pulse 2s infinite}
+  @keyframes pulse{0%,100%{opacity:1}50%{opacity:.4}}
+  .chat-area{flex:1;padding:12px 16px;overflow-y:auto;display:flex;flex-direction:column;gap:8px;max-height:calc(100vh - 180px)}
+  .bubble{max-width:82%;padding:10px 14px;border-radius:18px;font-size:13px;line-height:1.5;position:relative;word-break:break-word}
+  .bubble-in{background:#fff;border-radius:18px 18px 18px 4px;align-self:flex-start;color:#111;box-shadow:0 1px 4px rgba(0,0,0,.1)}
+  .bubble-out{background:#DCF8C6;border-radius:18px 18px 4px 18px;align-self:flex-end;color:#111;box-shadow:0 1px 4px rgba(0,0,0,.1)}
+  .bubble-time{font-size:9px;color:#999;text-align:right;margin-top:2px}
+  .bubble-name{font-size:10px;font-weight:700;color:#128C7E;margin-bottom:3px}
+  .typing{display:flex;align-items:center;gap:4px;padding:10px 14px;background:#fff;border-radius:18px 18px 18px 4px;align-self:flex-start;max-width:80px;box-shadow:0 1px 4px rgba(0,0,0,.1)}
+  .dot{width:7px;height:7px;background:#aaa;border-radius:50%;animation:bounce 1.2s infinite}
+  .dot:nth-child(2){animation-delay:.2s}
+  .dot:nth-child(3){animation-delay:.4s}
+  @keyframes bounce{0%,100%{transform:translateY(0)}50%{transform:translateY(-5px)}}
+  .divider{text-align:center;font-size:10px;color:#888;margin:4px 0;background:rgba(0,0,0,.05);display:inline-block;align-self:center;padding:3px 12px;border-radius:10px}
+  .cta-bar{background:#fff;padding:14px 16px;border-top:1px solid #ddd;position:sticky;bottom:0}
+  .cta-label{font-size:11px;color:#666;text-align:center;margin-bottom:10px}
+  .cta-btn{display:block;background:linear-gradient(135deg,#128C7E,#25D366);color:#fff;text-align:center;padding:16px;border-radius:14px;font-size:16px;font-weight:800;text-decoration:none;box-shadow:0 4px 16px rgba(37,211,102,.4);margin-bottom:6px}
+  .cta-btn:active{transform:scale(.98)}
+  .cta-fine{text-align:center;font-size:10px;color:#aaa;line-height:1.5}
+  .subject-chips{display:flex;gap:6px;overflow-x:auto;padding:8px 0;scrollbar-width:none}
+  .subject-chips::-webkit-scrollbar{display:none}
+  .chip{background:#e8f5e9;border:1px solid #c8e6c9;color:#2e7d32;font-size:11px;font-weight:600;padding:5px 12px;border-radius:20px;white-space:nowrap;flex-shrink:0}
+</style>
+</head>
+<body>
+
+<div class="topbar">
+  <div class="avatar">👨‍🏫</div>
+  <div class="topbar-info">
+    <h2>Talk to Expert 📚</h2>
+    <p><span class="online-dot"></span>Online — Experts उपलब्ध छन्</p>
+  </div>
+</div>
+
+<div class="chat-area" id="chatArea">
+  <div class="divider">आज · Today</div>
+
+  <div class="bubble bubble-in">
+    <div class="bubble-name">Expert Shikshak</div>
+    नमस्ते! 👋 म तपाईंको शिक्षा विशेषज्ञ हुँ।<br>
+    <small style="color:#555">Hello! I'm your education expert. Ask me anything!</small>
+    <div class="bubble-time">2:30 PM ✓✓</div>
+  </div>
+
+  <div class="bubble bubble-out">
+    मलाई गणितमा सहयोग चाहिन्छ।<br>
+    <small style="color:#555">I need help with Maths.</small>
+    <div class="bubble-time">2:31 PM ✓✓</div>
+  </div>
+
+  <div class="bubble bubble-in">
+    <div class="bubble-name">Expert Shikshak</div>
+    बिल्कुल! 😊 SEE, +2 वा Entrance — कुनै पनि विषयमा म यहाँ छु।<br>
+    <small style="color:#555">Of course! I'm here for SEE, +2 or any entrance exam prep.</small>
+    <div class="bubble-time">2:31 PM ✓✓</div>
+  </div>
+
+  <div class="subject-chips">
+    <span class="chip">🔢 Maths</span>
+    <span class="chip">🔬 Science</span>
+    <span class="chip">🌏 English</span>
+    <span class="chip">📜 Nepali</span>
+    <span class="chip">🗺️ Social</span>
+    <span class="chip">💻 Computer</span>
+  </div>
+
+  <div class="bubble bubble-in">
+    <div class="bubble-name">Expert Shikshak</div>
+    📲 अहिले नै सदस्यता लिनुहोस् र तुरुन्त उत्तर पाउनुहोस्!<br>
+    <small style="color:#555">Subscribe now and get instant answers anytime!</small>
+    <div class="bubble-time">2:32 PM ✓✓</div>
+  </div>
+
+  <div class="typing">
+    <div class="dot"></div>
+    <div class="dot"></div>
+    <div class="dot"></div>
+  </div>
+</div>
+
+<div class="cta-bar">
+  <div class="cta-label">📲 Ncell मार्फत सदस्यता सुरु गर्नुहोस्</div>
+  <a href="https://08deh.bemobtrk.com/click" class="cta-btn">
+    💬 विशेषज्ञसँग कुरा गर्नुहोस्<br>
+    <span style="font-size:12px;font-weight:500;opacity:.9">Talk to Expert — Subscribe Now</span>
+  </a>
+  <p class="cta-fine">Ncell users only · सजिलो भुक्तानी · Cancel anytime</p>
+</div>
+
+</body>
+</html>
