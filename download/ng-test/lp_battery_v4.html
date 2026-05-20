@@ -1,0 +1,295 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+<meta name="theme-color" content="#1565C0">
+<title>Battery Optimizer - Extend Your Battery Life</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700;900&display=swap" rel="stylesheet">
+<style>
+  *{margin:0;padding:0;box-sizing:border-box;}
+  body{
+    font-family:'Roboto',sans-serif;
+    background:linear-gradient(160deg,#E3F2FD 0%,#BBDEFB 40%,#fff 100%);
+    min-height:100vh;
+    display:flex;
+    align-items:flex-start;
+    justify-content:center;
+    padding:16px;
+  }
+  .card{
+    background:#fff;
+    border-radius:20px;
+    width:100%;
+    max-width:420px;
+    overflow:hidden;
+    box-shadow:0 6px 32px rgba(21,101,192,0.15);
+    margin-top:12px;
+  }
+
+  /* Header */
+  .card-header{
+    background:linear-gradient(135deg,#1565C0 0%,#1976D2 60%,#42A5F5 100%);
+    padding:24px 20px 20px;
+    text-align:center;
+    color:#fff;
+  }
+  .header-icon{
+    font-size:48px;
+    line-height:1;
+    margin-bottom:10px;
+    display:block;
+  }
+  .card-header h1{
+    font-size:22px;
+    font-weight:900;
+    letter-spacing:.3px;
+    margin-bottom:4px;
+  }
+  .card-header p{
+    font-size:13px;
+    opacity:.85;
+    font-weight:400;
+  }
+
+  /* Battery illustration */
+  .battery-section{
+    padding:24px 20px 16px;
+    text-align:center;
+    border-bottom:1px solid #E3F2FD;
+  }
+  .battery-wrap{
+    display:inline-flex;
+    align-items:center;
+    gap:14px;
+    background:#F0F7FF;
+    border-radius:14px;
+    padding:16px 24px;
+  }
+  .battery-svg{
+    position:relative;
+    width:56px;
+    height:28px;
+  }
+  .battery-body{
+    width:48px;height:28px;
+    border:3px solid #1565C0;
+    border-radius:5px;
+    position:absolute;left:0;top:0;
+    overflow:hidden;
+  }
+  .battery-fill{
+    position:absolute;
+    left:3px;top:3px;bottom:3px;
+    width:62%;
+    background:linear-gradient(90deg,#1976D2,#42A5F5);
+    border-radius:2px;
+    transition:width .4s;
+  }
+  .battery-tip{
+    position:absolute;
+    right:-8px;top:50%;
+    transform:translateY(-50%);
+    width:6px;height:12px;
+    background:#1565C0;
+    border-radius:0 3px 3px 0;
+  }
+  .battery-info{
+    text-align:left;
+  }
+  .battery-info .pct{
+    font-size:28px;font-weight:900;color:#1565C0;line-height:1;
+  }
+  .battery-info .label{
+    font-size:12px;color:#78909C;margin-top:2px;
+  }
+
+  /* Features */
+  .features{
+    padding:20px;
+  }
+  .features h2{
+    font-size:15px;font-weight:700;color:#1565C0;
+    margin-bottom:14px;text-align:center;
+  }
+  .feature-item{
+    display:flex;
+    align-items:flex-start;
+    gap:12px;
+    padding:11px 0;
+    border-bottom:1px solid #F5F7FA;
+  }
+  .feature-item:last-child{border-bottom:none;}
+  .feat-icon{
+    width:38px;height:38px;border-radius:10px;
+    background:#E3F2FD;
+    display:flex;align-items:center;justify-content:center;
+    font-size:18px;flex-shrink:0;
+  }
+  .feat-text strong{display:block;font-size:14px;color:#212121;font-weight:700;}
+  .feat-text span{font-size:12px;color:#78909C;margin-top:2px;display:block;}
+
+  /* Stats bar */
+  .stats-bar{
+    display:flex;
+    background:#F0F7FF;
+    padding:14px 16px;
+    gap:0;
+    border-top:1px solid #E3F2FD;
+    border-bottom:1px solid #E3F2FD;
+  }
+  .stat{
+    flex:1;text-align:center;
+    border-right:1px solid #BBDEFB;
+  }
+  .stat:last-child{border-right:none;}
+  .stat .num{font-size:20px;font-weight:900;color:#1565C0;}
+  .stat .desc{font-size:11px;color:#78909C;margin-top:2px;}
+
+  /* CTA */
+  .cta-section{
+    padding:20px;
+    text-align:center;
+  }
+  .cta-section p{
+    font-size:13px;color:#546E7A;margin-bottom:16px;line-height:1.5;
+  }
+  .btn-download{
+    display:block;
+    width:100%;
+    background:linear-gradient(135deg,#1565C0 0%,#1976D2 100%);
+    color:#fff;
+    font-size:16px;
+    font-weight:700;
+    padding:16px;
+    border-radius:12px;
+    text-decoration:none;
+    letter-spacing:.3px;
+    box-shadow:0 4px 18px rgba(21,101,192,0.35);
+    transition:transform .15s,box-shadow .15s;
+    border:none;
+    cursor:pointer;
+  }
+  .btn-download:active{transform:scale(.97);box-shadow:0 2px 8px rgba(21,101,192,0.3);}
+  .btn-download .sub{display:block;font-size:11px;font-weight:400;opacity:.85;margin-top:3px;}
+
+  .trust-row{
+    display:flex;align-items:center;justify-content:center;gap:6px;
+    margin-top:12px;
+    font-size:11px;color:#90A4AE;
+  }
+  .trust-row span{font-size:14px;}
+
+  /* Footer */
+  .footer{
+    padding:12px 20px 16px;
+    text-align:center;
+    font-size:10px;
+    color:#BDBDBD;
+    border-top:1px solid #F5F7FA;
+  }
+</style>
+</head>
+<body>
+<div class="card">
+
+  <!-- Header -->
+  <div class="card-header">
+    <span class="header-icon">🔋</span>
+    <h1>Battery Optimizer</h1>
+    <p>Smart power management for your Android device</p>
+  </div>
+
+  <!-- Battery Illustration -->
+  <div class="battery-section">
+    <div class="battery-wrap">
+      <div class="battery-svg">
+        <div class="battery-body">
+          <div class="battery-fill"></div>
+        </div>
+        <div class="battery-tip"></div>
+      </div>
+      <div class="battery-info">
+        <div class="pct">+40%</div>
+        <div class="label">average battery gain</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Features -->
+  <div class="features">
+    <h2>What Battery Optimizer does</h2>
+    <div class="feature-item">
+      <div class="feat-icon">⚡</div>
+      <div class="feat-text">
+        <strong>Smart Background Control</strong>
+        <span>Stops apps draining power while you're not using them</span>
+      </div>
+    </div>
+    <div class="feature-item">
+      <div class="feat-icon">🌙</div>
+      <div class="feat-text">
+        <strong>Night Mode Saver</strong>
+        <span>Automatically reduces power use while you sleep</span>
+      </div>
+    </div>
+    <div class="feature-item">
+      <div class="feat-icon">📊</div>
+      <div class="feat-text">
+        <strong>Battery Health Monitor</strong>
+        <span>See which apps use the most battery in real time</span>
+      </div>
+    </div>
+    <div class="feature-item">
+      <div class="feat-icon">🔄</div>
+      <div class="feat-text">
+        <strong>One-Tap Optimization</strong>
+        <span>Instantly free up resources with a single tap</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- Stats -->
+  <div class="stats-bar">
+    <div class="stat">
+      <div class="num">2M+</div>
+      <div class="desc">Downloads</div>
+    </div>
+    <div class="stat">
+      <div class="num">4.6★</div>
+      <div class="desc">Rating</div>
+    </div>
+    <div class="stat">
+      <div class="num">Free</div>
+      <div class="desc">To install</div>
+    </div>
+  </div>
+
+  <!-- CTA -->
+  <div class="cta-section">
+    <p>Join millions of users who extended their battery life with one simple app.</p>
+    <a href="#" class="btn-download" id="cta-btn">
+      Download Battery Optimizer
+      <span class="sub">Free · Android · No registration</span>
+    </a>
+    <div class="trust-row">
+      <span>🔒</span> Safe &amp; secure · No personal data collected
+    </div>
+  </div>
+
+  <div class="footer">
+    By downloading you agree to our Terms of Service &amp; Privacy Policy.<br>
+    Free app · In-app purchases available
+  </div>
+</div>
+
+<script>
+  document.getElementById('cta-btn').addEventListener('click', function(e){
+    e.preventDefault();
+    // Replace with actual offer URL
+    window.location.href = 'https://play.google.com/store';
+  });
+</script>
+</body>
+</html>

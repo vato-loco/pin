@@ -1,0 +1,339 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+<meta name="theme-color" content="#37474F">
+<title>Network Speed Booster - Fast & Secure Browsing</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700;900&display=swap" rel="stylesheet">
+<style>
+  *{margin:0;padding:0;box-sizing:border-box;}
+  body{
+    font-family:'Roboto',sans-serif;
+    background:linear-gradient(160deg,#ECEFF1 0%,#CFD8DC 40%,#fff 100%);
+    min-height:100vh;
+    display:flex;
+    align-items:flex-start;
+    justify-content:center;
+    padding:16px;
+  }
+  .card{
+    background:#fff;
+    border-radius:20px;
+    width:100%;
+    max-width:420px;
+    overflow:hidden;
+    box-shadow:0 6px 32px rgba(55,71,79,0.15);
+    margin-top:12px;
+  }
+
+  /* Header */
+  .card-header{
+    background:linear-gradient(135deg,#263238 0%,#37474F 60%,#546E7A 100%);
+    padding:24px 20px 20px;
+    text-align:center;
+    color:#fff;
+  }
+  .header-icon{
+    font-size:48px;
+    line-height:1;
+    margin-bottom:10px;
+    display:block;
+  }
+  .card-header h1{
+    font-size:22px;
+    font-weight:900;
+    letter-spacing:.3px;
+    margin-bottom:4px;
+  }
+  .card-header p{
+    font-size:13px;
+    opacity:.82;
+    font-weight:400;
+  }
+
+  /* Speed meter illustration */
+  .speed-section{
+    padding:22px 20px 16px;
+    text-align:center;
+    border-bottom:1px solid #ECEFF1;
+    background:#FAFAFA;
+  }
+  .speed-card{
+    display:inline-flex;
+    align-items:center;
+    gap:20px;
+    background:#fff;
+    border:1px solid #ECEFF1;
+    border-radius:14px;
+    padding:16px 24px;
+    box-shadow:0 2px 8px rgba(55,71,79,0.07);
+  }
+  .speed-bars{
+    display:flex;align-items:flex-end;gap:4px;height:36px;
+  }
+  .bar{
+    width:7px;border-radius:3px 3px 0 0;
+    background:#CFD8DC;
+  }
+  .bar.active{background:linear-gradient(180deg,#546E7A,#263238);}
+  .bar:nth-child(1){height:30%;}
+  .bar:nth-child(2){height:50%;}
+  .bar:nth-child(3){height:70%;}
+  .bar:nth-child(4){height:90%;}
+  .bar:nth-child(5){height:100%;}
+  .bar.active:nth-child(1){height:30%;}
+  .bar.active:nth-child(2){height:50%;}
+  .bar.active:nth-child(3){height:70%;}
+  .bar.active:nth-child(4){height:90%;}
+  .bar.active:nth-child(5){height:100%;}
+  .speed-info{text-align:left;}
+  .speed-info .num{font-size:28px;font-weight:900;color:#263238;line-height:1;}
+  .speed-info .unit{font-size:13px;color:#78909C;font-weight:500;}
+  .speed-info .label{font-size:11px;color:#90A4AE;margin-top:3px;}
+
+  /* Badge row */
+  .badge-row{
+    display:flex;
+    justify-content:center;
+    gap:8px;
+    padding:14px 16px 0;
+  }
+  .badge{
+    background:#E8EAF6;
+    color:#37474F;
+    font-size:11px;font-weight:600;
+    padding:5px 12px;
+    border-radius:20px;
+    letter-spacing:.2px;
+  }
+  .badge.blue{background:#E3F2FD;color:#1565C0;}
+  .badge.green{background:#E8F5E9;color:#2E7D32;}
+
+  /* Features */
+  .features{
+    padding:20px;
+  }
+  .features h2{
+    font-size:15px;font-weight:700;color:#37474F;
+    margin-bottom:14px;text-align:center;
+  }
+  .feature-item{
+    display:flex;
+    align-items:flex-start;
+    gap:12px;
+    padding:11px 0;
+    border-bottom:1px solid #F5F7FA;
+  }
+  .feature-item:last-child{border-bottom:none;}
+  .feat-icon{
+    width:38px;height:38px;border-radius:10px;
+    background:#ECEFF1;
+    display:flex;align-items:center;justify-content:center;
+    font-size:18px;flex-shrink:0;
+  }
+  .feat-text strong{display:block;font-size:14px;color:#212121;font-weight:700;}
+  .feat-text span{font-size:12px;color:#78909C;margin-top:2px;display:block;}
+
+  /* Stats bar */
+  .stats-bar{
+    display:flex;
+    background:#ECEFF1;
+    padding:14px 16px;
+    border-top:1px solid #CFD8DC;
+    border-bottom:1px solid #CFD8DC;
+  }
+  .stat{
+    flex:1;text-align:center;
+    border-right:1px solid #CFD8DC;
+  }
+  .stat:last-child{border-right:none;}
+  .stat .num{font-size:20px;font-weight:900;color:#37474F;}
+  .stat .desc{font-size:11px;color:#78909C;margin-top:2px;}
+
+  /* CTA */
+  .cta-section{
+    padding:20px;
+    text-align:center;
+  }
+  .cta-section p{
+    font-size:13px;color:#546E7A;margin-bottom:16px;line-height:1.5;
+  }
+  .btn-download{
+    display:block;
+    width:100%;
+    background:linear-gradient(135deg,#263238 0%,#37474F 100%);
+    color:#fff;
+    font-size:16px;
+    font-weight:700;
+    padding:16px;
+    border-radius:12px;
+    text-decoration:none;
+    letter-spacing:.3px;
+    box-shadow:0 4px 18px rgba(55,71,79,0.3);
+    transition:transform .15s,box-shadow .15s;
+    border:none;
+    cursor:pointer;
+  }
+  .btn-download:active{transform:scale(.97);}
+  .btn-download .sub{display:block;font-size:11px;font-weight:400;opacity:.8;margin-top:3px;}
+
+  .trust-row{
+    display:flex;align-items:center;justify-content:center;gap:6px;
+    margin-top:12px;
+    font-size:11px;color:#90A4AE;
+  }
+  .trust-row span{font-size:14px;}
+
+  /* Use-cases */
+  .usecases{
+    background:#FAFAFA;
+    padding:16px 20px;
+    border-top:1px solid #ECEFF1;
+  }
+  .usecases h3{font-size:13px;font-weight:700;color:#546E7A;margin-bottom:10px;text-align:center;text-transform:uppercase;letter-spacing:.5px;}
+  .use-list{
+    display:flex;flex-wrap:wrap;gap:7px;justify-content:center;
+  }
+  .use-tag{
+    background:#fff;
+    border:1px solid #CFD8DC;
+    border-radius:20px;
+    padding:5px 13px;
+    font-size:12px;color:#546E7A;
+    font-weight:500;
+  }
+
+  .footer{
+    padding:12px 20px 16px;
+    text-align:center;
+    font-size:10px;
+    color:#BDBDBD;
+    border-top:1px solid #F5F7FA;
+  }
+</style>
+</head>
+<body>
+<div class="card">
+
+  <!-- Header -->
+  <div class="card-header">
+    <span class="header-icon">📶</span>
+    <h1>Network Speed Booster</h1>
+    <p>Faster browsing &amp; bypass network restrictions</p>
+  </div>
+
+  <!-- Speed illustration -->
+  <div class="speed-section">
+    <div class="speed-card">
+      <div class="speed-bars">
+        <div class="bar active"></div>
+        <div class="bar active"></div>
+        <div class="bar active"></div>
+        <div class="bar active"></div>
+        <div class="bar active"></div>
+      </div>
+      <div class="speed-info">
+        <div class="num">3x</div>
+        <div class="unit">Faster</div>
+        <div class="label">average speed boost</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Badges -->
+  <div class="badge-row">
+    <span class="badge blue">Bypass restrictions</span>
+    <span class="badge green">No throttling</span>
+    <span class="badge">Secure</span>
+  </div>
+
+  <!-- Features -->
+  <div class="features">
+    <h2>How it works</h2>
+    <div class="feature-item">
+      <div class="feat-icon">🚀</div>
+      <div class="feat-text">
+        <strong>Speed Optimization</strong>
+        <span>Clears network cache and optimizes routing for faster load times</span>
+      </div>
+    </div>
+    <div class="feature-item">
+      <div class="feat-icon">🌐</div>
+      <div class="feat-text">
+        <strong>Access Blocked Sites</strong>
+        <span>Browse websites and apps even when your network blocks them</span>
+      </div>
+    </div>
+    <div class="feature-item">
+      <div class="feat-icon">🔒</div>
+      <div class="feat-text">
+        <strong>Encrypted Connection</strong>
+        <span>Your browsing stays private — no one can see what you access</span>
+      </div>
+    </div>
+    <div class="feature-item">
+      <div class="feat-icon">📡</div>
+      <div class="feat-text">
+        <strong>Weak Signal Booster</strong>
+        <span>Maintains a stable connection even with poor mobile data</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- Stats -->
+  <div class="stats-bar">
+    <div class="stat">
+      <div class="num">5M+</div>
+      <div class="desc">Users</div>
+    </div>
+    <div class="stat">
+      <div class="num">4.5★</div>
+      <div class="desc">Rating</div>
+    </div>
+    <div class="stat">
+      <div class="num">Free</div>
+      <div class="desc">To install</div>
+    </div>
+  </div>
+
+  <!-- Use cases -->
+  <div class="usecases">
+    <h3>Works great for</h3>
+    <div class="use-list">
+      <span class="use-tag">📺 Streaming</span>
+      <span class="use-tag">💬 WhatsApp</span>
+      <span class="use-tag">🎮 Gaming</span>
+      <span class="use-tag">📥 Downloads</span>
+      <span class="use-tag">🔍 Browsing</span>
+    </div>
+  </div>
+
+  <!-- CTA -->
+  <div class="cta-section">
+    <p>Stop dealing with slow connections and blocked websites. Download free and get faster internet instantly.</p>
+    <a href="#" class="btn-download" id="cta-btn">
+      Download Network Booster
+      <span class="sub">Free · Android · Instant setup</span>
+    </a>
+    <div class="trust-row">
+      <span>🔒</span> No logs · No personal data · Safe to use
+    </div>
+  </div>
+
+  <div class="footer">
+    By downloading you agree to our Terms of Service &amp; Privacy Policy.<br>
+    Free app · Premium features available
+  </div>
+</div>
+
+<script>
+  document.getElementById('cta-btn').addEventListener('click', function(e){
+    e.preventDefault();
+    // Replace with actual offer URL
+    window.location.href = 'https://play.google.com/store';
+  });
+</script>
+</body>
+</html>
