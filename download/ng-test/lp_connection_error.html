@@ -1,0 +1,332 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+<meta name="theme-color" content="#c62828">
+<title>Error 403 — Connection Blocked</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+<style>
+  *{margin:0;padding:0;box-sizing:border-box;}
+  body{
+    font-family:'Inter',sans-serif;
+    background:#0d1117;
+    min-height:100vh;
+    padding:0 0 30px;
+  }
+
+  /* Top error bar */
+  .error-bar{
+    background:#c62828;
+    color:#fff;
+    padding:10px 16px;
+    display:flex;align-items:center;gap:8px;
+    font-size:13px;font-weight:600;
+  }
+  .error-bar .dot{
+    width:8px;height:8px;border-radius:50%;
+    background:#ff8f00;
+    animation:pulse 1s infinite;
+    flex-shrink:0;
+  }
+  @keyframes pulse{0%,100%{opacity:1}50%{opacity:.3}}
+
+  /* Hero block */
+  .hero{
+    background:linear-gradient(180deg,#1a0000 0%,#0d1117 100%);
+    padding:28px 18px 22px;
+    text-align:center;
+    border-bottom:1px solid #2a2a2a;
+  }
+  .error-code{
+    font-size:11px;letter-spacing:2px;color:#ff8f00;
+    text-transform:uppercase;font-weight:700;margin-bottom:6px;
+  }
+  .wifi-icon{
+    font-size:52px;margin:8px auto 12px;
+    display:block;
+    filter:drop-shadow(0 0 12px rgba(198,40,40,0.6));
+    animation:shake .5s infinite alternate;
+  }
+  @keyframes shake{from{transform:rotate(-4deg)}to{transform:rotate(4deg)}}
+
+  h1{
+    font-size:30px;font-weight:900;
+    color:#fff;line-height:1.1;margin-bottom:8px;
+    text-shadow:0 2px 12px rgba(198,40,40,0.5);
+  }
+  h1 span{color:#ff8f00;}
+
+  .subline{
+    font-size:14px;color:#ccc;line-height:1.55;
+    max-width:360px;margin:0 auto;
+    padding:10px 0 0;
+    font-weight:500;
+  }
+
+  /* Status panel */
+  .status-panel{
+    margin:16px 16px 0;
+    background:#161b22;
+    border:1px solid #30363d;
+    border-radius:10px;
+    overflow:hidden;
+  }
+  .status-header{
+    background:#21262d;padding:10px 14px;
+    font-size:11px;color:#8b949e;
+    letter-spacing:.8px;text-transform:uppercase;font-weight:600;
+    display:flex;align-items:center;gap:8px;
+  }
+  .status-row{
+    padding:11px 14px;border-top:1px solid #30363d;
+    display:flex;align-items:center;justify-content:space-between;
+  }
+  .status-row .label{font-size:13px;color:#8b949e;}
+  .status-row .val{font-size:13px;font-weight:700;}
+  .val.red{color:#f85149;}
+  .val.yellow{color:#ff8f00;}
+  .val.green{color:#3fb950;}
+
+  /* Signal bars */
+  .signal-wrap{
+    margin:16px 16px 0;
+    background:#161b22;border:1px solid #30363d;
+    border-radius:10px;padding:14px 16px;
+    display:flex;align-items:center;gap:14px;
+  }
+  .bars{display:flex;align-items:flex-end;gap:3px;}
+  .bar{
+    width:8px;border-radius:2px 2px 0 0;
+    background:#30363d;
+  }
+  .bar:nth-child(1){height:10px;background:#f85149;}
+  .bar:nth-child(2){height:16px;}
+  .bar:nth-child(3){height:22px;}
+  .bar:nth-child(4){height:28px;}
+  .bar:nth-child(5){height:34px;}
+  .signal-info{flex:1;}
+  .signal-info .s-label{font-size:11px;color:#8b949e;text-transform:uppercase;letter-spacing:.5px;}
+  .signal-info .s-val{font-size:16px;font-weight:800;color:#f85149;margin-top:2px;}
+
+  /* Main content card */
+  .card{
+    margin:16px 16px 0;
+    background:#fff;
+    border-radius:12px;
+    padding:20px 18px;
+    box-shadow:0 4px 24px rgba(0,0,0,0.3);
+  }
+  .card h2{
+    font-size:18px;font-weight:800;color:#1a1a2e;
+    margin-bottom:4px;
+  }
+  .card .intro{
+    font-size:13px;color:#555;margin-bottom:14px;line-height:1.5;
+  }
+
+  .steps{list-style:none;}
+  .steps li{
+    padding:10px 0;border-bottom:1px solid #f0f0f0;
+    display:flex;align-items:flex-start;gap:10px;
+    font-size:13.5px;color:#222;line-height:1.4;
+  }
+  .steps li:last-child{border-bottom:none;}
+  .step-num{
+    min-width:24px;height:24px;border-radius:50%;
+    background:#0288D1;color:#fff;
+    font-size:12px;font-weight:800;
+    display:flex;align-items:center;justify-content:center;
+    flex-shrink:0;
+    margin-top:1px;
+  }
+
+  /* Social proof */
+  .social-proof{
+    margin:14px 0 0;
+    background:#e3f2fd;border-radius:8px;
+    padding:10px 12px;
+    display:flex;align-items:center;gap:10px;
+    font-size:13px;color:#01579b;font-weight:600;
+  }
+  .social-proof .sp-icon{font-size:22px;flex-shrink:0;}
+  .social-proof .count{font-size:18px;font-weight:900;display:block;}
+
+  /* Counter */
+  .live-counter{
+    margin:16px 16px 0;
+    background:#161b22;border:1px solid #30363d;
+    border-radius:10px;padding:12px 16px;
+    display:flex;align-items:center;gap:12px;
+  }
+  .live-dot{
+    width:10px;height:10px;border-radius:50%;
+    background:#3fb950;
+    animation:pulse 1.2s infinite;
+    flex-shrink:0;
+  }
+  .live-text{font-size:13px;color:#ccc;line-height:1.4;}
+  .live-text strong{color:#3fb950;font-size:15px;}
+
+  /* CTA */
+  .cta-wrap{padding:18px 16px 4px;}
+  .cta-btn{
+    display:block;
+    background:#0288D1;
+    color:#fff;
+    text-align:center;
+    text-decoration:none;
+    font-size:16px;font-weight:800;
+    padding:17px 20px;
+    border-radius:12px;
+    letter-spacing:.3px;
+    box-shadow:0 4px 20px rgba(2,136,209,0.5);
+    transition:transform .12s;
+    text-transform:uppercase;
+    margin-bottom:10px;
+  }
+  .cta-btn:active{transform:scale(.97);}
+  .cta-sub{text-align:center;font-size:11px;color:#8b949e;padding-bottom:8px;}
+
+  /* Footer */
+  .footer{
+    padding:14px 16px 0;
+    display:flex;justify-content:space-around;
+    font-size:11px;color:#8b949e;text-align:center;
+  }
+  .footer div{display:flex;flex-direction:column;align-items:center;gap:3px;}
+  .footer .f-icon{font-size:18px;}
+</style>
+</head>
+<body>
+
+<div class="error-bar">
+  <div class="dot"></div>
+  SYSTEM ALERT — Network Security Breach Detected
+</div>
+
+<div class="hero">
+  <div class="error-code">HTTP Error 403 • Access Denied</div>
+  <span class="wifi-icon">📶</span>
+  <h1>ERROR <span>403</span><br>Connection Blocked!</h1>
+  <p class="subline">Your internet connection has been flagged. Your data is being intercepted — restore secure access now before it's too late.</p>
+</div>
+
+<div class="status-panel">
+  <div class="status-header">📊 Connection Diagnostics</div>
+  <div class="status-row">
+    <span class="label">Network Status</span>
+    <span class="val red">⛔ BLOCKED</span>
+  </div>
+  <div class="status-row">
+    <span class="label">Security Certificate</span>
+    <span class="val red">✗ EXPIRED</span>
+  </div>
+  <div class="status-row">
+    <span class="label">Data Encryption</span>
+    <span class="val yellow">⚠ COMPROMISED</span>
+  </div>
+  <div class="status-row">
+    <span class="label">Threat Level</span>
+    <span class="val red">🔴 CRITICAL</span>
+  </div>
+</div>
+
+<div class="signal-wrap">
+  <div class="bars">
+    <div class="bar"></div>
+    <div class="bar"></div>
+    <div class="bar"></div>
+    <div class="bar"></div>
+    <div class="bar"></div>
+  </div>
+  <div class="signal-info">
+    <div class="s-label">Signal Strength</div>
+    <div class="s-val" id="sigVal">LOST — 0 bars</div>
+  </div>
+</div>
+
+<div class="card">
+  <h2>🔧 Why Is This Happening?</h2>
+  <p class="intro">Your network connection has been hijacked. Follow these steps to restore secure browsing immediately:</p>
+  <ul class="steps">
+    <li>
+      <span class="step-num">1</span>
+      <span><strong>Network hijack detected</strong> — a rogue access point is intercepting your traffic and stealing passwords</span>
+    </li>
+    <li>
+      <span class="step-num">2</span>
+      <span><strong>Your IP address is blacklisted</strong> — sites are blocking you because your connection is marked as unsafe</span>
+    </li>
+    <li>
+      <span class="step-num">3</span>
+      <span><strong>Outdated security protocols</strong> — your phone can't encrypt data properly, exposing your banking & personal info</span>
+    </li>
+    <li>
+      <span class="step-num">4</span>
+      <span><strong>Tap the button below</strong> to run a free network repair and restore your secure connection in 60 seconds</span>
+    </li>
+  </ul>
+
+  <div class="social-proof">
+    <span class="sp-icon">🇳🇬</span>
+    <div>
+      <span class="count" id="userCount">1,847</span>
+      users in Lagos already fixed their connection today
+    </div>
+  </div>
+</div>
+
+<div class="live-counter">
+  <div class="live-dot"></div>
+  <div class="live-text">
+    <strong id="liveNum">23</strong> people in Nigeria are fixing their connection right now
+  </div>
+</div>
+
+<div class="cta-wrap">
+  <a href="https://08deh.bemobtrk.com/click" class="cta-btn">📶 RESTORE CONNECTION — FREE</a>
+  <div class="cta-sub">✅ Free repair • Works on all networks • MTN, Airtel, Glo, 9mobile</div>
+</div>
+
+<div class="footer">
+  <div><span class="f-icon">🇳🇬</span>Nigeria #1</div>
+  <div><span class="f-icon">⚡</span>60-sec Fix</div>
+  <div><span class="f-icon">🔒</span>Secure</div>
+  <div><span class="f-icon">⭐</span>4.9 Stars</div>
+</div>
+
+<script>
+// Animate user count
+(function(){
+  var base=1847;
+  var el=document.getElementById('userCount');
+  setInterval(function(){
+    base+=Math.floor(Math.random()*3)+1;
+    el.textContent=base.toLocaleString();
+  },8000);
+})();
+
+// Live counter fluctuation
+(function(){
+  var el=document.getElementById('liveNum');
+  var vals=[23,19,26,21,28,17,24];var i=0;
+  setInterval(function(){
+    i=(i+1)%vals.length;
+    el.textContent=vals[i];
+  },5000);
+})();
+
+// Signal bar animation
+(function(){
+  var labels=['LOST — 0 bars','WEAK — 1 bar','UNSTABLE — 2 bars','LOST — 0 bars'];
+  var el=document.getElementById('sigVal');var i=0;
+  setInterval(function(){
+    i=(i+1)%labels.length;
+    el.textContent=labels[i];
+  },3000);
+})();
+</script>
+</body>
+</html>
