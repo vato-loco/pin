@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Win Big Pakistan!</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Poppins', sans-serif;
+            background-color: #0b1a2d;
+            color: white;
+            text-align: center;
+            margin: 0;
+            padding: 20px;
+            overflow-x: hidden;
+        }
+        .header {
+            margin-bottom: 20px;
+        }
+        .prize-text {
+            color: #ffd700;
+            font-size: 24px;
+            font-weight: bold;
+            text-shadow: 0 0 10px rgba(255, 215, 0, 0.5);
+        }
+        .wheel-container {
+            position: relative;
+            width: 300px;
+            height: 300px;
+            margin: 0 auto 30px;
+        }
+        .wheel {
+            width: 100%;
+            height: 100%;
+            border-radius: 50%;
+            border: 10px solid #ffd700;
+            background: conic-gradient(
+                #e74c3c 0deg 45deg,
+                #3498db 45deg 90deg,
+                #f1c40f 90deg 135deg,
+                #2ecc71 135deg 180deg,
+                #9b59b6 180deg 225deg,
+                #e67e22 225deg 270deg,
+                #34495e 270deg 315deg,
+                #1abc9c 315deg 360deg
+            );
+            transition: transform 4s cubic-bezier(0.17, 0.67, 0.12, 0.99);
+            box-shadow: 0 0 50px rgba(0,0,0,0.5);
+        }
+        .wheel-pointer {
+            position: absolute;
+            top: -15px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 30px;
+            height: 40px;
+            background-color: #ffd700;
+            clip-path: polygon(50% 100%, 0 0, 100% 0);
+            z-index: 10;
+        }
+        .spin-button {
+            background-color: #ffd700;
+            color: #0b1a2d;
+            border: none;
+            padding: 15px 40px;
+            font-size: 20px;
+            font-weight: bold;
+            border-radius: 50px;
+            cursor: pointer;
+            box-shadow: 0 4px 15px rgba(255, 215, 0, 0.4);
+            margin-top: 20px;
+        }
+        .spin-button:disabled {
+            background-color: #555;
+            cursor: not-allowed;
+        }
+        .overlay {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0,0,0,0.9);
+            z-index: 100;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+            padding: 20px;
+        }
+        .congrats-card {
+            background: #162a44;
+            padding: 30px;
+            border-radius: 20px;
+            border: 2px solid #ffd700;
+            max-width: 400px;
+        }
+        .cta-button {
+            display: block;
+            background-color: #2ecc71;
+            color: white;
+            text-decoration: none;
+            padding: 15px 30px;
+            font-size: 18px;
+            font-weight: bold;
+            border-radius: 10px;
+            margin-top: 20px;
+            animation: pulse 1.5s infinite;
+        }
+        @keyframes pulse {
+            0% { transform: scale(1); }
+            50% { transform: scale(1.05); }
+            100% { transform: scale(1); }
+        }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <h1>JACKPOT PAKISTAN 🇵🇰</h1>
+        <p>Spin the Wheel to Win Your Share of <strong>100,000 PKR!</strong></p>
+    </div>
+
+    <div class="wheel-container">
+        <div class="wheel-pointer"></div>
+        <div id="wheel" class="wheel"></div>
+    </div>
+
+    <button id="spinBtn" class="spin-button" onclick="spinWheel()">SPIN TO WIN!</button>
+
+    <div id="overlay" class="overlay">
+        <div class="congrats-card">
+            <h2 style="color: #ffd700;">CONGRATULATIONS! 🎉</h2>
+            <p style="font-size: 20px;">You Won the Grand Prize:</p>
+            <p class="prize-text">100,000 PKR</p>
+            <p>To claim your prize, verify your mobile number on the next page!</p>
+            <!-- BEMOB CLICK URL -->
+            <a href="https://08deh.bemobtrk.com/click" class="cta-button">CLAIM 100,000 PKR NOW</a>
+        </div>
+    </div>
+
+    <script>
+        function spinWheel() {
+            const wheel = document.getElementById('wheel');
+            const btn = document.getElementById('spinBtn');
+            btn.disabled = true;
+
+            // Forceer de winst op een specifieke hoek (bijv. de groene sectie)
+            const randomRotation = 1800 + 135; // 5 rondjes + hoek voor 'win'
+            wheel.style.transform = "rotate(" + randomRotation + "deg)";
+
+            setTimeout(() => {
+                document.getElementById('overlay').style.display = 'flex';
+            }, 4500);
+        }
+    </script>
+</body>
+</html>
