@@ -7,28 +7,23 @@
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&display=swap" rel="stylesheet">
     <style>
         body { font-family: 'Poppins', sans-serif; background-color: #0b1a2d; color: white; text-align: center; margin: 0; padding: 20px; overflow-x: hidden; }
-        h1 { font-size: 24px; margin-bottom: 5px; }
+        .header h1 { font-size: 26px; margin-bottom: 5px; text-shadow: 0 2px 10px rgba(0,0,0,0.5); }
         .header p { font-size: 14px; margin-top: 0; opacity: 0.9; }
-        
-        .wheel-container { position: relative; width: 300px; height: 300px; margin: 30px auto; }
-        .wheel-pointer { position: absolute; top: -15px; left: 50%; transform: translateX(-50%); width: 30px; height: 40px; background-color: #ffd700; clip-path: polygon(50% 100%, 0 0, 100% 0); z-index: 10; filter: drop-shadow(0 0 5px rgba(0,0,0,0.5)); }
-        
-        #wheel { width: 100%; height: 100%; border-radius: 50%; border: 10px solid #ffd700; position: relative; transition: transform 5s cubic-bezier(0.1, 0, 0.1, 1); overflow: hidden; box-shadow: 0 0 30px rgba(0,0,0,0.5); }
-        
-        .segment { position: absolute; width: 100%; height: 100%; clip-path: polygon(50% 50%, 50% 0%, 100% 0%, 100% 50%); transform-origin: 50% 50%; display: flex; align-items: center; justify-content: center; }
-        
-        /* Prijsteksten op het rad */
-        .segment span { position: absolute; top: 40px; left: 70%; transform: rotate(65deg); font-weight: bold; font-size: 14px; color: white; text-shadow: 1px 1px 2px rgba(0,0,0,0.8); width: 100px; text-align: center; }
 
-        .spin-button { background-color: #ffd700; color: #0b1a2d; border: none; padding: 15px 50px; font-size: 20px; font-weight: bold; border-radius: 50px; cursor: pointer; box-shadow: 0 5px 20px rgba(255, 215, 0, 0.4); margin-top: 20px; transition: 0.2s; }
-        .spin-button:active { transform: scale(0.95); }
-
-        .overlay { display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.95); z-index: 100; justify-content: center; align-items: center; flex-direction: column; padding: 20px; }
-        .congrats-card { background: #162a44; padding: 30px; border-radius: 20px; border: 2px solid #ffd700; max-width: 350px; box-shadow: 0 0 50px rgba(255, 215, 0, 0.3); }
-        .prize-text { color: #ffd700; font-size: 32px; font-weight: bold; margin: 15px 0; display: block; }
-        .cta-button { display: block; background-color: #2ecc71; color: white; text-decoration: none; padding: 18px 30px; font-size: 22px; font-weight: bold; border-radius: 10px; margin-top: 20px; animation: pulse 1.5s infinite; }
+        .wheel-container { position: relative; width: 340px; height: 340px; margin: 30px auto; }
+        .wheel-pointer { position: absolute; top: -10px; left: 50%; transform: translateX(-50%); width: 40px; height: 50px; background-color: #ffd700; clip-path: polygon(50% 100%, 0 0, 100% 0); z-index: 20; filter: drop-shadow(0 0 10px rgba(0,0,0,0.8)); }
         
-        @keyframes pulse { 0% { transform: scale(1); box-shadow: 0 0 0 0 rgba(46, 204, 113, 0.7); } 70% { transform: scale(1.05); box-shadow: 0 0 0 15px rgba(46, 204, 113, 0); } 100% { transform: scale(1); } }
+        #wheel-svg { width: 100%; height: 100%; transform: rotate(0deg); transition: transform 5s cubic-bezier(0.1, 0, 0.1, 1); filter: drop-shadow(0 0 20px rgba(0,0,0,0.5)); }
+        
+        .spin-button { background-color: #ffd700; color: #0b1a2d; border: none; padding: 18px 60px; font-size: 22px; font-weight: bold; border-radius: 50px; cursor: pointer; box-shadow: 0 8px 25px rgba(255, 215, 0, 0.4); margin-top: 20px; text-transform: uppercase; letter-spacing: 1px; }
+
+        .overlay { display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.96); z-index: 100; justify-content: center; align-items: center; flex-direction: column; padding: 20px; }
+        .congrats-card { background: linear-gradient(145deg, #162a44, #0b1a2d); padding: 40px 30px; border-radius: 25px; border: 3px solid #ffd700; max-width: 380px; box-shadow: 0 0 60px rgba(255, 215, 0, 0.4); }
+        .prize-text { color: #ffd700; font-size: 38px; font-weight: bold; margin: 20px 0; display: block; text-shadow: 0 0 20px rgba(255, 215, 0, 0.5); }
+        .cta-button { display: block; background-color: #2ecc71; color: white; text-decoration: none; padding: 20px 30px; font-size: 24px; font-weight: bold; border-radius: 12px; margin-top: 25px; animation: pulse 1.5s infinite; box-shadow: 0 5px 15px rgba(46, 204, 113, 0.4); }
+        
+        @keyframes pulse { 0% { transform: scale(1); } 50% { transform: scale(1.06); } 100% { transform: scale(1); } }
+        #timer { color: #ff4d4d; font-weight: 700; font-size: 18px; }
     </style>
 </head>
 <body>
@@ -39,16 +34,36 @@
 
     <div class="wheel-container">
         <div class="wheel-pointer"></div>
-        <div id="wheel">
-            <div class="segment" style="transform: rotate(0deg); background: #e74c3c;"><span>1,000 PKR</span></div>
-            <div class="segment" style="transform: rotate(45deg); background: #3498db;"><span>5,000 PKR</span></div>
-            <div class="segment" style="transform: rotate(90deg); background: #f1c40f;"><span>500 PKR</span></div>
-            <div class="segment" style="transform: rotate(135deg); background: #2ecc71;"><span style="font-size: 16px;">100,000!</span></div>
-            <div class="segment" style="transform: rotate(180deg); background: #9b59b6;"><span>10,000 PKR</span></div>
-            <div class="segment" style="transform: rotate(225deg); background: #e67e22;"><span>TRY AGAIN</span></div>
-            <div class="segment" style="transform: rotate(270deg); background: #1abc9c;"><span>2,500 PKR</span></div>
-            <div class="segment" style="transform: rotate(315deg); background: #34495e;"><span>250 PKR</span></div>
-        </div>
+        <svg id="wheel-svg" viewBox="0 0 100 100">
+            <g id="wheel-group">
+                <!-- Segmenten (8 stuks) -->
+                <path d="M 50 50 L 50 0 A 50 50 0 0 1 85.35 14.65 Z" fill="#e74c3c" />
+                <path d="M 50 50 L 85.35 14.65 A 50 50 0 0 1 100 50 Z" fill="#3498db" />
+                <path d="M 50 50 L 100 50 A 50 50 0 0 1 85.35 85.35 Z" fill="#f1c40f" />
+                <path d="M 50 50 L 85.35 85.35 A 50 50 0 0 1 50 100 Z" fill="#2ecc71" />
+                <path d="M 50 50 L 50 100 A 50 50 0 0 1 14.65 85.35 Z" fill="#9b59b6" />
+                <path d="M 50 50 L 14.65 85.35 A 50 50 0 0 1 0 50 Z" fill="#e67e22" />
+                <path d="M 50 50 L 0 50 A 50 50 0 0 1 14.65 14.65 Z" fill="#1abc9c" />
+                <path d="M 50 50 L 14.65 14.65 A 50 50 0 0 1 50 0 Z" fill="#34495e" />
+
+                <!-- Tekst labels in de segmenten -->
+                <g fill="white" font-size="3.5" font-weight="bold" text-anchor="middle">
+                    <text transform="translate(62 25) rotate(22.5)">1,000 PKR</text>
+                    <text transform="translate(80 40) rotate(67.5)">5,000 PKR</text>
+                    <text transform="translate(82 65) rotate(112.5)">500 PKR</text>
+                    <text transform="translate(65 82) rotate(157.5)">100,000!</text>
+                    <text transform="translate(38 82) rotate(202.5)">10,000 PKR</text>
+                    <text transform="translate(18 65) rotate(247.5)">TRY AGAIN</text>
+                    <text transform="translate(18 35) rotate(292.5)">2,500 PKR</text>
+                    <text transform="translate(38 18) rotate(337.5)">250 PKR</text>
+                </g>
+                
+                <!-- Buitenrand -->
+                <circle cx="50" cy="50" r="49" fill="none" stroke="#ffd700" stroke-width="2" />
+                <!-- Middelpunt -->
+                <circle cx="50" cy="50" r="4" fill="#ffd700" />
+            </g>
+        </svg>
     </div>
 
     <button id="spinBtn" class="spin-button" onclick="spinWheel()">SPIN NOW</button>
@@ -56,25 +71,24 @@
     <div id="overlay" class="overlay">
         <div class="congrats-card">
             <h2 style="color: #ffd700; margin-top: 0;">JACKPOT! 🎉</h2>
-            <p>You have won the grand prize:</p>
+            <p style="font-size: 18px;">You have won the grand prize:</p>
             <span class="prize-text">100,000 PKR</span>
-            <p>Claim your winnings before the timer expires!</p>
+            <p>Verification is required to claim your prize.</p>
             <a href="https://08deh.bemobtrk.com/click" class="cta-button">CLAIM NOW</a>
-            <p style="font-size: 13px; margin-top: 20px; color: #ff4d4d; font-weight: bold;">Expires in: <span id="timer">02:59</span></p>
+            <p style="margin-top: 25px; opacity: 0.8;">Offer expires in: <span id="timer">02:59</span></p>
         </div>
     </div>
 
     <script>
         function spinWheel() {
-            const wheel = document.getElementById('wheel');
+            const wheel = document.getElementById('wheel-svg');
             const btn = document.getElementById('spinBtn');
             btn.style.visibility = 'hidden';
             
-            // We willen stoppen op het segment van 100,000 PKR (135 graden op de cirkel)
-            // Het rad draait met de klok mee. Om 135 graden bij de pointer (top/0 graden) te krijgen:
-            // We draaien een aantal keer rond + de offset.
-            const totalRotation = 3600 + (360 - 135) - 22.5; 
-            wheel.style.transform = "rotate(" + totalRotation + "deg)";
+            // Stoppen op 100,000! (Ligt op 157.5 graden in de SVG)
+            // Om 157.5 graden bovenaan bij de pointer (0 graden) te krijgen:
+            const stopAngle = 3600 + (360 - 157.5); 
+            wheel.style.transform = "rotate(" + stopAngle + "deg)";
             
             setTimeout(() => {
                 document.getElementById('overlay').style.display = 'flex';
