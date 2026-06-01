@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Win Big Pakistan!</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+        body { font-family: 'Poppins', sans-serif; background-color: #0b1a2d; color: white; text-align: center; margin: 0; padding: 20px; overflow-x: hidden; }
+        .prize-text { color: #ffd700; font-size: 24px; font-weight: bold; text-shadow: 0 0 10px rgba(255, 215, 0, 0.5); }
+        .wheel-container { position: relative; width: 320px; height: 320px; margin: 0 auto 30px; }
+        .wheel { width: 100%; height: 100%; border-radius: 50%; border: 8px solid #ffd700; background: #222; position: relative; transition: transform 5s cubic-bezier(0.17, 0.67, 0.12, 0.99); box-shadow: 0 0 30px rgba(255, 215, 0, 0.2); }
+        .wheel-pointer { position: absolute; top: -15px; left: 50%; transform: translateX(-50%); width: 30px; height: 40px; background-color: #ffd700; clip-path: polygon(50% 100%, 0 0, 100% 0); z-index: 10; filter: drop-shadow(0 0 5px gold); }
+        .spin-button { background-color: #ffd700; color: #0b1a2d; border: none; padding: 15px 40px; font-size: 20px; font-weight: bold; border-radius: 50px; cursor: pointer; box-shadow: 0 4px 15px rgba(255, 215, 0, 0.4); margin-top: 20px; }
+        .overlay { display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.95); z-index: 100; justify-content: center; align-items: center; flex-direction: column; padding: 20px; }
+        .congrats-card { background: #162a44; padding: 30px; border-radius: 20px; border: 2px solid #ffd700; max-width: 400px; box-shadow: 0 0 50px gold; }
+        .cta-button { display: block; background-color: #2ecc71; color: white; text-decoration: none; padding: 15px 30px; font-size: 22px; font-weight: bold; border-radius: 10px; margin-top: 20px; animation: pulse 1.5s infinite; }
+        @keyframes pulse { 0%, 100% { transform: scale(1); } 50% { transform: scale(1.1); } }
+        /* Label styling op het rad */
+        .segment { position: absolute; width: 50%; height: 50%; background-origin: border-box; transform-origin: 100% 100%; left: 0; top: 0; display: flex; align-items: center; justify-content: center; font-size: 12px; font-weight: bold; overflow: hidden; }
+        .label { position: absolute; transform: rotate(22deg) translate(70px, -70px); width: 100px; text-align: center; }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <h1>LUCKY SPIN PAKISTAN 🇵🇰</h1>
+        <p>You have <strong>1 FREE SPIN</strong> remaining!</p>
+    </div>
+
+    <div class="wheel-container">
+        <div class="wheel-pointer"></div>
+        <div id="wheel" class="wheel">
+            <!-- Dynamische segmenten met prijzen -->
+            <div class="segment" style="transform: rotate(0deg); background: #e74c3c;"><div class="label">1,000 PKR</div></div>
+            <div class="segment" style="transform: rotate(45deg); background: #3498db;"><div class="label">5,000 PKR</div></div>
+            <div class="segment" style="transform: rotate(90deg); background: #f1c40f; color: black;"><div class="label">500 PKR</div></div>
+            <div class="segment" style="transform: rotate(135deg); background: #2ecc71;"><div class="label">100,000!</div></div>
+            <div class="segment" style="transform: rotate(180deg); background: #9b59b6;"><div class="label">10,000 PKR</div></div>
+            <div class="segment" style="transform: rotate(225deg); background: #e67e22;"><div class="label">TRY AGAIN</div></div>
+            <div class="segment" style="transform: rotate(270deg); background: #1abc9c;"><div class="label">2,500 PKR</div></div>
+            <div class="segment" style="transform: rotate(315deg); background: #34495e;"><div class="label">250 PKR</div></div>
+        </div>
+    </div>
+
+    <button id="spinBtn" class="spin-button" onclick="spinWheel()">SPIN NOW</button>
+
+    <div id="overlay" class="overlay">
+        <div class="congrats-card">
+            <h2 style="color: #ffd700;">JACKPOT! 🎉</h2>
+            <p style="font-size: 18px;">You have won the maximum prize:</p>
+            <p class="prize-text">100,000 PKR</p>
+            <p>Verification is required to claim your prize.</p>
+            <a href="https://08deh.bemobtrk.com/click" class="cta-button">CLAIM 100,000 PKR</a>
+            <p style="font-size: 12px; margin-top: 15px; opacity: 0.7;">Offer expires in: <span id="timer">02:59</span></p>
+        </div>
+    </div>
+
+    <script>
+        function spinWheel() {
+            const wheel = document.getElementById('wheel');
+            const btn = document.getElementById('spinBtn');
+            btn.style.display = 'none';
+            // Stop op 100,000 (segment op 135 graden, maar we moeten rekening houden met de pointer op de top)
+            const stopAngle = 1800 + (360 - 135) + 22.5; 
+            wheel.style.transform = "rotate(" + stopAngle + "deg)";
+            setTimeout(() => { document.getElementById('overlay').style.display = 'flex'; startTimer(); }, 5500);
+        }
+        function startTimer() {
+            let time = 179;
+            setInterval(() => {
+                let m = Math.floor(time / 60);
+                let s = time % 60;
+                document.getElementById('timer').innerText = (m < 10 ? "0" : "") + m + ":" + (s < 10 ? "0" : "") + s;
+                if (time > 0) time--;
+            }, 1000);
+        }
+    </script>
+</body>
+</html>
