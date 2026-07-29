@@ -8,62 +8,43 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&display=swap" rel="stylesheet">
     <script src="https://cdn.tailwindcss.com"></script>
-    <script>
-        tailwind.config = { theme: { extend: { fontFamily: { sans: ['Inter', 'sans-serif'] } } } }
-    </script>
+    <script>tailwind.config = { theme: { extend: { fontFamily: { sans: ['Inter','sans-serif'] } } } }</script>
     <style>
-        * { -webkit-tap-highlight-color: transparent; }
-        input:focus { outline: none; }
-        @keyframes countdown { 0% { width: 100%; } 100% { width: 0%; } }
-        .timer-bar { animation: countdown 120s linear forwards; }
-        @keyframes pulse-warn { 0%, 100% { opacity: 1; } 50% { opacity: 0.6; } }
-        .urgent-pulse { animation: pulse-warn 1s ease-in-out infinite; }
+        *{ -webkit-tap-highlight-color:transparent; }
+        @keyframes pulse-warn{ 0%,100%{opacity:1} 50%{opacity:.5} }
+        .urgent-pulse{animation:pulse-warn .8s ease-in-out infinite}
     </style>
 </head>
 <body class="bg-gradient-to-b from-red-50 to-orange-50 min-h-screen font-sans flex items-center justify-center p-4">
-    <div class="w-full max-w-sm bg-white rounded-2xl shadow-xl p-6 text-center">
-        <!-- Urgency timer -->
-        <div class="w-full bg-gray-200 rounded-full h-2 mb-4 overflow-hidden">
-            <div class="timer-bar h-full bg-red-500 rounded-full"></div>
-        </div>
-
-        <div class="urgent-pulse text-red-600 font-bold text-sm mb-3 flex items-center justify-center gap-2">
-            <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20">
-                <path fill-rule="evenodd" d="M8.257 3.099c.765-1.36 2.722-1.36 3.486 0l5.58 9.92c.75 1.334-.213 2.98-1.742 2.98H4.42c-1.53 0-2.493-1.646-1.743-2.98l5.58-9.92zM11 13a1 1 0 11-2 0 1 1 0 012 0zm-1-8a1 1 0 00-1 1v3a1 1 0 002 0V6a1 1 0 00-1-1z" clip-rule="evenodd"/>
-            </svg>
-            <span>Expires in <span id="timer">1:58</span></span>
-        </div>
-
-        <h1 class="text-2xl font-extrabold text-gray-900 mb-2">⏳ Your download link is expiring</h1>
-        <p class="text-gray-500 text-sm mb-6">Enter your number to claim it before it's gone</p>
-
-        <form action="https://08deh.bemobtrk.com/click?campaign_id=c2962fdc-aa4d-4a3a-a9b5-b44bfe9076cf&landing_id=3b9b6921-9fac-4abc-8a64-731ba11f1eb7" method="GET" class="space-y-4">
-            <div class="relative">
-                <div class="flex border-2 border-gray-200 rounded-xl overflow-hidden focus-within:border-red-500 transition">
-                    <span class="inline-flex items-center px-3 bg-gray-50 text-gray-600 font-semibold text-sm border-r border-gray-200">+234</span>
-                    <input type="tel" name="phone" placeholder="800 000 0000" required
-                        class="flex-1 px-3 py-4 text-base text-gray-900 placeholder-gray-400 bg-white"
-                        pattern="[0-9]{6,15}" maxlength="11"
-                        oninput="this.value = this.value.replace(/[^0-9]/g,'')">
-                </div>
+    <div class="w-full max-w-sm text-center">
+        <!-- Countdown -->
+        <div class="bg-white rounded-2xl shadow-lg p-6 mb-6">
+            <div class="urgent-pulse text-red-600 font-bold text-sm mb-3 flex items-center justify-center gap-2">
+                <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20">
+                    <path fill-rule="evenodd" d="M8.257 3.099c.765-1.36 2.722-1.36 3.486 0l5.58 9.92c.75 1.334-.213 2.98-1.742 2.98H4.42c-1.53 0-2.493-1.646-1.743-2.98l5.58-9.92zM11 13a1 1 0 11-2 0 1 1 0 012 0zm-1-8a1 1 0 00-1 1v3a1 0 002 0V6a1 1 0 00-1-1z" clip-rule="evenodd"/>
+                </svg>
+                <span>EXPIRES IN <span id="timer" class="text-xl font-extrabold">1:59</span></span>
             </div>
 
-            <button type="submit"
-                class="w-full bg-red-600 hover:bg-red-700 active:bg-red-800 text-white font-bold text-lg py-4 rounded-xl shadow-lg shadow-red-200 transition-all">
-                Claim Download
-            </button>
-        </form>
+            <h1 class="text-2xl font-extrabold text-gray-900 mb-2">Your download link is expiring!</h1>
+            <p class="text-gray-500 text-sm">Tap now or it's gone forever</p>
+        </div>
 
-        <p class="text-xs text-gray-400 mt-4">Link expires in 2 minutes. Free download.</p>
+        <a href="https://08deh.bemobtrk.com/click?campaign_id=c2962fdc-aa4d-4a3a-a9b5-b44bfe9076cf&landing_id=3b9b6921-9fac-4abc-8a64-731ba11f1eb7"
+           class="block w-full bg-red-600 active:bg-red-800 text-white font-bold text-xl py-5 rounded-2xl shadow-lg shadow-red-200 transition-all no-underline">
+            Download Before It's Gone
+        </a>
+
+        <p class="text-xs text-gray-400 mt-6">Free download. Data rates may apply.</p>
     </div>
 
+    <!-- Countdown timer -->
     <script>
-        let sec = 118;
+        let end = Date.now() + 119000;
+        const timer = document.getElementById('timer');
         setInterval(() => {
-            const m = Math.floor(sec / 60);
-            const s = sec % 60;
-            document.getElementById('timer').textContent = m + ':' + String(s).padStart(2, '0');
-            if (sec > 0) sec--;
+            const s = Math.max(0, Math.floor((end - Date.now())/1000));
+            timer.textContent = Math.floor(s/60)+':'+String(s%60).padStart(2,'0');
         }, 1000);
     </script>
 </body>

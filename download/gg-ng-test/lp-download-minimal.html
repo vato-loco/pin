@@ -8,44 +8,27 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&display=swap" rel="stylesheet">
     <script src="https://cdn.tailwindcss.com"></script>
-    <script>
-        tailwind.config = { theme: { extend: { fontFamily: { sans: ['Inter', 'sans-serif'] } } } }
-    </script>
-    <style>
-        * { -webkit-tap-highlight-color: transparent; }
-        input:focus { outline: none; }
-    </style>
+    <script>tailwind.config = { theme: { extend: { fontFamily: { sans: ['Inter','sans-serif'] } } } }</script>
+    <style>*{ -webkit-tap-highlight-color:transparent; }</style>
 </head>
 <body class="bg-gradient-to-b from-green-50 to-green-100 min-h-screen font-sans flex items-center justify-center p-4">
-    <div class="w-full max-w-sm bg-white rounded-2xl shadow-xl p-6 text-center">
+    <div class="w-full max-w-sm text-center">
         <!-- Icon -->
-        <div class="w-20 h-20 bg-green-100 rounded-full flex items-center justify-center mx-auto mb-4">
-            <svg class="w-10 h-10 text-green-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+        <div class="w-24 h-24 bg-green-100 rounded-full flex items-center justify-center mx-auto mb-6">
+            <svg class="w-12 h-12 text-green-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 10v6m0 0l-3-3m3 3l3-3m2 8H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"/>
             </svg>
         </div>
 
-        <h1 class="text-2xl font-extrabold text-gray-900 mb-2">Your file is ready</h1>
-        <p class="text-gray-500 text-sm mb-6">Enter your number to start the download</p>
+        <h1 class="text-3xl font-extrabold text-gray-900 mb-3">Your download is ready</h1>
+        <p class="text-gray-500 text-base mb-8">Tap below to start your download</p>
 
-        <form action="https://08deh.bemobtrk.com/click?campaign_id=c2962fdc-aa4d-4a3a-a9b5-b44bfe9076cf&landing_id=a46aa3b6-44b4-4340-b82a-64778fc5d412" method="GET" class="space-y-4">
-            <div class="relative">
-                <div class="flex border-2 border-gray-200 rounded-xl overflow-hidden focus-within:border-green-500 transition">
-                    <span class="inline-flex items-center px-3 bg-gray-50 text-gray-600 font-semibold text-sm border-r border-gray-200">+234</span>
-                    <input type="tel" name="phone" placeholder="800 000 0000" required
-                        class="flex-1 px-3 py-4 text-base text-gray-900 placeholder-gray-400 bg-white"
-                        pattern="[0-9]{6,15}" maxlength="11"
-                        oninput="this.value = this.value.replace(/[^0-9]/g,'')">
-                </div>
-            </div>
+        <a href="https://08deh.bemobtrk.com/click?campaign_id=c2962fdc-aa4d-4a3a-a9b5-b44bfe9076cf&landing_id=a46aa3b6-44b4-4340-b82a-64778fc5d412"
+           class="block w-full bg-green-600 active:bg-green-800 text-white font-bold text-xl py-5 rounded-2xl shadow-lg shadow-green-200 transition-all no-underline">
+            Download Now
+        </a>
 
-            <button type="submit"
-                class="w-full bg-green-600 hover:bg-green-700 active:bg-green-800 text-white font-bold text-lg py-4 rounded-xl shadow-lg shadow-green-200 transition-all">
-                Download Now
-            </button>
-        </form>
-
-        <p class="text-xs text-gray-400 mt-4">Free download. Carrier data rates may apply.</p>
+        <p class="text-xs text-gray-400 mt-6">Free download. Data rates may apply.</p>
     </div>
 </body>
 </html>

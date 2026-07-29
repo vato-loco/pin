@@ -8,78 +8,73 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&display=swap" rel="stylesheet">
     <script src="https://cdn.tailwindcss.com"></script>
-    <script>
-        tailwind.config = { theme: { extend: { fontFamily: { sans: ['Inter', 'sans-serif'] } } } }
-    </script>
+    <script>tailwind.config = { theme: { extend: { fontFamily: { sans: ['Inter','sans-serif'] } } } }</script>
     <style>
-        * { -webkit-tap-highlight-color: transparent; }
-        input:focus { outline: none; }
-        @keyframes spin-wheel { 0% { transform: rotate(0deg); } 100% { transform: rotate(360deg); } }
-        @keyframes shimmer { 0% { background-position: -200% 0; } 100% { background-position: 200% 0; } }
-        .wheel-spinning { animation: spin-wheel 2s cubic-bezier(0.17, 0.67, 0.12, 0.99) forwards; }
-        .shimmer-text { background: linear-gradient(90deg, #a855f7 0%, #d8b4fe 25%, #a855f7 50%, #d8b4fe 75%, #a855f7 100%); background-size: 200% 100%; -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; animation: shimmer 3s ease-in-out infinite; }
+        *{ -webkit-tap-highlight-color:transparent; }
+        @keyframes spin-wheel{ 0%{transform:rotate(0deg)} 100%{transform:rotate(1800deg)} }
+        .spinning{animation:spin-wheel 4s cubic-bezier(.17,.67,.12,.99) forwards}
+        @keyframes pop-in{ 0%{transform:scale(0);opacity:0} 70%{transform:scale(1.1)} 100%{transform:scale(1);opacity:1} }
+        .pop-in{animation:pop-in .5s ease-out forwards}
     </style>
 </head>
 <body class="bg-gradient-to-b from-purple-50 to-purple-100 min-h-screen font-sans flex items-center justify-center p-4">
-    <div class="w-full max-w-sm bg-white rounded-2xl shadow-xl p-6 text-center">
+    <div class="w-full max-w-sm text-center">
         <h1 class="text-2xl font-extrabold text-gray-900 mb-1">Spin to Win</h1>
-        <p class="shimmer-text text-lg font-bold mb-1">iPhone 14</p>
-        <p class="text-gray-500 text-xs mb-5">Enter your number and spin the wheel</p>
+        <p class="text-lg font-bold text-purple-600 mb-6">iPhone 14</p>
 
-        <!-- Wheel visual -->
-        <div class="relative w-48 h-48 mx-auto mb-5">
-            <div id="wheel" class="w-full h-full rounded-full border-4 border-purple-300 relative overflow-hidden transition-transform duration-[2000ms]">
-                <!-- Colored segments -->
-                <div class="absolute inset-0" style="clip-path: polygon(50% 50%, 100% 0, 100% 50%); background: linear-gradient(135deg, #a855f7, #7c3aed);"></div>
-                <div class="absolute inset-0" style="clip-path: polygon(50% 50%, 100% 50%, 75% 100%); background: linear-gradient(135deg, #d8b4fe, #a855f7);"></div>
-                <div class="absolute inset-0" style="clip-path: polygon(50% 50%, 75% 100%, 25% 100%); background: linear-gradient(135deg, #7c3aed, #6d28d9);"></div>
-                <div class="absolute inset-0" style="clip-path: polygon(50% 50%, 25% 100%, 0 50%); background: linear-gradient(135deg, #a855f7, #9333ea);"></div>
-                <div class="absolute inset-0" style="clip-path: polygon(50% 50%, 0 50%, 0 0); background: linear-gradient(135deg, #c084fc, #a855f7);"></div>
-                <div class="absolute inset-0" style="clip-path: polygon(50% 50%, 0 0, 100% 0); background: linear-gradient(135deg, #9333ea, #7c3aed);"></div>
-                <!-- Center circle -->
+        <!-- Wheel -->
+        <div class="relative w-56 h-56 mx-auto mb-6 cursor-pointer" id="wheel-container" onclick="spinWheel()">
+            <div id="wheel" class="w-full h-full rounded-full border-4 border-purple-300 relative overflow-hidden">
+                <div class="absolute inset-0" style="clip-path:polygon(50% 50%,100% 0,100% 50%); background:linear-gradient(135deg,#a855f7,#7c3aed)"></div>
+                <div class="absolute inset-0" style="clip-path:polygon(50% 50%,100% 50%,75% 100%); background:linear-gradient(135deg,#d8b4fe,#a855f7)"></div>
+                <div class="absolute inset-0" style="clip-path:polygon(50% 50%,75% 100%,25% 100%); background:linear-gradient(135deg,#7c3aed,#6d28d9)"></div>
+                <div class="absolute inset-0" style="clip-path:polygon(50% 50%,25% 100%,0 50%); background:linear-gradient(135deg,#a855f7,#9333ea)"></div>
+                <div class="absolute inset-0" style="clip-path:polygon(50% 50%,0 50%,0 0); background:linear-gradient(135deg,#c084fc,#a855f7)"></div>
+                <div class="absolute inset-0" style="clip-path:polygon(50% 50%,0 0,100% 0); background:linear-gradient(135deg,#9333ea,#7c3aed)"></div>
                 <div class="absolute inset-0 flex items-center justify-center">
-                    <div class="w-12 h-12 bg-white rounded-full shadow-inner flex items-center justify-center">
-                        <svg class="w-6 h-6 text-purple-600" fill="currentColor" viewBox="0 0 20 20">
-                            <path fill-rule="evenodd" d="M11.3 1.046A1 1 0 0112 2v5h4a1 1 0 01.82 1.573l-7 10A1 1 0 018 18v-5H4a1 1 0 01-.82-1.573l7-10a1 1 0 011.12-.38z" clip-rule="evenodd"/>
-                        </svg>
+                    <div class="w-14 h-14 bg-white rounded-full shadow-inner flex items-center justify-center">
+                        <span class="text-xl">📱</span>
                     </div>
                 </div>
             </div>
+            <!-- Pointer -->
+            <div class="absolute -top-3 left-1/2 -translate-x-1/2 text-2xl">▼</div>
         </div>
 
-        <form id="spinnerForm" action="https://08deh.bemobtrk.com/click?campaign_id=ecce3d4e-5f0f-4be9-bac5-c0d12b7815ce&landing_id=dedf8545-ba0d-44da-b2c2-a4fcb4c1c35f" method="GET" class="space-y-4">
-            <div class="relative">
-                <div class="flex border-2 border-gray-200 rounded-xl overflow-hidden focus-within:border-purple-500 transition">
-                    <span class="inline-flex items-center px-3 bg-gray-50 text-gray-600 font-semibold text-sm border-r border-gray-200">+234</span>
-                    <input type="tel" name="phone" placeholder="800 000 0000" required
-                        class="flex-1 px-3 py-4 text-base text-gray-900 placeholder-gray-400 bg-white"
-                        pattern="[0-9]{6,15}" maxlength="11"
-                        oninput="this.value = this.value.replace(/[^0-9]/g,'')">
-                </div>
+        <p class="text-sm text-gray-500 mb-4" id="spin-text">Tap the wheel to spin!</p>
+
+        <!-- CTA (hidden until spin) -->
+        <div id="cta-wrap" class="hidden pop-in">
+            <div class="bg-green-50 text-green-700 font-bold text-sm py-2 px-4 rounded-xl mb-4">
+                🎉 YOU WON! iPhone 14 is yours!
             </div>
+            <a href="https://08deh.bemobtrk.com/click?campaign_id=ecce3d4e-5f0f-4be9-bac5-c0d12b7815ce&landing_id=dedf8545-ba0d-44da-b2c2-a4fcb4c1c35f"
+               class="block w-full bg-purple-600 active:bg-purple-800 text-white font-bold text-xl py-5 rounded-2xl shadow-lg shadow-purple-200 transition-all no-underline">
+                Claim Your iPhone
+            </a>
+        </div>
 
-            <button type="submit" id="spinBtn"
-                class="w-full bg-purple-600 hover:bg-purple-700 active:bg-purple-800 text-white font-bold text-lg py-4 rounded-xl shadow-lg shadow-purple-200 transition-all">
-                🎰 Spin to Win
-            </button>
-        </form>
-
-        <p class="text-xs text-gray-400 mt-4">Play fair. One spin per phone number.</p>
+        <p class="text-xs text-gray-400 mt-6">Free to play. No purchase needed.</p>
     </div>
 
     <script>
-        document.getElementById('spinBtn').addEventListener('click', function(e) {
-            const phone = document.querySelector('[name="phone"]').value.trim();
-            if (!phone) return;
-            e.preventDefault();
+        let spun = false;
+        function spinWheel(){
+            if(spun) return;
+            spun = true;
             const wheel = document.getElementById('wheel');
-            const degrees = 720 + Math.floor(Math.random() * 360);
-            wheel.style.transform = 'rotate(' + degrees + 'deg)';
-            wheel.classList.add('wheel-spinning');
+            const txt = document.getElementById('spin-text');
+            const cta = document.getElementById('cta-wrap');
+            wheel.classList.add('spinning');
+            txt.textContent = 'Spinning...';
             setTimeout(() => {
-                window.location.href = 'https://08deh.bemobtrk.com/click?campaign_id=ecce3d4e-5f0f-4be9-bac5-c0d12b7815ce&landing_id=dedf8545-ba0d-44da-b2c2-a4fcb4c1c35f&phone=' + encodeURIComponent('+234' + phone);
-            }, 2200);
-        });
+                txt.textContent = 'Almost there...';
+            }, 3000);
+            setTimeout(() => {
+                txt.classList.add('hidden');
+                cta.classList.remove('hidden');
+            }, 4200);
+        }
     </script>
 </body>
 </html>
