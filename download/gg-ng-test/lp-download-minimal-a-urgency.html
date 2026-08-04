@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>Download Ready</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&display=swap" rel="stylesheet">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>tailwind.config = { theme: { extend: { fontFamily: { sans: ['Inter','sans-serif'] } } } }</script>
+    <style>*{ -webkit-tap-highlight-color:transparent; }</style>
+</head>
+<body class="bg-gradient-to-b from-green-50 to-green-100 min-h-screen font-sans flex items-center justify-center p-4">
+    <div class="w-full max-w-sm text-center">
+        <!-- Icon -->
+        <div class="w-24 h-24 bg-green-100 rounded-full flex items-center justify-center mx-auto mb-6">
+            <svg class="w-12 h-12 text-green-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 10v6m0 0l-3-3m3 3l3-3m2 8H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"/>
+            </svg>
+        </div>
+
+        <h1 class="text-3xl font-extrabold text-gray-900 mb-3">Your download is ready</h1>
+        <p class="text-gray-500 text-base mb-4">Tap below to start your download</p>
+
+        <!-- Countdown -->
+        <div class="bg-white rounded-xl shadow-md py-3 px-4 mb-6 inline-block">
+            <span class="text-xs text-gray-500 uppercase tracking-wide">Link expires in</span>
+            <div id="timer" class="text-2xl font-extrabold text-green-600 mt-1">05:00</div>
+        </div>
+
+        <a href="https://08deh.bemobtrk.com/click?campaign_id=c2962fdc-aa4d-4a3a-a9b5-b44bfe9076cf&landing_id=a46aa3b6-44b4-4340-b82a-64778fc5d412"
+           class="block w-full bg-green-600 active:bg-green-800 text-white font-bold text-xl py-5 rounded-2xl shadow-lg shadow-green-200 transition-all no-underline">
+            Download Now
+        </a>
+
+        <p class="text-xs text-gray-400 mt-6">Free download. Data rates may apply.</p>
+    </div>
+
+    <script>
+        let seconds = 300;
+        const timerEl = document.getElementById('timer');
+        setInterval(() => {
+            if (seconds <= 0) return;
+            seconds--;
+            const m = Math.floor(seconds/60).toString().padStart(2,'0');
+            const s = (seconds%60).toString().padStart(2,'0');
+            timerEl.textContent = `${m}:${s}`;
+        }, 1000);
+    </script>
+</body>
+</html>
