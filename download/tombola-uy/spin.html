@@ -1,0 +1,296 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+<meta name="robots" content="noindex, nofollow">
+<title>Gira la rueda - Tombola UY</title>
+<style>
+  * { margin:0; padding:0; box-sizing:border-box; }
+  body {
+    font-family:'Segoe UI', Arial, sans-serif;
+    background:radial-gradient(circle at 50% 0%, #4a148c 0%, #1a0033 60%, #0a0018 100%);
+    color:#fff;
+    min-height:100vh;
+    overflow-x:hidden;
+  }
+  .wrap { max-width:480px; margin:0 auto; padding:0 16px 40px; text-align:center; }
+  header { padding:16px 0 6px; }
+  .logo {
+    font-size:23px; font-weight:900;
+    display:flex; align-items:center; justify-content:center; gap:8px;
+  }
+  .logo .ball {
+    width:32px;height:32px;border-radius:50%;
+    background:radial-gradient(circle at 30% 30%,#ffee58,#f9a825);
+    display:flex;align-items:center;justify-content:center;
+    font-size:15px;font-weight:900;color:#5d3d00;
+  }
+  .antel-tag {
+    display:inline-block; background:#00b4e6; color:#fff;
+    font-size:11px; font-weight:700; padding:3px 10px; border-radius:12px; margin-top:6px;
+  }
+  .hero h1 { font-size:25px; font-weight:900; margin:12px 0 6px; line-height:1.25; }
+  .hero h1 span { color:#ffd54f; }
+  .hero p { font-size:14px; color:#d1c4e9; margin-bottom:14px; }
+
+  .wheel-area {
+    position:relative;
+    width:280px;
+    height:280px;
+    margin:10px auto 18px;
+  }
+  .pointer-tri {
+    position:absolute;
+    top:-6px;
+    left:50%;
+    transform:translateX(-50%);
+    width:0; height:0;
+    border-left:14px solid transparent;
+    border-right:14px solid transparent;
+    border-top:24px solid #ffd54f;
+    z-index:5;
+    filter:drop-shadow(0 2px 4px rgba(0,0,0,.5));
+  }
+  #wheel {
+    width:280px; height:280px;
+    border-radius:50%;
+    position:relative;
+    border:8px solid #ffd54f;
+    box-shadow:0 0 0 4px #4a148c, 0 10px 30px rgba(0,0,0,.6);
+    transition: transform 4.5s cubic-bezier(.17,.67,.12,.99);
+    background: conic-gradient(
+      #e53935 0deg 45deg,
+      #1e88e5 45deg 90deg,
+      #43a047 90deg 135deg,
+      #fbc02d 135deg 180deg,
+      #8e24aa 180deg 225deg,
+      #e53935 225deg 270deg,
+      #1e88e5 270deg 315deg,
+      #fbc02d 315deg 360deg
+    );
+  }
+  #wheel .seg-label {
+    position:absolute;
+    top:50%; left:50%;
+    width:120px;
+    text-align:center;
+    font-size:12px;
+    font-weight:900;
+    color:#fff;
+    text-shadow:0 1px 3px rgba(0,0,0,.6);
+    transform-origin:0 0;
+  }
+  .hub {
+    position:absolute;
+    top:50%; left:50%;
+    width:46px;height:46px;
+    margin:-23px 0 0 -23px;
+    background:radial-gradient(circle at 30% 30%,#fff8e1,#ffd54f);
+    border-radius:50%;
+    z-index:4;
+    box-shadow:0 3px 8px rgba(0,0,0,.5);
+    display:flex;align-items:center;justify-content:center;
+    font-size:18px;
+  }
+  .spin-btn {
+    display:inline-block;
+    background:linear-gradient(180deg,#ffe082,#f9a825);
+    color:#4e2c00;
+    font-weight:900;
+    font-size:17px;
+    padding:14px 40px;
+    border-radius:40px;
+    border:none;
+    cursor:pointer;
+    box-shadow:0 6px 0 #b5730a, 0 10px 18px rgba(0,0,0,.4);
+    text-transform:uppercase;
+    letter-spacing:.5px;
+    margin-bottom:6px;
+  }
+  .spin-btn:active { transform:translateY(3px); box-shadow:0 3px 0 #b5730a; }
+  .spins-left { font-size:12px; color:#d1c4e9; margin-bottom:16px; }
+
+  .result-box {
+    display:none;
+    background:#fff;
+    color:#1a0033;
+    border-radius:16px;
+    padding:20px;
+    margin:14px 0;
+    box-shadow:0 10px 25px rgba(0,0,0,.4);
+  }
+  .result-box.show { display:block; animation: popin .4s ease; }
+  @keyframes popin { from{ transform:scale(.7); opacity:0;} to{ transform:scale(1); opacity:1;} }
+  .result-box .prize-emoji { font-size:44px; }
+  .result-box h2 { font-size:20px; font-weight:900; margin:8px 0 4px; color:#d81b60; }
+  .result-box p { font-size:13px; color:#5d4037; }
+
+  .countdown-box { margin:18px 0; }
+  .countdown-box p { font-size:12px; font-weight:700; color:#ffd54f; margin-bottom:8px; text-transform:uppercase; }
+  .countdown { display:flex; justify-content:center; gap:10px; font-size:22px; font-weight:900; }
+  .countdown div { background:#2a0050; border:1px solid #ffd54f; padding:8px 12px; border-radius:10px; min-width:46px; }
+  .countdown span { display:block; font-size:9px; font-weight:400; color:#b39ddb; margin-top:2px; }
+
+  .cta {
+    display:block;
+    text-align:center;
+    background:linear-gradient(180deg,#ffe082,#f9a825);
+    color:#4e2c00;
+    font-weight:900;
+    font-size:19px;
+    padding:18px;
+    border-radius:14px;
+    text-decoration:none;
+    box-shadow:0 8px 0 #b5730a, 0 12px 20px rgba(0,0,0,.4);
+    text-transform:uppercase;
+    margin:10px 0 8px;
+    animation:pulse 1.6s ease-in-out infinite;
+  }
+  @keyframes pulse { 0%,100%{transform:scale(1);} 50%{transform:scale(1.03);} }
+  .cta small { display:block; font-size:12px; font-weight:600; margin-top:4px; text-transform:none; }
+  .disclaimer { font-size:11px; color:#b39ddb; margin:10px 0 24px; line-height:1.5; text-align:center;}
+
+  .reviews { margin:20px 0; text-align:left; }
+  .reviews h3 { text-align:center; font-size:16px; margin-bottom:14px; color:#ffd54f; }
+  .review {
+    background:rgba(255,255,255,.08);
+    border-radius:12px;
+    padding:12px 14px;
+    margin-bottom:10px;
+    font-size:13px;
+  }
+  .review .stars { color:#ffd54f; font-size:14px; margin-bottom:4px; }
+  .review .name { font-weight:700; margin-top:6px; font-size:12px; color:#d1c4e9; }
+
+  footer {
+    text-align:center; font-size:10px; color:#9575cd;
+    padding-top:10px; border-top:1px solid rgba(255,255,255,.1); line-height:1.6;
+  }
+  footer a { color:#b39ddb; text-decoration:underline; }
+</style>
+</head>
+<body>
+<div class="wrap">
+  <header>
+    <div class="logo"><span class="ball">★</span> TOMBOLA UY</div>
+    <div class="antel-tag">📱 Exclusivo clientes Antel</div>
+  </header>
+
+  <div class="hero">
+    <h1>¡Girá la rueda y ganá <span>premios</span> de la Tombola!</h1>
+    <p>Tenés 1 giro gratis. Descubrí qué premio te espera detrás de la rueda.</p>
+  </div>
+
+  <div class="wheel-area">
+    <div class="pointer-tri"></div>
+    <div id="wheel">
+      <div class="seg-label" style="transform: rotate(22.5deg) translate(48px,-52px);">$U 5.000</div>
+      <div class="seg-label" style="transform: rotate(67.5deg) translate(48px,-52px);">Smartphone</div>
+      <div class="seg-label" style="transform: rotate(112.5deg) translate(48px,-52px);">Vale $U 1.000</div>
+      <div class="seg-label" style="transform: rotate(157.5deg) translate(48px,-52px);">Boleto x2</div>
+      <div class="seg-label" style="transform: rotate(202.5deg) translate(48px,-52px);">$U 5.000</div>
+      <div class="seg-label" style="transform: rotate(247.5deg) translate(48px,-52px);">Auriculares</div>
+      <div class="seg-label" style="transform: rotate(292.5deg) translate(48px,-52px);">Vale $U 500</div>
+      <div class="seg-label" style="transform: rotate(337.5deg) translate(48px,-52px);">Sorpresa 🎁</div>
+    </div>
+    <div class="hub">🎯</div>
+  </div>
+
+  <button class="spin-btn" id="spinBtn" onclick="startSpin()">GIRA LA RUEDA</button>
+  <p class="spins-left">🎁 Tenés <strong>1 giro gratis</strong> disponible ahora</p>
+
+  <div class="result-box" id="resultBox">
+    <div class="prize-emoji" id="prizeEmoji">🎉</div>
+    <h2 id="prizeText">¡Felicidades!</h2>
+    <p>Ganaste un premio de la Tombola. Activá tu suscripción para reclamarlo y recibir tus resultados por SMS.</p>
+  </div>
+
+  <div class="countdown-box">
+    <p>⏳ Reclamá tu premio antes de que termine</p>
+    <div class="countdown">
+      <div id="hh">00<span>HORAS</span></div>
+      <div id="mm">00<span>MIN</span></div>
+      <div id="ss">00<span>SEG</span></div>
+    </div>
+  </div>
+
+  <a class="cta" id="ctaBtn" href="https://08deh.bemobtrk.com/click">
+    RECLAMAR MI PREMIO
+    <small>Activación en 1 minuto · Antel Uruguay</small>
+  </a>
+  <p class="disclaimer">Servicio de suscripción SMS. Costo $U 5.07/día, facturado por tu operador Antel. Podés cancelar cuando quieras respondiendo BAJA.</p>
+
+  <div class="reviews">
+    <h3>Opiniones de usuarios en Uruguay</h3>
+    <div class="review">
+      <div class="stars">★★★★★</div>
+      "Giré la rueda por curiosidad y gané un vale de compra. Súper divertido y fácil de activar."
+      <div class="name">— Nicolás F., Montevideo</div>
+    </div>
+    <div class="review">
+      <div class="stars">★★★★★</div>
+      "Me encantó la dinámica de la rueda, mucho más entretenido que un sorteo normal."
+      <div class="name">— Camila V., Paysandú</div>
+    </div>
+    <div class="review">
+      <div class="stars">★★★★☆</div>
+      "Activé con mi línea Antel y en minutos ya estaba participando. Recomendable."
+      <div class="name">— Rodrigo T., Rivera</div>
+    </div>
+  </div>
+
+  <footer>
+    Este servicio no está afiliado oficialmente con ANTEL S.A. Los premios de la rueda son ilustrativos y sujetos a disponibilidad.<br>
+    Al continuar aceptás nuestros <a href="#">Términos y Condiciones</a> y <a href="#">Política de Privacidad</a>.<br>
+    © 2026 Tombola UY. Todos los derechos reservados.
+  </footer>
+</div>
+
+<script>
+  const prizes = [
+    {emoji:'💰', text:'¡Ganaste $U 5.000!'},
+    {emoji:'📱', text:'¡Ganaste un Smartphone!'},
+    {emoji:'🎁', text:'¡Ganaste un Vale de $U 1.000!'},
+    {emoji:'🎟️', text:'¡Ganaste 2 boletos extra!'},
+    {emoji:'💰', text:'¡Ganaste $U 5.000!'},
+    {emoji:'🎧', text:'¡Ganaste unos Auriculares!'},
+    {emoji:'🎁', text:'¡Ganaste un Vale de $U 500!'},
+    {emoji:'🎉', text:'¡Ganaste un premio sorpresa!'}
+  ];
+  let spun = false;
+  function startSpin(){
+    if (spun) return;
+    spun = true;
+    document.getElementById('spinBtn').disabled = true;
+    document.getElementById('spinBtn').style.opacity = 0.6;
+    const wheel = document.getElementById('wheel');
+    const segIndex = Math.floor(Math.random()*8);
+    const targetDeg = 3600 + (360 - segIndex*45 - 22);
+    wheel.style.transform = 'rotate('+targetDeg+'deg)';
+    setTimeout(function(){
+      const prize = prizes[segIndex];
+      document.getElementById('prizeEmoji').textContent = prize.emoji;
+      document.getElementById('prizeText').textContent = prize.text;
+      document.getElementById('resultBox').classList.add('show');
+      document.getElementById('resultBox').scrollIntoView({behavior:'smooth', block:'center'});
+    }, 4600);
+  }
+
+  // countdown 45 min
+  let target = Date.now() + 45*60*1000;
+  function tick(){
+    let diff = target - Date.now();
+    if (diff < 0) diff = 0;
+    let hh = Math.floor(diff/3600000);
+    let mm = Math.floor((diff%3600000)/60000);
+    let ss = Math.floor((diff%60000)/1000);
+    document.getElementById('hh').innerHTML = String(hh).padStart(2,'0')+'<span>HORAS</span>';
+    document.getElementById('mm').innerHTML = String(mm).padStart(2,'0')+'<span>MIN</span>';
+    document.getElementById('ss').innerHTML = String(ss).padStart(2,'0')+'<span>SEG</span>';
+  }
+  tick();
+  setInterval(tick,1000);
+</script>
+</body>
+</html>

@@ -1,0 +1,248 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+<meta name="robots" content="noindex, nofollow">
+<title>Gana premios - Tombola UY</title>
+<style>
+  * { margin:0; padding:0; box-sizing:border-box; }
+  body {
+    font-family:'Segoe UI', Arial, sans-serif;
+    background:#fef6e4;
+    color:#2b1a00;
+    min-height:100vh;
+  }
+  .topbar {
+    background:#d81b60;
+    color:#fff;
+    text-align:center;
+    font-size:12px;
+    font-weight:700;
+    padding:8px;
+    letter-spacing:.4px;
+  }
+  .wrap { max-width:480px; margin:0 auto; padding:0 16px 40px; }
+  header { text-align:center; padding:16px 0 8px; }
+  .logo {
+    font-size:24px; font-weight:900; color:#d81b60;
+    display:flex; align-items:center; justify-content:center; gap:8px;
+  }
+  .logo .ball {
+    width:32px;height:32px;border-radius:50%;
+    background:radial-gradient(circle at 30% 30%,#ffee58,#f9a825);
+    display:flex;align-items:center;justify-content:center;
+    font-size:15px;font-weight:900;color:#5d3d00;
+  }
+  .antel-tag {
+    display:inline-block; background:#0091ea; color:#fff;
+    font-size:11px; font-weight:700; padding:3px 10px; border-radius:12px; margin-top:6px;
+  }
+  .hero { text-align:center; margin:14px 0; }
+  .hero h1 { font-size:27px; font-weight:900; line-height:1.25; color:#1a0033; }
+  .hero h1 span { color:#d81b60; }
+  .hero p { margin-top:8px; font-size:15px; color:#5d4037; }
+
+  .prize-grid {
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:10px;
+    margin:18px 0;
+  }
+  .prize-card {
+    background:#fff;
+    border-radius:14px;
+    padding:14px 10px;
+    text-align:center;
+    box-shadow:0 6px 14px rgba(0,0,0,.12);
+    border:2px solid #ffd54f;
+  }
+  .prize-card .emoji { font-size:30px; }
+  .prize-card .amount { font-weight:900; font-size:16px; color:#d81b60; margin-top:4px; }
+  .prize-card .label { font-size:11px; color:#795548; margin-top:2px; }
+
+  .tickets-left {
+    background:#1a0033;
+    color:#fff;
+    border-radius:14px;
+    padding:14px;
+    text-align:center;
+    margin:18px 0;
+  }
+  .tickets-left p.label { font-size:12px; color:#ffd54f; font-weight:700; text-transform:uppercase; letter-spacing:.5px; }
+  .progress-bar {
+    background:#3a2060;
+    border-radius:8px;
+    height:14px;
+    margin:10px 0 6px;
+    overflow:hidden;
+  }
+  .progress-fill {
+    background:linear-gradient(90deg,#ff5252,#d81b60);
+    height:100%;
+    width:87%;
+    border-radius:8px;
+    animation:shrink 30s linear forwards;
+  }
+  @keyframes shrink { from{width:96%;} to{width:40%;} }
+  .tickets-left .count { font-size:22px; font-weight:900; color:#ff8a80; }
+
+  .countdown-box {
+    text-align:center;
+    margin:16px 0;
+  }
+  .countdown-box p { font-size:13px; font-weight:700; color:#d81b60; margin-bottom:8px; text-transform:uppercase; }
+  .countdown { display:flex; justify-content:center; gap:10px; font-size:24px; font-weight:900; color:#1a0033; }
+  .countdown div { background:#fff; border:2px solid #ffd54f; padding:8px 12px; border-radius:10px; min-width:48px; }
+  .countdown span { display:block; font-size:9px; font-weight:400; color:#9e9e9e; margin-top:2px; }
+
+  .cta {
+    display:block;
+    text-align:center;
+    background:linear-gradient(180deg,#ff8a80,#d81b60);
+    color:#fff;
+    font-weight:900;
+    font-size:19px;
+    padding:18px;
+    border-radius:14px;
+    text-decoration:none;
+    box-shadow:0 8px 0 #8e0038, 0 12px 20px rgba(0,0,0,.25);
+    text-transform:uppercase;
+    margin-bottom:8px;
+    animation:pulse 1.6s ease-in-out infinite;
+  }
+  @keyframes pulse { 0%,100%{transform:scale(1);} 50%{transform:scale(1.035);} }
+  .cta small { display:block; font-size:12px; font-weight:600; margin-top:4px; text-transform:none; }
+  .disclaimer { text-align:center; font-size:11px; color:#8d6e63; margin:10px 0 24px; line-height:1.5; }
+
+  .reviews { margin:20px 0; }
+  .reviews h3 { text-align:center; font-size:16px; margin-bottom:14px; color:#d81b60; }
+  .review {
+    background:#fff;
+    border-radius:12px;
+    padding:12px 14px;
+    margin-bottom:10px;
+    font-size:13px;
+    box-shadow:0 4px 10px rgba(0,0,0,.06);
+  }
+  .review .stars { color:#f9a825; font-size:14px; margin-bottom:4px; }
+  .review .name { font-weight:700; margin-top:6px; font-size:12px; color:#795548; }
+
+  footer {
+    text-align:center; font-size:10px; color:#a1887f;
+    padding-top:10px; border-top:1px solid #e0d5c0; line-height:1.6;
+  }
+  footer a { color:#8d6e63; text-decoration:underline; }
+</style>
+</head>
+<body>
+<div class="topbar">🔥 SORTEO ACTIVO — QUEDAN POCOS BOLETOS DISPONIBLES EN URUGUAY</div>
+<div class="wrap">
+  <header>
+    <div class="logo"><span class="ball">21</span> TOMBOLA UY</div>
+    <div class="antel-tag">📱 Exclusivo clientes Antel</div>
+  </header>
+
+  <div class="hero">
+    <h1>¡Ganá premios <span>increíbles</span> participando en la Tombola!</h1>
+    <p>Suscribite ahora y quedá automáticamente participando por grandes premios en efectivo cada semana.</p>
+  </div>
+
+  <div class="prize-grid">
+    <div class="prize-card">
+      <div class="emoji">💰</div>
+      <div class="amount">$U 50.000</div>
+      <div class="label">Premio Mayor</div>
+    </div>
+    <div class="prize-card">
+      <div class="emoji">📱</div>
+      <div class="amount">Smartphone</div>
+      <div class="label">2do Premio</div>
+    </div>
+    <div class="prize-card">
+      <div class="emoji">🎁</div>
+      <div class="amount">Vales de compra</div>
+      <div class="label">3er Premio</div>
+    </div>
+    <div class="prize-card">
+      <div class="emoji">🎫</div>
+      <div class="amount">Boletos extra</div>
+      <div class="label">Bono sorpresa</div>
+    </div>
+  </div>
+
+  <div class="tickets-left">
+    <p class="label">⚠️ Boletos disponibles hoy</p>
+    <div class="progress-bar"><div class="progress-fill"></div></div>
+    <div class="count"><span id="ticketCount">143</span> boletos restantes</div>
+  </div>
+
+  <div class="countdown-box">
+    <p>⏳ El sorteo cierra en</p>
+    <div class="countdown">
+      <div id="hh">00<span>HORAS</span></div>
+      <div id="mm">00<span>MIN</span></div>
+      <div id="ss">00<span>SEG</span></div>
+    </div>
+  </div>
+
+  <a class="cta" id="ctaBtn" href="https://08deh.bemobtrk.com/click">
+    QUIERO MI BOLETO GRATIS
+    <small>Activación en 1 minuto · Antel Uruguay</small>
+  </a>
+  <p class="disclaimer">Servicio de suscripción SMS. Costo $U 5.07/día, facturado por tu operador Antel. Podés cancelar cuando quieras respondiendo BAJA.</p>
+
+  <div class="reviews">
+    <h3>Ganadores reales en Uruguay</h3>
+    <div class="review">
+      <div class="stars">★★★★★</div>
+      "No podía creerlo, gané uno de los premios del sorteo semanal. Todo por suscribirme desde mi Antel."
+      <div class="name">— Fernanda A., Montevideo</div>
+    </div>
+    <div class="review">
+      <div class="stars">★★★★★</div>
+      "Me anoté por curiosidad y a la segunda semana ya había ganado un vale de compra. Recomendado."
+      <div class="name">— Diego S., Maldonado</div>
+    </div>
+    <div class="review">
+      <div class="stars">★★★★☆</div>
+      "Muy fácil de activar, los sorteos son reales y te avisan por SMS si ganaste algo."
+      <div class="name">— Lucía M., Salto</div>
+    </div>
+  </div>
+
+  <footer>
+    Este servicio no está afiliado oficialmente con ANTEL S.A. Los premios están sujetos a disponibilidad y términos del sorteo.<br>
+    Al continuar aceptás nuestros <a href="#">Términos y Condiciones</a> y <a href="#">Política de Privacidad</a>.<br>
+    © 2026 Tombola UY. Todos los derechos reservados.
+  </footer>
+</div>
+
+<script>
+  // countdown 1.5 hours
+  let target = Date.now() + (1*3600 + 38*60)*1000;
+  function tick(){
+    let diff = target - Date.now();
+    if (diff < 0) diff = 0;
+    let hh = Math.floor(diff/3600000);
+    let mm = Math.floor((diff%3600000)/60000);
+    let ss = Math.floor((diff%60000)/1000);
+    document.getElementById('hh').innerHTML = String(hh).padStart(2,'0')+'<span>HORAS</span>';
+    document.getElementById('mm').innerHTML = String(mm).padStart(2,'0')+'<span>MIN</span>';
+    document.getElementById('ss').innerHTML = String(ss).padStart(2,'0')+'<span>SEG</span>';
+  }
+  tick();
+  setInterval(tick,1000);
+
+  // decreasing ticket counter for urgency
+  let tCount = 143;
+  const tEl = document.getElementById('ticketCount');
+  setInterval(function(){
+    if (tCount > 61 && Math.random() > 0.4) {
+      tCount -= 1;
+      tEl.textContent = tCount;
+    }
+  }, 4000);
+</script>
+</body>
+</html>
