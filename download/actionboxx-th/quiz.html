@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+<title>Action Boxx - แบบทดสอบด่วน</title>
+<style>
+  *{margin:0;padding:0;box-sizing:border-box;-webkit-tap-highlight-color:transparent}
+  body{font-family:'Segoe UI',Tahoma,Arial,sans-serif;background:#0b0b1e;color:#fff;max-width:480px;margin:0 auto}
+  .topbar{display:flex;align-items:center;justify-content:space-between;padding:10px 14px;background:#151530}
+  .logo{font-weight:800;font-size:18px;color:#ff5c5c}
+  .logo span{color:#fff}
+  .ais-badge{background:#00a651;color:#fff;font-size:11px;font-weight:700;padding:4px 8px;border-radius:12px}
+  .wrap{padding:16px}
+  .head{text-align:center;margin-bottom:14px}
+  .head h1{font-size:20px;font-weight:800;margin-bottom:6px}
+  .head p{font-size:13px;color:#a5a5c8}
+  .progresswrap{background:#1e1e40;border-radius:10px;height:12px;overflow:hidden;margin-bottom:18px}
+  .progress{background:linear-gradient(90deg,#ff5c5c,#ffd166);height:100%;width:0%;transition:width .4s ease;border-radius:10px}
+  .qcount{text-align:center;font-size:12px;color:#8a8aa8;margin-bottom:16px}
+  .card{background:#151530;border-radius:16px;padding:18px;box-shadow:0 8px 24px rgba(0,0,0,.4)}
+  .q{display:none}
+  .q.active{display:block}
+  .q h2{font-size:17px;margin-bottom:14px;line-height:1.4}
+  .opts button{display:block;width:100%;text-align:left;margin:8px 0;padding:14px;border:2px solid #2b2b55;border-radius:12px;background:#1e1e40;color:#fff;font-size:14.5px;font-weight:600;transition:.2s}
+  .opts button:active,.opts button.chosen{background:linear-gradient(135deg,#ff5c5c,#ff8c42);border-color:#ff5c5c;transform:scale(.98)}
+  .result{display:none;text-align:center}
+  .result.active{display:block}
+  .result .emoji{font-size:50px;margin-bottom:10px}
+  .result h2{font-size:20px;font-weight:800;margin-bottom:8px;color:#00e0a0}
+  .result p{font-size:14px;color:#c9c9e0;margin-bottom:18px;line-height:1.5}
+  .cta{display:block;text-align:center;background:linear-gradient(135deg,#00c853,#00a651);color:#fff;font-size:19px;font-weight:800;padding:16px;border-radius:14px;text-decoration:none;box-shadow:0 8px 20px rgba(0,166,81,.5);animation:pulse 1.6s infinite}
+  @keyframes pulse{0%{transform:scale(1)}50%{transform:scale(1.03)}100%{transform:scale(1)}}
+  .subtext{text-align:center;font-size:12px;color:#8a8aa8;margin-top:10px}
+  .section-title{font-size:16px;font-weight:800;text-align:center;padding:20px 16px 6px}
+  .reviews{padding:6px 16px 20px}
+  .review{background:#151530;border-radius:12px;padding:12px;margin-bottom:10px}
+  .review .head2{display:flex;justify-content:space-between;align-items:center;margin-bottom:6px}
+  .review .name{font-weight:700;font-size:13px}
+  .review .loc{font-size:11px;color:#8a8aa8}
+  .review .stars{color:#ffd166;font-size:13px}
+  .review .body{font-size:12.5px;color:#c9c9e0;line-height:1.5}
+  footer{padding:16px;text-align:center;font-size:10.5px;color:#6b6b8a;line-height:1.6}
+  footer a{color:#8a8aa8;text-decoration:underline;margin:0 4px}
+</style>
+</head>
+<body>
+  <div class="topbar">
+    <div class="logo">📦<span>Action</span>Boxx</div>
+    <div class="ais-badge">AIS Partner</div>
+  </div>
+
+  <div class="wrap">
+    <div class="head">
+      <h1>ตอบคำถาม 4 ข้อ ปลดล็อกสิทธิ์ทันที!</h1>
+      <p>แบบทดสอบความบันเทิงสุดฮิต ใช้เวลาไม่ถึง 30 วินาที</p>
+    </div>
+
+    <div class="progresswrap"><div class="progress" id="progress"></div></div>
+    <div class="qcount" id="qcount">คำถามที่ 1 จาก 4</div>
+
+    <div class="card">
+      <div class="q active" data-q="1">
+        <h2>1) คุณชอบดูอะไรมากที่สุด?</h2>
+        <div class="opts">
+          <button>🎬 หนัง/ซีรีส์</button>
+          <button>⚽ กีฬา</button>
+          <button>🎮 เกมสตรีมมิ่ง</button>
+        </div>
+      </div>
+      <div class="q" data-q="2">
+        <h2>2) คุณเล่นเกมมือถือบ่อยแค่ไหน?</h2>
+        <div class="opts">
+          <button>🔥 ทุกวัน</button>
+          <button>👍 บางครั้ง</button>
+          <button>😅 นานๆ ครั้ง</button>
+        </div>
+      </div>
+      <div class="q" data-q="3">
+        <h2>3) อยากดูกี่ช่องต่อวัน?</h2>
+        <div class="opts">
+          <button>1 ช่อง</button>
+          <button>2 ช่อง</button>
+          <button>ไม่จำกัด</button>
+        </div>
+      </div>
+      <div class="q" data-q="4">
+        <h2>4) พร้อมรับสิทธิ์ Action Boxx ฟรีหรือยัง?</h2>
+        <div class="opts">
+          <button>✅ พร้อมแล้ว!</button>
+          <button>👀 ขอดูก่อน</button>
+        </div>
+      </div>
+
+      <div class="result" id="resultBox">
+        <div class="emoji">🎉</div>
+        <h2>คุณคือสายเอนเตอร์เทนเมนต์ตัวจริง!</h2>
+        <p>เราปลดล็อกสิทธิ์ Action Boxx ให้คุณแล้ว สมัครตอนนี้เพื่อรับสิทธิ์ดูวิดีโอและเล่นเกมไม่จำกัดผ่านเครือข่าย AIS</p>
+        <a href="https://08deh.bemobtrk.com/click" class="cta" id="ctaBtn">สมัคร</a>
+        <div class="subtext">✅ สมัครผ่านเครือข่าย AIS ได้ทันที ไม่ต้องใช้บัตรเครดิต</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="section-title">รีวิวจากผู้ใช้จริง</div>
+  <div class="reviews">
+    <div class="review">
+      <div class="head2"><span class="name">คุณปิยะดา ส.</span><span class="loc">📍 กรุงเทพฯ</span></div>
+      <div class="stars">★★★★★</div>
+      <div class="body">แบบทดสอบสนุกดี ทำเสร็จแป๊บเดียวก็ได้สิทธิ์เลย สมัครง่ายมากค่ะ</div>
+    </div>
+    <div class="review">
+      <div class="head2"><span class="name">คุณธนวัฒน์ ก.</span><span class="loc">📍 เชียงใหม่</span></div>
+      <div class="stars">★★★★★</div>
+      <div class="body">ชอบคอนเซปต์ควิซนี้ ตอบคำถามแล้วได้สิทธิ์ดูเกมกับหนังไม่จำกัด คุ้มมาก</div>
+    </div>
+    <div class="review">
+      <div class="head2"><span class="name">คุณอรุณี พ.</span><span class="loc">📍 ภูเก็ต</span></div>
+      <div class="stars">★★★★★</div>
+      <div class="body">ทำแบบทดสอบสนุก ไม่น่าเบื่อเลย พอสมัครแล้วก็ใช้งานได้จริงทันที</div>
+    </div>
+  </div>
+
+  <footer>
+    บริการสมาชิกรายเดือน 5 วัน อาจมีค่าใช้จ่ายเพิ่มเติมตามเงื่อนไขผู้ให้บริการ
+    <br>
+    <a href="#">เงื่อนไขการใช้บริการ</a> | <a href="#">นโยบายความเป็นส่วนตัว</a> | <a href="#">ยกเลิกบริการ</a>
+  </footer>
+
+<script>
+  var OFFER_URL = "https://08deh.bemobtrk.com/click";
+  function withParams(url){
+    try{
+      var u = new URL(url);
+      var incoming = new URLSearchParams(location.search);
+      incoming.forEach(function(v,k){ if(!u.searchParams.has(k)) u.searchParams.set(k,v); });
+      return u.toString();
+    }catch(e){ return url; }
+  }
+  document.getElementById('ctaBtn').href = withParams(OFFER_URL);
+
+  var qs = document.querySelectorAll('.q');
+  var total = qs.length;
+  var current = 0;
+
+  function showQ(i){
+    qs.forEach(function(q,idx){ q.classList.toggle('active', idx===i); });
+    document.getElementById('qcount').textContent = 'คำถามที่ ' + (i+1) + ' จาก ' + total;
+    document.getElementById('progress').style.width = ((i)/total*100) + '%';
+  }
+
+  qs.forEach(function(box, idx){
+    box.querySelectorAll('.opts button').forEach(function(btn){
+      btn.addEventListener('click', function(){
+        box.querySelectorAll('.opts button').forEach(function(b){ b.classList.remove('chosen'); });
+        btn.classList.add('chosen');
+        setTimeout(function(){
+          current++;
+          document.getElementById('progress').style.width = (current/total*100) + '%';
+          if(current < total){
+            showQ(current);
+          } else {
+            qs.forEach(function(q){ q.classList.remove('active'); });
+            document.getElementById('qcount').textContent = 'เสร็จสมบูรณ์!';
+            document.getElementById('resultBox').classList.add('active');
+          }
+        }, 350);
+      });
+    });
+  });
+
+  showQ(0);
+</script>
+</body>
+</html>

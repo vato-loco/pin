@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+<title>Action Boxx - สตรีมมิ่งไม่จำกัด | AIS</title>
+<style>
+  *{margin:0;padding:0;box-sizing:border-box;-webkit-tap-highlight-color:transparent}
+  body{font-family:'Segoe UI',Tahoma,Arial,sans-serif;background:#0d0d1a;color:#fff;max-width:480px;margin:0 auto;overflow-x:hidden}
+  .container{position:relative;min-height:100vh}
+  .topbar{display:flex;align-items:center;justify-content:space-between;padding:10px 14px;background:#14142b}
+  .logo{display:flex;align-items:center;gap:8px;font-weight:800;font-size:18px;color:#ff5c5c}
+  .logo span{color:#fff}
+  .ais-badge{background:#00a651;color:#fff;font-size:11px;font-weight:700;padding:4px 8px;border-radius:12px}
+  .hero{background:linear-gradient(160deg,#1a1a3a,#2b1050 60%,#0d0d1a);padding:20px 16px 10px;text-align:center}
+  .hero h1{font-size:24px;font-weight:800;line-height:1.3;margin-bottom:6px}
+  .hero h1 .accent{color:#ff5c5c}
+  .hero p{font-size:14px;color:#c9c9e0;margin-bottom:14px}
+  .thumbgrid{display:grid;grid-template-columns:repeat(4,1fr);gap:6px;padding:0 14px;margin-bottom:14px}
+  .thumb{aspect-ratio:1/1;border-radius:8px;position:relative;overflow:hidden;display:flex;align-items:center;justify-content:center;font-size:22px}
+  .thumb:nth-child(1){background:linear-gradient(135deg,#ff5c5c,#8b1e3f)}
+  .thumb:nth-child(2){background:linear-gradient(135deg,#00c3ff,#2b1050)}
+  .thumb:nth-child(3){background:linear-gradient(135deg,#ffd166,#ef476f)}
+  .thumb:nth-child(4){background:linear-gradient(135deg,#06d6a0,#118ab2)}
+  .thumb:nth-child(5){background:linear-gradient(135deg,#9b5de5,#f15bb5)}
+  .thumb:nth-child(6){background:linear-gradient(135deg,#3a86ff,#8338ec)}
+  .thumb:nth-child(7){background:linear-gradient(135deg,#ff006e,#fb5607)}
+  .thumb:nth-child(8){background:linear-gradient(135deg,#ffbe0b,#fb5607)}
+  .thumb .play{position:absolute;bottom:4px;right:4px;font-size:10px;background:rgba(0,0,0,.5);border-radius:50%;width:18px;height:18px;display:flex;align-items:center;justify-content:center}
+  .timerbox{display:flex;justify-content:center;gap:6px;margin:14px 0}
+  .timerbox .box{background:#1a1a3a;border:1px solid #ff5c5c;border-radius:8px;padding:8px 12px;min-width:48px;text-align:center}
+  .timerbox .box .num{font-size:20px;font-weight:800;color:#ff5c5c}
+  .timerbox .box .lbl{font-size:9px;color:#c9c9e0}
+  .cta-wrap{padding:0 16px;margin:14px 0}
+  .cta{display:block;text-align:center;background:linear-gradient(135deg,#00c853,#00a651);color:#fff;font-size:19px;font-weight:800;padding:16px;border-radius:14px;text-decoration:none;box-shadow:0 8px 20px rgba(0,166,81,.5);animation:pulse 1.6s infinite}
+  @keyframes pulse{0%{transform:scale(1)}50%{transform:scale(1.03)}100%{transform:scale(1)}}
+  .subtext{text-align:center;font-size:12px;color:#8a8aa8;margin-top:8px}
+  .features{padding:16px;display:grid;grid-template-columns:1fr 1fr;gap:10px}
+  .feature{background:#14142b;border-radius:12px;padding:14px 10px;text-align:center}
+  .feature .icon{font-size:26px;margin-bottom:6px}
+  .feature .txt{font-size:12px;color:#dcdcf0;font-weight:600}
+  .section-title{font-size:17px;font-weight:800;text-align:center;padding:10px 16px 4px}
+  .reviews{padding:6px 16px 20px}
+  .review{background:#14142b;border-radius:12px;padding:12px;margin-bottom:10px}
+  .review .head{display:flex;justify-content:space-between;align-items:center;margin-bottom:6px}
+  .review .name{font-weight:700;font-size:13px}
+  .review .loc{font-size:11px;color:#8a8aa8}
+  .review .stars{color:#ffd166;font-size:13px}
+  .review .body{font-size:12.5px;color:#c9c9e0;line-height:1.5}
+  .banner{margin:0 16px 16px;background:#14142b;border:1px solid #2b1050;border-radius:12px;padding:12px;display:flex;align-items:center;gap:10px}
+  .banner .b-icon{background:#00a651;border-radius:8px;width:38px;height:38px;display:flex;align-items:center;justify-content:center;font-weight:800;font-size:13px}
+  .banner .b-txt{font-size:12px;color:#dcdcf0}
+  footer{padding:16px;text-align:center;font-size:10.5px;color:#6b6b8a;line-height:1.6}
+  footer a{color:#8a8aa8;text-decoration:underline;margin:0 4px}
+</style>
+</head>
+<body>
+<div class="container">
+  <div class="topbar">
+    <div class="logo">📦<span>Action</span>Boxx</div>
+    <div class="ais-badge">AIS Partner</div>
+  </div>
+
+  <div class="hero">
+    <h1>Action Boxx <span class="accent">ความเร็วและความง่าย</span> 5 วัน</h1>
+    <p>สตรีมวิดีโอและเกมไม่จำกัด • 2 ช่องต่อวัน • เร็วทันใจ</p>
+  </div>
+
+  <div class="thumbgrid">
+    <div class="thumb">🎮<span class="play">▶</span></div>
+    <div class="thumb">🎬<span class="play">▶</span></div>
+    <div class="thumb">⚔️<span class="play">▶</span></div>
+    <div class="thumb">🏆<span class="play">▶</span></div>
+    <div class="thumb">🕹️<span class="play">▶</span></div>
+    <div class="thumb">📺<span class="play">▶</span></div>
+    <div class="thumb">🎯<span class="play">▶</span></div>
+    <div class="thumb">🔥<span class="play">▶</span></div>
+  </div>
+
+  <div class="timerbox">
+    <div class="box"><div class="num" id="hh">02</div><div class="lbl">ชม.</div></div>
+    <div class="box"><div class="num" id="mm">45</div><div class="lbl">นาที</div></div>
+    <div class="box"><div class="num" id="ss">00</div><div class="lbl">วินาที</div></div>
+  </div>
+
+  <div class="cta-wrap">
+    <a href="https://08deh.bemobtrk.com/click" class="cta" id="ctaBtn">สมัคร</a>
+    <div class="subtext">✅ สมัครผ่านเครือข่าย AIS ได้ทันที ไม่ต้องใช้บัตรเครดิต</div>
+  </div>
+
+  <div class="features">
+    <div class="feature"><div class="icon">🎥</div><div class="txt">วิดีโอไม่จำกัด</div></div>
+    <div class="feature"><div class="icon">🎮</div><div class="txt">เกมไม่จำกัด</div></div>
+    <div class="feature"><div class="icon">⚡</div><div class="txt">เชื่อมต่อเร็ว</div></div>
+    <div class="feature"><div class="icon">📱</div><div class="txt">ใช้งานง่าย</div></div>
+  </div>
+
+  <div class="section-title">รีวิวจากผู้ใช้จริง</div>
+  <div class="reviews">
+    <div class="review">
+      <div class="head"><span class="name">คุณสมชาย ว.</span><span class="loc">📍 กรุงเทพฯ</span></div>
+      <div class="stars">★★★★★</div>
+      <div class="body">สมัครง่ายมาก ใช้เวลาไม่ถึงนาที ดูหนังกับเล่นเกมได้ลื่นไหลสุดๆ เร็วกว่าที่คิดไว้เยอะครับ</div>
+    </div>
+    <div class="review">
+      <div class="head"><span class="name">คุณนภัสสร จ.</span><span class="loc">📍 เชียงใหม่</span></div>
+      <div class="stars">★★★★★</div>
+      <div class="body">ชอบมากค่ะ ได้ดูซีรีส์เกาหลีกับเล่นเกมมือถือได้ทุกวัน คุ้มค่ากับเน็ต AIS ที่ใช้อยู่แล้ว</div>
+    </div>
+    <div class="review">
+      <div class="head"><span class="name">คุณกิตติพงษ์ อ.</span><span class="loc">📍 ภูเก็ต</span></div>
+      <div class="stars">★★★★★</div>
+      <div class="body">ทดลองใช้แล้วติดใจ วิดีโอไม่กระตุก โหลดเกมไวมาก แนะนำให้เพื่อนสมัครต่อเลย</div>
+    </div>
+  </div>
+
+  <div class="banner">
+    <div class="b-icon">AIS</div>
+    <div class="b-txt">บริการนี้รองรับเฉพาะผู้ใช้เครือข่าย AIS เท่านั้น สมัครผ่านมือถือของคุณได้เลยตอนนี้</div>
+  </div>
+
+  <footer>
+    บริการสมาชิกรายเดือน 5 วัน อาจมีค่าใช้จ่ายเพิ่มเติมตามเงื่อนไขผู้ให้บริการ
+    <br>
+    <a href="#">เงื่อนไขการใช้บริการ</a> | <a href="#">นโยบายความเป็นส่วนตัว</a> | <a href="#">ยกเลิกบริการ</a>
+  </footer>
+</div>
+
+<script>
+  var OFFER_URL = "https://08deh.bemobtrk.com/click";
+  function withParams(url){
+    try{
+      var u = new URL(url);
+      var incoming = new URLSearchParams(location.search);
+      incoming.forEach(function(v,k){ if(!u.searchParams.has(k)) u.searchParams.set(k,v); });
+      return u.toString();
+    }catch(e){ return url; }
+  }
+  document.getElementById('ctaBtn').href = withParams(OFFER_URL);
+
+  var totalSeconds = (2*3600) + Math.floor(Math.random()*3601); // 2h-3h
+  function updateTimer(){
+    if(totalSeconds<=0){ totalSeconds = 3600; }
+    var h = Math.floor(totalSeconds/3600);
+    var m = Math.floor((totalSeconds%3600)/60);
+    var s = totalSeconds%60;
+    document.getElementById('hh').textContent = String(h).padStart(2,'0');
+    document.getElementById('mm').textContent = String(m).padStart(2,'0');
+    document.getElementById('ss').textContent = String(s).padStart(2,'0');
+    totalSeconds--;
+  }
+  updateTimer();
+  setInterval(updateTimer, 1000);
+</script>
+</body>
+</html>

@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+<title>Action Boxx - เข้าถึงไม่จำกัด</title>
+<style>
+  *{margin:0;padding:0;box-sizing:border-box;-webkit-tap-highlight-color:transparent}
+  body{font-family:'Segoe UI',Tahoma,Arial,sans-serif;background:#0d0d1a;color:#fff;max-width:480px;margin:0 auto}
+  .topbar{display:flex;align-items:center;justify-content:space-between;padding:10px 14px;background:#14142b}
+  .logo{font-weight:800;font-size:18px;color:#ff5c5c}
+  .logo span{color:#fff}
+  .ais-badge{background:#00a651;color:#fff;font-size:11px;font-weight:700;padding:4px 8px;border-radius:12px}
+  .hero{text-align:center;padding:26px 16px 16px}
+  .hero .icon{font-size:54px;margin-bottom:8px}
+  .hero h1{font-size:23px;font-weight:800;line-height:1.35;margin-bottom:8px}
+  .hero h1 .accent{color:#00e0a0}
+  .hero p{font-size:14px;color:#c9c9e0}
+  .timerbox{display:flex;justify-content:center;gap:6px;margin:16px 0}
+  .timerbox .box{background:#1a1a3a;border:1px solid #00e0a0;border-radius:8px;padding:8px 12px;min-width:48px;text-align:center}
+  .timerbox .box .num{font-size:20px;font-weight:800;color:#00e0a0}
+  .timerbox .box .lbl{font-size:9px;color:#c9c9e0}
+  .cta-wrap{padding:0 16px;margin:10px 0 20px}
+  .cta{display:block;text-align:center;background:linear-gradient(135deg,#00c853,#00a651);color:#fff;font-size:22px;font-weight:800;padding:20px;border-radius:16px;text-decoration:none;box-shadow:0 10px 26px rgba(0,166,81,.55);animation:pulse 1.5s infinite}
+  @keyframes pulse{0%{transform:scale(1)}50%{transform:scale(1.04)}100%{transform:scale(1)}}
+  .subtext{text-align:center;font-size:12px;color:#8a8aa8;margin-top:10px}
+  .features{padding:6px 16px 16px}
+  .feature{display:flex;align-items:center;gap:12px;background:#14142b;border-radius:12px;padding:12px 14px;margin-bottom:10px}
+  .feature .icon2{font-size:24px}
+  .feature .txt strong{display:block;font-size:14px}
+  .feature .txt span{font-size:12px;color:#a5a5c8}
+  .section-title{font-size:16px;font-weight:800;text-align:center;padding:16px 16px 6px}
+  .reviews{padding:6px 16px 16px}
+  .review{background:#14142b;border-radius:12px;padding:12px;margin-bottom:10px}
+  .review .head2{display:flex;justify-content:space-between;align-items:center;margin-bottom:6px}
+  .review .name{font-weight:700;font-size:13px}
+  .review .loc{font-size:11px;color:#8a8aa8}
+  .review .stars{color:#ffd166;font-size:13px}
+  .review .body{font-size:12.5px;color:#c9c9e0;line-height:1.5}
+  .banner{margin:0 16px 16px;background:#14142b;border:1px solid #2b1050;border-radius:12px;padding:12px;display:flex;align-items:center;gap:10px}
+  .banner .b-icon{background:#00a651;border-radius:8px;width:38px;height:38px;display:flex;align-items:center;justify-content:center;font-weight:800;font-size:13px;flex-shrink:0}
+  .banner .b-txt{font-size:12px;color:#dcdcf0}
+  .cta-wrap2{padding:0 16px;margin:6px 0 20px}
+  footer{padding:16px;text-align:center;font-size:10.5px;color:#6b6b8a;line-height:1.6}
+  footer a{color:#8a8aa8;text-decoration:underline;margin:0 4px}
+</style>
+</head>
+<body>
+  <div class="topbar">
+    <div class="logo">📦<span>Action</span>Boxx</div>
+    <div class="ais-badge">AIS Partner</div>
+  </div>
+
+  <div class="hero">
+    <div class="icon">🚀</div>
+    <h1>เข้าถึง<span class="accent">ไม่จำกัด</span><br>สมัครเลยตอนนี้</h1>
+    <p>Action Boxx เปิดให้เข้าใช้งานทันที ไม่ต้องรอ ไม่ยุ่งยาก</p>
+  </div>
+
+  <div class="timerbox">
+    <div class="box"><div class="num" id="hh">02</div><div class="lbl">ชม.</div></div>
+    <div class="box"><div class="num" id="mm">30</div><div class="lbl">นาที</div></div>
+    <div class="box"><div class="num" id="ss">00</div><div class="lbl">วินาที</div></div>
+  </div>
+
+  <div class="cta-wrap">
+    <a href="https://08deh.bemobtrk.com/click" class="cta" id="ctaBtn1">สมัคร</a>
+    <div class="subtext">⏰ ข้อเสนอนี้มีเวลาจำกัด สมัครก่อนหมดเวลา</div>
+  </div>
+
+  <div class="features">
+    <div class="feature"><div class="icon2">📶</div><div class="txt"><strong>ดาต้าไม่จำกัด</strong><span>ใช้งานได้เต็มที่ตลอด 5 วัน</span></div></div>
+    <div class="feature"><div class="icon2">⚡</div><div class="txt"><strong>บริการรวดเร็ว</strong><span>เปิดใช้งานได้ทันทีหลังสมัคร</span></div></div>
+    <div class="feature"><div class="icon2">🗓️</div><div class="txt"><strong>สมาชิก 5 วัน</strong><span>คุ้มค่า ไม่ต้องผูกมัดระยะยาว</span></div></div>
+  </div>
+
+  <div class="section-title">รีวิวจากผู้ใช้จริง</div>
+  <div class="reviews">
+    <div class="review">
+      <div class="head2"><span class="name">คุณวรินทร์ ม.</span><span class="loc">📍 กรุงเทพฯ</span></div>
+      <div class="stars">★★★★★</div>
+      <div class="body">สมัครแล้วใช้งานได้เลยทันที ไม่ต้องรอนาน ตรงไปตรงมาดีครับ</div>
+    </div>
+    <div class="review">
+      <div class="head2"><span class="name">คุณสุพัตรา บ.</span><span class="loc">📍 เชียงใหม่</span></div>
+      <div class="stars">★★★★★</div>
+      <div class="body">ชอบที่หน้าเว็บเรียบง่าย ไม่ยุ่งยาก กดสมัครแล้วได้ใช้งานจริง</div>
+    </div>
+    <div class="review">
+      <div class="head2"><span class="name">คุณเอกชัย ท.</span><span class="loc">📍 ภูเก็ต</span></div>
+      <div class="stars">★★★★★</div>
+      <div class="body">เร็วมากครับ สมัครผ่านมือถือเลยไม่ต้องกรอกอะไรซับซ้อน แนะนำเลย</div>
+    </div>
+  </div>
+
+  <div class="banner">
+    <div class="b-icon">AIS</div>
+    <div class="b-txt">บริการนี้รองรับเฉพาะผู้ใช้เครือข่าย AIS เท่านั้น</div>
+  </div>
+
+  <div class="cta-wrap2">
+    <a href="https://08deh.bemobtrk.com/click" class="cta" id="ctaBtn2">สมัคร</a>
+  </div>
+
+  <footer>
+    บริการสมาชิกรายเดือน 5 วัน อาจมีค่าใช้จ่ายเพิ่มเติมตามเงื่อนไขผู้ให้บริการ
+    <br>
+    <a href="#">เงื่อนไขการใช้บริการ</a> | <a href="#">นโยบายความเป็นส่วนตัว</a> | <a href="#">ยกเลิกบริการ</a>
+  </footer>
+
+<script>
+  var OFFER_URL = "https://08deh.bemobtrk.com/click";
+  function withParams(url){
+    try{
+      var u = new URL(url);
+      var incoming = new URLSearchParams(location.search);
+      incoming.forEach(function(v,k){ if(!u.searchParams.has(k)) u.searchParams.set(k,v); });
+      return u.toString();
+    }catch(e){ return url; }
+  }
+  var finalUrl = withParams(OFFER_URL);
+  document.getElementById('ctaBtn1').href = finalUrl;
+  document.getElementById('ctaBtn2').href = finalUrl;
+
+  var totalSeconds = (2*3600) + Math.floor(Math.random()*3601); // 2h-3h
+  function updateTimer(){
+    if(totalSeconds<=0){ totalSeconds = 3600; }
+    var h = Math.floor(totalSeconds/3600);
+    var m = Math.floor((totalSeconds%3600)/60);
+    var s = totalSeconds%60;
+    document.getElementById('hh').textContent = String(h).padStart(2,'0');
+    document.getElementById('mm').textContent = String(m).padStart(2,'0');
+    document.getElementById('ss').textContent = String(s).padStart(2,'0');
+    totalSeconds--;
+  }
+  updateTimer();
+  setInterval(updateTimer, 1000);
+</script>
+</body>
+</html>
