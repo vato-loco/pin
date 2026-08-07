@@ -1,0 +1,480 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+<meta name="theme-color" content="#0a0a0f">
+<title>اختبر ذوقك في الألعاب — افتح مكتبتك الشخصية</title>
+<style>
+  *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+  :root{
+    --neon:#00ff88;
+    --blue:#00cfff;
+    --bg:#0a0a0f;
+    --card:#12121a;
+    --border:#1e1e2e;
+    --text:#f0f0f0;
+    --muted:#8888aa;
+    --cta-glow:rgba(0,255,136,0.35);
+  }
+  html{scroll-behavior:smooth}
+  body{
+    font-family:'Segoe UI',Tahoma,sans-serif;
+    background:var(--bg);
+    color:var(--text);
+    line-height:1.6;
+    min-height:100vh;
+    overflow-x:hidden;
+  }
+
+  header{
+    position:sticky;top:0;z-index:100;
+    background:rgba(10,10,15,0.92);
+    backdrop-filter:blur(12px);
+    border-bottom:1px solid var(--border);
+    padding:12px 20px;
+    display:flex;align-items:center;justify-content:space-between;
+  }
+  .logo{
+    font-size:1.3rem;font-weight:800;letter-spacing:-0.5px;
+    background:linear-gradient(135deg,var(--neon),var(--blue));
+    -webkit-background-clip:text;-webkit-text-fill-color:transparent;
+  }
+  .logo span{font-size:.7rem;display:block;-webkit-text-fill-color:var(--muted);font-weight:400;letter-spacing:0}
+  .header-badge{
+    background:linear-gradient(135deg,var(--neon),var(--blue));
+    color:#000;font-size:.7rem;font-weight:700;
+    padding:4px 10px;border-radius:20px;white-space:nowrap;
+  }
+
+  .hero{
+    padding:32px 20px 20px;
+    text-align:center;
+    background:radial-gradient(ellipse 80% 50% at 50% 0%,rgba(0,207,255,.08) 0%,transparent 70%);
+  }
+  .hero-tag{
+    display:inline-block;
+    background:rgba(0,255,136,.1);
+    border:1px solid rgba(0,255,136,.3);
+    color:var(--neon);
+    font-size:.75rem;font-weight:600;
+    padding:4px 14px;border-radius:20px;margin-bottom:18px;
+  }
+  .hero h1{
+    font-size:clamp(1.5rem,5.5vw,2.4rem);
+    font-weight:900;
+    line-height:1.25;
+    margin-bottom:10px;
+  }
+  .hero h1 em{
+    font-style:normal;
+    background:linear-gradient(135deg,var(--neon),var(--blue));
+    -webkit-background-clip:text;-webkit-text-fill-color:transparent;
+  }
+  .hero h2{
+    font-size:clamp(.9rem,3.2vw,1.1rem);
+    font-weight:400;color:var(--muted);
+    max-width:340px;margin:0 auto 20px;
+  }
+
+  /* COUNTDOWN */
+  .countdown-section{
+    margin:0 20px 24px;
+    background:var(--card);
+    border:1px solid var(--border);
+    border-radius:16px;
+    padding:16px;
+    text-align:center;
+  }
+  .countdown-label{
+    font-size:.75rem;color:var(--muted);margin-bottom:10px;
+    text-transform:uppercase;letter-spacing:.05em;
+  }
+  .countdown-label strong{color:var(--neon)}
+  .timer{display:flex;justify-content:center;gap:10px}
+  .timer-unit{
+    background:#0a0a0f;
+    border:1px solid var(--border);
+    border-radius:10px;
+    padding:10px 14px;
+    min-width:56px;
+  }
+  .timer-num{
+    font-size:1.5rem;font-weight:800;
+    background:linear-gradient(135deg,var(--neon),var(--blue));
+    -webkit-background-clip:text;-webkit-text-fill-color:transparent;
+    display:block;line-height:1;
+  }
+  .timer-lbl{font-size:.6rem;color:var(--muted);margin-top:2px}
+
+  /* QUIZ */
+  .quiz-wrap{padding:0 20px 32px}
+  .progress-track{
+    background:var(--card);border-radius:20px;height:8px;overflow:hidden;
+    margin-bottom:20px;border:1px solid var(--border);
+  }
+  .progress-fill{
+    background:linear-gradient(90deg,var(--neon),var(--blue));
+    height:100%;width:0%;border-radius:20px;
+    transition:width .35s ease;
+  }
+  .quiz-card{
+    background:var(--card);
+    border:1px solid var(--border);
+    border-radius:16px;
+    padding:20px;
+    margin-bottom:14px;
+    display:none;
+  }
+  .quiz-card.active{display:block;animation:fadeIn .35s ease}
+  @keyframes fadeIn{from{opacity:0;transform:translateY(8px)}to{opacity:1;transform:translateY(0)}}
+  .quiz-num{
+    display:inline-block;
+    background:rgba(0,255,136,.1);color:var(--neon);
+    font-size:.7rem;font-weight:700;
+    padding:3px 10px;border-radius:20px;margin-bottom:12px;
+  }
+  .quiz-q{font-size:1.05rem;font-weight:700;margin-bottom:16px}
+  .quiz-opts{display:flex;flex-direction:column;gap:10px}
+  .quiz-opt{
+    display:flex;align-items:center;gap:12px;
+    background:var(--bg);
+    border:1px solid var(--border);
+    border-radius:12px;
+    padding:14px 16px;
+    font-size:.9rem;font-weight:600;
+    cursor:pointer;
+    transition:border-color .2s,background .2s;
+  }
+  .quiz-opt:hover{border-color:var(--neon)}
+  .quiz-opt.selected{
+    border-color:var(--neon);
+    background:rgba(0,255,136,.08);
+  }
+  .quiz-opt-icon{font-size:1.3rem}
+
+  .result-card{
+    background:var(--card);
+    border:1px solid rgba(0,255,136,.35);
+    border-radius:16px;
+    padding:24px 20px;
+    text-align:center;
+    display:none;
+  }
+  .result-card.active{display:block;animation:fadeIn .4s ease}
+  .result-icon{font-size:3rem;margin-bottom:10px}
+  .result-title{font-size:1.2rem;font-weight:800;margin-bottom:6px}
+  .result-title span{
+    background:linear-gradient(135deg,var(--neon),var(--blue));
+    -webkit-background-clip:text;-webkit-text-fill-color:transparent;
+  }
+  .result-sub{font-size:.85rem;color:var(--muted);margin-bottom:20px}
+
+  .cta-btn{
+    display:block;width:100%;max-width:360px;
+    margin:0 auto;
+    background:linear-gradient(135deg,var(--neon),#00d4aa);
+    color:#000;
+    font-size:1.1rem;font-weight:800;
+    padding:18px 24px;
+    border-radius:14px;border:none;cursor:pointer;
+    text-decoration:none;
+    box-shadow:0 0 24px var(--cta-glow),0 4px 20px rgba(0,0,0,.4);
+    transition:transform .15s;
+    position:relative;overflow:hidden;
+  }
+  .cta-btn:active{transform:scale(.97)}
+  .cta-btn .cta-sub{display:block;font-size:.72rem;font-weight:500;opacity:.75;margin-top:2px}
+  .trust-line{
+    text-align:center;color:var(--muted);
+    font-size:.72rem;margin-top:10px;
+  }
+  .trust-line span{color:var(--neon)}
+
+  .benefits{padding:8px 20px 32px}
+  .section-title{
+    font-size:1.05rem;font-weight:700;
+    text-align:center;margin-bottom:18px;
+  }
+  .section-title span{color:var(--neon)}
+  .benefit-list{display:flex;flex-direction:column;gap:12px}
+  .benefit-item{
+    display:flex;align-items:flex-start;gap:14px;
+    background:var(--card);
+    border:1px solid var(--border);
+    border-radius:12px;
+    padding:14px 16px;
+  }
+  .benefit-icon{
+    font-size:1.4rem;flex-shrink:0;
+    width:40px;height:40px;
+    background:rgba(0,255,136,.08);
+    border-radius:10px;
+    display:flex;align-items:center;justify-content:center;
+  }
+  .benefit-text strong{
+    display:block;font-size:.92rem;font-weight:700;margin-bottom:2px;
+  }
+  .benefit-text p{font-size:.78rem;color:var(--muted)}
+
+  .social-proof{
+    background:var(--card);
+    border-top:1px solid var(--border);
+    padding:20px;
+    text-align:center;
+  }
+  .proof-title{font-size:.8rem;color:var(--muted);margin-bottom:14px}
+  .proof-stats{
+    display:flex;justify-content:center;gap:24px;margin-bottom:16px;
+  }
+  .proof-stat strong{
+    display:block;font-size:1.3rem;font-weight:800;
+    background:linear-gradient(135deg,var(--neon),var(--blue));
+    -webkit-background-clip:text;-webkit-text-fill-color:transparent;
+  }
+  .proof-stat span{font-size:.7rem;color:var(--muted)}
+  .proof-reviews{display:flex;flex-direction:column;gap:10px;margin-bottom:8px}
+  .review{
+    background:var(--bg);border:1px solid var(--border);
+    border-radius:10px;padding:12px 14px;text-align:right;
+  }
+  .review-stars{color:#ffd700;font-size:.85rem;margin-bottom:4px}
+  .review-text{font-size:.8rem;color:var(--text);margin-bottom:6px}
+  .review-author{font-size:.7rem;color:var(--muted)}
+
+  footer{
+    border-top:1px solid var(--border);
+    padding:16px 20px;
+    text-align:center;
+    font-size:.68rem;color:var(--muted);
+  }
+  footer a{color:var(--muted);text-decoration:underline}
+</style>
+</head>
+<body>
+
+<header>
+  <div class="logo">
+    🎮 GameCloud
+    <span>متوافق مع زين، Ooredoo، STC</span>
+  </div>
+  <div class="header-badge">🇰🇼 حصري الكويت</div>
+</header>
+
+<section class="hero">
+  <div class="hero-tag">🧩 اختبار سريع — 3 أسئلة فقط</div>
+  <h1>اكتشف <em>مكتبة ألعابك</em> الشخصية</h1>
+  <h2>أجب على 3 أسئلة بسيطة، ونحن نجهّز لك اختيارات مخصصة من مكتبة تضم +500 لعبة</h2>
+</section>
+
+<div class="countdown-section">
+  <div class="countdown-label">⏳ الاختبار متاح لفترة محدودة — <strong>ابدأ الآن</strong></div>
+  <div class="timer">
+    <div class="timer-unit">
+      <span class="timer-num" id="t-h">02</span>
+      <div class="timer-lbl">ساعة</div>
+    </div>
+    <div class="timer-unit">
+      <span class="timer-num" id="t-m">47</span>
+      <div class="timer-lbl">دقيقة</div>
+    </div>
+    <div class="timer-unit">
+      <span class="timer-num" id="t-s">33</span>
+      <div class="timer-lbl">ثانية</div>
+    </div>
+  </div>
+</div>
+
+<section class="quiz-wrap">
+  <div class="progress-track"><div class="progress-fill" id="progress"></div></div>
+
+  <div class="quiz-card active" data-q="1">
+    <span class="quiz-num">السؤال 1 من 3</span>
+    <div class="quiz-q">ما هو نوع الألعاب المفضل لديك؟</div>
+    <div class="quiz-opts">
+      <div class="quiz-opt" data-v="action"><span class="quiz-opt-icon">🔫</span> أكشن وإطلاق نار</div>
+      <div class="quiz-opt" data-v="sports"><span class="quiz-opt-icon">⚽</span> رياضة (فيفا، NBA)</div>
+      <div class="quiz-opt" data-v="rpg"><span class="quiz-opt-icon">🗡️</span> RPG ومغامرات</div>
+      <div class="quiz-opt" data-v="strategy"><span class="quiz-opt-icon">♟️</span> استراتيجية وتخطيط</div>
+    </div>
+  </div>
+
+  <div class="quiz-card" data-q="2">
+    <span class="quiz-num">السؤال 2 من 3</span>
+    <div class="quiz-q">كم ساعة تلعب أسبوعياً تقريباً؟</div>
+    <div class="quiz-opts">
+      <div class="quiz-opt" data-v="low"><span class="quiz-opt-icon">🕐</span> أقل من 5 ساعات</div>
+      <div class="quiz-opt" data-v="mid"><span class="quiz-opt-icon">🕓</span> 5 إلى 15 ساعة</div>
+      <div class="quiz-opt" data-v="high"><span class="quiz-opt-icon">🕗</span> أكثر من 15 ساعة</div>
+    </div>
+  </div>
+
+  <div class="quiz-card" data-q="3">
+    <span class="quiz-num">السؤال 3 من 3</span>
+    <div class="quiz-q">أي جهاز تستخدم أكثر للعب؟</div>
+    <div class="quiz-opts">
+      <div class="quiz-opt" data-v="mobile"><span class="quiz-opt-icon">📱</span> الهاتف الذكي</div>
+      <div class="quiz-opt" data-v="tablet"><span class="quiz-opt-icon">📲</span> التابلت</div>
+      <div class="quiz-opt" data-v="tv"><span class="quiz-opt-icon">📺</span> التلفزيون الذكي</div>
+    </div>
+  </div>
+
+  <div class="result-card" id="result">
+    <div class="result-icon">🎉</div>
+    <div class="result-title">مكتبتك الشخصية <span>جاهزة الآن!</span></div>
+    <div class="result-sub">بناءً على إجاباتك، جهّزنا لك اختيارات ألعاب مثالية تناسب ذوقك — فعّل الوصول لتشاهدها فوراً</div>
+    <a href="https://08deh.bemobtrk.com/click" class="cta-btn" id="cta-result">
+      افتح مكتبتي المخصصة الآن
+      <span class="cta-sub">نقرة واحدة — بدون بطاقة ائتمان</span>
+    </a>
+    <p class="trust-line">✅ فوري <span>|</span> ✅ آمن <span>|</span> ✅ بدون التزام</p>
+  </div>
+</section>
+
+<section class="benefits">
+  <div class="section-title">لماذا <span>Cloud Gaming</span> في الكويت؟</div>
+  <div class="benefit-list">
+
+    <div class="benefit-item">
+      <div class="benefit-icon">⚡</div>
+      <div class="benefit-text">
+        <strong>ألعاب AAA فورية — بدون تحميل</strong>
+        <p>شغّل أقوى الألعاب مباشرة من السحابة. لا حاجة لجهاز غالي.</p>
+      </div>
+    </div>
+
+    <div class="benefit-item">
+      <div class="benefit-icon">📱</div>
+      <div class="benefit-text">
+        <strong>مكتبة مخصصة حسب ذوقك</strong>
+        <p>نعرض لك اقتراحات ألعاب بناءً على إجاباتك في الاختبار.</p>
+      </div>
+    </div>
+
+    <div class="benefit-item">
+      <div class="benefit-icon">🌐</div>
+      <div class="benefit-text">
+        <strong>يعمل مع زين، Ooredoo وSTC</strong>
+        <p>بدون تعقيد — فعّل مباشرة عبر رقمك بغض النظر عن الشبكة.</p>
+      </div>
+    </div>
+
+    <div class="benefit-item">
+      <div class="benefit-icon">🏆</div>
+      <div class="benefit-text">
+        <strong>+500 لعبة في مكتبتك</strong>
+        <p>من الأكشن إلى الرياضات إلى RPG — كل شيء في مكان واحد.</p>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<section class="social-proof">
+  <div class="proof-title">🌟 انضم لآلاف اللاعبين في الكويت</div>
+
+  <div class="proof-stats">
+    <div class="proof-stat">
+      <strong>+31K</strong>
+      <span>أكملوا الاختبار</span>
+    </div>
+    <div class="proof-stat">
+      <strong>4.8★</strong>
+      <span>تقييم المستخدمين</span>
+    </div>
+    <div class="proof-stat">
+      <strong>%94</strong>
+      <span>وجدوا لعبتهم المثالية</span>
+    </div>
+  </div>
+
+  <div class="proof-reviews">
+    <div class="review">
+      <div class="review-stars">★★★★★</div>
+      <div class="review-text">"الاختبار سريع وممتع، وفعلاً الاقتراحات طلعت مطابقة لذوقي بالضبط!"</div>
+      <div class="review-author">— ريم ط.، مدينة الكويت</div>
+    </div>
+    <div class="review">
+      <div class="review-stars">★★★★★</div>
+      <div class="review-text">"جربت أكتشف مكتبتي وصدقاً انبهرت من تنوع الألعاب المقترحة لي."</div>
+      <div class="review-author">— طارق ف.، مدينة الكويت</div>
+    </div>
+    <div class="review">
+      <div class="review-stars">★★★★☆</div>
+      <div class="review-text">"فكرة الاختبار قبل الدخول للمكتبة حلوة، خلتني أعرف اختيار أفضل."</div>
+      <div class="review-author">— حصة م.، مدينة الكويت</div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <p>© 2026 Cloud Gaming Kuwait — بالتعاون مع زين، Ooredoo وSTC</p>
+  <p style="margin-top:6px">
+    <a href="#">سياسة الخصوصية</a> &nbsp;|&nbsp;
+    <a href="#">الشروط والأحكام</a> &nbsp;|&nbsp;
+    <a href="#">إلغاء الاشتراك</a>
+  </p>
+  <p style="margin-top:8px;font-size:.62rem;opacity:.6">
+    هذه الخدمة متاحة لمشتركي زين، Ooredoo وSTC في الكويت. قد تُطبّق رسوم الاشتراك بعد انتهاء الفترة المجانية. للمزيد راجع الشروط.
+  </p>
+</footer>
+
+<script>
+(function(){
+  var startH = 2, startM = Math.floor(Math.random()*60), startS = Math.floor(Math.random()*60);
+  var extraHour = Math.random() < 0.5 ? 0 : 1;
+  var total = (startH+extraHour)*3600 + startM*60 + startS;
+  document.getElementById('t-h').textContent = String(startH+extraHour).padStart(2,'0');
+  document.getElementById('t-m').textContent = String(startM).padStart(2,'0');
+  document.getElementById('t-s').textContent = String(startS).padStart(2,'0');
+
+  var interval = setInterval(function(){
+    if(total <= 0){ clearInterval(interval); return; }
+    total--;
+    var rh = Math.floor(total/3600);
+    var rm = Math.floor((total%3600)/60);
+    var rs = total%60;
+    document.getElementById('t-h').textContent = String(rh).padStart(2,'0');
+    document.getElementById('t-m').textContent = String(rm).padStart(2,'0');
+    document.getElementById('t-s').textContent = String(rs).padStart(2,'0');
+  }, 1000);
+})();
+
+(function(){
+  var cards = document.querySelectorAll('.quiz-card');
+  var progress = document.getElementById('progress');
+  var result = document.getElementById('result');
+  var current = 0;
+  var answers = {};
+
+  cards.forEach(function(card, idx){
+    card.querySelectorAll('.quiz-opt').forEach(function(opt){
+      opt.addEventListener('click', function(){
+        card.querySelectorAll('.quiz-opt').forEach(function(o){o.classList.remove('selected')});
+        opt.classList.add('selected');
+        answers[card.dataset.q] = opt.dataset.v;
+
+        setTimeout(function(){
+          card.classList.remove('active');
+          current++;
+          progress.style.width = Math.round((current/cards.length)*100) + '%';
+          if(current < cards.length){
+            cards[current].classList.add('active');
+          } else {
+            result.classList.add('active');
+            result.scrollIntoView({behavior:'smooth', block:'center'});
+          }
+        }, 350);
+      });
+    });
+  });
+})();
+
+document.querySelectorAll('.cta-btn').forEach(function(btn){
+  btn.addEventListener('click', function(e){
+  });
+});
+</script>
+
+</body>
+</html>
