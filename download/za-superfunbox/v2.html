@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Superfunbox - Limited Offer</title>
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;background:linear-gradient(135deg,#1a0a00,#2d1810);min-height:100vh;display:flex;align-items:center;justify-content:center;padding:15px}
+.card{background:#fff;border-radius:20px;max-width:380px;width:100%;overflow:hidden;box-shadow:0 10px 40px rgba(0,0,0,0.35)}
+.alert{background:#e63946;color:#fff;text-align:center;padding:10px;font-size:13px;font-weight:700;display:flex;align-items:center;justify-content:center;gap:8px}
+.alert .dot{width:8px;height:8px;background:#fff;border-radius:50%;animation:pulse 1s infinite}
+@keyframes pulse{0%,100%{opacity:1}50%{opacity:0.3}}
+.body{padding:20px}
+.countdown{text-align:center;margin:12px 0}
+.countdown-label{font-size:13px;color:#e63946;font-weight:600;margin-bottom:6px}
+.timer{display:flex;justify-content:center;gap:8px}
+.time-box{background:#1a1a2e;color:#fff;padding:8px 6px;border-radius:8px;min-width:48px;text-align:center}
+.time-box .num{font-size:20px;font-weight:700;display:block}
+.time-box .txt{font-size:9px;opacity:0.8}
+.icon{text-align:center;font-size:40px;margin:5px 0}
+h1{font-size:18px;color:#333;text-align:center;margin:10px 0 6px}
+.sub{text-align:center;font-size:13px;color:#666;margin-bottom:10px}
+.stock{background:#fff5f5;border:1px solid #e63946;border-radius:8px;padding:10px;text-align:center;font-size:13px;color:#c0392b;font-weight:600;margin:10px 0}
+.cta{display:block;background:linear-gradient(135deg,#e63946,#c0392b);color:#fff;text-decoration:none;padding:16px;border-radius:14px;font-size:16px;font-weight:700;text-align:center;margin:15px 0 5px;box-shadow:0 4px 15px rgba(230,57,70,0.4);transition:transform 0.2s}
+.cta:active{transform:scale(0.98)}
+.note{text-align:center;font-size:11px;color:#999;margin-top:8px}
+.footer{text-align:center;font-size:10px;color:#bbb;padding:0 20px 20px}
+</style>
+</head>
+<body>
+<div class="card">
+  <div class="alert">
+    <span class="dot"></span> ⚡ FLASH SALE — Limited Spots!
+  </div>
+  <div class="body">
+    <div class="countdown">
+      <div class="countdown-label">⏰ OFFER EXPIRES IN:</div>
+      <div class="timer">
+        <div class="time-box"><span class="num" id="mins">04</span><span class="txt">min</span></div>
+        <div class="time-box"><span class="num" id="secs">51</span><span class="txt">sec</span></div>
+      </div>
+    </div>
+    <div class="icon">🎮</div>
+    <h1>Super Funbox — Get Unlimited Access!</h1>
+    <p class="sub">200+ premium games. Special offer for new members only.</p>
+    <div class="stock">🔥 Only <strong>4 spots</strong> left today!</div>
+    <a href="https://08deh.bemobtrk.com/click" class="cta">CLAIM NOW</a>
+    <div class="note">*Limited time offer. Subject to availability.</div>
+  </div>
+  <div class="footer">Value-added service. Click to confirm. 18+</div>
+</div>
+<script>
+let m=4,s=51;
+setInterval(()=>{s--;if(s<0){s=59;m--}if(m<0){m=4;s=59}
+document.getElementById('mins').textContent=String(m).padStart(2,'0');
+document.getElementById('secs').textContent=String(s).padStart(2,'0')},1000);
+</script>
+</body>
+</html>

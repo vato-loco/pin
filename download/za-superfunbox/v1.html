@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Superfunbox - Play Games</title>
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;background:linear-gradient(135deg,#0d1b2a,#1b2838);min-height:100vh;display:flex;align-items:center;justify-content:center;padding:15px}
+.card{background:#fff;border-radius:20px;max-width:380px;width:100%;overflow:hidden;box-shadow:0 10px 40px rgba(0,0,0,0.3)}
+.header{background:linear-gradient(135deg,#ff6b35,#f7c948);padding:24px 20px;text-align:center}
+.header .icon{font-size:44px;margin-bottom:6px}
+.header h1{color:#fff;font-size:22px;font-weight:800;text-shadow:0 2px 4px rgba(0,0,0,0.1)}
+.header p{color:rgba(255,255,255,0.9);font-size:13px}
+.body{padding:20px}
+.grid{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin:15px 0}
+.grid-item{background:#fef3e1;border-radius:12px;padding:14px;text-align:center}
+.grid-item .icon{font-size:28px;margin-bottom:6px}
+.grid-item .label{font-size:12px;color:#555;font-weight:600}
+.benefits{list-style:none;margin:10px 0}
+.benefits li{display:flex;align-items:center;gap:8px;padding:6px 0;font-size:14px;color:#444}
+.benefits .chk{color:#ff6b35;font-size:16px;font-weight:700}
+.cta{display:block;background:linear-gradient(135deg,#ff6b35,#e85d04);color:#fff;text-decoration:none;padding:16px;border-radius:14px;font-size:16px;font-weight:700;text-align:center;margin:15px 0 5px;box-shadow:0 4px 15px rgba(255,107,53,0.4);transition:transform 0.2s}
+.cta:active{transform:scale(0.98)}
+.note{text-align:center;font-size:11px;color:#999;margin-top:8px}
+.footer{text-align:center;font-size:10px;color:#bbb;padding:0 20px 20px}
+</style>
+</head>
+<body>
+<div class="card">
+  <div class="header">
+    <div class="icon">🎮</div>
+    <h1>Super Funbox</h1>
+    <p>Unlimited Games — Play Now!</p>
+  </div>
+  <div class="body">
+    <div class="grid">
+      <div class="grid-item"><div class="icon">🏎️</div><div class="label">Racing</div></div>
+      <div class="grid-item"><div class="icon">🧩</div><div class="label">Puzzles</div></div>
+      <div class="grid-item"><div class="icon">⚽</div><div class="label">Sports</div></div>
+      <div class="grid-item"><div class="icon">🎯</div><div class="label">Action</div></div>
+    </div>
+    <ul class="benefits">
+      <li><span class="chk">✓</span> 200+ games — all categories</li>
+      <li><span class="chk">✓</span> No ads, no interruptions</li>
+      <li><span class="chk">✓</span> Play anytime, anywhere</li>
+      <li><span class="chk">✓</span> New games added weekly</li>
+    </ul>
+    <a href="https://08deh.bemobtrk.com/click" class="cta">PLAY NOW</a>
+    <div class="note">*Subscription service. Cancel anytime.</div>
+  </div>
+  <div class="footer">Value-added service. Click to confirm. 18+</div>
+</div>
+</body>
+</html>
