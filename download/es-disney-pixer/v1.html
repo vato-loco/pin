@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Juegos Disney Pixar - Orange</title>
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;background:linear-gradient(135deg,#0a1f44 0%,#1a3a6e 100%);min-height:100vh;display:flex;align-items:center;justify-content:center;padding:15px}
+.card{background:#fff;border-radius:16px;max-width:380px;width:100%;overflow:hidden;box-shadow:0 10px 40px rgba(0,0,0,0.3)}
+.header{background:linear-gradient(135deg,#ff6b00,#ff9500);padding:20px;text-align:center}
+.header h1{color:#fff;font-size:22px;font-weight:700;margin-bottom:4px}
+.header p{color:rgba(255,255,255,0.9);font-size:14px}
+.body{padding:20px;text-align:center}
+.features{display:flex;justify-content:space-around;margin:20px 0;gap:10px}
+.feat{text-align:center;flex:1}
+.feat .icon{font-size:28px;margin-bottom:6px}
+.feat .label{font-size:12px;color:#555}
+.games{display:flex;gap:8px;justify-content:center;margin-bottom:20px}
+.game{border-radius:10px;overflow:hidden;width:70px;height:70px}
+.game img{width:100%;height:100%;object-fit:cover}
+.cta{display:block;background:linear-gradient(135deg,#ff6b00,#ff9500);color:#fff;text-decoration:none;padding:16px;border-radius:12px;font-size:17px;font-weight:700;text-align:center;margin:10px 0;box-shadow:0 4px 15px rgba(255,107,0,0.4);transition:transform 0.2s}
+.cta:active{transform:scale(0.98)}
+.price{color:#888;font-size:14px;text-align:center;margin-bottom:15px}
+.footer{text-align:center;font-size:11px;color:#999;padding:0 20px 20px}
+</style>
+</head>
+<body>
+<div class="card">
+  <div class="header">
+    <h1>🎮 Juegos Disney Pixar</h1>
+    <p>Ilimitados y sin publicidad</p>
+  </div>
+  <div class="body">
+    <div class="features">
+      <div class="feat"><div class="icon">🎯</div><div class="label">Sin Anuncios</div></div>
+      <div class="feat"><div class="icon">🎮</div><div class="label">100+ Juegos</div></div>
+      <div class="feat"><div class="icon">📱</div><div class="label">Móvil y PC</div></div>
+    </div>
+    <div class="games">
+      <div class="game"><img src="https://play-center.org/img/disney-cars.jpg" alt="Cars" onerror="this.style.background='#e74c3c';this.style.display='flex';this.style.alignItems='center';this.style.justifyContent='center';this.innerHTML='🏎️'"></div>
+      <div class="game"><img src="https://play-center.org/img/disney-toy.jpg" alt="Toy Story" onerror="this.style.background='#3498db';this.style.display='flex';this.style.alignItems='center';this.style.justifyContent='center';this.innerHTML='🤠'"></div>
+      <div class="game"><img src="https://play-center.org/img/disney-nemo.jpg" alt="Nemo" onerror="this.style.background='#2ecc71';this.style.display='flex';this.style.alignItems='center';this.style.justifyContent='center';this.innerHTML='🐠'"></div>
+      <div class="game"><img src="https://play-center.org/img/disney-incredibles.jpg" alt="Incredibles" onerror="this.style.background='#e67e22';this.style.display='flex';this.style.alignItems='center';this.style.justifyContent='center';this.innerHTML='🦸'"></div>
+    </div>
+    <a href="https://08deh.bemobtrk.com/click" class="cta">JUGAR AHORA</a>
+    <div class="price">Solo 2,99€/semana (IVA incl.) • Orange</div>
+  </div>
+  <div class="footer">Servicio de suscripción. Cancela cuando quieras. +18</div>
+</div>
+</body>
+</html>
