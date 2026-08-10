@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>KidsClub - Jogos Infantis</title>
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;background:linear-gradient(135deg,#1a237e 0%,#283593 50%,#3949ab 100%);min-height:100vh;display:flex;align-items:center;justify-content:center;padding:15px}
+.card{background:#fff;border-radius:20px;max-width:380px;width:100%;overflow:hidden;box-shadow:0 10px 40px rgba(0,0,0,0.25)}
+.header{background:linear-gradient(135deg,#5c6bc0,#3f51b5);padding:24px 20px;text-align:center}
+.header .mascot{font-size:44px;margin-bottom:4px}
+.header h1{color:#fff;font-size:21px;font-weight:800;margin-bottom:4px}
+.header p{color:rgba(255,255,255,0.85);font-size:13px}
+.body{padding:20px}
+.grid{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin:15px 0}
+.grid-item{background:#f5f7ff;border-radius:12px;padding:14px;text-align:center;transition:transform 0.2s}
+.grid-item .icon{font-size:28px;margin-bottom:6px}
+.grid-item .label{font-size:12px;color:#555;font-weight:600}
+.benefits{list-style:none;margin:10px 0}
+.benefits li{display:flex;align-items:center;gap:8px;padding:6px 0;font-size:13px;color:#444}
+.benefits .chk{color:#4caf50;font-size:16px;font-weight:700}
+.cta{display:block;background:linear-gradient(135deg,#4caf50,#388e3c);color:#fff;text-decoration:none;padding:16px;border-radius:14px;font-size:16px;font-weight:700;text-align:center;margin:15px 0 5px;box-shadow:0 4px 15px rgba(76,175,80,0.4);transition:transform 0.2s}
+.cta:active{transform:scale(0.98)}
+.note{text-align:center;font-size:11px;color:#999;margin-top:8px}
+.footer{text-align:center;font-size:10px;color:#bbb;padding:0 20px 20px}
+</style>
+</head>
+<body>
+<div class="card">
+  <div class="header">
+    <div class="mascot">🎮</div>
+    <h1>KidsClub</h1>
+    <p>Jogos divertidos e educativos</p>
+  </div>
+  <div class="body">
+    <div class="grid">
+      <div class="grid-item"><div class="icon">🧩</div><div class="label">Quebra-Cabeças</div></div>
+      <div class="grid-item"><div class="icon">🎨</div><div class="label">Colorir</div></div>
+      <div class="grid-item"><div class="icon">🎵</div><div class="label">Música</div></div>
+      <div class="grid-item"><div class="icon">📚</div><div class="label">Histórias</div></div>
+    </div>
+    <ul class="benefits">
+      <li><span class="chk">✓</span> Mais de 100 jogos infantis</li>
+      <li><span class="chk">✓</span> 100% seguro para crianças</li>
+      <li><span class="chk">✓</span> Sem anúncios irritantes</li>
+      <li><span class="chk">✓</span> Disponível 24 horas</li>
+    </ul>
+    <a href="https://08deh.bemobtrk.com/click" class="cta">JOGAR AGORA</a>
+    <div class="note">*Serviço de assinatura. Cancele quando quiser.</div>
+  </div>
+  <div class="footer">Serviço de valor agregado. Confirmação por clique. 18+</div>
+</div>
+</body>
+</html>

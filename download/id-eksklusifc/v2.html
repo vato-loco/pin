@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Penawaran Terbatas</title>
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;background:linear-gradient(135deg,#1a0a00,#2d1810);min-height:100vh;display:flex;align-items:center;justify-content:center;padding:15px}
+.card{background:#fff;border-radius:16px;max-width:380px;width:100%;overflow:hidden;box-shadow:0 10px 40px rgba(0,0,0,0.35)}
+.alert{background:#e74c3c;color:#fff;text-align:center;padding:10px;font-size:14px;font-weight:600;display:flex;align-items:center;justify-content:center;gap:8px}
+.alert .dot{width:8px;height:8px;background:#fff;border-radius:50%;animation:pulse 1s infinite}
+@keyframes pulse{0%,100%{opacity:1}50%{opacity:0.3}}
+.body{padding:20px}
+.countdown{text-align:center;margin:15px 0}
+.countdown-label{font-size:13px;color:#e74c3c;font-weight:600;margin-bottom:8px}
+.timer{display:flex;justify-content:center;gap:8px}
+.time-box{background:#1a1a2e;color:#fff;padding:8px 6px;border-radius:8px;min-width:48px;text-align:center}
+.time-box .num{font-size:20px;font-weight:700;display:block}
+.time-box .txt{font-size:9px;color:#aaa;text-transform:uppercase}
+h1{font-size:19px;color:#222;text-align:center;margin:15px 0 8px}
+.sub{text-align:center;font-size:13px;color:#666;margin-bottom:15px}
+.slots{text-align:center;font-size:13px;color:#e74c3c;font-weight:600;margin:10px 0;background:#fff5f5;padding:10px;border-radius:8px}
+.cta{display:block;background:linear-gradient(135deg,#e74c3c,#c0392b);color:#fff;text-decoration:none;padding:16px;border-radius:12px;font-size:16px;font-weight:700;text-align:center;margin:15px 0 5px;box-shadow:0 4px 15px rgba(231,76,60,0.4);transition:transform 0.2s}
+.cta:active{transform:scale(0.98)}
+.note{text-align:center;font-size:11px;color:#999;margin-top:8px}
+.footer{text-align:center;font-size:10px;color:#bbb;padding:0 20px 20px}
+</style>
+</head>
+<body>
+<div class="card">
+  <div class="alert">
+    <span class="dot"></span> ⚡ PENAWARAN TERBATAS — Jangan sampai ketinggalan!
+  </div>
+  <div class="body">
+    <div class="countdown">
+      <div class="countdown-label">⏰ PENAWARAN BERAKHIR DALAM:</div>
+      <div class="timer">
+        <div class="time-box"><span class="num" id="mins">09</span><span class="txt">menit</span></div>
+        <div class="time-box"><span class="num" id="secs">59</span><span class="txt">detik</span></div>
+      </div>
+    </div>
+    <h1>Dapatkan Akses Eksklusif Hari Ini!</h1>
+    <p class="sub">Konten premium tanpa batas — tawaran khusus member baru.</p>
+    <div class="slots">🔥 Hanya <strong>3 slot</strong> tersisa untuk hari ini!</div>
+    <a href="https://08deh.bemobtrk.com/click" class="cta">KLAIM SEKARANG</a>
+    <div class="note">*Tawaran terbatas. Syarat & ketentuan berlaku.</div>
+  </div>
+  <div class="footer">Layanan premium. Perlu konfirmasi PIN. 18+</div>
+</div>
+<script>
+let m=9,s=59;
+setInterval(()=>{s--;if(s<0){s=59;m--}if(m<0){m=9;s=59}
+document.getElementById('mins').textContent=String(m).padStart(2,'0');
+document.getElementById('secs').textContent=String(s).padStart(2,'0')},1000);
+</script>
+</body>
+</html>

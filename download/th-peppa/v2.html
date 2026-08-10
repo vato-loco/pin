@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Peppa Pig - ข้อเสนอพิเศษ</title>
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;background:linear-gradient(135deg,#6c5ce7,#a29bfe);min-height:100vh;display:flex;align-items:center;justify-content:center;padding:15px}
+.card{background:#fff;border-radius:20px;max-width:380px;width:100%;overflow:hidden;box-shadow:0 10px 40px rgba(0,0,0,0.2)}
+.banner{background:#e84393;color:#fff;text-align:center;padding:10px;font-size:13px;font-weight:700;animation:blink 1.5s infinite}
+@keyframes blink{0%,100%{opacity:1}50%{opacity:0.7}}
+.pig-top{text-align:center;padding:15px 0 0;font-size:48px}
+.body{padding:20px}
+.countdown{text-align:center;margin:10px 0}
+.countdown-label{font-size:13px;color:#e84393;font-weight:600;margin-bottom:6px}
+.timer{display:flex;justify-content:center;gap:8px}
+.time-box{background:#6c5ce7;color:#fff;padding:8px 6px;border-radius:8px;min-width:48px;text-align:center}
+.time-box .num{font-size:20px;font-weight:700;display:block}
+.time-box .txt{font-size:9px;opacity:0.8}
+h1{font-size:18px;color:#333;text-align:center;margin:12px 0 6px}
+.sub{text-align:center;font-size:13px;color:#666;margin-bottom:12px}
+.stock{background:#fff3cd;border:1px solid #ffc107;border-radius:8px;padding:10px;text-align:center;font-size:13px;color:#856404;font-weight:600;margin:10px 0}
+.cta{display:block;background:linear-gradient(135deg,#e84393,#d63384);color:#fff;text-decoration:none;padding:16px;border-radius:14px;font-size:16px;font-weight:700;text-align:center;margin:15px 0 5px;box-shadow:0 4px 15px rgba(232,67,147,0.4);transition:transform 0.2s}
+.cta:active{transform:scale(0.98)}
+.note{text-align:center;font-size:11px;color:#999;margin-top:8px}
+.footer{text-align:center;font-size:10px;color:#bbb;padding:0 20px 20px}
+</style>
+</head>
+<body>
+<div class="card">
+  <div class="banner">🔥 ข้อเสนอพิเศษ — จำนวนจำกัด!</div>
+  <div class="pig-top">🐷</div>
+  <div class="body">
+    <div class="countdown">
+      <div class="countdown-label">⏰ ข้อเสนอหมดอายุใน:</div>
+      <div class="timer">
+        <div class="time-box"><span class="num" id="mins">05</span><span class="txt">นาที</span></div>
+        <div class="time-box"><span class="num" id="secs">47</span><span class="txt">วินาที</span></div>
+      </div>
+    </div>
+    <h1>รับสิทธิ์เข้าเล่น Peppa Pig World วันนี้!</h1>
+    <p class="sub">กว่า 50 เกมสนุก ไม่มีโฆษณา — สำหรับสมาชิกใหม่เท่านั้น</p>
+    <div class="stock">🎁 เหลือเพียง <strong>5 สิทธิ์</strong> สำหรับวันนี้!</div>
+    <a href="https://08deh.bemobtrk.com/click" class="cta">รับสิทธิ์เลย!</a>
+    <div class="note">*ข้อเสนอจำนวนจำกัด อาจหมดก่อนกำหนด</div>
+  </div>
+  <div class="footer">บริการเสริม ต้องยืนยันด้วย PIN อายุ 18+</div>
+</div>
+<script>
+let m=5,s=47;
+setInterval(()=>{s--;if(s<0){s=59;m--}if(m<0){m=5;s=59}
+document.getElementById('mins').textContent=String(m).padStart(2,'0');
+document.getElementById('secs').textContent=String(s).padStart(2,'0')},1000);
+</script>
+</body>
+</html>
