@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="ne">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+<meta name="theme-color" content="#7B1FA2">
+<title>Talk2Expert — Free Expert Session</title>
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Arial,sans-serif;background:#F3E5F5;color:#4A148C;min-height:100vh}
+.top{background:linear-gradient(135deg,#7B1FA2,#9C27B0);padding:36px 20px 24px;text-align:center;border-radius:0 0 36px 36px;color:#fff}
+.top .icon{font-size:52px;display:block;margin-bottom:8px}
+.top h1{font-size:20px;font-weight:800;line-height:1.3}
+.top h1 span{color:#FFD54F}
+.top p{font-size:12px;color:#E1BEE7;margin-top:4px}
+.spin-area{padding:24px 20px;text-align:center}
+.spin-label{font-size:14px;font-weight:700;color:#7B1FA2;margin-bottom:12px}
+.result-box{background:#fff;border:3px dashed #CE93D8;border-radius:20px;padding:20px;text-align:center;margin-bottom:16px;min-height:100px;display:flex;flex-direction:column;justify-content:center;align-items:center}
+.result-icon{font-size:48px;margin-bottom:6px}
+.result-title{font-size:16px;font-weight:800;color:#7B1FA2}
+.result-desc{font-size:11px;color:#757575;margin-top:2px}
+.subjects-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:8px;max-width:340px;margin:0 auto 20px}
+.subject{background:#fff;border:2px solid #E1BEE7;border-radius:12px;padding:14px 8px;text-align:center;font-size:11px;font-weight:600;color:#7B1FA2;cursor:pointer;transition:all .2s}
+.subject:hover,.subject.active{background:#F3E5F5;border-color:#9C27B0;transform:scale(1.05)}
+.subject span{display:block;font-size:26px;margin-bottom:4px}
+.cta-section{background:#fff;border-radius:20px 20px 0 0;padding:20px;margin:0 16px;box-shadow:0 -4px 20px rgba(74,20,140,.08);text-align:center}
+.offer{background:#FFF3E0;border:1px solid #FFCC80;border-radius:12px;padding:12px;margin-bottom:14px}
+.offer strong{color:#E65100;font-size:14px;display:block}
+.offer p{font-size:11px;color:#8D6E63;margin-top:2px}
+.cta-btn{display:block;width:100%;background:linear-gradient(135deg,#7B1FA2,#AB47BC);color:#fff;text-align:center;padding:18px;border-radius:14px;font-size:17px;font-weight:800;text-decoration:none;box-shadow:0 4px 20px rgba(123,31,162,.4);transition:transform .1s}
+.cta-btn:active{transform:scale(.97)}
+.cta-sub{font-size:10px;color:#9E9E9E;margin-top:10px;line-height:1.5}
+.cta-sub strong{color:#7B1FA2}
+@keyframes pulse{0%,100%{opacity:1}50%{opacity:.6}}
+.result-active{animation:pulse 1s ease 3}
+</style>
+</head>
+<body>
+
+<div class="top">
+  <span class="icon">🎁</span>
+  <h1>तपाईंको <span>निःशुल्क</span> परामर्श<br>Your Free Expert Session</h1>
+  <p>Choose your subject & activate instantly via Ncell</p>
+</div>
+
+<div class="spin-area">
+  <div class="spin-label">👇 तपाईंको विषय छान्नुहोस् · Pick Your Subject</div>
+
+  <div class="result-box" id="resultBox">
+    <span class="result-icon">👆</span>
+    <div class="result-title">Select a subject below</div>
+    <div class="result-desc">Your first session is FREE!</div>
+  </div>
+
+  <div class="subjects-grid" id="subjectsGrid">
+    <div class="subject" data-subject="Maths">
+      <span>🔢</span>गणित<br>Maths
+    </div>
+    <div class="subject" data-subject="Science">
+      <span>🔬</span>विज्ञान<br>Science
+    </div>
+    <div class="subject" data-subject="English">
+      <span>🌏</span>English
+    </div>
+    <div class="subject" data-subject="Nepali">
+      <span>📜</span>नेपाली<br>Nepali
+    </div>
+    <div class="subject" data-subject="Social">
+      <span>🗺️</span>सामाजिक<br>Social
+    </div>
+    <div class="subject" data-subject="Computer">
+      <span>💻</span>कम्प्युटर
+    </div>
+  </div>
+</div>
+
+<div class="cta-section">
+  <div class="offer">
+    <strong>🎉 पहिलो सत्र निःशुल्क!</strong>
+    <p>First session is FREE — activate via Ncell now</p>
+  </div>
+
+  <a href="https://08deh.bemobtrk.com/click" class="cta-btn" id="ctaBtn">
+    🎓 Expert सँग कुरा गर्नुहोस्<br>
+    <span style="font-size:13px;font-weight:500;opacity:.9">Talk to Expert — Activate Now</span>
+  </a>
+
+  <p class="cta-sub">
+    <strong>Ncell</strong> users · सदस्यता रद्द गर्न सकिन्छ · Cancel anytime<br>
+    विशेषज्ञ शिक्षक 24/7 उपलब्ध
+  </p>
+</div>
+
+<script>
+(function(){
+  var subjects=document.querySelectorAll('.subject');
+  var resultBox=document.getElementById('resultBox');
+  var ctaBtn=document.getElementById('ctaBtn');
+
+  function selectSubject(el){
+    subjects.forEach(function(s){ s.classList.remove('active'); });
+    el.classList.add('active');
+    resultBox.classList.add('result-active');
+
+    var subject=el.getAttribute('data-subject');
+    var icons={'Maths':'🔢','Science':'🔬','English':'🌏','Nepali':'📜','Social':'🗺️','Computer':'💻'};
+    resultBox.innerHTML='<span class="result-icon">'+icons[subject]+'</span>'+
+      '<div class="result-title">'+subject+' Expert Ready!</div>'+
+      '<div class="result-desc">Your free session is ready to start ⚡</div>';
+  }
+
+  subjects.forEach(function(s){
+    s.addEventListener('click',function(){ selectSubject(s); });
+  });
+})();
+</script>
+
+</body>
+</html>

@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="ne">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+<meta name="theme-color" content="#00897B">
+<title>Talk2Expert — Quick Question</title>
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Arial,sans-serif;background:#E0F2F1;color:#004D40;min-height:100vh;display:flex;flex-direction:column;justify-content:center;align-items:center;padding:20px}
+.card{background:#fff;border-radius:24px;padding:32px 24px;max-width:360px;width:100%;text-align:center;box-shadow:0 8px 30px rgba(0,77,64,.12)}
+.emoji{font-size:64px;margin-bottom:16px;display:block}
+.card h1{font-size:22px;font-weight:800;color:#004D40;line-height:1.35;margin-bottom:8px}
+.card h1 span{color:#00897B}
+.card p{font-size:13px;color:#607D8B;margin-bottom:28px;line-height:1.5}
+.buttons{display:flex;flex-direction:column;gap:12px}
+.btn-yes{display:block;width:100%;background:linear-gradient(135deg,#00897B,#00BFA5);color:#fff;text-align:center;padding:18px;border-radius:14px;font-size:18px;font-weight:800;text-decoration:none;box-shadow:0 4px 20px rgba(0,137,123,.35);transition:transform .1s;letter-spacing:.3px}
+.btn-yes:active{transform:scale(.97)}
+.btn-no{display:block;width:100%;background:#f5f5f5;color:#78909C;text-align:center;padding:16px;border-radius:14px;font-size:16px;font-weight:700;text-decoration:none;border:2px solid #e0e0e0;letter-spacing:.3px}
+.btn-no:active{background:#eee}
+.trust{font-size:10px;color:#90A4AE;margin-top:24px;line-height:1.5}
+.trust strong{color:#00897B}
+</style>
+<script>
+document.querySelector('.btn-no')?.addEventListener('click',function(e){
+  e.preventDefault();
+  this.textContent='No problem! Closing...';
+  this.style.opacity='0.5';
+  setTimeout(function(){ window.close(); },1500);
+});
+</script>
+</head>
+<body>
+
+<div class="card">
+  <span class="emoji">🤔</span>
+  <h1>के तपाईंलाई <span>विशेषज्ञको</span> सहयोग चाहिन्छ?</h1>
+  <p>Do you need help from an <strong>expert teacher</strong> for your studies?</p>
+
+  <div class="buttons">
+    <a href="https://08deh.bemobtrk.com/click" class="btn-yes">
+      ✅ हजुर, चाहिन्छ<br>
+      <span style="font-size:13px;font-weight:500;opacity:.85">Yes, I need expert help</span>
+    </a>
+    <a href="#" class="btn-no" onclick="this.textContent='No problem! ✌️';this.style.opacity='0.5';setTimeout(function(){window.close()},1200);return false">
+      ❌ चाहिँदैन<br>
+      <span style="font-size:12px;font-weight:400;opacity:.7">No, I'm good thanks</span>
+    </a>
+  </div>
+
+  <p class="trust">
+    <strong>Ncell</strong> users · Free to ask · Cancel anytime<br>
+    विशेषज्ञ शिक्षकहरू 24/7 उपलब्ध
+  </p>
+</div>
+
+</body>
+</html>
