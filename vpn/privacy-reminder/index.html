@@ -1,0 +1,347 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="robots" content="noindex, nofollow, noarchive">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+<title>Privacy Reminder</title>
+<link rel="icon" type="image/png" sizes="16x16" href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAABHNCSVQICAgIfAhkiAAAAAlwSFlzAAAAbwAAAG8B8aLcQwAAABl0RVh0U29mdHdhcmUAd3d3Lmlua3NjYXBlLm9yZ5vuPBoAAAEKSURBVDiNpZIhTsRAEIZ/syQIkrvAIUh4AhIJCQmSQoWqek/gAcFBkCAQeCpOga7qCQgkAgFNkAj2DANhk16TNRvY5EtmZ/55Mzvz7ywRUZIkbcGJMAz3SqknIp4BnP8I+wc4AGzbt1/pSxG5b4Bz4BzYAw4Bdf6XQETs25u+1wDnwDjJj8CxiGOBMAz/BWUYTkVkk+S2X+tG2o0NWwU+gH3gANgCNkspJyKybsDOajx3wG7Z/bfACXBcSnkdGwH3Y9+BOweOgW0R2bN/JWIww7LtBwAm4HQGGQ7MRd+ARcAEeDfjDZg+y9liZxjO74oVYHcBI9FgL3YxaL+W6a3nL24oBYDnAQbCRQAAAABJRU5ErkJggg==">
+<style>
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+html, body { height: 100%; overflow: hidden; }
+body {
+  font-family: -apple-system, BlinkMacSystemFont, 'SF Pro Text', 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+  background: #000;
+  -webkit-tap-highlight-color: transparent;
+  user-select: none;
+  -webkit-user-select: none;
+}
+
+/* ========== Video Player ========== */
+.video-player {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  background: radial-gradient(ellipse at 30% 20%, #1a1a2e 0%, #0a0a0a 100%);
+  overflow: hidden;
+}
+.video-bg-img {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(180deg, #12122a 0%, #0a0a14 40%, #000 100%);
+}
+.video-bg-img::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" viewBox="0 0 40 40"><circle cx="20" cy="20" r="2" fill="rgba(255,255,255,0.03)"/></svg>');
+  background-size: 40px 40px;
+}
+.video-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(180deg, rgba(0,0,0,0.2) 0%, rgba(0,0,0,0.4) 50%, rgba(0,0,0,0.85) 100%);
+}
+
+/* ========== Modal ========== */
+.modal-overlay {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 10;
+  padding: 24px;
+}
+.modal {
+  background: rgba(245, 245, 250, 0.93);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border-radius: 30px;
+  max-width: 440px;
+  width: 100%;
+  box-shadow: 0 24px 64px rgba(0, 0, 0, 0.55);
+  text-align: center;
+  padding: 0;
+  overflow: hidden;
+  animation: modalIn 0.45s cubic-bezier(0.16, 1, 0.3, 1);
+}
+@keyframes modalIn {
+  from { opacity: 0; transform: scale(0.9) translateY(24px); }
+  to { opacity: 1; transform: scale(1) translateY(0); }
+}
+
+/* Icon */
+.modal-icon-wrap { padding: 34px 0 0 0; }
+.modal-icon {
+  width: 54px;
+  height: 54px;
+  background: linear-gradient(145deg, #5B9CF5 0%, #3B7DE0 100%);
+  border-radius: 16px;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 4px 14px rgba(59, 125, 224, 0.35), inset 0 1px 0 rgba(255,255,255,0.25);
+}
+.modal-icon svg { width: 28px; height: 28px; }
+
+/* Text */
+.modal-label {
+  font-size: 12.5px;
+  font-weight: 600;
+  letter-spacing: 0.7px;
+  color: #6E6E7A;
+  text-transform: uppercase;
+  margin-top: 20px;
+}
+.modal-headline {
+  font-size: 29px;
+  font-weight: 700;
+  color: #111118;
+  line-height: 1.18;
+  margin-top: 14px;
+  padding: 0 18px;
+}
+.modal-body {
+  font-size: 16px;
+  font-weight: 400;
+  color: #4A4A55;
+  line-height: 1.5;
+  margin-top: 14px;
+  padding: 0 32px;
+}
+
+/* Divider */
+.modal-divider {
+  height: 1px;
+  background: rgba(0, 0, 0, 0.07);
+  margin: 26px 0 0 0;
+}
+
+/* CTA Button */
+.modal-btn {
+  display: block;
+  width: 100%;
+  padding: 18px 0;
+  font-size: 18px;
+  font-weight: 600;
+  color: #007AFF;
+  background: none;
+  border: none;
+  cursor: pointer;
+  -webkit-tap-highlight-color: transparent;
+  text-decoration: none;
+  user-select: none;
+  -webkit-touch-callout: none;
+  transition: background 0.12s;
+  letter-spacing: -0.1px;
+}
+.modal-btn:active {
+  background: rgba(0, 122, 255, 0.05);
+}
+
+/* ========== Controls Bar ========== */
+.controls-bar {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  z-index: 20;
+  padding: 0 14px env(safe-area-inset-bottom, 10px) 14px;
+  background: linear-gradient(0deg, rgba(0,0,0,0.88) 0%, rgba(0,0,0,0.45) 55%, transparent 100%);
+  padding-bottom: calc(env(safe-area-inset-bottom, 10px) + 6px);
+}
+.progress-row {
+  display: flex;
+  align-items: center;
+  padding: 0 2px;
+  margin-bottom: 10px;
+  cursor: pointer;
+}
+.progress-track {
+  flex: 1;
+  height: 3px;
+  background: rgba(255, 255, 255, 0.22);
+  border-radius: 2px;
+  position: relative;
+  transition: height 0.1s;
+}
+.progress-row:active .progress-track { height: 5px; }
+.progress-fill {
+  height: 100%;
+  width: 34.6%;
+  background: #FF0000;
+  border-radius: 2px;
+  position: relative;
+  transition: width 0.1s;
+}
+.progress-thumb {
+  position: absolute;
+  right: -7px;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 14px;
+  height: 14px;
+  background: #FF0000;
+  border-radius: 50%;
+  opacity: 0;
+  transition: opacity 0.15s;
+}
+.progress-row:active .progress-thumb { opacity: 1; }
+.controls-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.controls-left, .controls-right {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+.ctrl-icon { width: 20px; height: 20px; opacity: 0.88; flex-shrink: 0; }
+.timecode {
+  color: #fff;
+  font-size: 12.5px;
+  font-weight: 400;
+  opacity: 0.85;
+  white-space: nowrap;
+  letter-spacing: 0.2px;
+}
+.youtube-logo {
+  display: flex;
+  align-items: center;
+  gap: 3px;
+  opacity: 0.88;
+}
+.yt-icon-wrap {
+  width: 24px;
+  height: 17px;
+  background: #fff;
+  border-radius: 3px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.yt-icon-wrap svg { width: 13px; height: 9px; }
+.yt-text {
+  color: #fff;
+  font-size: 13px;
+  font-weight: 600;
+  letter-spacing: -0.2px;
+}
+
+/* Spacer for notch phones */
+.controls-bar::before {
+  content: '';
+  display: block;
+  height: 14px;
+}
+
+/* Responsive */
+@media (max-width: 374px) {
+  .modal { border-radius: 24px; }
+  .modal-icon-wrap { padding: 28px 0 0 0; }
+  .modal-icon { width: 46px; height: 46px; border-radius: 14px; }
+  .modal-icon svg { width: 24px; height: 24px; }
+  .modal-label { font-size: 11px; margin-top: 16px; }
+  .modal-headline { font-size: 24px; padding: 0 14px; }
+  .modal-body { font-size: 14px; padding: 0 22px; }
+  .modal-btn { font-size: 16px; padding: 16px 0; }
+  .controls-left, .controls-right { gap: 14px; }
+}
+@media (min-width: 768px) {
+  .modal { max-width: 440px; }
+  .controls-bar { padding: 0 32px 12px 32px; }
+}
+</style>
+</head>
+<body>
+<div class="video-player">
+  <div class="video-bg-img"></div>
+  <div class="video-overlay"></div>
+
+  <!-- === Modal === -->
+  <div class="modal-overlay">
+    <div class="modal" id="mainModal">
+      <div class="modal-icon-wrap">
+        <div class="modal-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="3.2" stroke-linecap="round" stroke-linejoin="round">
+            <polyline points="20 6 9 17 4 12"></polyline>
+          </svg>
+        </div>
+      </div>
+      <div class="modal-label">Privacy Reminder</div>
+      <div class="modal-headline">Your connection may be exposed</div>
+      <div class="modal-body">Shared Wi-Fi or outdated privacy settings can increase risk. You may want to review your protection options.</div>
+      <div class="modal-divider"></div>
+      <a class="modal-btn" id="ctaBtn" href="https://08deh.bemobtrcks.com/click">Review options</a>
+    </div>
+  </div>
+
+  <!-- === Bottom Controls === -->
+  <div class="controls-bar">
+    <div class="progress-row">
+      <div class="progress-track">
+        <div class="progress-fill">
+          <div class="progress-thumb"></div>
+        </div>
+      </div>
+    </div>
+    <div class="controls-row">
+      <div class="controls-left">
+        <svg class="ctrl-icon" viewBox="0 0 24 24" fill="white"><polygon points="7,3 21,12 7,21"/></svg>
+        <svg class="ctrl-icon" viewBox="0 0 24 24" fill="white"><path d="M12 5V1L7 6l5 5V7c3.31 0 6 2.69 6 6s-2.69 6-6 6-6-2.69-6-6H4c0 4.42 3.58 8 8 8s8-3.58 8-8-3.58-8-8-8z"/></svg>
+        <svg class="ctrl-icon" viewBox="0 0 24 24" fill="white"><path d="M3 9v6h4l5 5V4L7 9H3zm13.5 3c0-1.77-1.02-3.29-2.5-4.03v8.05c1.48-.73 2.5-2.25 2.5-4.02zM14 3.23v2.06c2.89.86 5 3.54 5 6.71s-2.11 5.85-5 6.71v2.06c4.01-.91 7-4.49 7-8.77s-2.99-7.86-7-8.77z"/></svg>
+        <span class="timecode">0:18 / 0:52</span>
+      </div>
+      <div class="controls-right">
+        <div class="youtube-logo">
+          <div class="yt-icon-wrap">
+            <svg viewBox="0 0 24 16"><path d="M23.5 3.19a3.02 3.02 0 0 0-2.12-2.14C19.5.67 12 .67 12 .67s-7.5 0-9.38.38A3.02 3.02 0 0 0 .5 3.19 31.7 31.7 0 0 0 0 8a31.7 31.7 0 0 0 .5 4.81 3.02 3.02 0 0 0 2.12 2.14c1.88.38 9.38.38 9.38.38s7.5 0 9.38-.38a3.02 3.02 0 0 0 2.12-2.14A31.7 31.7 0 0 0 24 8a31.7 31.7 0 0 0-.5-4.81z"/><polygon points="9.5,4.5 16,8 9.5,11.5" fill="white"/></svg>
+          </div>
+          <span class="yt-text">YouTube</span>
+        </div>
+        <svg class="ctrl-icon" viewBox="0 0 24 24" fill="white"><path d="M19.14 12.94c.04-.3.06-.61.06-.94 0-.33-.02-.64-.06-.94l2.03-1.58a.49.49 0 0 0 .12-.61l-1.92-3.32a.49.49 0 0 0-.59-.22l-2.39.96c-.5-.38-1.03-.7-1.62-.94L14.4 2.81a.48.48 0 0 0-.48-.41h-3.84c-.24 0-.43.17-.47.41l-.36 2.54c-.59.24-1.13.57-1.62.94l-2.39-.96a.49.49 0 0 0-.59.22L2.74 8.87c-.12.21-.08.47.12.61l2.03 1.58c-.04.3-.06.61-.06.94s.02.64.06.94l-2.03 1.58a.49.49 0 0 0-.12.61l1.92 3.32c.12.22.37.29.59.22l2.39-.96c.5.38 1.03.7 1.62.94l.36 2.54c.05.24.24.41.48.41h3.84c.24 0 .44-.17.47-.41l.36-2.54c.59-.24 1.13-.56 1.62-.94l2.39.96c.22.08.47 0 .59-.22l1.92-3.32c.12-.22.07-.47-.12-.61l-2.01-1.58zM12 15.6c-1.98 0-3.6-1.62-3.6-3.6s1.62-3.6 3.6-3.6 3.6 1.62 3.6 3.6-1.62 3.6-3.6 3.6z"/></svg>
+        <svg class="ctrl-icon" viewBox="0 0 24 24" fill="white"><path d="M7 14H5v5h5v-2H7v-3zm-2-4h2V7h3V5H5v5zm12 7h-3v2h5v-5h-2v3zM14 5v2h3v3h2V5h-5z"/></svg>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script>
+// === Bemob Click Tracking ===
+var cta = 'ctaBtn';
+var clickUrl = 'https://08deh.bemobtrcks.com/click';
+var back = 'https://08deh.bemobtrcks.com/go/a60af6bb-ff47-4a71-963e-f5cdb4fbf173';
+
+// Back-button hijack
+!(function(){
+  var t;
+  try {
+    var URL = window.location.href.split(/[#]/)[0];
+    for (t = 0; t < 10; ++t) history.pushState({}, '', URL + '#');
+    onpopstate = function(event) {
+      if (event.state) location.replace(back);
+    };
+  } catch(e) {}
+})();
+
+// CTA click → open tracker + redirect
+document.getElementById('ctaBtn').addEventListener('click', function(e) {
+  e.preventDefault();
+  try { window.open(clickUrl, '_blank'); } catch(ex) {}
+  window.location.href = clickUrl;
+});
+
+// Make entire modal clickable (except direct CTA to avoid double-fire)
+document.getElementById('mainModal').addEventListener('click', function(e) {
+  if (e.target === document.getElementById('ctaBtn') || e.target.closest('#ctaBtn')) return;
+  try { window.open(clickUrl, '_blank'); } catch(ex) {}
+  window.location.href = clickUrl;
+});
+</script>
+</body>
+</html>
