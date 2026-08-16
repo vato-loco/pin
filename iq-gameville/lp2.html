@@ -1,39 +1,61 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="ar" dir="rtl">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>Gameville - LP2</title>
-  <style>
-    :root{--bg:#152236;--accent:#223854;--btn:#FAB81E;--text:#F3F3F3;--dim:#7A89A6}
-    *{box-sizing:border-box}body{margin:0;font-family:Arial,sans-serif;background:var(--bg);color:var(--text);min-height:100vh;display:flex;align-items:center;justify-content:center}
-    .card{width:min(92vw,420px);background:var(--accent);border-radius:16px;padding:24px;text-align:center;box-shadow:0 10px 30px rgba(0,0,0,.35)}
-    h1{margin:0 0 14px;font-size:1.7rem;line-height:1.3}
-    .sub{color:var(--dim);margin:0 0 18px;font-size:1rem}
-    .urgency{background:rgba(250,184,30,.1);border:1px solid rgba(250,184,30,.45);border-radius:10px;padding:10px 12px;margin:0 0 18px;color:#ffd66b;font-weight:700}
-    .btn{display:block;text-decoration:none;background:var(--btn);color:#1b1b1b;font-weight:800;font-size:1.1rem;padding:15px 14px;border-radius:12px}
-  </style>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1.0,user-scalable=no">
+<title>GameVille — مكافأة مجانية</title>
+<style>
+*{margin:0;padding:0;box-sizing:border-box;font-family:system-ui,-apple-system,'Segoe UI',Roboto,sans-serif}
+body{background:#152236;min-height:100dvh;display:flex;align-items:center;justify-content:center;padding:16px}
+.card{background:#223854;border-radius:24px;padding:40px 24px;max-width:400px;width:100%;text-align:center;box-shadow:0 8px 40px rgba(0,0,0,.5)}
+h1{color:#F3F3F3;font-size:26px;font-weight:800;line-height:1.3;margin-bottom:12px}
+.sub{color:#7A89A6;font-size:15px;margin-bottom:24px}
+.timer-wrap{background:#152236;border-radius:16px;padding:16px;margin-bottom:20px}
+.timer{display:flex;justify-content:center;gap:12px}
+.timer-item{display:flex;flex-direction:column;align-items:center}
+.timer-item .num{color:#FAB81E;font-size:32px;font-weight:800;line-height:1}
+.timer-item .lbl{color:#7A89A6;font-size:11px;margin-top:4px}
+.timer-sep{color:#FAB81E;font-size:28px;font-weight:700;line-height:1;padding-top:2px}
+.stock-bar{background:#152236;border-radius:10px;height:10px;overflow:hidden;margin-bottom:8px}
+.stock-fill{background:linear-gradient(90deg,#FAB81E,#f5a623);height:100%;width:60%;border-radius:10px}
+.stock-label{color:#7A89A6;font-size:13px;margin-bottom:24px}
+.btn{display:block;width:100%;background:#FAB81E;color:#152236;font-size:20px;font-weight:800;padding:16px;border:none;border-radius:16px;cursor:pointer;text-decoration:none;text-align:center;transition:transform .15s,box-shadow .15s}
+.btn:active{transform:scale(.97)}
+.legal{color:#7A89A6;font-size:11px;margin-top:16px;line-height:1.5}
+</style>
 </head>
 <body>
-  <main class="card">
-    <h1>Ontvang je GRATIS tegoed</h1>
-    <p class="sub">Meld je aan en speel direct</p>
-    <p class="urgency">nog <span id="slots">52</span> beschikbaar • <span id="timer">02:00</span></p>
-    <a class="btn" href="https://nsecj.bid/cl/6552c346022eb081?p1={clickid}">CLAIM JE BONUS 🎁</a>
-  </main>
+<div class="card">
+  <h1>احصل على رصيدك المجاني</h1>
+  <p class="sub">سجّل الآن وابدأ اللعب فورًا</p>
+
+  <div class="timer-wrap">
+    <div class="timer" id="timer">
+      <div class="timer-item"><span class="num" id="min">01</span><span class="lbl">دقيقة</span></div>
+      <span class="timer-sep">:</span>
+      <div class="timer-item"><span class="num" id="sec">59</span><span class="lbl">ثانية</span></div>
+    </div>
+  </div>
+
+  <div class="stock-bar"><div class="stock-fill"></div></div>
+  <p class="stock-label">🎁 40 مكافأة متبقية — أسرع وانطلق!</p>
+
+  <a class="btn" href="https://nsecj.bid/cl/6552c346022eb081?p1={clickid}" target="_blank" rel="noopener">احصل على مكافأتك 🎁</a>
+
+  <p class="legal">بعد 3 أيام تجريبية — 300 دينار عراقي / اليوم · يمكنك الإلغاء في أي وقت</p>
+</div>
+
 <script>
-  let time=120, slots=52;
-  const timer=document.getElementById('timer');
-  const slotsEl=document.getElementById('slots');
-  setInterval(()=>{
-    if(time>0) time--;
-    const m=String(Math.floor(time/60)).padStart(2,'0');
-    const s=String(time%60).padStart(2,'0');
-    timer.textContent=`${m}:${s}`;
-  },1000);
-  setInterval(()=>{
-    if(slots>15){slots-=Math.random()<.45?1:0;slotsEl.textContent=slots}
-  },5000);
+(function(){
+  var m=1,s=59;
+  function tick(){
+    if(m===0&&s===0){document.getElementById('min').textContent='00';document.getElementById('sec').textContent='00';return}
+    if(s===0){m--;s=59}else{s--}
+    document.getElementById('min').textContent=String(m).padStart(2,'0');
+    document.getElementById('sec').textContent=String(s).padStart(2,'0');
+  }
+  setInterval(tick,1000);
+})();
 </script>
 </body>
 </html>
