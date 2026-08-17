@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="km">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+<title>ប្រញាប់ឡើង! ស្តុកមានកំណត់</title>
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif;background:linear-gradient(135deg,#0f0c29,#302b63,#24243e);min-height:100vh;display:flex;align-items:center;justify-content:center;padding:12px}
+.card{background:#fff;border-radius:20px;max-width:390px;width:100%;overflow:hidden;box-shadow:0 15px 50px rgba(0,0,0,0.3);position:relative}
+.badge{background:linear-gradient(135deg,#f7971e,#ffd200);color:#fff;text-align:center;padding:8px;font-size:13px;font-weight:700;letter-spacing:1px;text-transform:uppercase}
+.header{background:linear-gradient(135deg,#f5576c,#f093fb);padding:28px 20px 20px;text-align:center;position:relative}
+.header .phone{font-size:72px;margin-bottom:10px;display:block;filter:drop-shadow(0 4px 8px rgba(0,0,0,0.2))}
+.header h1{color:#fff;font-size:21px;font-weight:800;line-height:1.3;text-shadow:0 2px 4px rgba(0,0,0,0.15)}
+.header .sub{color:rgba(255,255,255,0.9);font-size:13px;margin-top:8px;line-height:1.4}
+.body{padding:22px 20px 18px}
+.timer-wrap{background:linear-gradient(135deg,#ffecd2,#fcb69f);border-radius:14px;padding:14px 16px;text-align:center;margin-bottom:16px}
+.timer-wrap .timer-label{font-size:12px;color:#c0392b;font-weight:700;margin-bottom:4px}
+.timer-wrap .timer{font-size:28px;font-weight:900;color:#e74c3c;font-variant-numeric:tabular-nums;letter-spacing:2px}
+.benefits{list-style:none;margin:8px 0 14px}
+.benefits li{display:flex;align-items:center;gap:10px;padding:7px 0;font-size:14px;color:#444;border-bottom:1px solid #f0f0f0}
+.benefits li:last-child{border-bottom:none}
+.benefits .icon{font-size:18px;flex-shrink:0;background:#fff3e0;width:28px;height:28px;border-radius:50%;display:flex;align-items:center;justify-content:center;color:#ef6c00}
+.cta{display:block;background:linear-gradient(135deg,#f5576c,#f093fb);color:#fff;text-decoration:none;padding:16px;border-radius:14px;font-size:17px;font-weight:700;text-align:center;margin:12px 0 6px;box-shadow:0 6px 20px rgba(245,87,108,0.4);transition:transform 0.2s,box-shadow 0.2s;border:none;cursor:pointer}
+.cta:active{transform:scale(0.97);box-shadow:0 3px 10px rgba(245,87,108,0.3)}
+.cta:hover{opacity:0.95}
+.note{text-align:center;font-size:11px;color:#999;margin-top:8px;line-height:1.4}
+.footer{text-align:center;font-size:10px;color:#bbb;padding:0 20px 18px;line-height:1.5}
+.stock-counter{display:flex;align-items:center;justify-content:center;gap:6px;font-size:13px;color:#e74c3c;margin-bottom:10px;font-weight:700}
+.stock-counter .pulse{width:8px;height:8px;background:#e74c3c;border-radius:50%;animation:pulse 1s infinite}
+@keyframes pulse{0%{opacity:1;transform:scale(1)}50%{opacity:0.5;transform:scale(1.3)}100%{opacity:1;transform:scale(1)}}
+.progress-wrap{background:#f0f0f0;border-radius:20px;height:12px;overflow:hidden;margin-bottom:10px}
+.progress-bar{background:linear-gradient(90deg,#f5576c,#f093fb);height:100%;width:82%;border-radius:20px;animation:shimmer 2s infinite}
+@keyframes shimmer{0%{opacity:1}50%{opacity:0.7}100%{opacity:1}}
+</style>
+</head>
+<body>
+<div class="card">
+  <div class="badge">⚡ ស្តុកជិតអស់ហើយ!</div>
+  <div class="header">
+    <span class="phone">📱</span>
+    <h1>ប្រញាប់ឡើង! ស្តុកមានកំណត់ — នៅសល់តែថ្ងៃនេះប៉ុណ្ណោះ</h1>
+    <p class="sub">អតិថិជនរាប់ពាន់នាក់បានទាមទាររួចហើយ កុំឱ្យឱកាសនេះកន្លងផុតទៅ!</p>
+  </div>
+  <div class="body">
+    <div class="timer-wrap">
+      <div class="timer-label">⏳ ការផ្តល់ជូនបញ្ចប់ក្នុងរយៈពេល</div>
+      <div class="timer" id="timer">10:00</div>
+    </div>
+    <div class="stock-counter">
+      <span class="pulse"></span> នៅសល់តែ ៣ គ្រឿងប៉ុណ្ណោះ!
+    </div>
+    <div class="progress-wrap"><div class="progress-bar"></div></div>
+    <ul class="benefits">
+      <li><span class="icon">✓</span> ស្មាតហ្វូនថ្មី បញ្ចុះតម្លៃរហូតដល់ ៥០%</li>
+      <li><span class="icon">✓</span> ដឹកជញ្ជូនឥតគិតថ្លៃ</li>
+      <li><span class="icon">✓</span> អាចពិនិត្យមើលមុនពេលទទួល</li>
+      <li><span class="icon">✓</span> គ្មានកាតឥណទានតម្រូវ</li>
+    </ul>
+    <a href="https://08deh.bemobtrk.com/click" class="cta">ទាមទារឥឡូវនេះ</a>
+    <div class="note">* មានសុពលភាពតែថ្ងៃនេះប៉ុណ្ណោះ ខណៈស្តុកនៅមាន</div>
+  </div>
+  <div class="footer">សេវាកម្មបន្ថែម · តម្រូវឱ្យមានការបញ្ជាក់ PIN · អាយុ ១៨+</div>
+</div>
+<script>
+(function(){var t=600;function u(){var m=Math.floor(t/60),s=t%60;document.getElementById('timer').textContent=(m<10?'0':'')+m+':'+(s<10?'0':'')+s;if(t>0){t--;setTimeout(u,1000)}}u()})();
+</script>
+</body>
+</html>
