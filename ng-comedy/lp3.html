@@ -7,49 +7,37 @@
 <style>
 *{margin:0;padding:0;box-sizing:border-box;font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif}
 body{background:#0a0a0f;min-height:100vh;display:flex;align-items:center;justify-content:center;padding:16px;position:relative}
-body::before{content:'';position:fixed;top:-50%;left:-50%;width:200%;height:200%;background:radial-gradient(circle at 30% 20%,rgba(255,107,0,.08),transparent 60%),radial-gradient(circle at 70% 80%,rgba(255,200,0,.05),transparent 60%);z-index:0}
-.card{background:#13131a;border-radius:24px;padding:32px 20px 24px;width:100%;max-width:400px;box-shadow:0 20px 60px rgba(0,0,0,.7),inset 0 1px 0 rgba(255,255,255,.05);text-align:center;position:relative;z-index:1;border:1px solid rgba(255,255,255,.04)}
+body::before{content:'';position:fixed;top:-50%;left:-50%;width:200%;height:200%;background:radial-gradient(circle at 30% 20%,rgba(255,107,0,.12),transparent 60%),radial-gradient(circle at 70% 80%,rgba(255,200,0,.07),transparent 60%);z-index:0}
+.card{background:#13131a;border-radius:24px;padding:30px 20px 24px;width:100%;max-width:400px;box-shadow:0 20px 60px rgba(0,0,0,.7),inset 0 1px 0 rgba(255,255,255,.05);text-align:center;position:relative;z-index:1;border:1px solid rgba(255,255,255,.04);overflow:hidden}
 .flash{position:absolute;top:-1px;left:10%;right:10%;height:2px;background:linear-gradient(90deg,transparent,#ff6b00,transparent);border-radius:2px}
-h1{font-size:24px;color:#fff;font-weight:900;margin-bottom:2px;letter-spacing:-.3px}
+.live-pill{display:inline-flex;align-items:center;gap:6px;background:rgba(255,107,0,.12);border:1px solid rgba(255,107,0,.35);color:#ff6b00;font-size:11px;font-weight:800;letter-spacing:1px;text-transform:uppercase;padding:5px 14px;border-radius:20px;margin-bottom:12px}
+.live-pill .dot{width:8px;height:8px;border-radius:50%;background:#ff4444;animation:dotPulse 1s infinite}
+@keyframes dotPulse{0%,100%{opacity:1;transform:scale(1)}50%{opacity:.3;transform:scale(1.4)}}
+h1{font-size:26px;color:#fff;font-weight:900;margin-bottom:4px;letter-spacing:-.3px}
 h1 span{background:linear-gradient(135deg,#ff6b00,#ffaa00);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
 .sub{font-size:13px;color:#7a7a8a;margin-bottom:14px;line-height:1.4}
-.counter-row{display:flex;justify-content:center;gap:14px;margin-bottom:16px}
-.counter-box{background:#1c1c26;border-radius:14px;padding:12px 18px;min-width:72px;border:1px solid rgba(255,255,255,.05)}
-.counter-box .val{display:block;font-size:28px;font-weight:900;color:#ff6b00;line-height:1;font-variant-numeric:tabular-nums}
-.counter-box .lbl{font-size:9px;color:#6a6a7a;text-transform:uppercase;letter-spacing:.5px;font-weight:600;margin-top:4px}
-.counter-box .val.green{color:#00cc88}
-.offer-strip{background:linear-gradient(135deg,#1c1c26,#22222e);border-radius:14px;padding:16px;margin-bottom:16px;border:1px solid rgba(255,107,0,.15);position:relative;overflow:hidden}
-.offer-strip::after{content:'BOOST';position:absolute;top:-6px;right:-8px;font-size:44px;font-weight:900;color:rgba(255,107,0,.04);line-height:1}
-.offer-strip .big{font-size:28px;font-weight:900;color:#fff;display:block}
-.offer-strip .lbl{font-size:12px;color:#8a8a9a}
-.offer-strip .lbl strong{color:#ffaa00}
-.offer-strip .yield{display:inline-block;background:rgba(255,107,0,.12);color:#ff6b00;font-size:11px;font-weight:700;padding:3px 10px;border-radius:6px;margin-top:6px}
-.toggle-row{display:flex;gap:8px;margin-bottom:16px}
-.toggle-card{flex:1;background:#1c1c26;border-radius:12px;padding:10px 6px;border:1px solid transparent;cursor:pointer;transition:all .2s}
-.toggle-card.selected{border-color:#ff6b00;background:rgba(255,107,0,.06)}
-.toggle-card .val{font-size:14px;font-weight:700;color:#aaaabc}
-.toggle-card.selected .val{color:#fff}
-.toggle-card .lbl{font-size:9px;color:#5a5a6a;text-transform:uppercase;letter-spacing:.3px}
-.toggle-card.selected .lbl{color:#ffaa00}
-.input-group{margin-bottom:12px;text-align:left}
-.input-group label{font-size:12px;font-weight:600;color:#8a8a9a;display:block;margin-bottom:4px}
-.input-group input{width:100%;padding:14px 16px;font-size:16px;border:2px solid #2a2a36;border-radius:12px;outline:none;transition:border .2s;background:#1a1a24;color:#fff}
-.input-group input:focus{border-color:#ff6b00;background:#1c1c26}
-.input-group input::placeholder{color:#5a5a6a}
-.btn{width:100%;padding:16px;font-size:17px;font-weight:700;border:none;border-radius:14px;cursor:pointer;transition:opacity .2s,transform .1s;display:block;text-decoration:none;text-align:center}
-.btn-orange{background:linear-gradient(135deg,#ff6b00,#e05a00);color:#fff;box-shadow:0 6px 24px rgba(255,107,0,.3)}
-.btn-orange:active{opacity:.85;transform:scale(.97)}
-.btn-dark{background:linear-gradient(135deg,#2a2a36,#1c1c26);color:#ffaa00;box-shadow:0 6px 20px rgba(0,0,0,.3)}
-.btn-dark:active{opacity:.85;transform:scale(.97)}
-.steps{display:flex;justify-content:center;gap:8px;margin:16px 0 10px}
-.step{width:8px;height:8px;border-radius:50%;background:#2a2a36}
-.step.active{background:linear-gradient(90deg,#ff6b00,#ffaa00);width:26px;border-radius:10px}
-.secure-tag{font-size:11px;color:#5a5a6a;margin-top:10px}
-.hidden{display:none}
-#step2{margin-top:6px}
-#step2 p{font-size:13px;color:#8a8a9a;margin-bottom:12px;line-height:1.4}
-#step2 p strong{color:#fff}
-.sms-box{background:#1c1c26;border-radius:10px;padding:12px;font-size:12px;color:#8a8a9a;margin-bottom:14px;text-align:center;border:1px solid rgba(255,255,255,.04)}
+.prize-line{font-size:40px;font-weight:900;color:#fff;margin-bottom:2px;line-height:1.1}
+.prize-line small{font-size:16px;color:#ffaa00;font-weight:800}
+.prize-sub{font-size:12px;color:#8a8a9a;margin-bottom:16px}
+.timer-ring{width:150px;height:150px;border-radius:50%;margin:0 auto 14px;background:conic-gradient(#ff6b00 var(--p,100%),#1c1c26 0);display:flex;align-items:center;justify-content:center;position:relative;animation:ringGlow 1.5s infinite}
+@keyframes ringGlow{0%,100%{box-shadow:0 0 22px rgba(255,107,0,.25)}50%{box-shadow:0 0 44px rgba(255,107,0,.55)}}
+.timer-ring::before{content:'';position:absolute;inset:10px;border-radius:50%;background:#13131a}
+.timer-inner{position:relative;z-index:1}
+.timer-digits{font-size:42px;font-weight:900;color:#ff6b00;font-variant-numeric:tabular-nums;line-height:1;animation:digitPulse 1s infinite}
+@keyframes digitPulse{0%,100%{transform:scale(1)}50%{transform:scale(1.05)}}
+.timer-inner .tl{font-size:9px;color:#6a6a7a;text-transform:uppercase;letter-spacing:1.5px;font-weight:800;margin-top:4px}
+.draw-note{font-size:12px;color:#ffaa00;font-weight:800;margin-bottom:14px;animation:blink 1.2s infinite}
+@keyframes blink{50%{opacity:.45}}
+.chip-row{display:flex;justify-content:center;gap:8px;margin-bottom:16px;flex-wrap:wrap}
+.chip{background:#1c1c26;border:1px solid rgba(255,255,255,.06);border-radius:10px;padding:8px 12px;font-size:11px;color:#aaaabc}
+.chip strong{display:block;font-size:15px;color:#fff;font-weight:900}
+.chip.hot{border-color:rgba(255,107,0,.4)}
+.winner-strip{background:linear-gradient(135deg,#1c1c26,#22222e);border-radius:12px;padding:10px;margin-bottom:16px;font-size:12px;color:#8a8a9a;border:1px solid rgba(255,255,255,.05)}
+.winner-strip strong{color:#00cc88}
+.btn{width:100%;padding:18px;font-size:18px;font-weight:900;border:none;border-radius:14px;display:block;text-decoration:none;text-align:center;background:linear-gradient(135deg,#ff6b00,#e05a00);color:#fff;box-shadow:0 8px 28px rgba(255,107,0,.4);animation:ctaPulse 1.2s infinite}
+@keyframes ctaPulse{0%,100%{transform:scale(1);box-shadow:0 8px 28px rgba(255,107,0,.4)}50%{transform:scale(1.03);box-shadow:0 8px 38px rgba(255,107,0,.7)}}
+.btn:active{opacity:.85;transform:scale(.97)}
+.secure-tag{font-size:11px;color:#5a5a6a;margin-top:14px}
 </style>
 </head>
 <body>
@@ -57,106 +45,55 @@ h1 span{background:linear-gradient(135deg,#ff6b00,#ffaa00);-webkit-background-cl
 <div class="card">
   <div class="flash"></div>
 
-  <h1>🔥 Cash <span>Boost</span></h1>
-  <p class="sub">Activate your daily boost and receive ₦150 every morning.</p>
+  <div class="live-pill"><span class="dot"></span> Draw 3 of today — LIVE</div>
 
-  <div class="counter-row">
-    <div class="counter-box">
-      <span class="val" id="timerH">23</span>
-      <span class="lbl">Hours</span>
-    </div>
-    <div class="counter-box">
-      <span class="val" id="timerM">47</span>
-      <span class="lbl">Mins</span>
-    </div>
-    <div class="counter-box">
-      <span class="val green" id="timerS">52</span>
-      <span class="lbl">Secs</span>
+  <h1>🔥 Daily <span>₦150</span> Draw</h1>
+  <p class="sub">Today's cash draw is open — 237 winners already picked.</p>
+
+  <div class="prize-line">₦150 <small>DAILY</small></div>
+  <div class="prize-sub">cash sent to your line if you win today's draw</div>
+
+  <div class="timer-ring" id="ring" style="--p:100%">
+    <div class="timer-inner">
+      <div class="timer-digits" id="timer">03:00</div>
+      <div class="tl">Until draw closes</div>
     </div>
   </div>
 
-  <div class="offer-strip">
-    <span class="big">₦150 <span style="color:#ff6b00">Daily</span></span>
-    <span class="lbl">Next payout in <strong id="payoutLabel">23 hours</strong> — boost now to qualify</span>
-    <div class="yield">⚡ +₦4,500/month</div>
+  <div class="draw-note" id="drawNote">⏰ When the timer hits zero, the draw closes — no more entries!</div>
+
+  <div class="chip-row">
+    <div class="chip hot"><strong>128</strong>entries left</div>
+    <div class="chip"><strong>237</strong>won today</div>
+    <div class="chip"><strong>₦35.5K</strong>paid out</div>
   </div>
 
-  <div class="toggle-row">
-    <div class="toggle-card selected" onclick="selectBoost(this,'150')">
-      <span class="val">₦150</span>
-      <span class="lbl">Daily Boost</span>
-    </div>
-    <div class="toggle-card" onclick="selectBoost(this,'300')">
-      <span class="val">₦300</span>
-      <span class="lbl">Double Boost</span>
-    </div>
-    <div class="toggle-card" onclick="selectBoost(this,'450')">
-      <span class="val">₦450</span>
-      <span class="lbl">Triple Boost</span>
-    </div>
-  </div>
+  <div class="winner-strip">✅ <strong>Bola O.</strong> just won ₦150 · <strong>Chiamaka N.</strong> won 2 min ago</div>
 
-  <!-- Step 1 -->
-  <div id="step1">
-    <div class="input-group">
-      <label>📱 Your MTN number</label>
-      <input type="tel" id="phoneInput" placeholder="0807 XXX XXXX" maxlength="11" inputmode="numeric">
-    </div>
-    <button class="btn btn-orange" onclick="goStep2()">Activate Boost →</button>
-  </div>
+  <a href="{CLICK_URL}" class="btn">Enter the Draw Now →</a>
 
-  <!-- Step 2 -->
-  <div id="step2" class="hidden">
-    <div class="sms-box">📨 Free SMS to <strong id="phoneDisplay"></strong>.<br>Reply <strong>YES</strong> to confirm your daily ₦150 cash boost.</div>
-    <p>As soon as you confirm, you're live for tomorrow's <strong>06:00 AM</strong> payout. No deductions. No hidden charges.</p>
-    <a href="{CLICK_URL}" class="btn btn-dark">Confirm via SMS →</a>
-  </div>
-
-  <div class="steps">
-    <div class="step active" id="s1"></div>
-    <div class="step" id="s2"></div>
-  </div>
-
-  <div class="secure-tag">🔒 Boost active until cancelled · MTN Nigeria only</div>
+  <div class="secure-tag">🔒 Free entry · No debit · MTN Nigeria only</div>
 </div>
 
 <script>
-// Countdown timer
-var endTime=new Date();
-endTime.setHours(endTime.getHours()+23,endTime.getMinutes()+47,endTime.getSeconds()+52);
-
-function updateTimer(){
-  var now=new Date();
-  var diff=Math.max(0,Math.floor((endTime-now)/1000));
-  var h=Math.floor(diff/3600);
-  var m=Math.floor((diff%3600)/60);
-  var s=diff%60;
-  document.getElementById('timerH').textContent=String(h).padStart(2,'0');
-  document.getElementById('timerM').textContent=String(m).padStart(2,'0');
-  document.getElementById('timerS').textContent=String(s).padStart(2,'0');
-  if(h>0){document.getElementById('payoutLabel').textContent=h+' hours';}
-  else if(m>0){document.getElementById('payoutLabel').textContent=m+' minutes';}
-  else{document.getElementById('payoutLabel').textContent='less than a minute';}
+// 3-minute draw timer + ring drain
+var total=3*60;
+var start=180;
+var tEl=document.getElementById('timer'),ring=document.getElementById('ring'),note=document.getElementById('drawNote');
+function pad(n){return String(n).padStart(2,'0');}
+function tick(){
+  var m=Math.floor(total/60),s=total%60;
+  tEl.textContent=pad(m)+':'+pad(s);
+  ring.style.setProperty('--p',(total/start)*100+'%');
+  if(total<=60){
+    tEl.style.color='#ff4444';
+    note.textContent='⚠️ UNDER 1 MINUTE! The draw closes in '+s+' seconds!';
+    note.style.color='#ff4444';
+  }
+  if(total>0){total--;}
 }
-setInterval(updateTimer,1000);
-updateTimer();
-
-var selectedBoost='150';
-function selectBoost(el,val){
-  document.querySelectorAll('.toggle-card').forEach(function(c){c.classList.remove('selected');});
-  el.classList.add('selected');
-  selectedBoost=val;
-}
-
-function goStep2(){
-  var phone=document.getElementById('phoneInput').value.trim();
-  if(phone.length<10){alert('Enter your valid MTN number.');return;}
-  document.getElementById('phoneDisplay').textContent=phone;
-  document.getElementById('step1').classList.add('hidden');
-  document.getElementById('step2').classList.remove('hidden');
-  document.getElementById('s1').classList.remove('active');
-  document.getElementById('s2').classList.add('active');
-}
+setInterval(tick,1000);
+tick();
 </script>
 </body>
 </html>
