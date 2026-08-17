@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no">
+<title>MTN Reward Club - N150 Daily Cash</title>
+<style>
+*{margin:0;padding:0;box-sizing:border-box;font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif}
+body{background:#f0f4fa;min-height:100vh;display:flex;align-items:center;justify-content:center;padding:16px}
+.card{background:#fff;border-radius:20px;padding:28px 20px 24px;width:100%;max-width:400px;box-shadow:0 8px 40px rgba(0,35,80,.1);text-align:center;position:relative}
+.ribbon{position:absolute;top:14px;right:-8px;background:#0055a5;color:#fff;font-size:10px;font-weight:700;padding:4px 14px;border-radius:4px 0 0 4px;letter-spacing:.3px;box-shadow:0 2px 6px rgba(0,85,165,.2)}
+.ribbon::after{content:'';position:absolute;top:100%;right:0;border:4px solid #003366;border-right-color:transparent;border-bottom-color:transparent}
+.logo-row{display:flex;align-items:center;justify-content:center;gap:8px;margin-bottom:6px}
+.logo-row .circle{width:36px;height:36px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:18px}
+.logo-row .circle.blue{background:#0055a5;color:#fff}
+.logo-row .circle.gold{background:linear-gradient(135deg,#f5a623,#d4891d);color:#fff}
+.logo-row span{font-weight:800;font-size:18px;color:#003366;letter-spacing:-.3px}
+h1{font-size:20px;color:#003366;margin-bottom:2px;font-weight:800}
+.sub{font-size:13px;color:#6b7f93;margin-bottom:14px;line-height:1.4}
+.card-grid{display:grid;grid-template-columns:1fr 1fr 1fr;gap:6px;margin-bottom:16px}
+.card-item{background:#f5f8fc;border-radius:12px;padding:12px 6px}
+.card-item .num{display:block;font-size:20px;font-weight:800;color:#003366}
+.card-item .lbl{font-size:10px;color:#7a8e9e;text-transform:uppercase;letter-spacing:.3px;font-weight:600}
+.reward-bar{background:linear-gradient(135deg,#e8f0fe,#f0f4fa);border-radius:14px;padding:14px 12px;margin-bottom:16px;border:1px solid #c6d9f0;position:relative}
+.reward-bar .top{display:flex;justify-content:space-between;align-items:center;margin-bottom:6px}
+.reward-bar .top .lbl{font-size:11px;color:#4a6a8a;font-weight:600}
+.reward-bar .top .val{font-size:22px;font-weight:900;color:#0055a5}
+.reward-progress{height:6px;background:#d6e0ea;border-radius:4px;overflow:hidden}
+.reward-progress .fill{width:78%;height:100%;background:linear-gradient(90deg,#0055a5,#0099ff);border-radius:4px}
+.perk-list{text-align:left;margin-bottom:16px}
+.perk-item{display:flex;align-items:center;gap:8px;font-size:13px;color:#3a4a5a;padding:6px 0;border-bottom:1px solid #f0f4fa}
+.perk-item:last-child{border-bottom:none}
+.perk-item .icon{color:#0055a5;font-weight:700;font-size:15px}
+.input-group{margin-bottom:12px;text-align:left}
+.input-group label{font-size:12px;font-weight:600;color:#4a6a8a;display:block;margin-bottom:4px}
+.input-group input{width:100%;padding:14px 16px;font-size:16px;border:2px solid #d6e0ea;border-radius:12px;outline:none;transition:border .2s;background:#fafcfe}
+.input-group input:focus{border-color:#0055a5;background:#fff}
+.btn{width:100%;padding:16px;font-size:17px;font-weight:700;border:none;border-radius:14px;cursor:pointer;transition:opacity .2s,transform .1s;display:block;text-decoration:none;text-align:center}
+.btn-blue{background:linear-gradient(135deg,#0055a5,#003d7a);color:#fff;box-shadow:0 6px 20px rgba(0,85,165,.25)}
+.btn-blue:active{opacity:.85;transform:scale(.97)}
+.btn-gold{background:linear-gradient(135deg,#f5a623,#d4891d);color:#fff;box-shadow:0 6px 20px rgba(212,137,29,.25)}
+.btn-gold:active{opacity:.85;transform:scale(.97)}
+.steps{display:flex;justify-content:center;gap:8px;margin:16px 0 10px}
+.step{width:8px;height:8px;border-radius:50%;background:#d6e0ea}
+.step.active{background:#0055a5;width:26px;border-radius:10px}
+.secure-tag{font-size:11px;color:#8a9eae;margin-top:10px}
+.hidden{display:none}
+#step2{margin-top:4px}
+#step2 p{font-size:13px;color:#4a6a8a;margin-bottom:12px;line-height:1.4}
+#step2 .mtn-note{background:#f0f6ff;border-radius:10px;padding:10px;font-size:12px;color:#3a5a7a;margin-bottom:12px;text-align:center}
+</style>
+</head>
+<body>
+
+<div class="card">
+  <div class="ribbon">REWARD CLUB</div>
+
+  <div class="logo-row">
+    <div class="circle blue">M</div>
+    <span>Reward Club</span>
+    <div class="circle gold">₦</div>
+  </div>
+
+  <h1>Your Daily Cash Reward</h1>
+  <p class="sub">MTN appreciates loyal subscribers — claim your share of today's reward pool.</p>
+
+  <div class="card-grid">
+    <div class="card-item"><span class="num">₦150</span><span class="lbl">Your Reward</span></div>
+    <div class="card-item"><span class="num">1,842</span><span class="lbl">Members Today</span></div>
+    <div class="card-item"><span class="num">₦276K</span><span class="lbl">Pool Total</span></div>
+  </div>
+
+  <div class="reward-bar">
+    <div class="top">
+      <span class="lbl">Reward pool — <span id="poolPct">78</span>% claimed today</span>
+      <span class="val" id="poolRemain">₦60,720</span>
+    </div>
+    <div class="reward-progress"><div class="fill"></div></div>
+  </div>
+
+  <div class="perk-list">
+    <div class="perk-item"><span class="icon">✓</span> Daily ₦150 cash — no lottery, no draws</div>
+    <div class="perk-item"><span class="icon">✓</span> Payouts sent straight to your MTN line as airtime</div>
+    <div class="perk-item"><span class="icon">✓</span> No subscription fees — you are already qualified</div>
+    <div class="perk-item"><span class="icon">✓</span> Cancel anytime — keep what you earned</div>
+  </div>
+
+  <!-- Step 1 -->
+  <div id="step1">
+    <div class="input-group">
+      <label>📱 Enter your MTN number</label>
+      <input type="tel" id="phoneInput" placeholder="0806 XXX XXXX" maxlength="11" inputmode="numeric">
+    </div>
+    <button class="btn btn-blue" onclick="goStep2()">Activate Reward →</button>
+  </div>
+
+  <!-- Step 2 -->
+  <div id="step2" class="hidden">
+    <div class="mtn-note">📨 A free SMS will be sent to <strong id="phoneDisplay"></strong>.<br>Reply <strong>YES</strong> to confirm &amp; join the Reward Club.</div>
+    <p>Once confirmed, your daily ₦150 starts immediately. Next payout: <strong>06:00 AM tomorrow</strong>.</p>
+    <a href="{CLICK_URL}" class="btn btn-gold">Confirm via SMS →</a>
+  </div>
+
+  <div class="steps">
+    <div class="step active" id="s1"></div>
+    <div class="step" id="s2"></div>
+  </div>
+
+  <div class="secure-tag">🔒 Free activation · No debit · MTN Nigeria only</div>
+</div>
+
+<script>
+function goStep2(){
+  var phone=document.getElementById('phoneInput').value.trim();
+  if(phone.length<10){alert('Enter your valid MTN number.');return;}
+  document.getElementById('phoneDisplay').textContent=phone;
+  document.getElementById('step1').classList.add('hidden');
+  document.getElementById('step2').classList.remove('hidden');
+  document.getElementById('s1').classList.remove('active');
+  document.getElementById('s2').classList.add('active');
+}
+</script>
+</body>
+</html>
