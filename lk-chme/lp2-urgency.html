@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="si">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+<title>සීමිත ස්ථාන - අද පමණි!</title>
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+body{font-family:'Noto Sans Sinhala','Nirmala UI',sans-serif;background:#1a1a2e;color:#1a1a1a;line-height:1.6;max-width:480px;margin:0 auto;min-height:100vh}
+.wrap{padding:16px 20px 30px}
+.header{text-align:center;padding:20px 0 10px}
+.header .pulse{display:inline-block;width:12px;height:12px;background:#ff4444;border-radius:50%;animation:pulse 1.5s infinite;vertical-align:middle;margin-right:6px}
+@keyframes pulse{0%,100%{opacity:1;transform:scale(1)}50%{opacity:.5;transform:scale(1.3)}}
+.header h1{font-size:1.4rem;color:#fff;font-weight:800}
+.header h1 span{color:#ff4444}
+.card{background:#fff;border-radius:16px;padding:24px 18px;box-shadow:0 8px 30px rgba(0,0,0,.3);margin-top:10px}
+.spots{text-align:center;margin-bottom:20px}
+.spots .num{font-size:2.8rem;font-weight:900;color:#ff4444;line-height:1}
+.spots .label{font-size:.85rem;color:#666;margin-top:4px}
+.bar{background:#eee;border-radius:10px;height:14px;overflow:hidden;margin:14px 0 4px}
+.bar .fill{background:linear-gradient(90deg,#ff4444,#ff8800);height:100%;width:18%;border-radius:10px;animation:fill 3s ease}
+@keyframes fill{from{width:0}to{width:18%}}
+.bar-label{display:flex;justify-content:space-between;font-size:.65rem;color:#999}
+.benefits{margin-bottom:20px}
+.benefits .b{display:flex;align-items:center;gap:10px;font-size:.85rem;color:#333;margin-bottom:10px}
+.benefits .b .ic{flex-shrink:0;font-size:1.1rem}
+.steps{background:#f8f4ff;border-radius:12px;padding:14px;margin-bottom:18px}
+.steps .stitle{font-size:.8rem;font-weight:700;color:#1a1a2e;margin-bottom:10px}
+.steps .step{display:flex;align-items:flex-start;gap:10px;margin-bottom:10px;font-size:.8rem;color:#444}
+.steps .step:last-child{margin-bottom:0}
+.steps .step .num{flex-shrink:0;width:22px;height:22px;background:#1a1a2e;color:#fff;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:.7rem;font-weight:700}
+.steps .step strong{color:#1a1a2e}
+.price-note{text-align:center;font-size:.75rem;color:#888;margin-bottom:16px}
+.cta{display:block;width:100%;background:linear-gradient(135deg,#ff4444,#cc0000);color:#fff;font-family:inherit;font-size:1.15rem;font-weight:800;text-align:center;padding:16px;border:none;border-radius:14px;text-decoration:none;box-shadow:0 4px 14px rgba(204,0,0,.4);cursor:pointer;animation:glow 2s infinite}
+@keyframes glow{0%,100%{box-shadow:0 4px 14px rgba(204,0,0,.4)}50%{box-shadow:0 4px 24px rgba(255,68,68,.6)}}
+.cta:active{transform:scale(.97)}
+.trust{text-align:center;margin-top:12px;font-size:.7rem;color:#999}
+.trust span{color:#4caf50;font-weight:700}
+.footer{text-align:center;margin-top:20px;font-size:.65rem;color:#888}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <div class="header">
+    <h1><span class="pulse"></span> අද පමණි! <span>සීමිත අවස්ථා</span></h1>
+  </div>
+  <div class="card">
+    <div class="spots">
+      <div class="num">07</div>
+      <div class="label">අද ඉතිරි ස්ථාන ගණන</div>
+    </div>
+    <div class="bar"><div class="fill"></div></div>
+    <div class="bar-label"><span>දැනට සහභාගී වී ඇත: 93%</span><span>ඉතිරි: 7%</span></div>
+
+    <div class="benefits" style="margin-top:18px">
+      <div class="b"><span class="ic">💰</span> දිනපතා මුදල් සම්මාන</div>
+      <div class="b"><span class="ic">⚡</span> විනාඩි කිහිපයකින් සහභාගී වන්න</div>
+      <div class="b"><span class="ic">🏆</span> සරල ප්‍රශ්න · කිසිදු පෙරදැනුමක් අවශ්‍ය නැත</div>
+    </div>
+
+    <div class="steps">
+      <div class="stitle">කටයුතු පිළිවෙල:</div>
+      <div class="step"><div class="num">1</div><div><strong>Dialog අංකය ඇතුලත් කරන්න</strong></div></div>
+      <div class="step"><div class="num">2</div><div><strong>SMS මගින් PIN කේතය ලබා ගන්න</strong></div></div>
+      <div class="step"><div class="num">3</div><div><strong>PIN කේතය ඇතුලත් කර තහවුරු කරන්න</strong></div></div>
+    </div>
+
+    <div class="price-note">සේවාව: දිනකට රු.12 පමණක් · ඕනෑ විට අවලංගු කළ හැක</div>
+
+    <a href="https://08deh.bemobtrk.com/click" class="cta">ඔබේ ස්ථානය වෙන් කරගන්න! ➤</a>
+
+    <div class="trust">✓ <span>Dialog පාරිභෝගිකයින් සඳහා</span> · ✓ ආරක්ෂිත</div>
+  </div>
+  <div class="footer">ChallengeMe · රු.12/දින + බදු · ඕනෑ විට අවලංගු කළ හැක</div>
+</div>
+</body>
+</html>
