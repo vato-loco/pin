@@ -46,7 +46,19 @@ export const OFFERS = {
   },
 
   // --- Top offers uit de mail van 18-08-2026, gesorteerd op EPC ------------
-  '301490': { name: 'Salini-KW-Zain-PIN API',              geo: 'KW', carrier: 'Zain',    service: 'Salini',            pinLength: null, price: null, unsub: null, payout: 3.50, cr: 13.44, epc: 0.4704 },
+  // Compleet: gegevens van de offerpagina (18-08-2026). Let op de merknaam —
+  // de offer heet 'Salini' bij Mobplus, maar de door de carrier goedgekeurde
+  // disclaimer spreekt van 'Salni'. Op de pagina staat de tekst van de carrier.
+  '301490': {
+    name: 'Salini-KW-Zain-PIN API',
+    geo: 'KW', carrier: 'Zain',
+    service: 'Salni',
+    pinLength: 5,
+    price: '3 KWD/day',
+    unsub: 'Send Unsub M1 to 95437',
+    shortcode: '95437',
+    payout: 3.50, cr: 13.44, epc: 0.4704,
+  },
   '314200': { name: 'Games Joy-KW-ZAIN-M-PINAPI',          geo: 'KW', carrier: 'Zain',    service: 'Games Joy',         pinLength: null, price: null, unsub: null, payout: 3.50, cr: 12.39, epc: 0.4336 },
   '301062': { name: 'Kidzzy-KW-Ooredoo-M-PIN API',         geo: 'KW', carrier: 'Ooredoo', service: 'Kidzzy',            pinLength: null, price: null, unsub: null, payout: 3.50, cr: 10.59, epc: 0.3706 },
   '293705': { name: 'Jeoreis-AE-Etisalat-PIN API',         geo: 'AE', carrier: 'Etisalat',service: 'Jeoreis',           pinLength: null, price: null, unsub: null, payout: 2.90, cr: 12.76, epc: 0.3701 },

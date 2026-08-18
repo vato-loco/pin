@@ -3,18 +3,17 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-<title>سالِني — ألعاب ومحتوى حصري</title>
+<title>سالني — محتوى وألعاب حصرية</title>
 <!--
-  LP voor offer 301490 (Salini-KW-Zain-PIN API) — hoogste EPC (0.4704) uit de
-  Mobplus-mail van 18-08-2026. Kuwait, Zain, payout USD 3,50.
+  Offer 301490 — Salini-KW-Zain-PIN API. Kuwait, Zain, payout USD 3,50.
+  Gegevens van de offerpagina (18-08-2026): PIN Length 5, 3 KWD per dag,
+  afmelden met "Unsub M1" naar 95437, sender ID 95437, cap 100/dag.
 
-  LET OP: drie waarden zijn nog niet bekend en staan als AAN_TE_VULLEN in de
-  pagina. Vraag ze bij Cheney op vóór je verkeer stuurt:
-    - Pin Length  (staat nu op 4 in PIN_CONFIG — kan 6 zijn)
-    - Price       (prijs per dag/week en valuta, KWD)
-    - Unsubscribe (afmeldwoord en shortcode)
-  Zonder de prijs en de afmeldinstructie op de pagina keurt de carrier de LP af.
-  `node tools/doctor.mjs` laat zien wat er nog open staat.
+  De merknaam op deze pagina is "Salni", want zo staat het in de disclaimer die
+  de carrier heeft goedgekeurd. Bij Mobplus heet de offer "Salini".
+
+  De disclaimer staat er ook letterlijk in het Engels bij, zoals aangeleverd.
+  Die tekst niet herschrijven: hij is onderdeel van de goedkeuring.
 -->
 <style>
 *{margin:0;padding:0;box-sizing:border-box}
@@ -33,19 +32,20 @@ input[type=tel]:focus{outline:none;border-color:#00c9a7}
 .btn:disabled{opacity:.6;cursor:default}
 .btn:active{transform:scale(.98)}
 /* De pincode blijft van links naar rechts, ook op een RTL-pagina: cijfers
-   worden nu eenmaal in die volgorde ingetypt en voorgelezen. */
-#pin-boxes{display:flex;justify-content:center;gap:10px;margin:22px 0 4px;direction:ltr}
-.pin-box{width:58px;height:68px;font-size:2rem;text-align:center;background:#0a1628;border:2px solid #1e3a5f;border-radius:12px;color:#fff}
+   worden nu eenmaal in die volgorde ingetypt en voorgelezen. Vijf vakjes
+   passen krapper dan vier, dus ze zijn wat smaller. */
+#pin-boxes{display:flex;justify-content:center;gap:8px;margin:22px 0 4px;direction:ltr}
+.pin-box{width:52px;height:64px;font-size:1.8rem;text-align:center;background:#0a1628;border:2px solid #1e3a5f;border-radius:12px;color:#fff}
 .pin-box:focus{outline:none;border-color:#00c9a7}
 #pin-error{display:none;margin-top:12px;color:#ff7a7a;font-size:.9rem;text-align:center}
 .linkbtn{background:none;border:none;color:#8fa3bf;font-family:inherit;font-size:.84rem;text-decoration:underline;cursor:pointer;margin-top:14px;display:none}
 .linkbtn:disabled{opacity:.5;text-decoration:none;cursor:default}
 .terms{margin-top:18px;padding-top:16px;border-top:1px solid #1e3a5f;font-size:.78rem;color:#8fa3bf;text-align:center}
 .terms strong{color:#c9d8ee}
-.todo{color:#ffb020;font-weight:700}
 .tnc-toggle{color:#8fa3bf;text-decoration:underline;cursor:pointer;display:inline-block;margin-top:10px;font-size:.78rem}
 .tnc-box{display:none;margin-top:10px;background:#0a1628;border:1px solid #1e3a5f;border-radius:10px;padding:12px;text-align:right;font-size:.75rem;color:#8fa3bf}
 .tnc-box.open{display:block}
+.tnc-box .en{direction:ltr;text-align:left;margin-top:10px;padding-top:10px;border-top:1px solid #1e3a5f;color:#7d90ab}
 .done h2{color:#4caf50}
 </style>
 </head>
@@ -54,22 +54,22 @@ input[type=tel]:focus{outline:none;border-color:#00c9a7}
 
   <div class="hero">
     <div class="icon">🎮</div>
-    <h1>سالِني</h1>
+    <h1>سالني</h1>
     <p>ألعاب ومحتوى حصري بلا حدود</p>
   </div>
 
   <!-- الخطوة ١: رقم الهاتف -->
   <div class="card" id="pin-phone">
     <h2>أدخل رقم هاتفك</h2>
-    <p class="sub">سنرسل لك رمزًا عبر رسالة نصية لتفعيل اشتراكك.</p>
+    <p class="sub">سنرسل لك رمزًا من ٥ أرقام عبر رسالة نصية.</p>
     <input type="tel" id="pin-msisdn" inputmode="numeric" placeholder="965 XXXX XXXX" autocomplete="tel">
     <button class="btn" id="pin-send">أرسل الرمز</button>
   </div>
 
   <!-- الخطوة ٢: الرمز -->
   <div class="card" id="pin-code">
-    <h2>أدخل الرمز</h2>
-    <p class="sub">تحقق من رسائلك النصية.</p>
+    <h2>أدخل الرمز المكوّن من ٥ أرقام</h2>
+    <p class="sub">تحقق من رسائلك النصية من 95437.</p>
     <div id="pin-boxes"></div>
     <button class="btn" id="pin-verify">تحقق وافتح</button>
     <button class="linkbtn" id="pin-resend">إعادة إرسال الرمز</button>
@@ -85,14 +85,22 @@ input[type=tel]:focus{outline:none;border-color:#00c9a7}
 
   <div class="terms">
     خدمة اشتراك من <strong>زين</strong> — الكويت.
-    السعر: <strong class="todo">AAN_TE_VULLEN</strong>.<br>
-    لإلغاء الاشتراك أرسل <strong class="todo">AAN_TE_VULLEN</strong>. للعمر ١٨+ فقط.
+    السعر: <strong>٣ دنانير كويتية يوميًا</strong>.<br>
+    لإلغاء الاشتراك أرسل <strong>Unsub M1</strong> إلى <strong>95437</strong>. للعمر ١٨+ فقط.
     <span class="tnc-toggle" onclick="document.getElementById('tnc').classList.toggle('open')">الشروط والأحكام ▾</span>
     <div class="tnc-box" id="tnc">
-      الخدمة: سالِني &middot; المشغّل: زين (الكويت) &middot;
-      السعر: <span class="todo">AAN_TE_VULLEN</span>، يُخصم من رصيدك حتى إلغاء الاشتراك &middot;
-      لإلغاء الاشتراك: <span class="todo">AAN_TE_VULLEN</span> &middot;
-      بإدخالك الرمز فإنك تؤكد أن عمرك ١٨ عامًا أو أكثر وتوافق على هذه الشروط.
+      سالني خدمة اشتراك تتجدد تلقائيًا مقابل ٣ دنانير كويتية يوميًا لمشتركي زين،
+      حتى تقوم بإلغاء الاشتراك. يمكنك إلغاء الاشتراك في أي وقت بإرسال
+      <strong>Unsub M1</strong> إلى <strong>95437</strong> لمشتركي زين.
+      للاستفادة من هذه الخدمة يجب أن يكون عمرك ١٨ عامًا أو أكثر، ما لم تحصل على
+      إذن من والديك أو من الشخص المخوّل بدفع فاتورتك.
+      <div class="en">
+        Salni is a subscription service that will automatically renew for 3 KWD/Daily
+        for zain subscribers, until you unsubscribe. You can unsubscribe from the
+        service at anytime, by sending Unsub M1 to 95437 for zain subscribers. To make
+        use of this service, you must be 18 or more unless you have received permission
+        from your parents or the person who is authorized to pay your bill.
+      </div>
     </div>
   </div>
 
@@ -102,12 +110,12 @@ input[type=tel]:focus{outline:none;border-color:#00c9a7}
 window.PIN_CONFIG = {
   offerId:   '301490',
   geo:       'KW',
-  pinLength: 4,          // AAN_TE_VULLEN: bevestigen bij de AM, kan 6 zijn
+  pinLength: 5,
   texts: {
     sending:    'جارٍ الإرسال...',
     verifying:  'جارٍ التحقق...',
     badNumber:  'الرجاء إدخال رقم هاتف صحيح.',
-    shortPin:   'الرجاء إدخال الرمز كاملًا.',
+    shortPin:   'الرجاء إدخال الرمز كاملًا (٥ أرقام).',
     netwerk:    'تعذّر الاتصال. تحقق من الإنترنت وحاول مرة أخرى.',
     processing: 'جارٍ تأكيد اشتراكك، لحظة من فضلك...',
     traag:      'يستغرق الأمر وقتًا أطول من المتوقع. حاول مرة أخرى.',
