@@ -4,9 +4,9 @@
   "type": "module",
   "scripts": {
     "doctor": "node tools/doctor.mjs",
-    "test": "node --test test/worker.test.mjs",
-    "dev": "wrangler dev",
-    "deploy": "npm run doctor && wrangler deploy",
+    "test": "node --test test/pinapi.test.mjs",
+    "dev": "wrangler pages dev",
+    "deploy": "npm run doctor && wrangler pages deploy",
     "health": "curl -s https://play-center.org/api/health"
   },
   "devDependencies": {

@@ -13,32 +13,43 @@
 import { readFileSync, readdirSync, existsSync, statSync } from 'node:fs';
 import { fileURLToPath } from 'node:url';
 import { dirname, join } from 'node:path';
-import { OFFERS, GEOS } from '../src/offers.js';
+import { OFFERS, GEOS } from '../functions/api/_offers.js';
 
 const wortel = join(dirname(fileURLToPath(import.meta.url)), '..');
 const blokkerend = [];
 const waarschuwing = [];
 
-// --- 1. wrangler.jsonc -----------------------------------------------------
+// --- 1. Pages-configuratie ------------------------------------------------
 
 const wPad = join(wortel, 'wrangler.jsonc');
 if (!existsSync(wPad)) {
-  blokkerend.push('wrangler.jsonc ontbreekt — zonder dat bestand draait de Worker zonder "main" en bestaat /api/pin/* niet.');
+  waarschuwing.push('wrangler.jsonc ontbreekt — bindings en vars staan dan alleen in het dashboard en zijn niet versiebeheerd.');
 } else {
   const ruw = readFileSync(wPad, 'utf8');
-  const cfg = JSON.parse(ruw.replace(/^\s*\/\/.*$/gm, ''));
-  if (cfg.name !== 'pin') blokkerend.push(`wrangler.jsonc: name is "${cfg.name}" maar moet "pin" zijn, anders ontstaat er een tweede Worker.`);
-  if (!cfg.main) blokkerend.push('wrangler.jsonc: "main" ontbreekt — dan worden alleen bestanden geserveerd.');
+  const zonderCommentaar = ruw.replace(/^\s*\/\/.*$/gm, '');
+  const cfg = JSON.parse(zonderCommentaar);
+  if (cfg.name !== 'pin') blokkerend.push(`wrangler.jsonc: name is "${cfg.name}" maar het Pages-project heet "pin".`);
+  if (cfg.main) blokkerend.push('wrangler.jsonc: "main" hoort hier niet — dit is een Pages-project, de API zit in functions/.');
+  if (!cfg.pages_build_output_dir) blokkerend.push('wrangler.jsonc: pages_build_output_dir ontbreekt.');
   if (!cfg.vars?.AFF_ID || cfg.vars.AFF_ID.startsWith('VUL_')) blokkerend.push('wrangler.jsonc: AFF_ID is nog niet ingevuld.');
-  if (!/kv_namespaces/.test(ruw.replace(/^\s*\/\/.*$/gm, ''))) {
+  if (!/kv_namespaces/.test(zonderCommentaar)) {
     waarschuwing.push('Geen KV-namespace gekoppeld: de snelheidslimiet staat uit. Iedereen die het domein kent kan sms\'jes laten sturen op jouw account.');
   }
-  if (!existsSync(join(wortel, '.assetsignore'))) {
-    blokkerend.push('.assetsignore ontbreekt — src/worker.js is dan publiek op te vragen in de browser.');
-  } else {
-    const ai = readFileSync(join(wortel, '.assetsignore'), 'utf8');
-    if (!/^src$/m.test(ai)) blokkerend.push('.assetsignore bevat geen regel "src" — de Worker-broncode is dan publiek.');
-  }
+}
+
+// De functions-map is het instappunt; zonder deze bestanden bestaat /api/ niet.
+for (const f of ['functions/api/[[path]].js', 'functions/api/_pinapi.js', 'functions/api/_offers.js', 'functions/_middleware.js']) {
+  if (!existsSync(join(wortel, f))) blokkerend.push(`${f} ontbreekt — /api/* werkt dan niet.`);
+}
+
+// Zonder _routes.json draait de function op elk verzoek, ook op de duizenden
+// statische LP-bestanden. Dat is trager en duurder dan nodig.
+const rPad = join(wortel, '_routes.json');
+if (!existsSync(rPad)) {
+  waarschuwing.push('_routes.json ontbreekt: de function draait dan op elk verzoek, ook op statische pagina\'s.');
+} else {
+  const routes = JSON.parse(readFileSync(rPad, 'utf8'));
+  if (!routes.include?.includes('/api/*')) blokkerend.push('_routes.json bevat "/api/*" niet — de API wordt dan nooit aangeroepen.');
 }
 
 // --- 2. landingspagina's ---------------------------------------------------

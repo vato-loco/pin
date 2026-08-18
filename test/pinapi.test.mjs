@@ -1,5 +1,5 @@
 // ---------------------------------------------------------------------------
-// Tests op de Worker. Draaien zonder netwerk: fetch wordt vervangen, dus er
+// Tests op de PIN API-function. Draaien zonder netwerk: fetch wordt vervangen, dus er
 // gaat nooit een echt verzoek naar de carrier.
 //
 //   node --test test/
@@ -7,7 +7,7 @@
 
 import { test } from 'node:test';
 import assert from 'node:assert/strict';
-import worker from '../src/worker.js';
+import { afhandelen } from '../functions/api/_pinapi.js';
 
 // --- gereedschap -----------------------------------------------------------
 
@@ -40,7 +40,7 @@ function req(pad, opties = {}) {
   });
 }
 
-const roep = (pad, env = ENV, opties) => worker.fetch(req(pad, opties), env);
+const roep = (pad, env = ENV, opties) => afhandelen(req(pad, opties), env);
 
 // --- offer-allowlist -------------------------------------------------------
 
@@ -233,7 +233,7 @@ test('onbekend pad geeft 404', async () => {
 
 test('POST wordt geweigerd', async () => {
   stubFetch({ stateCode: 0 });
-  const r = await worker.fetch(new Request('https://play-center.org/api/pin/request', { method: 'POST' }), ENV);
+  const r = await afhandelen(new Request('https://play-center.org/api/pin/request', { method: 'POST' }), ENV);
   assert.equal(r.status, 405);
 });
 

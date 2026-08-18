@@ -1,11 +1,11 @@
 // ---------------------------------------------------------------------------
-// Mobplus PIN API — backend-proxy op Cloudflare Workers.
+// Mobplus PIN API — backend-proxy als Cloudflare Pages Function.
 //
 // De landingspagina praat nooit rechtstreeks met de carrier: het token mag niet
 // in de browser terechtkomen. De pagina roept deze Worker aan, de Worker zet het
 // token erbij en praat met m.vasvas.click.
 //
-//   Browser (LP)  ->  deze Worker  ->  https://m.vasvas.click/c/pin/...
+//   Browser (LP)  ->  deze Function ->  https://m.vasvas.click/c/pin/...
 //                        ^
 //                        token staat alleen hier
 //
@@ -25,7 +25,7 @@
 //     willekeurige nummers stuurt, op jouw account.
 // ---------------------------------------------------------------------------
 
-import { OFFERS, msisdnPattern, normalizeMsisdn } from './offers.js';
+import { OFFERS, msisdnPattern, normalizeMsisdn } from './_offers.js';
 
 const BASE_URL = 'https://m.vasvas.click/c/pin';
 
@@ -297,8 +297,9 @@ function handleHealth(request, env) {
 
 // --------------------------------------------------------------------------- //
 
-export default {
-  async fetch(request, env) {
+// Het instappunt. functions/api/[[path]].js roept dit aan; de tests roepen het
+// rechtstreeks aan, zodat er geen Pages-omgeving nodig is om ze te draaien.
+export async function afhandelen(request, env) {
     const url = new URL(request.url);
     if (request.method === 'OPTIONS') {
       return new Response(null, {
@@ -316,5 +317,4 @@ export default {
       case '/api/health':      return handleHealth(request, env);
       default:                 return jsonRes(request, env, { success: false, msg: 'Not found' }, 404);
     }
-  },
-};
+}

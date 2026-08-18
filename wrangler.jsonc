@@ -1,60 +1,42 @@
 {
   // ---------------------------------------------------------------------------
-  // Worker "pin" — statische landingspagina's plus de PIN API-proxy.
+  // Pages-project "pin" — de landingspagina's plus de PIN API-proxy.
   //
-  // Dit bestand moet bestaan. Zonder wrangler.jsonc verzint Cloudflare bij elke
-  // build zelf een configuratie zonder "main": dan worden alleen de bestanden
-  // geserveerd en bestaat /api/pin/* niet. Dat is precies de reden dat de PIN
-  // API-opzet nu niet werkt.
+  // LET OP: dit is een Pages-project, geen Worker. Het draait op
+  // pin-e5x.pages.dev en play-center.org en bouwt automatisch bij een push naar
+  // GitHub. De API zit daarom in functions/, niet in een los Worker-bestand.
   //
-  // "name" moet exact "pin" blijven. Een andere naam maakt een tweede Worker aan
-  // en play-center.org blijft dan naar de oude wijzen.
+  // Controleer in het dashboard dat de build output directory op "/" staat
+  // voordat je dit samenvoegt; die moet overeenkomen met
+  // pages_build_output_dir hieronder.
   // ---------------------------------------------------------------------------
   "$schema": "node_modules/wrangler/config-schema.json",
   "name": "pin",
-  "main": "src/worker.js",
+  "pages_build_output_dir": ".",
   "compatibility_date": "2026-08-16",
 
-  // Gewone variabelen horen hier, niet in het dashboard: elke deploy overschrijft
-  // wat daar staat. Het token is een secret en staat daarom juist wel alleen in
-  // het dashboard, want secrets worden niet overschreven.
+  // Gewone variabelen. Het API Key hoort hier NIET: dat is een secret en gaat
+  // met een apart commando naar het Pages-project:
   //
-  //   npx wrangler secret put MOBPLUS_TOKEN
+  //   npx wrangler pages secret put MOBPLUS_TOKEN --project-name pin
   //
   "vars": {
-    // Je publisher-ID bij Mobplus. Verandert nooit, is niet geheim.
-    "AFF_ID": "VUL_JE_AFF_ID_IN",
+    // Publisher-ID bij Mobplus. Niet geheim.
+    "AFF_ID": "4647",
 
-    // Alleen nodig als een landingspagina op een ander domein staat. LP's in
-    // deze repo draaien op hetzelfde domein als de Worker, dus die hebben geen
-    // CORS nodig en hoeven hier niet in.
+    // Alleen nodig voor landingspagina's op een ander domein. Pagina's in deze
+    // repo staan op hetzelfde domein en hebben geen CORS nodig.
     "ALLOWED_ORIGINS": "https://play-center.org",
 
-    // "1" = nummer moet beginnen met een mobiel prefix uit GEOS in offers.js.
-    // Zet op "0" zodra blijkt dat een carrier prefixen gebruikt die daar niet in
-    // staan; dan weiger je echte bezoekers.
+    // "1" = nummer moet met een mobiel prefix uit GEOS beginnen. Zet op "0"
+    // zodra een carrier prefixen blijkt te gebruiken die daar niet in staan.
     "STRICT_PREFIX": "1"
-  },
-
-  // Logs aanzetten, anders is een storing in de carrier-koppeling niet te vinden.
-  "observability": {
-    "enabled": true
-  },
-
-  // De hele repo is de site. Wat niet geserveerd mag worden staat in
-  // .assetsignore — zonder dat bestand is src/worker.js publiek op te vragen.
-  "assets": {
-    "directory": ".",
-    "binding": "ASSETS"
   }
 
-  // Snelheidslimiet: koppel een KV-namespace en de Worker gaat limiteren.
-  // Zonder deze binding draait alles, maar ongelimiteerd — dan kan iedereen die
-  // het domein kent sms'jes laten versturen op jouw account.
+  // Snelheidslimiet: koppel een KV-namespace en de limiet gaat aan. Zonder deze
+  // binding draait alles, maar ongelimiteerd.
   //
   //   npx wrangler kv namespace create PIN_KV
-  //
-  // en plak de id hieronder, met dit blok uitgecommentarieerd:
   //
   // ,"kv_namespaces": [
   //   { "binding": "PIN_KV", "id": "VUL_DE_KV_ID_IN" }
