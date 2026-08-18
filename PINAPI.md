@@ -171,10 +171,18 @@ klikstatistiek op de pre-lander in.
 
 ### Conversies
 
-MOBPLUS stuurt **niet** uit zichzelf een postback. Kopieer de postback-URL uit
-Bemob en geef die aan je AM; zij stellen hem in. Vraag er meteen bij of de offer
-een postback vereist — offers die `stateCode 2` teruggeven bevestigen niet
-direct, en dan is de postback je enige conversiesignaal.
+De postback staat bij MOBPLUS op **accountniveau** ingesteld, niet per offer.
+Draaien je gewone offers al conversies terug naar Bemob, dan doen deze dat ook —
+er hoeft dus niets extra's aangevraagd te worden.
+
+Wat wél moet kloppen is de `cid`. MOBPLUS stuurt in de postback de click-id terug
+die wij bij de PIN-aanvraag hebben meegegeven. Komt er geen `cid` mee, dan wordt
+de conversie geactiveerd maar kan Bemob hem nergens aan koppelen: omzet zonder
+conversies in je tracker. Dat is de reden dat `cid` door de hele keten wordt
+doorgegeven en dat `doctor` erop controleert.
+
+Offers die `stateCode 2` teruggeven bevestigen niet direct; daar is de postback
+je enige conversiesignaal.
 
 Voor een pixel van Meta of Google: `pinflow.js` roept `window.onPinSuccess()`
 aan zodra het abonnement rond is. Dat bijt niet met de postback; die twee dienen
