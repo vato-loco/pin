@@ -105,6 +105,28 @@ for (const { naam, pad } of paginas) {
   }
 }
 
+// --- 2b. pre-landers: gaat de cid mee? -------------------------------------
+
+// Een pre-lander die naar de PIN-pagina linkt zonder de cid door te geven is de
+// stilste fout in deze opzet: de flow werkt, de conversie wordt geactiveerd,
+// maar Bemob kan de postback nergens aan koppelen.
+for (const { naam } of paginas) {
+  const map = join(lpWortel, naam);
+  for (const bestand of readdirSync(map)) {
+    if (!bestand.endsWith('.html') || bestand === 'index.html') continue;
+    const html = readFileSync(join(map, bestand), 'utf8');
+    const linktNaarPin = new RegExp(`href=["']/lp/${naam}/["']`).test(html);
+    if (!linktNaarPin) continue;
+
+    if (!/data-pin-cta/.test(html)) {
+      blokkerend.push(`lp/${naam}/${bestand}: linkt naar de PIN-pagina zonder data-pin-cta — de cid gaat verloren en de postback kan niet gekoppeld worden.`);
+    }
+    if (!/passcid\.js/.test(html)) {
+      blokkerend.push(`lp/${naam}/${bestand}: laadt /lp/_shared/passcid.js niet — data-pin-cta doet dan niets.`);
+    }
+  }
+}
+
 // --- 3. offers zonder complete gegevens ------------------------------------
 
 const onvolledig = Object.entries(OFFERS)

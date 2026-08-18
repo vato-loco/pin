@@ -23,6 +23,7 @@ bezoeker  ->  play-center.org/lp/<offer>/   (statische pagina)
 | `functions/_middleware.js` | houdt ontwikkelbestanden uit de site |
 | `_routes.json` | de function draait alleen op deze paden, niet op elk LP-verzoek |
 | `lp/_shared/pinflow.js` | de flow, één keer, voor alle pagina's |
+| `lp/_shared/passcid.js` | draagt de cid van pre-lander naar PIN-pagina |
 
 ## Eenmalig instellen
 
@@ -104,18 +105,57 @@ Voor een LP zijn ook nodig:
 - **Unsubscribe** — afmeldwoord en shortcode.
 - **Een testnummer** van de carrier, om de flow één keer helemaal te lopen.
 
-## Tracking
+## Pre-landers en tracking
 
-De `cid` wordt automatisch uit de URL gelezen: `cid`, `clickid`, `click_id`,
-`subid` of `mc_click_id`, wat er als eerste is. Voor Bemob:
+Koud verkeer, zeker van pops, converteert slecht als het meteen op een
+nummerveld landt. Daarom staat er een pre-lander voor:
 
 ```
-play-center.org/lp/kw-salini/?cid={clickid}
+advertentie → Bemob → pre-lander → CTA → PIN-pagina → activatie
+                        (cid)             (cid)           │
+                                                          ↓
+                                    Bemob ←── postback ── MOBPLUS
 ```
 
-Geeft de carrier `stateCode 2`, dan blijft de pagina navragen. Loopt dat af, dan
-is de conversie niet weg: geef je postback-URL aan de AM, dan komt de
-bevestiging alsnog bij de tracker binnen.
+Een pre-lander is een gewone HTML-pagina naast `index.html` in dezelfde
+offermap, bijvoorbeeld `lp/kw-salini/pre-urgency.html`. Twee dingen zijn
+verplicht:
+
+```html
+<a href="/lp/kw-salini/" data-pin-cta>افتح المكتبة الآن</a>
+<script src="/lp/_shared/passcid.js"></script>
+```
+
+`passcid.js` zet de trackingparameters van de pre-lander op elke link met
+`data-pin-cta`. Vergeet je dat, dan werkt de flow gewoon en wordt de conversie
+geactiveerd, maar komt de postback bij Bemob aan zonder click-id en kan hij
+nergens aan gekoppeld worden: omzet zonder conversies in je tracker. `doctor`
+weigert daarom een pre-lander die naar de PIN-pagina linkt zonder deze twee.
+
+Zet de prijs en de afmeldinstructie ook op de pre-lander, niet pas op de
+PIN-pagina. Een funnel die de abonnementsvorm verzwijgt tot het laatste scherm
+is waar carriers offers om laten vallen.
+
+### In Bemob
+
+- **Landing Page** = de pre-lander, **Offer** = de PIN-pagina. Zonder pre-lander
+  gebruik je direct linking met de PIN-pagina als Offer.
+- Link naar de URL **zonder** `.html` (`/lp/kw-salini/pre-urgency`). Met
+  extensie geeft Pages een 308 en betaal je een redirect-hop.
+- De `cid` wordt gelezen uit `cid`, `clickid`, `click_id`, `subid` of
+  `mc_click_id`, wat er als eerste is. `sc` en `s1`–`s5` gaan mee voor splitsen
+  per creative.
+
+### Conversies
+
+MOBPLUS stuurt **niet** uit zichzelf een postback. Kopieer de postback-URL uit
+Bemob en geef die aan je AM; zij stellen hem in. Vraag er meteen bij of de offer
+een postback vereist — offers die `stateCode 2` teruggeven bevestigen niet
+direct, en dan is de postback je enige conversiesignaal.
+
+Voor een pixel van Meta of Google: `pinflow.js` roept `window.onPinSuccess()`
+aan zodra het abonnement rond is. Dat bijt niet met de postback; die twee dienen
+verschillende doelen.
 
 ## Onderhoud
 
