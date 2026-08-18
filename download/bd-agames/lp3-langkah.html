@@ -1,0 +1,113 @@
+<!doctype html>
+<html lang="bn">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+  <title>৩টি সহজ ধাপ</title>
+  <style>
+    *{margin:0;padding:0;box-sizing:border-box}
+    body{font-family:'Noto Sans Bengali',Arial,Helvetica,sans-serif;background:#1E2741;color:#fff;line-height:1.5;max-width:480px;margin:0 auto;min-height:100vh}
+    .wrap{padding:20px 18px 30px;display:flex;flex-direction:column;min-height:100vh}
+    .header{text-align:center;padding:24px 0 4px}
+    .logo{font-size:1.7rem;font-weight:900;color:#FFBB00;letter-spacing:1px;margin-bottom:12px}
+    .timer-bar{display:flex;align-items:center;justify-content:center;gap:8px;background:rgba(255,187,0,.1);border:1px solid rgba(255,187,0,.25);border-radius:10px;padding:10px 16px;margin:0 0 12px}
+    .timer-bar .ico{font-size:1.1rem}
+    .timer-bar .lbl{font-size:.78rem;color:#FFBB00;font-weight:600}
+    .timer-bar #timer{font-size:.82rem;color:#FFBB00;font-weight:800;font-variant-numeric:tabular-nums}
+    .header h1{font-size:1.4rem;font-weight:800;color:#fff;line-height:1.3}
+    .header h1 span{color:#FFBB00}
+    .header .tag{display:inline-block;background:#FFBB00;color:#1E2741;font-size:.7rem;font-weight:700;padding:4px 10px;border-radius:6px;margin-top:8px}
+    .prize{text-align:center;margin:10px 0 0;background:rgba(255,187,0,.08);border:1px solid rgba(255,187,0,.2);border-radius:12px;padding:10px}
+    .prize .amount{font-size:1.6rem;font-weight:900;color:#FFBB00;line-height:1.1}
+    .prize .detail{font-size:.7rem;color:#ccc;margin-top:2px}
+    .progress-wrap{margin:18px 0 8px;text-align:center}
+    .progress-wrap .pct{font-size:2rem;font-weight:900;color:#FFBB00;line-height:1}
+    .progress-wrap .plabel{font-size:.78rem;color:#aaa;margin-top:2px;font-weight:600}
+    .prog-bar{background:rgba(255,255,255,.1);border-radius:10px;height:14px;overflow:hidden;margin:10px 0 4px}
+    .prog-bar .fill{background:linear-gradient(90deg,#FFBB00,#ffd54f);height:100%;width:33%;border-radius:10px;transition:width 1s}
+    .bar-label{display:flex;justify-content:space-between;font-size:.62rem;color:#888}
+    .steps{display:flex;flex-direction:column;gap:12px;margin:18px 0}
+    .step-card{background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.08);border-radius:14px;padding:14px 16px;display:flex;align-items:center;gap:14px}
+    .step-card .num{flex-shrink:0;width:36px;height:36px;background:#FFBB00;color:#1E2741;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:1rem;font-weight:800}
+    .step-card .info{flex:1}
+    .step-card .info .title{font-size:.85rem;font-weight:700;color:#fff}
+    .step-card .info .desc{font-size:.72rem;color:#aaa;margin-top:2px}
+    .step-card .check{color:#FFBB00;font-size:1.2rem;font-weight:700}
+    .cta{display:block;width:100%;background:#FFBB00;color:#1E2741;font-family:inherit;font-size:1.2rem;font-weight:800;text-align:center;padding:16px;border:none;border-radius:14px;text-decoration:none;box-shadow:0 4px 16px rgba(255,187,0,.35);cursor:pointer;animation:glow 2s infinite}
+    @keyframes glow{0%,100%{box-shadow:0 4px 16px rgba(255,187,0,.35)}50%{box-shadow:0 4px 28px rgba(255,187,0,.55)}}
+    .cta:active{transform:scale(.97)}
+    .trust{text-align:center;margin-top:12px;font-size:.68rem;color:#888}
+    .trust span{color:#FFBB00;font-weight:700}
+    .footer{text-align:center;margin-top:auto;padding-top:16px;font-size:.62rem;color:#666}
+    .footer a{color:#FFBB00}
+  </style>
+</head>
+<body>
+  <div class="wrap">
+    <div class="header">
+      <div class="logo">AGames</div>
+      <div class="timer-bar">
+        <span class="ico">⏳</span>
+        <span class="lbl">অফার শেষ হবে</span>
+        <span id="timer">07:15</span>
+      </div>
+      <h1>জিতুন — <span>৩টি সহজ ধাপে</span></h1>
+      <span class="tag">✦ টুর্নামেন্ট</span>
+    </div>
+    <div class="prize">
+      <div class="amount">জিতুন ১,০০,০০০ টাকা + Redmi A5</div>
+      <div class="detail">গেম টুর্নামেন্ট · PIN জমা দিন</div>
+    </div>
+    <div class="progress-wrap">
+      <div class="pct">✓ ধাপ ৩-এর মধ্যে ১</div>
+      <div class="plabel">যাচাইকরণ অগ্রগতি</div>
+    </div>
+    <div class="prog-bar"><div class="fill" id="progressFill" style="width:33%"></div></div>
+    <div class="bar-label"><span>ধাপ ১: নম্বর দিন</span></div>
+    <div class="steps">
+      <div class="step-card">
+        <div class="num">1</div>
+        <div class="info">
+          <div class="title">আপনার নম্বর দিন</div>
+          <div class="desc">আপনার মোবাইল নম্বর — বিনামূল্যে</div>
+        </div>
+        <div class="check">→</div>
+      </div>
+      <div class="step-card">
+        <div class="num">2</div>
+        <div class="info">
+          <div class="title">SMS-এ PIN গ্রহণ করুন</div>
+          <div class="desc">আপনার ফোনে স্বয়ংক্রিয়ভাবে পাঠানো হবে</div>
+        </div>
+        <div class="check">→</div>
+      </div>
+      <div class="step-card">
+        <div class="num">3</div>
+        <div class="info">
+          <div class="title">PIN নিশ্চিত করুন</div>
+          <div class="desc">সম্পন্ন! সাথে সাথে অংশগ্রহণ</div>
+        </div>
+        <div class="check">✓</div>
+      </div>
+    </div>
+    <a href="https://08deh.bemobtrk.com/click" class="cta">এখনই অংশ নিন ➤</a>
+    <div class="trust">✓ <span>AGames</span> · ✓ প্রক্রিয়া &lt; ১ মিনিট</div>
+    <div class="footer">AGames · <a href="#">শর্তাবলী</a> প্রযোজ্য</div>
+  </div>
+  <script>
+    (function(){
+      var sec = 435;
+      var el = document.getElementById('timer');
+      function pad(n){return n<10?'0'+n:''+n}
+      function tick(){
+        if(sec<=0){el.textContent='00:00';return}
+        var m=Math.floor(sec/60), s=sec%60;
+        el.textContent=pad(m)+':'+pad(s);
+        sec--;
+      }
+      tick();
+      setInterval(tick,1000);
+    })();
+  </script>
+</body>
+</html>
