@@ -52,7 +52,18 @@ body{font-family:'Segoe UI',Tahoma,'Noto Naskh Arabic',system-ui,sans-serif;back
     <div class="feat"><span class="tick">✓</span><span>يعمل على أي هاتف، بدون تطبيق</span></div>
     <div class="feat"><span class="tick">✓</span><span>ألغِ اشتراكك في أي وقت برسالة واحدة</span></div>
 
-    <a class="cta" href="/lp/kw-salini/" data-pin-cta>افتح المكتبة الآن ←</a>
+    <!--
+      De CTA gaat naar de click-URL van Bemob, niet rechtstreeks naar de
+      PIN-pagina. Bemob registreert de klik en stuurt door naar de offer met
+      ?cid={clickId}&sc={trafficSourceId}. Zet in Bemob als Offer-URL:
+        https://play-center.org/lp/kw-salini/?cid={clickId}&sc={trafficSourceId}
+      Bij meerdere offers in één campagne: /click/1, /click/2, enzovoort.
+
+      Wil je die extra redirect-hop besparen, link dan rechtstreeks naar
+      /lp/kw-salini/ met data-pin-cta en laad /lp/_shared/passcid.js erbij. Je
+      levert dan wel Bemobs klikstatistiek op de pre-lander in.
+    -->
+    <a class="cta" href="https://08deh.bemobtrk.com/click">افتح المكتبة الآن ←</a>
     <div class="timer">ينتهي العرض خلال <b id="klok">10:00</b></div>
   </div>
 
@@ -77,6 +88,5 @@ body{font-family:'Segoe UI',Tahoma,'Noto Naskh Arabic',system-ui,sans-serif;back
   }, 1000);
 })();
 </script>
-<script src="/lp/_shared/passcid.js"></script>
 </body>
 </html>

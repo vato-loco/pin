@@ -138,13 +138,36 @@ is waar carriers offers om laten vallen.
 
 ### In Bemob
 
-- **Landing Page** = de pre-lander, **Offer** = de PIN-pagina. Zonder pre-lander
-  gebruik je direct linking met de PIN-pagina als Offer.
-- Link naar de URL **zonder** `.html` (`/lp/kw-salini/pre-urgency`). Met
-  extensie geeft Pages een 308 en betaal je een redirect-hop.
-- De `cid` wordt gelezen uit `cid`, `clickid`, `click_id`, `subid` of
-  `mc_click_id`, wat er als eerste is. `sc` en `s1`–`s5` gaan mee voor splitsen
-  per creative.
+**Landing Page** = de pre-lander, **Offer** = de PIN-pagina.
+
+Bij een gewone MOBPLUS-offer wijst de Offer-URL naar hun redirect:
+
+```
+https://m.bolo2vas91.click/c/n/312614/4647?cid={clickId}&sc={trafficSourceId}
+```
+
+Bij PIN API bestaat die redirect niet — de Offer-URL is **je eigen pagina**, met
+dezelfde macro's:
+
+```
+https://play-center.org/lp/kw-salini/?cid={clickId}&sc={trafficSourceId}
+```
+
+De CTA op de pre-lander gaat naar de click-URL van Bemob
+(`https://08deh.bemobtrk.com/click`, of `/click/1`, `/click/2` bij meerdere
+offers in één campagne). Bemob registreert de klik en zet de `cid` zelf op de
+Offer-URL; op de pre-lander hoeft dan niets extra's.
+
+Link naar de URL **zonder** `.html` (`/lp/kw-salini/pre-urgency`). Met extensie
+geeft Pages een 308 en betaal je een redirect-hop.
+
+De `cid` wordt gelezen uit `cid`, `clickid`, `click_id`, `subid` of
+`mc_click_id`, wat er als eerste is. `sc` en `s1`–`s5` gaan mee voor splitsen
+per creative.
+
+Wil je de hop via Bemob besparen, dan kan de CTA rechtstreeks naar
+`/lp/kw-salini/` met `data-pin-cta` plus `passcid.js`. Je levert dan wel Bemobs
+klikstatistiek op de pre-lander in.
 
 ### Conversies
 

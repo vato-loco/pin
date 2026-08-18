@@ -107,16 +107,29 @@ for (const { naam, pad } of paginas) {
 
 // --- 2b. pre-landers: gaat de cid mee? -------------------------------------
 
-// Een pre-lander die naar de PIN-pagina linkt zonder de cid door te geven is de
-// stilste fout in deze opzet: de flow werkt, de conversie wordt geactiveerd,
-// maar Bemob kan de postback nergens aan koppelen.
+// Een pre-lander kan op twee manieren doorsturen:
+//
+//  1. via de click-URL van Bemob — dan regelt Bemob de cid zelf en hoeft hier
+//     niets bijzonders te gebeuren;
+//  2. rechtstreeks naar de PIN-pagina — dan moet de cid mee via data-pin-cta en
+//     passcid.js, anders valt hij weg.
+//
+// Die tweede is de stilste fout in deze opzet: de flow werkt, de conversie
+// wordt geactiveerd, maar de postback komt bij Bemob aan zonder click-id en kan
+// nergens aan gekoppeld worden.
 for (const { naam } of paginas) {
   const map = join(lpWortel, naam);
   for (const bestand of readdirSync(map)) {
     if (!bestand.endsWith('.html') || bestand === 'index.html') continue;
     const html = readFileSync(join(map, bestand), 'utf8');
     const linktNaarPin = new RegExp(`href=["']/lp/${naam}/["']`).test(html);
-    if (!linktNaarPin) continue;
+    const linktNaarTracker = /href=["']https?:\/\/[^"']*bemobtrk\.com\/click/.test(html);
+
+    if (!linktNaarPin && !linktNaarTracker) {
+      blokkerend.push(`lp/${naam}/${bestand}: geen werkende CTA — hij linkt niet naar de click-URL van Bemob en ook niet naar de PIN-pagina.`);
+      continue;
+    }
+    if (!linktNaarPin) continue;   // gaat via Bemob, dat regelt de cid zelf
 
     if (!/data-pin-cta/.test(html)) {
       blokkerend.push(`lp/${naam}/${bestand}: linkt naar de PIN-pagina zonder data-pin-cta — de cid gaat verloren en de postback kan niet gekoppeld worden.`);
