@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+<title>Qu HOT - 3 Langkah Mudah</title>
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif;background:#fff;color:#1a1a1a;line-height:1.6;max-width:480px;margin:0 auto;min-height:100vh}
+.wrap{padding:16px 20px 30px}
+.header{text-align:center;padding:16px 0 12px;border-bottom:3px solid #e60012}
+.header .logo{font-size:1.7rem;font-weight:900;color:#e60012}
+.header h1{font-size:1.3rem;color:#1a1a1a;font-weight:800;margin-top:6px}
+.card{margin-top:16px}
+.bignum{text-align:center;margin-bottom:14px}
+.bignum .num{font-size:3.4rem;font-weight:900;color:#e60012;line-height:1}
+.bignum .label{font-size:.82rem;color:#666;margin-top:2px}
+.bar{background:#f0f0f0;border-radius:10px;height:14px;overflow:hidden;margin:14px 0 6px}
+.bar .fill{background:linear-gradient(90deg,#e60012,#ff4d4d);height:100%;width:67%;border-radius:10px}
+.bar-label{display:flex;justify-content:space-between;font-size:.68rem;color:#999;margin-bottom:18px}
+.steps{background:#fff5f5;border:1px solid #ffd6d6;border-radius:12px;padding:16px;margin-bottom:16px}
+.steps .step{display:flex;align-items:flex-start;gap:12px;margin-bottom:14px}
+.steps .step:last-child{margin-bottom:0}
+.steps .step .num{flex-shrink:0;width:28px;height:28px;background:#e60012;color:#fff;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:.8rem;font-weight:800}
+.steps .step .t{font-size:.88rem;color:#333}
+.steps .step .t strong{color:#1a1a1a;display:block}
+.steps .step .t span{font-size:.76rem;color:#888}
+.benefits{margin-bottom:16px}
+.benefits .b{display:flex;align-items:center;gap:10px;font-size:.86rem;color:#333;margin-bottom:8px}
+.benefits .b .ic{flex-shrink:0;font-size:1.05rem}
+.timer{text-align:center;font-size:.8rem;color:#e60012;font-weight:800;margin-bottom:14px}
+.timer #cd{background:#e60012;color:#fff;padding:3px 10px;border-radius:6px;display:inline-block;font-variant-numeric:tabular-nums;letter-spacing:1px}
+.cta{display:block;width:100%;background:linear-gradient(135deg,#e60012,#b3000e);color:#fff;font-family:inherit;font-size:1.15rem;font-weight:900;text-align:center;padding:16px;border:none;border-radius:14px;text-decoration:none;box-shadow:0 4px 14px rgba(230,0,18,.4);cursor:pointer}
+.cta:active{transform:scale(.97)}
+.trust{text-align:center;margin-top:12px;font-size:.7rem;color:#999}
+.trust span{color:#e60012;font-weight:700}
+.footer{text-align:center;margin-top:20px;font-size:.65rem;color:#aaa}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <div class="header">
+    <div class="logo">Qu HOT</div>
+    <h1>3 Langkah Mudah, Langsung Main!</h1>
+  </div>
+  <div class="card">
+    <div class="bignum">
+      <div class="num">07</div>
+      <div class="label">Hadiah menunggu Anda</div>
+    </div>
+    <div class="bar"><div class="fill"></div></div>
+    <div class="bar-label"><span>Langkah 2 dari 3</span><span>Hampir selesai!</span></div>
+
+    <div class="steps">
+      <div class="step"><div class="num">1</div><div class="t"><strong>Masukkan nomor Telkomsel Anda</strong><span>Nomor Anda dibutuhkan untuk verifikasi</span></div></div>
+      <div class="step"><div class="num">2</div><div class="t"><strong>Terima kode PIN via SMS</strong><span>PIN dikirim otomatis ke HP Anda</span></div></div>
+      <div class="step"><div class="num">3</div><div class="t"><strong>Masukkan PIN & konfirmasi</strong><span>Mulai main dan menangkan hadiah</span></div></div>
+    </div>
+
+    <div class="benefits">
+      <div class="b"><span class="ic">💰</span> Hadiah uang tunai harian</div>
+      <div class="b"><span class="ic">🏆</span> Pertanyaan seru & sederhana</div>
+      <div class="b"><span class="ic">⚡</span> Langsung main setelah konfirmasi</div>
+    </div>
+
+    <div class="timer">⏰ Waktu tersisa: <span id="cd">05:00</span></div>
+
+    <a href="https://08deh.bemobtrk.com/click" class="cta">Mulai Sekarang ➤</a>
+
+    <div class="trust">✓ <span>Khusus pelanggan Telkomsel</span> · ✓ Aman & terpercaya</div>
+  </div>
+  <div class="footer">Qu HOT · Berhenti kapan saja</div>
+</div>
+<script>
+(function(){
+  var end = Date.now() + 5*60*1000;
+  function pad(n){return n<10?'0'+n:''+n}
+  function tick(){
+    var d = Math.max(0, end - Date.now());
+    var m = Math.floor(d/60000), s = Math.floor(d%60000/1000);
+    var el = document.getElementById('cd');
+    if(el) el.textContent = pad(m)+':'+pad(s);
+    if(d>0) setTimeout(tick, 1000);
+  }
+  tick();
+})();
+</script>
+</body>
+</html>

@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+<title>Hari Ini Saja! - Tempat Terbatas</title>
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif;background:#fff;color:#1a1a1a;line-height:1.6;max-width:480px;margin:0 auto;min-height:100vh}
+.wrap{padding:16px 20px 30px}
+.header{text-align:center;padding:16px 0 10px;border-bottom:3px solid #e60012}
+.header .pulse{display:inline-block;width:12px;height:12px;background:#e60012;border-radius:50%;animation:pulse 1.5s infinite;vertical-align:middle;margin-right:6px}
+@keyframes pulse{0%,100%{opacity:1;transform:scale(1)}50%{opacity:.4;transform:scale(1.35)}}
+.header h1{font-size:1.35rem;color:#e60012;font-weight:900}
+.header h1 span{color:#1a1a1a}
+.card{margin-top:14px}
+.spots{text-align:center;margin-bottom:16px}
+.spots .num{font-size:3rem;font-weight:900;color:#e60012;line-height:1}
+.spots .label{font-size:.85rem;color:#666;margin-top:4px}
+.bar{background:#f0f0f0;border-radius:10px;height:14px;overflow:hidden;margin:14px 0 4px}
+.bar .fill{background:linear-gradient(90deg,#e60012,#ff4d4d);height:100%;width:93%;border-radius:10px;animation:fill 3s ease}
+@keyframes fill{from{width:0}to{width:93%}}
+.bar-label{display:flex;justify-content:space-between;font-size:.68rem;color:#999}
+.benefits{margin:16px 0}
+.benefits .b{display:flex;align-items:center;gap:10px;font-size:.88rem;color:#333;margin-bottom:10px}
+.benefits .b .ic{flex-shrink:0;font-size:1.1rem}
+.steps{background:#fff5f5;border:1px solid #ffd6d6;border-radius:12px;padding:14px;margin-bottom:18px}
+.steps .stitle{font-size:.82rem;font-weight:800;color:#e60012;margin-bottom:10px}
+.steps .step{display:flex;align-items:flex-start;gap:10px;margin-bottom:10px;font-size:.82rem;color:#444}
+.steps .step:last-child{margin-bottom:0}
+.steps .step .num{flex-shrink:0;width:22px;height:22px;background:#e60012;color:#fff;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:.7rem;font-weight:700}
+.steps .step strong{color:#1a1a1a}
+.timer{text-align:center;font-size:.8rem;color:#e60012;font-weight:800;margin-bottom:14px}
+.timer #cd{background:#e60012;color:#fff;padding:3px 10px;border-radius:6px;display:inline-block;font-variant-numeric:tabular-nums;letter-spacing:1px}
+.cta{display:block;width:100%;background:linear-gradient(135deg,#e60012,#b3000e);color:#fff;font-family:inherit;font-size:1.15rem;font-weight:900;text-align:center;padding:16px;border:none;border-radius:14px;text-decoration:none;box-shadow:0 4px 14px rgba(230,0,18,.4);cursor:pointer;animation:glow 2s infinite}
+@keyframes glow{0%,100%{box-shadow:0 4px 14px rgba(230,0,18,.4)}50%{box-shadow:0 4px 24px rgba(230,0,18,.6)}}
+.cta:active{transform:scale(.97)}
+.trust{text-align:center;margin-top:12px;font-size:.7rem;color:#999}
+.trust span{color:#e60012;font-weight:700}
+.footer{text-align:center;margin-top:20px;font-size:.65rem;color:#aaa}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <div class="header">
+    <h1><span class="pulse"></span> HARI INI SAJA! <span>KUOTA TERBATAS</span></h1>
+  </div>
+  <div class="card">
+    <div class="spots">
+      <div class="num">07</div>
+      <div class="label">Tempat tersisa hari ini</div>
+    </div>
+    <div class="bar"><div class="fill"></div></div>
+    <div class="bar-label"><span>Sudah bergabung: 93%</span><span>Tersisa: 7%</span></div>
+
+    <div class="timer">⏰ Waktu tersisa: <span id="cd">05:00</span></div>
+
+    <div class="benefits">
+      <div class="b"><span class="ic">💰</span> Hadiah uang tunai harian</div>
+      <div class="b"><span class="ic">⚡</span> Bergabung dalam hitungan menit</div>
+      <div class="b"><span class="ic">🏆</span> Pertanyaan sederhana · Tanpa keahlian khusus</div>
+    </div>
+
+    <div class="steps">
+      <div class="stitle">Cara mengikuti:</div>
+      <div class="step"><div class="num">1</div><div><strong>Masukkan nomor Telkomsel Anda</strong></div></div>
+      <div class="step"><div class="num">2</div><div><strong>Terima kode PIN via SMS</strong></div></div>
+      <div class="step"><div class="num">3</div><div><strong>Masukkan PIN & konfirmasi</strong></div></div>
+    </div>
+
+    <a href="https://08deh.bemobtrk.com/click" class="cta">Amankan Tempat Anda! ➤</a>
+
+    <div class="trust">✓ <span>Khusus pelanggan Telkomsel</span> · ✓ Aman & terpercaya</div>
+  </div>
+  <div class="footer">Qu HOT · Berhenti kapan saja</div>
+</div>
+<script>
+(function(){
+  var end = Date.now() + 5*60*1000;
+  function pad(n){return n<10?'0'+n:''+n}
+  function tick(){
+    var d = Math.max(0, end - Date.now());
+    var m = Math.floor(d/60000), s = Math.floor(d%60000/1000);
+    var el = document.getElementById('cd');
+    if(el) el.textContent = pad(m)+':'+pad(s);
+    if(d>0) setTimeout(tick, 1000);
+  }
+  tick();
+})();
+</script>
+</body>
+</html>
