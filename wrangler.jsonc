@@ -1,0 +1,62 @@
+{
+  // ---------------------------------------------------------------------------
+  // Worker "pin" — statische landingspagina's plus de PIN API-proxy.
+  //
+  // Dit bestand moet bestaan. Zonder wrangler.jsonc verzint Cloudflare bij elke
+  // build zelf een configuratie zonder "main": dan worden alleen de bestanden
+  // geserveerd en bestaat /api/pin/* niet. Dat is precies de reden dat de PIN
+  // API-opzet nu niet werkt.
+  //
+  // "name" moet exact "pin" blijven. Een andere naam maakt een tweede Worker aan
+  // en play-center.org blijft dan naar de oude wijzen.
+  // ---------------------------------------------------------------------------
+  "$schema": "node_modules/wrangler/config-schema.json",
+  "name": "pin",
+  "main": "src/worker.js",
+  "compatibility_date": "2026-08-16",
+
+  // Gewone variabelen horen hier, niet in het dashboard: elke deploy overschrijft
+  // wat daar staat. Het token is een secret en staat daarom juist wel alleen in
+  // het dashboard, want secrets worden niet overschreven.
+  //
+  //   npx wrangler secret put MOBPLUS_TOKEN
+  //
+  "vars": {
+    // Je publisher-ID bij Mobplus. Verandert nooit, is niet geheim.
+    "AFF_ID": "VUL_JE_AFF_ID_IN",
+
+    // Alleen nodig als een landingspagina op een ander domein staat. LP's in
+    // deze repo draaien op hetzelfde domein als de Worker, dus die hebben geen
+    // CORS nodig en hoeven hier niet in.
+    "ALLOWED_ORIGINS": "https://play-center.org",
+
+    // "1" = nummer moet beginnen met een mobiel prefix uit GEOS in offers.js.
+    // Zet op "0" zodra blijkt dat een carrier prefixen gebruikt die daar niet in
+    // staan; dan weiger je echte bezoekers.
+    "STRICT_PREFIX": "1"
+  },
+
+  // Logs aanzetten, anders is een storing in de carrier-koppeling niet te vinden.
+  "observability": {
+    "enabled": true
+  },
+
+  // De hele repo is de site. Wat niet geserveerd mag worden staat in
+  // .assetsignore — zonder dat bestand is src/worker.js publiek op te vragen.
+  "assets": {
+    "directory": ".",
+    "binding": "ASSETS"
+  }
+
+  // Snelheidslimiet: koppel een KV-namespace en de Worker gaat limiteren.
+  // Zonder deze binding draait alles, maar ongelimiteerd — dan kan iedereen die
+  // het domein kent sms'jes laten versturen op jouw account.
+  //
+  //   npx wrangler kv namespace create PIN_KV
+  //
+  // en plak de id hieronder, met dit blok uitgecommentarieerd:
+  //
+  // ,"kv_namespaces": [
+  //   { "binding": "PIN_KV", "id": "VUL_DE_KV_ID_IN" }
+  // ]
+}

@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+<title>سالِني — ألعاب ومحتوى حصري</title>
+<!--
+  LP voor offer 301490 (Salini-KW-Zain-PIN API) — hoogste EPC (0.4704) uit de
+  Mobplus-mail van 18-08-2026. Kuwait, Zain, payout USD 3,50.
+
+  LET OP: drie waarden zijn nog niet bekend en staan als AAN_TE_VULLEN in de
+  pagina. Vraag ze bij Cheney op vóór je verkeer stuurt:
+    - Pin Length  (staat nu op 4 in PIN_CONFIG — kan 6 zijn)
+    - Price       (prijs per dag/week en valuta, KWD)
+    - Unsubscribe (afmeldwoord en shortcode)
+  Zonder de prijs en de afmeldinstructie op de pagina keurt de carrier de LP af.
+  `node tools/doctor.mjs` laat zien wat er nog open staat.
+-->
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+body{font-family:'Segoe UI',Tahoma,'Noto Naskh Arabic',system-ui,sans-serif;background:#0a1628;color:#fff;line-height:1.7;max-width:480px;margin:0 auto;min-height:100vh}
+.wrap{padding:20px 20px 40px}
+.hero{text-align:center;padding:26px 0 18px}
+.hero .icon{font-size:3.2rem;line-height:1}
+.hero h1{font-size:1.75rem;font-weight:800;margin-top:8px;background:linear-gradient(135deg,#00c9a7,#4facfe);-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent}
+.hero p{color:#8fa3bf;font-size:.92rem;margin-top:6px}
+.card{background:#132741;border:1px solid #1e3a5f;border-radius:16px;padding:24px 20px;box-shadow:0 8px 30px rgba(0,0,0,.4)}
+.card h2{font-size:1.15rem;font-weight:700;margin-bottom:6px}
+.card .sub{font-size:.86rem;color:#8fa3bf;margin-bottom:18px}
+input[type=tel]{width:100%;background:#0a1628;border:2px solid #1e3a5f;border-radius:12px;color:#fff;font-size:1.25rem;text-align:center;padding:14px;letter-spacing:1px;direction:ltr}
+input[type=tel]:focus{outline:none;border-color:#00c9a7}
+.btn{display:block;width:100%;margin-top:14px;background:linear-gradient(135deg,#00c9a7,#4facfe);color:#04202b;font-family:inherit;font-size:1.1rem;font-weight:800;padding:15px;border:none;border-radius:12px;cursor:pointer}
+.btn:disabled{opacity:.6;cursor:default}
+.btn:active{transform:scale(.98)}
+/* De pincode blijft van links naar rechts, ook op een RTL-pagina: cijfers
+   worden nu eenmaal in die volgorde ingetypt en voorgelezen. */
+#pin-boxes{display:flex;justify-content:center;gap:10px;margin:22px 0 4px;direction:ltr}
+.pin-box{width:58px;height:68px;font-size:2rem;text-align:center;background:#0a1628;border:2px solid #1e3a5f;border-radius:12px;color:#fff}
+.pin-box:focus{outline:none;border-color:#00c9a7}
+#pin-error{display:none;margin-top:12px;color:#ff7a7a;font-size:.9rem;text-align:center}
+.linkbtn{background:none;border:none;color:#8fa3bf;font-family:inherit;font-size:.84rem;text-decoration:underline;cursor:pointer;margin-top:14px;display:none}
+.linkbtn:disabled{opacity:.5;text-decoration:none;cursor:default}
+.terms{margin-top:18px;padding-top:16px;border-top:1px solid #1e3a5f;font-size:.78rem;color:#8fa3bf;text-align:center}
+.terms strong{color:#c9d8ee}
+.todo{color:#ffb020;font-weight:700}
+.tnc-toggle{color:#8fa3bf;text-decoration:underline;cursor:pointer;display:inline-block;margin-top:10px;font-size:.78rem}
+.tnc-box{display:none;margin-top:10px;background:#0a1628;border:1px solid #1e3a5f;border-radius:10px;padding:12px;text-align:right;font-size:.75rem;color:#8fa3bf}
+.tnc-box.open{display:block}
+.done h2{color:#4caf50}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <div class="hero">
+    <div class="icon">🎮</div>
+    <h1>سالِني</h1>
+    <p>ألعاب ومحتوى حصري بلا حدود</p>
+  </div>
+
+  <!-- الخطوة ١: رقم الهاتف -->
+  <div class="card" id="pin-phone">
+    <h2>أدخل رقم هاتفك</h2>
+    <p class="sub">سنرسل لك رمزًا عبر رسالة نصية لتفعيل اشتراكك.</p>
+    <input type="tel" id="pin-msisdn" inputmode="numeric" placeholder="965 XXXX XXXX" autocomplete="tel">
+    <button class="btn" id="pin-send">أرسل الرمز</button>
+  </div>
+
+  <!-- الخطوة ٢: الرمز -->
+  <div class="card" id="pin-code">
+    <h2>أدخل الرمز</h2>
+    <p class="sub">تحقق من رسائلك النصية.</p>
+    <div id="pin-boxes"></div>
+    <button class="btn" id="pin-verify">تحقق وافتح</button>
+    <button class="linkbtn" id="pin-resend">إعادة إرسال الرمز</button>
+  </div>
+
+  <!-- الخطوة ٣: تم -->
+  <div class="card done" id="pin-done">
+    <h2>تم تفعيل اشتراكك!</h2>
+    <p class="sub">استمتع بالمحتوى الحصري الآن.</p>
+  </div>
+
+  <div id="pin-error"></div>
+
+  <div class="terms">
+    خدمة اشتراك من <strong>زين</strong> — الكويت.
+    السعر: <strong class="todo">AAN_TE_VULLEN</strong>.<br>
+    لإلغاء الاشتراك أرسل <strong class="todo">AAN_TE_VULLEN</strong>. للعمر ١٨+ فقط.
+    <span class="tnc-toggle" onclick="document.getElementById('tnc').classList.toggle('open')">الشروط والأحكام ▾</span>
+    <div class="tnc-box" id="tnc">
+      الخدمة: سالِني &middot; المشغّل: زين (الكويت) &middot;
+      السعر: <span class="todo">AAN_TE_VULLEN</span>، يُخصم من رصيدك حتى إلغاء الاشتراك &middot;
+      لإلغاء الاشتراك: <span class="todo">AAN_TE_VULLEN</span> &middot;
+      بإدخالك الرمز فإنك تؤكد أن عمرك ١٨ عامًا أو أكثر وتوافق على هذه الشروط.
+    </div>
+  </div>
+
+</div>
+
+<script>
+window.PIN_CONFIG = {
+  offerId:   '301490',
+  geo:       'KW',
+  pinLength: 4,          // AAN_TE_VULLEN: bevestigen bij de AM, kan 6 zijn
+  texts: {
+    sending:    'جارٍ الإرسال...',
+    verifying:  'جارٍ التحقق...',
+    badNumber:  'الرجاء إدخال رقم هاتف صحيح.',
+    shortPin:   'الرجاء إدخال الرمز كاملًا.',
+    netwerk:    'تعذّر الاتصال. تحقق من الإنترنت وحاول مرة أخرى.',
+    processing: 'جارٍ تأكيد اشتراكك، لحظة من فضلك...',
+    traag:      'يستغرق الأمر وقتًا أطول من المتوقع. حاول مرة أخرى.',
+    resend:     'إعادة إرسال الرمز',
+    resendIn:   'إعادة الإرسال خلال {s} ثانية'
+  }
+};
+</script>
+<script src="/lp/_shared/pinflow.js"></script>
+</body>
+</html>

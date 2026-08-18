@@ -1,0 +1,24 @@
+# Wat hier in staat wordt niet als statisch bestand geserveerd.
+#
+# Let op: wrangler pakt assets van je schijf, niet uit git. Een bestand dat
+# gitignored is maar wel lokaal bestaat, gaat bij `wrangler deploy` dus gewoon
+# mee de wereld in. Daarom staan .dev.vars en consorten hier ook expliciet in,
+# en niet alleen in .gitignore.
+.git
+.github
+.gitignore
+.assetsignore
+.wrangler
+.dev.vars
+.dev.vars.*
+.env
+.env.*
+node_modules
+src
+test
+tools
+wrangler.jsonc
+package.json
+package-lock.json
+PINAPI.md
+lprip.sh
