@@ -100,9 +100,16 @@ pagina is daarom een blokkerende fout in `doctor`.
 `_offers.js` heeft van bijna alle offers alleen naam, geo, carrier en payout.
 Voor een LP zijn ook nodig:
 
-- **Pin Length** — 4 of 6. Verkeerd = niemand kan de code afmaken.
+- **Pin Length** — verschilt echt per offer: Salini heeft er 5, Funny Games 6.
+  Verkeerd ingesteld en niemand kan de code afmaken.
 - **Price** — bedrag en valuta, per dag of per week.
 - **Unsubscribe** — afmeldwoord en shortcode.
+- **De PIN Request en PIN Verify URL.** Kijk naar de host. De handleiding noemt
+  `m.vasvas.click`, maar wat de AM aanlevert staat op `m.bolo2vas91.click`.
+  Wijkt een offer af van `PIN_BASE_URL` in `wrangler.jsonc`, zet dan een eigen
+  `baseUrl` op die offer in `_offers.js`. Alleen bekende hosts worden
+  geaccepteerd; een onbekende host wordt geweigerd in plaats van dat het token
+  ernaartoe gaat.
 - **Een testnummer** van de carrier, om de flow één keer helemaal te lopen.
 
 ## Pre-landers en tracking
