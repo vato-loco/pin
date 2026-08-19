@@ -1,0 +1,13 @@
+{
+  "version": 1,
+  "include": [
+    "/api/*",
+    "/wrangler.jsonc",
+    "/package.json",
+    "/package-lock.json",
+    "/PINAPI.md",
+    "/tools/*",
+    "/test/*"
+  ],
+  "exclude": []
+}

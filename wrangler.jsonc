@@ -1,0 +1,50 @@
+{
+  // ---------------------------------------------------------------------------
+  // Pages-project "pin" — de landingspagina's plus de PIN API-proxy.
+  //
+  // LET OP: dit is een Pages-project, geen Worker. Het draait op
+  // pin-e5x.pages.dev en play-center.org en bouwt automatisch bij een push naar
+  // GitHub. De API zit daarom in functions/, niet in een los Worker-bestand.
+  //
+  // Controleer in het dashboard dat de build output directory op "/" staat
+  // voordat je dit samenvoegt; die moet overeenkomen met
+  // pages_build_output_dir hieronder.
+  // ---------------------------------------------------------------------------
+  "$schema": "node_modules/wrangler/config-schema.json",
+  "name": "pin",
+  "pages_build_output_dir": ".",
+  "compatibility_date": "2026-08-16",
+
+  // Gewone variabelen. Het API Key hoort hier NIET: dat is een secret en gaat
+  // met een apart commando naar het Pages-project:
+  //
+  //   npx wrangler pages secret put MOBPLUS_TOKEN --project-name pin
+  //
+  "vars": {
+    // Publisher-ID bij Mobplus. Niet geheim.
+    "AFF_ID": "4647",
+
+    // Adres van de carrier-API. De handleiding noemt m.vasvas.click, maar de
+    // URL's die de AM per offer aanlevert staan op m.bolo2vas91.click. Een
+    // enkele offer kan hiervan afwijken met een eigen baseUrl in _offers.js.
+    "PIN_BASE_URL": "https://m.bolo2vas91.click/c/pin",
+
+    // Alleen nodig voor landingspagina's op een ander domein. Pagina's in deze
+    // repo staan op hetzelfde domein en hebben geen CORS nodig.
+    "ALLOWED_ORIGINS": "https://play-center.org",
+
+    // "1" = nummer moet met een mobiel prefix uit GEOS beginnen. Zet op "0"
+    // zodra een carrier prefixen blijkt te gebruiken die daar niet in staan.
+    "STRICT_PREFIX": "1"
+  },
+
+  // Snelheidslimiet. Zonder deze binding draait alles, maar ongelimiteerd: dan
+  // is /api/pin/request een knop waarmee iedereen sms'jes naar willekeurige
+  // nummers laat sturen, op onze rekening.
+  //
+  // Grenzen staan in _pinapi.js: 3 codeaanvragen per nummer per 10 minuten,
+  // 10 per IP per 10 minuten, en 5 pincodepogingen per transactie.
+  "kv_namespaces": [
+    { "binding": "PIN_KV", "id": "5924fc6a2b50499295d7faaabc11398c" }
+  ]
+}

@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+<title>سالني — افتح مكتبة الألعاب</title>
+<!--
+  Pre-lander voor offer 301490 (Salni, KW/Zain). Warmt pop-verkeer op voordat
+  het op de PIN-pagina komt; koud verkeer direct op een nummerveld converteert
+  slecht.
+  De CTA heeft data-pin-cta en de pagina laadt passcid.js: daarmee gaat de cid
+  mee naar index.html. Zonder dat kan Bemob de postback nergens aan koppelen.
+  De prijs staat ook hier al, niet pas op de PIN-pagina. Een funnel die de
+  abonnementsvorm verzwijgt tot het laatste scherm is precies wat carriers
+  offers om laat vallen.
+-->
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+body{font-family:'Segoe UI',Tahoma,'Noto Naskh Arabic',system-ui,sans-serif;background:#0a1628;color:#fff;line-height:1.7;max-width:480px;margin:0 auto;min-height:100vh}
+.wrap{padding:18px 20px 36px}
+.bar{background:linear-gradient(90deg,#ff6b6b,#ee5a24);text-align:center;padding:9px;font-size:.82rem;font-weight:700;border-radius:10px}
+.hero{text-align:center;padding:22px 0 14px}
+.hero .icon{font-size:3.4rem;line-height:1}
+.hero h1{font-size:1.65rem;font-weight:800;margin-top:8px;background:linear-gradient(135deg,#00c9a7,#4facfe);-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent}
+.hero p{color:#8fa3bf;font-size:.94rem;margin-top:6px}
+.card{background:#132741;border:1px solid #1e3a5f;border-radius:16px;padding:20px;box-shadow:0 8px 30px rgba(0,0,0,.4)}
+.feat{display:flex;align-items:flex-start;gap:11px;margin-bottom:13px;font-size:.9rem;color:#c9d8ee}
+.feat:last-child{margin-bottom:0}
+.feat .tick{flex-shrink:0;width:24px;height:24px;background:#00c9a7;color:#04202b;border-radius:50%;display:flex;align-items:center;justify-content:center;font-weight:800;font-size:.8rem}
+.cta{display:block;width:100%;margin-top:20px;background:linear-gradient(135deg,#00c9a7,#4facfe);color:#04202b;font-size:1.15rem;font-weight:800;text-align:center;padding:16px;border-radius:12px;text-decoration:none;box-shadow:0 6px 20px rgba(0,201,167,.3)}
+.cta:active{transform:scale(.98)}
+.timer{text-align:center;margin-top:12px;font-size:.85rem;color:#8fa3bf}
+.timer b{color:#ff8a5b;font-variant-numeric:tabular-nums}
+.terms{margin-top:18px;font-size:.74rem;color:#7d90ab;text-align:center;line-height:1.6}
+.terms strong{color:#a8bcd6}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <div class="bar">🔥 عرض محدود لمشتركي زين</div>
+
+  <div class="hero">
+    <div class="icon">🎮</div>
+    <h1>سالني</h1>
+    <p>مكتبة ألعاب ومحتوى حصري على هاتفك</p>
+  </div>
+
+  <div class="card">
+    <div class="feat"><span class="tick">✓</span><span>ألعاب جديدة تُضاف كل أسبوع</span></div>
+    <div class="feat"><span class="tick">✓</span><span>العب مباشرة من المتصفح، بدون تحميل</span></div>
+    <div class="feat"><span class="tick">✓</span><span>يعمل على أي هاتف، بدون تطبيق</span></div>
+    <div class="feat"><span class="tick">✓</span><span>ألغِ اشتراكك في أي وقت برسالة واحدة</span></div>
+
+    <!--
+      De CTA gaat naar de click-URL van Bemob, niet rechtstreeks naar de
+      PIN-pagina. Bemob registreert de klik en stuurt door naar de offer met
+      ?cid={clickId}&sc={trafficSourceId}. Zet in Bemob als Offer-URL:
+        https://play-center.org/lp/kw-salini/?cid={clickId}&sc={trafficSourceId}
+      Bij meerdere offers in één campagne: /click/1, /click/2, enzovoort.
+
+      Wil je die extra redirect-hop besparen, link dan rechtstreeks naar
+      /lp/kw-salini/ met data-pin-cta en laad /lp/_shared/passcid.js erbij. Je
+      levert dan wel Bemobs klikstatistiek op de pre-lander in.
+    -->
+    <a class="cta" href="https://08deh.bemobtrk.com/click">افتح المكتبة الآن ←</a>
+    <div class="timer">ينتهي العرض خلال <b id="klok">10:00</b></div>
+  </div>
+
+  <div class="terms">
+    سالني خدمة اشتراك تتجدد تلقائيًا مقابل <strong>٣ دنانير كويتية يوميًا</strong>
+    لمشتركي زين حتى تقوم بإلغاء الاشتراك.
+    لإلغاء الاشتراك أرسل <strong>Unsub M1</strong> إلى <strong>95437</strong>.
+    للعمر ١٨+ فقط.
+  </div>
+
+</div>
+
+<script>
+// Aftelklok. Puur visueel: er wordt niets geblokkeerd als hij op nul staat,
+// dus de bezoeker wordt niets voorgespiegeld dat daarna niet klopt.
+(function () {
+  var over = 600, el = document.getElementById('klok');
+  setInterval(function () {
+    if (over > 0) over--;
+    var m = Math.floor(over / 60), s = over % 60;
+    el.textContent = m + ':' + (s < 10 ? '0' : '') + s;
+  }, 1000);
+})();
+</script>
+</body>
+</html>
