@@ -243,9 +243,21 @@
     verberg(elPhone);
     verberg(elCode);
     toon(elDone);
-    // Haakje voor de tracker of een pixel op de bedanksectie.
+
+    // Haakje voor een pixel van Meta of Google. De postback naar de tracker
+    // loopt serverkant en staat hier los van.
     if (typeof window.onPinSuccess === 'function') {
       try { window.onPinSuccess({ cid: cid, offerId: C.offerId }); } catch (e) {}
+    }
+
+    // De bezoeker heeft zojuist een abonnement genomen en hoort de dienst te
+    // zien te krijgen. Blijft hij op een leeg bedanktscherm hangen, dan meldt
+    // hij zich meteen weer af of dient een klacht in, en daar gaat de offer aan
+    // onderuit. successUrl is de portal-URL van de adverteerder; vraag die op
+    // bij de AM als hij niet op de offerpagina staat.
+    if (C.successUrl) {
+      var wacht = typeof C.successDelay === 'number' ? C.successDelay : 2500;
+      setTimeout(function () { location.href = C.successUrl; }, wacht);
     }
   }
 
