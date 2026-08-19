@@ -36,14 +36,15 @@
     // "1" = nummer moet met een mobiel prefix uit GEOS beginnen. Zet op "0"
     // zodra een carrier prefixen blijkt te gebruiken die daar niet in staan.
     "STRICT_PREFIX": "1"
-  }
+  },
 
-  // Snelheidslimiet: koppel een KV-namespace en de limiet gaat aan. Zonder deze
-  // binding draait alles, maar ongelimiteerd.
+  // Snelheidslimiet. Zonder deze binding draait alles, maar ongelimiteerd: dan
+  // is /api/pin/request een knop waarmee iedereen sms'jes naar willekeurige
+  // nummers laat sturen, op onze rekening.
   //
-  //   npx wrangler kv namespace create PIN_KV
-  //
-  // ,"kv_namespaces": [
-  //   { "binding": "PIN_KV", "id": "VUL_DE_KV_ID_IN" }
-  // ]
+  // Grenzen staan in _pinapi.js: 3 codeaanvragen per nummer per 10 minuten,
+  // 10 per IP per 10 minuten, en 5 pincodepogingen per transactie.
+  "kv_namespaces": [
+    { "binding": "PIN_KV", "id": "5924fc6a2b50499295d7faaabc11398c" }
+  ]
 }
