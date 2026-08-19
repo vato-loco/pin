@@ -302,3 +302,28 @@ test('gezondheidscheck laat zien met welke host gepraat wordt', async () => {
   const d = await (await roep('/api/health')).json();
   assert.equal(d.basisUrl, 'https://m.bolo2vas91.click/c/pin');
 });
+
+// --- KV die onderuit gaat mag de flow niet platleggen ----------------------
+
+test('een KV-storing blokkeert de bezoeker niet', async () => {
+  const stukkeKV = {
+    get: async () => { throw new Error('KV put() quota exceeded'); },
+    put: async () => { throw new Error('KV put() quota exceeded'); },
+  };
+  stubFetch({ stateCode: 0, txid: 'tx1' });
+  const r = await roep('/api/pin/request?offer_id=305187&msisdn=94771234567', { ...ENV, PIN_KV: stukkeKV });
+  assert.equal(r.status, 200, 'de aanvraag hoort door te gaan');
+  assert.equal((await r.json()).success, true);
+  assert.equal(gezien.length, 1, 'en de carrier hoort gewoon gebeld te worden');
+});
+
+test('een KV die alleen bij schrijven faalt legt de flow ook niet plat', async () => {
+  const halfKapotteKV = {
+    get: async () => '0',
+    put: async () => { throw new Error('quota exceeded'); },
+  };
+  stubFetch({ stateCode: 0 });
+  const r = await roep('/api/pin/verify?txid=tx1&pin=123456&offer_id=305187', { ...ENV, PIN_KV: halfKapotteKV });
+  assert.equal(r.status, 200);
+  assert.equal((await r.json()).success, true);
+});
