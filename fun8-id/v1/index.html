@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>🎉 Selamat! Anda Beruntung Hari Ini!</title>
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif;background:#0a0a1a;color:#e0e0e0;min-height:100vh;display:flex;align-items:flex-start;justify-content:center;padding:16px}
+.container{max-width:420px;width:100%}
+.timer-bar{background:linear-gradient(90deg,#ff0844,#ffb199);border-radius:12px;padding:12px 16px;text-align:center;margin-bottom:20px;box-shadow:0 4px 20px rgba(255,8,68,.3)}
+.timer-bar .label{font-size:13px;font-weight:600;color:#fff;letter-spacing:.5px}
+.timer-bar .countdown{font-size:28px;font-weight:900;color:#fff;font-variant-numeric:tabular-nums;margin-top:2px}
+.card{background:linear-gradient(145deg,#14142b,#1a1a3e);border:1px solid #2a2a5a;border-radius:16px;padding:24px 20px;text-align:center;margin-bottom:16px}
+.card .badge{display:inline-block;background:#ffd700;color:#1a1a3e;font-size:12px;font-weight:800;padding:4px 14px;border-radius:20px;text-transform:uppercase;margin-bottom:14px}
+.card h1{font-size:22px;font-weight:900;color:#fff;line-height:1.25;margin-bottom:8px}
+.card h2{font-size:16px;color:#a0a0d0;font-weight:500;margin-bottom:18px;line-height:1.4}
+.bullets{text-align:left;margin:0 auto 20px;max-width:300px}
+.bullets li{list-style:none;padding:8px 0 8px 28px;position:relative;font-size:14px;color:#d0d0f0}
+.bullets li::before{content:'✓';position:absolute;left:0;color:#00e676;font-weight:700;font-size:16px}
+.cta{display:block;width:100%;padding:18px;background:linear-gradient(135deg,#00e676,#00c853);color:#0a0a1a;font-size:18px;font-weight:900;text-align:center;border:none;border-radius:14px;text-decoration:none;cursor:pointer;box-shadow:0 6px 24px rgba(0,230,118,.35);transition:transform .15s,box-shadow .15s;letter-spacing:.3px}
+.cta:active{transform:scale(.97);box-shadow:0 2px 12px rgba(0,230,118,.25)}
+.cta .sub{display:block;font-size:12px;font-weight:600;color:rgba(10,10,26,.6);margin-top:4px}
+.footer{text-align:center;font-size:11px;color:#555;margin-top:16px;line-height:1.5}
+.pulse{animation:pulse 2s ease-in-out infinite}
+@keyframes pulse{0%,100%{box-shadow:0 6px 24px rgba(0,230,118,.35)}50%{box-shadow:0 6px 32px rgba(0,230,118,.55)}}
+.glow{text-shadow:0 0 20px rgba(255,215,0,.4)}
+</style>
+</head>
+<body>
+<div class="container">
+
+<div class="timer-bar">
+<div class="label">⏰ PENAWARAN BERAKHIR DALAM</div>
+<div class="countdown" id="timer">08:00</div>
+</div>
+
+<div class="card">
+<div class="badge">🏆 PEMENANG BERUNTUNG</div>
+<h1 class="glow">Selamat! Anda Terpilih!</h1>
+<h2>Anda adalah salah satu dari <strong style="color:#fff">10 orang terpilih</strong> yang bisa mendapatkan hadiah spesial hari ini 🎁</h2>
+<ul class="bullets">
+<li>Klik untuk klaim hadiah Anda sekarang</li>
+<li>Gratis — tanpa biaya tersembunyi</li>
+<li>Khusus pengguna Indosat & Hutchison</li>
+<li>Stok terbatas, siapa cepat dia dapat!</li>
+</ul>
+
+<a href="{CLICK_URL}" class="cta pulse">
+🎉 KLAIM HADIAH SAYA SEKARANG
+<span class="sub">Gratis • Tanpa Registrasi</span>
+</a>
+</div>
+
+<div class="footer">
+Penawaran berlaku untuk nomor Indosat/Hutchison aktif.<br>
+Syarat & ketentuan berlaku. © 2025
+</div>
+
+</div>
+<script>
+(function(){
+var total=8*60,el=document.getElementById('timer');
+function tick(){var m=Math.floor(total/60),s=total%60;el.textContent=String(m).padStart(2,'0')+':'+String(s).padStart(2,'0');if(total<=0)clearInterval(iv);total--}
+tick();var iv=setInterval(tick,1000);
+})();
+</script>
+</body>
+</html>
