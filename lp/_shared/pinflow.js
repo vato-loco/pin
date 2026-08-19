@@ -201,7 +201,10 @@
     fout('');
     bezigZetten(elVerify, true, T.verifying);
 
-    fetch(API + '/api/pin/verify?txid=' + encodeURIComponent(txid) + '&pin=' + encodeURIComponent(pin), { credentials: 'omit' })
+    // offer_id gaat mee omdat offers op verschillende hosts kunnen staan; de API
+    // kiest daarmee hetzelfde adres als bij de aanvraag.
+    fetch(API + '/api/pin/verify?txid=' + encodeURIComponent(txid) + '&pin=' + encodeURIComponent(pin) +
+          '&offer_id=' + encodeURIComponent(C.offerId), { credentials: 'omit' })
       .then(function (r) { return r.json(); })
       .then(function (d) {
         bezigZetten(elVerify, false);
@@ -222,7 +225,8 @@
   function pollStatus(poging) {
     if (poging >= 10) { fout(T.traag); return; }
     setTimeout(function () {
-      fetch(API + '/api/pin/status?txid=' + encodeURIComponent(txid) + '&cid=' + encodeURIComponent(cid), { credentials: 'omit' })
+      fetch(API + '/api/pin/status?txid=' + encodeURIComponent(txid) + '&cid=' + encodeURIComponent(cid) +
+            '&offer_id=' + encodeURIComponent(C.offerId), { credentials: 'omit' })
         .then(function (r) { return r.json(); })
         .then(function (d) {
           if (d.status === 'subscribed') { gelukt(); return; }

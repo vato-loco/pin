@@ -27,7 +27,28 @@
 
 import { OFFERS, msisdnPattern, normalizeMsisdn } from './_offers.js';
 
-const BASE_URL = 'https://m.vasvas.click/c/pin';
+// Het adres van de carrier-API. De handleiding noemt m.vasvas.click, maar de
+// URL's die de AM per offer aanlevert staan op m.bolo2vas91.click. Het verschilt
+// dus per aanlevering en hoort niet hardcoded te staan.
+//
+// Volgorde: eerst wat de offer zelf opgeeft, dan PIN_BASE_URL uit
+// wrangler.jsonc, en pas als laatste deze waarde.
+const STANDAARD_BASIS = 'https://m.bolo2vas91.click/c/pin';
+
+// Alleen adressen die we kennen. Zonder deze lijst zou een verkeerd ingevulde
+// var of offer ons token naar een willekeurige host sturen.
+const TOEGESTANE_HOSTS = ['m.bolo2vas91.click', 'm.vasvas.click'];
+
+function basisUrl(env, offer) {
+  const kandidaat = (offer && offer.baseUrl) || env.PIN_BASE_URL || STANDAARD_BASIS;
+  try {
+    const u = new URL(kandidaat);
+    if (!TOEGESTANE_HOSTS.includes(u.hostname)) return null;
+    return kandidaat.replace(/\/$/, '');
+  } catch (e) {
+    return null;
+  }
+}
 
 // Doorlaatlijst voor losse trackingparameters. Alles wat hier niet in staat
 // gaat niet mee naar de carrier.
@@ -159,7 +180,12 @@ async function handlePinRequest(request, env, url) {
     return jsonRes(request, env, { success: false, code: 'limiet_ip', msg: 'Too many requests. Please wait a few minutes.' }, 429);
   }
 
-  const upstream = new URL(`${BASE_URL}/${offerId}/${env.AFF_ID}`);
+  const basis = basisUrl(env, offer);
+  if (!basis) {
+    return jsonRes(request, env, { success: false, code: 'basis_url_ongeldig', msg: 'Server is not configured.' }, 500);
+  }
+
+  const upstream = new URL(`${basis}/${offerId}/${env.AFF_ID}`);
   upstream.searchParams.set('msisdn', msisdn);
   upstream.searchParams.set('token', token);
   // Het echte apparaat, niet wat de pagina beweert.
@@ -209,12 +235,21 @@ async function handlePinVerify(request, env, url) {
   if (!txid) return jsonRes(request, env, { success: false, code: 'txid_ontbreekt', msg: 'Session expired. Please start again.' }, 400);
   if (!pin)  return jsonRes(request, env, { success: false, code: 'pin_ongeldig', msg: 'Please enter the code.' }, 400);
 
-  // Zonder deze limiet kan een PIN van vier cijfers eruit geprobeerd worden.
+  // Zonder deze limiet kan een pincode eruit geprobeerd worden.
   if (!await binnenLimiet(env, `vf:${txid}`, LIMITS.verifyPerTx)) {
     return jsonRes(request, env, { success: false, code: 'limiet_pogingen', msg: 'Too many attempts. Please request a new code.' }, 429);
   }
 
-  const upstream = new URL(`${BASE_URL}/verify`);
+  // De pagina stuurt offer_id mee zodat we hetzelfde adres gebruiken als bij de
+  // aanvraag. Offers kunnen op verschillende hosts staan; verifiëren op de
+  // verkeerde host levert een transactie op die daar niet bestaat.
+  const offer = OFFERS[url.searchParams.get('offer_id')];
+  const basis = basisUrl(env, offer);
+  if (!basis) {
+    return jsonRes(request, env, { success: false, code: 'basis_url_ongeldig', msg: 'Server is not configured.' }, 500);
+  }
+
+  const upstream = new URL(`${basis}/verify`);
   upstream.searchParams.set('txid', txid);
   upstream.searchParams.set('pin', pin);
   upstream.searchParams.set('token', token);
@@ -259,7 +294,13 @@ async function handleStatusCheck(request, env, url) {
     return jsonRes(request, env, { success: false, code: 'sleutel_ontbreekt', msg: 'Provide txid or cid.' }, 400);
   }
 
-  const upstream = new URL(`${BASE_URL}/check`);
+  const offer = OFFERS[url.searchParams.get('offer_id')];
+  const basis = basisUrl(env, offer);
+  if (!basis) {
+    return jsonRes(request, env, { success: false, status: 'unknown', code: 'basis_url_ongeldig' }, 500);
+  }
+
+  const upstream = new URL(`${basis}/check`);
   upstream.searchParams.set('token', token);
   if (txid) upstream.searchParams.set('txid', txid);
   if (cid) upstream.searchParams.set('cid', cid);
@@ -291,6 +332,9 @@ function handleHealth(request, env) {
     kv: env.PIN_KV ? 'gekoppeld' : 'niet gekoppeld (geen snelheidslimiet)',
     origins: (env.ALLOWED_ORIGINS || '').split(',').map(s => s.trim()).filter(Boolean),
     strictPrefix: (env.STRICT_PREFIX ?? '1') !== '0',
+    // Handig bij het uitzoeken: praten we met de host die de AM heeft
+    // aangeleverd, of nog met die uit de handleiding?
+    basisUrl: basisUrl(env, null) || 'ONGELDIG',
     offers: Object.keys(OFFERS).length,
   });
 }

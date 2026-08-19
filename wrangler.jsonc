@@ -24,6 +24,11 @@
     // Publisher-ID bij Mobplus. Niet geheim.
     "AFF_ID": "4647",
 
+    // Adres van de carrier-API. De handleiding noemt m.vasvas.click, maar de
+    // URL's die de AM per offer aanlevert staan op m.bolo2vas91.click. Een
+    // enkele offer kan hiervan afwijken met een eigen baseUrl in _offers.js.
+    "PIN_BASE_URL": "https://m.bolo2vas91.click/c/pin",
+
     // Alleen nodig voor landingspagina's op een ander domein. Pagina's in deze
     // repo staan op hetzelfde domein en hebben geen CORS nodig.
     "ALLOWED_ORIGINS": "https://play-center.org",

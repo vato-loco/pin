@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="si">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+<title>Funny Games — විනෝදජනක ක්‍රීඩා</title>
+<!--
+  Offer 305187 — Funny Games-LK-Mobitel-PIN API. Sri Lanka, Mobitel.
+  Aangeleverd door de AM op 19-08-2026: PIN Length 6, 10 LKR per dag,
+  shortcode 32565, afmelden met "C FG", payout $0,35, cap 400.
+
+  Dit is het offer waarmee de koppeling end-to-end getest wordt. De endpoints
+  staan op m.bolo2vas91.click; dat adres staat in PIN_BASE_URL, niet in de code.
+
+  De vorige LK-pagina (offer 291632, Xploding Gamez) is verwijderd: dat was het
+  demo-offer uit de handleiding en niet aan ons toegewezen.
+-->
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+body{font-family:'Noto Sans Sinhala','Nirmala UI',system-ui,sans-serif;background:#0d1b2a;color:#fff;line-height:1.8;max-width:480px;margin:0 auto;min-height:100vh}
+.wrap{padding:20px 20px 40px}
+.hero{text-align:center;padding:26px 0 18px}
+.hero .icon{font-size:3.2rem;line-height:1}
+.hero h1{font-size:1.6rem;font-weight:800;margin-top:8px;background:linear-gradient(135deg,#ffd166,#ef476f);-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent}
+.hero p{color:#8d9db0;font-size:.9rem;margin-top:6px}
+.card{background:#152a3f;border:1px solid #23405c;border-radius:16px;padding:24px 20px;box-shadow:0 8px 30px rgba(0,0,0,.4)}
+.card h2{font-size:1.1rem;font-weight:700;margin-bottom:6px}
+.card .sub{font-size:.85rem;color:#8d9db0;margin-bottom:18px}
+input[type=tel]{width:100%;background:#0d1b2a;border:2px solid #23405c;border-radius:12px;color:#fff;font-size:1.25rem;text-align:center;padding:14px;letter-spacing:1px}
+input[type=tel]:focus{outline:none;border-color:#ffd166}
+.btn{display:block;width:100%;margin-top:14px;background:linear-gradient(135deg,#ffd166,#ef476f);color:#1a1a1a;font-family:inherit;font-size:1.05rem;font-weight:800;padding:15px;border:none;border-radius:12px;cursor:pointer}
+.btn:disabled{opacity:.6;cursor:default}
+.btn:active{transform:scale(.98)}
+/* Zes vakjes moeten op een smalle telefoon passen, dus smaller dan bij vier. */
+#pin-boxes{display:flex;justify-content:center;gap:6px;margin:22px 0 4px}
+.pin-box{width:46px;height:58px;font-size:1.6rem;text-align:center;background:#0d1b2a;border:2px solid #23405c;border-radius:10px;color:#fff}
+.pin-box:focus{outline:none;border-color:#ffd166}
+#pin-error{display:none;margin-top:12px;color:#ff8a8a;font-size:.88rem;text-align:center}
+.linkbtn{background:none;border:none;color:#8d9db0;font-family:inherit;font-size:.82rem;text-decoration:underline;cursor:pointer;margin-top:14px;display:none}
+.linkbtn:disabled{opacity:.5;text-decoration:none;cursor:default}
+.terms{margin-top:18px;padding-top:16px;border-top:1px solid #23405c;font-size:.76rem;color:#8d9db0;text-align:center}
+.terms strong{color:#c5d3e2}
+.tnc-toggle{color:#8d9db0;text-decoration:underline;cursor:pointer;display:inline-block;margin-top:10px;font-size:.76rem}
+.tnc-box{display:none;margin-top:10px;background:#0d1b2a;border:1px solid #23405c;border-radius:10px;padding:12px;text-align:left;font-size:.73rem;color:#8d9db0}
+.tnc-box.open{display:block}
+.tnc-box .en{margin-top:10px;padding-top:10px;border-top:1px solid #23405c;color:#7b8b9c}
+.done h2{color:#4caf50}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <div class="hero">
+    <div class="icon">🎮</div>
+    <h1>Funny Games</h1>
+    <p>සීමාවකින් තොරව ක්‍රීඩා කරන්න</p>
+  </div>
+
+  <!-- පියවර 1: දුරකථන අංකය -->
+  <div class="card" id="pin-phone">
+    <h2>ඔබේ ජංගම දුරකථන අංකය ඇතුළත් කරන්න</h2>
+    <p class="sub">අපි ඔබට ඉලක්කම් 6ක කේතයක් SMS මගින් එවන්නෙමු.</p>
+    <input type="tel" id="pin-msisdn" inputmode="numeric" placeholder="94 7X XXX XXXX" autocomplete="tel">
+    <button class="btn" id="pin-send">කේතය එවන්න</button>
+  </div>
+
+  <!-- පියවර 2: කේතය -->
+  <div class="card" id="pin-code">
+    <h2>ඉලක්කම් 6ක කේතය ඇතුළත් කරන්න</h2>
+    <p class="sub">32565 වෙතින් ලැබුණු SMS එක බලන්න.</p>
+    <div id="pin-boxes"></div>
+    <button class="btn" id="pin-verify">තහවුරු කර විවෘත කරන්න</button>
+    <button class="linkbtn" id="pin-resend">නැවත කේතය එවන්න</button>
+  </div>
+
+  <!-- පියවර 3: සාර්ථකයි -->
+  <div class="card done" id="pin-done">
+    <h2>සාර්ථකයි!</h2>
+    <p class="sub">දැන් ඔබට සියලු ක්‍රීඩා භාවිත කළ හැකිය.</p>
+  </div>
+
+  <div id="pin-error"></div>
+
+  <div class="terms">
+    Mobitel දායකත්ව සේවාවකි. මිල: <strong>දිනකට රු. 10</strong>.<br>
+    අවලංගු කිරීමට <strong>C FG</strong> යන්න <strong>32565</strong> වෙත යවන්න. වයස අවුරුදු 18+ පමණි.
+    <span class="tnc-toggle" onclick="document.getElementById('tnc').classList.toggle('open')">නියම හා කොන්දේසි ▾</span>
+    <div class="tnc-box" id="tnc">
+      සේවාව: Funny Games &middot; ජාලය: Mobitel &middot; මිල: දිනකට රු. 10,
+      ඔබ අවලංගු කරන තෙක් ඔබේ ශේෂයෙන් අය කෙරේ &middot; කෙටි අංකය: 32565 &middot;
+      අවලංගු කිරීමට: C FG යන්න 32565 වෙත යවන්න.
+      <div class="en">
+        Funny Games is a subscription service that renews for 10 LKR/day for
+        Mobitel subscribers until you unsubscribe. To cancel, send C FG to 32565.
+        You must be 18 or older to use this service.
+      </div>
+    </div>
+  </div>
+
+</div>
+
+<script>
+window.PIN_CONFIG = {
+  offerId:   '305187',
+  geo:       'LK',
+  pinLength: 6,
+  texts: {
+    sending:    'කේතය යවමින්...',
+    verifying:  'තහවුරු කරමින්...',
+    badNumber:  'කරුණාකර වලංගු දුරකථන අංකයක් ඇතුළත් කරන්න.',
+    shortPin:   'කරුණාකර ඉලක්කම් 6ම ඇතුළත් කරන්න.',
+    netwerk:    'සම්බන්ධ විය නොහැක. නැවත උත්සාහ කරන්න.',
+    processing: 'ඔබේ දායකත්වය තහවුරු කරමින්...',
+    traag:      'සාමාන්‍යයට වඩා වැඩි කාලයක් ගතවේ. නැවත උත්සාහ කරන්න.',
+    resend:     'නැවත කේතය එවන්න',
+    resendIn:   'තත්පර {s}කින් නැවත එවන්න'
+  }
+};
+</script>
+<script src="/lp/_shared/pinflow.js"></script>
+</body>
+</html>

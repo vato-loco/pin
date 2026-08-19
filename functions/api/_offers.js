@@ -34,15 +34,20 @@ export const GEOS = {
 // niet, want die moet de prijs en de afmeldinstructie tonen. `npm run doctor`
 // laat zien welke velden nog open staan.
 export const OFFERS = {
-  // --- Voorbeeld uit de handleiding (LK/Mobitel), compleet ingevuld ---------
-  '291632': {
-    name: 'Xploding Gamez-LK-Mobitel-PIN API',
+  // --- Testoffer, aangeleverd door de AM op 19-08-2026 ----------------------
+  // Hiermee wordt de koppeling end-to-end gecontroleerd. De AM leverde de
+  // endpoints op m.bolo2vas91.click, niet op de m.vasvas.click uit de
+  // handleiding; dat adres staat daarom in PIN_BASE_URL en niet in de code.
+  '305187': {
+    name: 'Funny Games-LK-Mobitel-PIN API',
     geo: 'LK', carrier: 'Mobitel',
-    service: 'Xploding Gamez',
-    pinLength: 4,
+    service: 'Funny Games',
+    pinLength: 6,
     price: '10 LKR/day',
-    unsub: 'Send C XG to 85868',
-    payout: null, cr: null, epc: null,
+    unsub: 'Send C FG to 32565',
+    shortcode: '32565',
+    payout: 0.35, cr: null, epc: null,
+    cap: 400,
   },
 
   // --- Top offers uit de mail van 18-08-2026, gesorteerd op EPC ------------
