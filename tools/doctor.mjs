@@ -99,6 +99,12 @@ for (const { naam, pad } of paginas) {
   for (const id of ['pin-phone', 'pin-msisdn', 'pin-send', 'pin-code', 'pin-boxes', 'pin-verify', 'pin-done', 'pin-error']) {
     if (!new RegExp(`id="${id}"`).test(html)) blokkerend.push(`lp/${naam}: element met id="${id}" ontbreekt.`);
   }
+  // Zonder successUrl eindigt de bezoeker op een leeg bedanktscherm terwijl hij
+  // net een abonnement heeft genomen. Dat levert afmeldingen en klachten op.
+  if (!/successUrl/.test(html)) {
+    waarschuwing.push(`lp/${naam}: geen successUrl — na activatie blijft de bezoeker op het bedanktscherm hangen. Vraag de portal-URL op bij de AM.`);
+  }
+
   const openstaand = (html.match(/AAN_TE_VULLEN/g) || []).length;
   if (openstaand) {
     blokkerend.push(`lp/${naam}: ${openstaand}× AAN_TE_VULLEN — prijs of afmeldinstructie ontbreekt nog. De carrier keurt de pagina zo af.`);
