@@ -102,10 +102,20 @@ function jsonRes(request, env, data, status = 200) {
 // legt uit hoe je de namespace koppelt.
 async function binnenLimiet(env, sleutel, limiet) {
   if (!env.PIN_KV) return true;
-  const huidig = Number(await env.PIN_KV.get(sleutel)) || 0;
-  if (huidig >= limiet.max) return false;
-  await env.PIN_KV.put(sleutel, String(huidig + 1), { expirationTtl: limiet.windowSec });
-  return true;
+  try {
+    const huidig = Number(await env.PIN_KV.get(sleutel)) || 0;
+    if (huidig >= limiet.max) return false;
+    await env.PIN_KV.put(sleutel, String(huidig + 1), { expirationTtl: limiet.windowSec });
+    return true;
+  } catch (e) {
+    // Gaat KV onderuit, dan laten we het verzoek door in plaats van het te
+    // blokkeren. Op het gratis niveau is het aantal schrijfacties per dag
+    // beperkt, en dat raak je bij volume aan; een uitgeputte quota hoort de
+    // flow niet plat te leggen. De limiet is bescherming tegen misbruik, geen
+    // voorwaarde om te mogen converteren.
+    console.warn('KV niet beschikbaar, limiet overgeslagen voor', sleutel);
+    return true;
+  }
 }
 
 // --------------------------------------------------------------------------- //
