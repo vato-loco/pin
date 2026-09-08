@@ -1,0 +1,140 @@
+*{
+  margin:0;
+  padding:0}
+:focus{
+  outline:0}
+img{
+  border:none}
+html,body{
+  height:100%;
+  -webkit-text-size-adjust:none}
+body{
+  background:#ffc3bc;
+  font-family:Arial, Tahoma, sans-serif;
+  font-size:14px;
+  color:#000;
+  min-width:320px}
+ol,ul{
+  list-style:none}
+.wrap{
+  position:relative}
+.step{
+  text-align:center;
+  display:none;
+  max-width:480px;
+  margin:0 auto}
+.step:first-child{
+  display:block}
+.step-content{
+  padding:15px 0}
+.step-content p{
+  margin-bottom:10px}
+.step-title{
+  /* background:#d63c34; */
+  padding:10px 0;
+  font-size:40px;
+  text-transform:uppercase;
+  font-weight:normal;
+  text-align:center;
+  }
+.pic-box img{
+  width: 90%;
+  border-radius: 20px;
+   border: 5px solid #ffffff;
+  }
+.attention{
+  padding:15px 0}
+.attention p{
+  font-size:18px;
+  margin-bottom:10px}
+.attention h5{
+  font-size:22px}
+.btns-box{
+  padding:15px 0}
+.btn,.btn-start{
+  background:#d63c34;
+  display: inline-block;
+  width: 100%;
+  padding: 20px 0;
+  font-size: 1.4em;
+  color: #fff;
+  border-radius: 50px;
+  text-decoration: none;
+  font-weight: 700;
+  margin-bottom: 50px;
+  text-transform: uppercase;
+  }
+.btn:hover,.btn-start:hover{
+  background:#f32e22}
+.question h2{
+ 
+  padding:7px 0;
+  font-size:24px;
+  text-transform:uppercase;
+  color:#000;
+  text-align:center}
+.question .btn{
+  display:inline-block;
+  width:40%}
+.options h2{
+  font-size:20px;
+  font-weight:normal}
+.choose-options{
+  font-size:12px;
+  font-style:italic}
+.option{
+  margin-bottom:5px;
+  padding:10px 20px;
+  font-size:22px;
+  color:#000;
+  font-weight:bold;
+  padding:10px 10px 10px 50px;
+  text-align:left;
+  cursor:pointer;
+  position:relative;
+  }
+.option:after{
+  content:'';
+  background:url(option.png) no-repeat 0 0;
+  width:30px;
+  height:30px;
+  position:absolute;
+  top:0;
+  bottom:0;
+  left:10px;
+  margin:auto;
+  border-radius:50%}
+.option.selected:after{
+  box-shadow: 0 0 10px rgb(255, 255, 255);
+  border: 2px solid #fff;
+  
+  background-position:0 -30px}
+.loading{
+  display:table;
+  width:100%;
+  height:100%;
+  position:fixed;
+  left:0;
+  top:0}
+.loading > ul{
+  display:table-cell;
+  width:100%;
+  height:100%;
+  vertical-align:middle}
+.loading > ul > li{
+  display:none}
+.loading > ul > li.visible{
+  display:block}
+.loading h5{
+  font-size:18x;
+  margin-bottom:10px;
+  font-weight:normal}
+.final h2{
+  font-size:30px;
+  font-weight:normal;
+  margin-bottom:10px}
+.final > ul > li{
+  margin-bottom:5px;
+ 
+  padding:10px 20px;
+  text-align:left}

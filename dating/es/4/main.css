@@ -1,0 +1,191 @@
+*{
+  padding:0;
+  margin:0}
+:focus{
+  outline:0}
+img{
+  border:none}
+ol,ul{
+  list-style:none}
+.clearfix:after{
+  clear:both;
+  content:"";
+  display:block}
+a:hover{
+  text-decoration:none}
+html{
+  font-size:62.5%}
+body{
+  font:100%/1.2 Droid Sans, sans-serif;
+  background:#000;
+  height:100%;
+  color:#898989}
+.wrapper{
+  margin:0 auto;
+  position:relative;
+  width:1000px;
+  padding:0 0 100px}
+.left{
+  float:left}
+.girl{
+  display:none;
+  position:relative;
+  width:92%;
+  max-width:407px;
+  height:auto;
+  margin:20px auto 9px;
+  border:12px solid #fff;
+  box-shadow:0 0 7px rgb(183, 180, 180)}
+.girl.active{
+  display:block}
+.right{
+  float:right;
+  width:100%;
+  max-width:530px}
+.content{
+  padding:17px 0 0 30px}
+h1{
+  color:#f2655f;
+  font-size:3.6rem;
+  font-weight:normal;
+  line-height:1.3;
+  text-align:center;
+  text-transform:uppercase;
+  padding:12px 0 2px 0}
+.content p{
+  color:#fff;
+  font-size:1.7rem;
+  line-height:23px;
+  padding:8px 0 5px}
+.content p .colored{
+  color:#f2655f}
+.content p.lucky_text{
+  display:block;
+  color:#898989}
+.question_box{
+  display:none;
+  position:relative;
+  width:100%;
+  margin:30px auto;
+  padding:12px 3%;
+  background:#fff;
+  -webkit-box-sizing:border-box;
+  -moz-box-sizing:border-box;
+  box-sizing:border-box}
+.question_box.step1{
+  display:block}
+.question_box h2{
+  display:inline-block;
+  font-weight:bold;
+  font-size:3.6rem;
+  color:#f2655f;
+  padding:10px 5px 50px 0}
+.question_box span{
+  color:#000000;
+  font-size:2.7rem;
+  font-weight:normal;
+  line-height:1.4}
+h4{
+  display:none;
+  color:#f2655f;
+  width:100%;
+  padding:0 0 10px 0;
+  font-size:2.0rem;
+  font-weight:600;
+  text-align:center}
+h3{
+  color:#000;
+  font-size:2.1rem;
+  font-weight:400;
+  padding:8px 0 2px;
+  text-align:center;
+  letter-spacing:-0.044em}
+.run_loading_1.main_review{
+  display:block}
+.done_marker li{
+  display:none;
+  background:url(https://cdn-aimi.akamaized.net/landings/62313/images/marker1.png) no-repeat left center;
+  color:#898989;
+  font-size:1.4rem;
+  line-height:1.4;
+  text-align:left;
+  padding:4px 10px 0 28px}
+.decimal{
+  display:block;
+  padding:0 0 20px 0}
+.decimal li{
+  color:#000;
+  font-size:1.5rem;
+  line-height:18px;
+  letter-spacing:-0.04em;
+  padding:7px 5px 1px 10px;
+  text-align:left;
+  float:left}
+.decimal li > span{
+  font-size:1.9rem;
+  line-height:1.6;
+  display:inline-block;
+  float:left;
+  width:30px;
+  height:30px;
+  margin:5px 10px 5px 0;
+  text-align:center;
+  color:#fff;
+  border:1px solid #fff;
+  border-radius:50%;
+  background:#F2655F}
+.question_box.step4{
+  background:#ebebeb}
+.step4 p{
+  color:#898989;
+  font-size:13px;
+  line-height:15px;
+  letter-spacing:-0.055em;
+  text-align:center}
+.show_end{
+  display:none}
+.buttons,.agree{
+  font-size:3.6rem;
+  font-weight:700;
+  line-height:1.9;
+  position:relative;
+  display:inline-block;
+  width:100%;
+  margin:5px 0;
+  padding:0;
+  cursor:pointer;
+  text-align:center;
+  text-decoration:none;
+  text-transform:uppercase;
+  color:#fff;
+  border:0 none;
+  border-radius:9px;
+  outline:0 none;
+  background:#f2655f}
+.buttons:hover,.agree:hover{
+  opacity:0.94}
+@media only screen and (max-width : 1000px){
+  html{
+    font-size:60%}
+  .left{
+    float:none}
+  .right{
+    float:none;
+    margin:0 auto}
+  .wrapper{
+    width:96%;
+    padding:0 2%;
+    text-align:center}
+  .content{
+    padding:0}
+}
+@media only screen and (max-width : 500px){
+  html{
+    font-size:55%}
+  .content p{
+    display:inline}
+}
+@media only screen and (max-width : 360px){
+  html{
+    font-size:50%}
+}
