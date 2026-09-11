@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+<title>Are You a True Fan? – Free Game Access</title>
+<script src="https://cdn.tailwindcss.com"></script>
+<script>
+tailwind.config={theme:{extend:{colors:{brand:'#0a0f1a',accent:'#ffd400',accent2:'#00e39a'}}}}
+</script>
+<style>
+  body{background:radial-gradient(1200px 600px at 50% -100px,#19324a 0,#0a0f1a 60%);}
+  .pulse-cta{animation:pulse 1.4s infinite}
+  @keyframes pulse{0%{transform:scale(1)}50%{transform:scale(1.03)}100%{transform:scale(1)}}
+  .fade-in{animation:fadeIn .4s ease-out}
+  @keyframes fadeIn{from{opacity:0;transform:translateY(10px)}to{opacity:1;transform:translateY(0)}}
+  .opt-active{background:linear-gradient(90deg,#ffd400,#00e39a)!important;color:#07131b!important;}
+</style>
+</head>
+<body class="text-gray-100 min-h-screen">
+<div class="max-w-md mx-auto px-4 py-6">
+  <div class="bg-gradient-to-b from-white/5 to-black/20 border border-white/10 rounded-2xl shadow-2xl p-5">
+
+    <div class="flex items-center gap-2 mb-3">
+      <span class="text-2xl">🎮</span>
+      <h1 class="text-xl font-extrabold tracking-tight">Are You a True Fan?</h1>
+    </div>
+    <div class="inline-flex items-center gap-2 bg-black/40 border border-white/10 rounded-full px-3 py-1.5 text-xs opacity-90 mb-4">
+      🇰🇪 Safaricom · Quiz Game · Free Access
+    </div>
+
+    <!-- Quiz container -->
+    <div id="quiz">
+      <div class="quiz-q fade-in" data-q="1">
+        <p class="font-semibold mb-3">1) Which team won the most Premier League titles?</p>
+        <div class="space-y-2 mb-4">
+          <button class="opt w-full text-left bg-black/30 border border-white/10 rounded-lg px-4 py-2.5 text-sm transition" data-correct="true">Manchester United</button>
+          <button class="opt w-full text-left bg-black/30 border border-white/10 rounded-lg px-4 py-2.5 text-sm transition">Chelsea</button>
+          <button class="opt w-full text-left bg-black/30 border border-white/10 rounded-lg px-4 py-2.5 text-sm transition">Arsenal</button>
+        </div>
+      </div>
+
+      <div class="quiz-q hidden" data-q="2">
+        <p class="font-semibold mb-3">2) How many players on a football team (on pitch)?</p>
+        <div class="space-y-2 mb-4">
+          <button class="opt w-full text-left bg-black/30 border border-white/10 rounded-lg px-4 py-2.5 text-sm transition">9</button>
+          <button class="opt w-full text-left bg-black/30 border border-white/10 rounded-lg px-4 py-2.5 text-sm transition">11</button>
+          <button class="opt w-full text-left bg-black/30 border border-white/10 rounded-lg px-4 py-2.5 text-sm transition">12</button>
+        </div>
+      </div>
+
+      <div class="quiz-q hidden" data-q="3">
+        <p class="font-semibold mb-3">3) Ready for your free game access?</p>
+        <div class="space-y-2 mb-4">
+          <button class="opt w-full text-left bg-black/30 border border-white/10 rounded-lg px-4 py-2.5 text-sm transition">Yes, let's go!</button>
+          <button class="opt w-full text-left bg-black/30 border border-white/10 rounded-lg px-4 py-2.5 text-sm transition">Maybe later</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Result section (hidden initially) -->
+    <div id="result" class="hidden">
+      <div class="bg-black/30 border border-green-400/30 rounded-xl p-4 mb-4 text-center">
+        <p class="text-3xl mb-1">🏆</p>
+        <p class="text-lg font-bold text-green-400">You're a True Fan!</p>
+        <p class="text-sm opacity-80">Score: 3/3 — You unlocked free game access!</p>
+      </div>
+
+      <div class="bg-black/40 border border-white/10 rounded-lg p-3 mb-4 text-center">
+        <p class="text-xs opacity-70 mb-1">⏰ Free access expires in</p>
+        <div class="text-2xl font-bold text-red-400" id="timer">10:00</div>
+      </div>
+
+      <div class="grid grid-cols-2 gap-2 mb-4 text-sm">
+        <div class="bg-black/25 border border-white/10 rounded-lg p-2.5">✅ 2-Click access</div>
+        <div class="bg-black/25 border border-white/10 rounded-lg p-2.5">🎮 1000+ games</div>
+        <div class="bg-black/25 border border-white/10 rounded-lg p-2.5">⚡ Fast &amp; secure</div>
+        <div class="bg-black/25 border border-white/10 rounded-lg p-2.5">📱 Android friendly</div>
+      </div>
+
+      <a href="{CLICK_URL}" class="pulse-cta block text-center bg-gradient-to-r from-yellow-400 to-green-400 text-gray-900 font-black text-lg rounded-xl py-3.5 shadow-lg mb-3">
+        SUBSCRIBE FREE
+      </a>
+    </div>
+
+    <div class="flex justify-center gap-4 text-xs opacity-70 mb-2">
+      <span>🔒 Secure Billing</span>
+      <span>📶 Safaricom + WiFi</span>
+      <span>⭐ Popular in KE</span>
+    </div>
+    <p class="text-center text-[11px] opacity-50">By continuing you agree to the service terms. Carrier charges may apply.</p>
+  </div>
+</div>
+
+<script>
+(function(){
+  var qs=document.querySelectorAll('.quiz-q');
+  var idx=0;
+  qs.forEach(function(box){
+    box.querySelectorAll('.opt').forEach(function(btn){
+      btn.addEventListener('click',function(){
+        box.querySelectorAll('.opt').forEach(function(b){b.classList.remove('opt-active')});
+        btn.classList.add('opt-active');
+        setTimeout(function(){
+          if(idx<qs.length-1){
+            box.classList.add('hidden');
+            idx++;
+            qs[idx].classList.remove('hidden');
+            qs[idx].classList.add('fade-in');
+          } else {
+            document.getElementById('quiz').classList.add('hidden');
+            document.getElementById('result').classList.remove('hidden');
+            document.getElementById('result').classList.add('fade-in');
+            startTimer();
+          }
+        },400);
+      });
+    });
+  });
+  function startTimer(){
+    var s=600;
+    var el=document.getElementById('timer');
+    var t=setInterval(function(){
+      s--; if(s<0)s=0;
+      var m=Math.floor(s/60),r=s%60;
+      el.textContent=(m<10?'0':'')+m+':'+(r<10?'0':'')+r;
+      if(s<=0)clearInterval(t);
+    },1000);
+  }
+})();
+</script>
+</body>
+</html>

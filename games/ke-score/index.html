@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+<title>Your Football Score – Play Now</title>
+<script src="https://cdn.tailwindcss.com"></script>
+<script>
+tailwind.config={theme:{extend:{colors:{brand:'#0a0f1a',accent:'#ffd400',accent2:'#00e39a'}}}}
+</script>
+<style>
+  body{background:radial-gradient(1200px 600px at 50% -100px,#19324a 0,#0a0f1a 60%);}
+  .pulse-cta{animation:pulse 1.4s infinite}
+  @keyframes pulse{0%{transform:scale(1)}50%{transform:scale(1.03)}100%{transform:scale(1)}}
+  .score-pop{animation:pop .5s ease-out}
+  @keyframes pop{0%{transform:scale(0.6);opacity:0}100%{transform:scale(1);opacity:1}}
+</style>
+</head>
+<body class="text-gray-100 min-h-screen">
+<div class="max-w-md mx-auto px-4 py-6">
+  <div class="bg-gradient-to-b from-white/5 to-black/20 border border-white/10 rounded-2xl shadow-2xl p-5">
+
+    <div class="flex items-center gap-2 mb-3">
+      <span class="text-2xl">⚽</span>
+      <h1 class="text-xl font-extrabold tracking-tight">Your Football Score</h1>
+    </div>
+    <div class="inline-flex items-center gap-2 bg-black/40 border border-white/10 rounded-full px-3 py-1.5 text-xs opacity-90 mb-4">
+      🇰🇪 Safaricom users · Instant Access · 1000+ games
+    </div>
+
+    <!-- Score card -->
+    <div class="bg-black/30 border border-white/10 rounded-xl p-4 mb-4 text-center">
+      <p class="text-sm opacity-80 mb-1">Your Match Score</p>
+      <div class="score-pop text-5xl font-black text-yellow-400" id="score">847</div>
+      <p class="text-sm mt-2 text-green-400">🏆 You ranked #1 in Kenya today!</p>
+    </div>
+
+    <p class="text-sm opacity-90 mb-3">Amazing score! You've unlocked premium game access. Claim your free entry now before the timer ends.</p>
+
+    <!-- Countdown -->
+    <div class="bg-black/40 border border-white/10 rounded-lg p-3 mb-4 text-center">
+      <p class="text-xs opacity-70 mb-1">⏰ Free access expires in</p>
+      <div class="text-2xl font-bold text-red-400" id="timer">10:00</div>
+    </div>
+
+    <!-- Bullets -->
+    <div class="grid grid-cols-2 gap-2 mb-4 text-sm">
+      <div class="bg-black/25 border border-white/10 rounded-lg p-2.5">✅ 2-Click access</div>
+      <div class="bg-black/25 border border-white/10 rounded-lg p-2.5">🎮 1000+ games</div>
+      <div class="bg-black/25 border border-white/10 rounded-lg p-2.5">⚡ Fast &amp; secure</div>
+      <div class="bg-black/25 border border-white/10 rounded-lg p-2.5">📱 Android friendly</div>
+    </div>
+
+    <!-- CTA -->
+    <a href="{CLICK_URL}" class="pulse-cta block text-center bg-gradient-to-r from-yellow-400 to-green-400 text-gray-900 font-black text-lg rounded-xl py-3.5 shadow-lg mb-3">
+      GET FREE ACCESS
+    </a>
+
+    <div class="flex justify-center gap-4 text-xs opacity-70 mb-2">
+      <span>🔒 Secure Billing</span>
+      <span>📶 Safaricom + WiFi</span>
+      <span>⭐ Popular in KE</span>
+    </div>
+    <p class="text-center text-[11px] opacity-50">By continuing you agree to the service terms. Carrier charges may apply.</p>
+  </div>
+</div>
+
+<script>
+// Countdown timer
+(function(){
+  var s=600;
+  var el=document.getElementById('timer');
+  var t=setInterval(function(){
+    s--; if(s<0)s=0;
+    var m=Math.floor(s/60),r=s%60;
+    el.textContent=(m<10?'0':'')+m+':'+(r<10?'0':'')+r;
+    if(s<=0)clearInterval(t);
+  },1000);
+})();
+// Animated score
+(function(){
+  var target=847,cur=0,el=document.getElementById('score');
+  var t=setInterval(function(){
+    cur+=47; if(cur>=target){cur=target;clearInterval(t);}
+    el.textContent=cur;
+  },80);
+})();
+</script>
+</body>
+</html>

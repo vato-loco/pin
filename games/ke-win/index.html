@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+<title>Congratulations! You Won – Claim Now</title>
+<script src="https://cdn.tailwindcss.com"></script>
+<script>
+tailwind.config={theme:{extend:{colors:{brand:'#0a0f1a',accent:'#ffd400',accent2:'#00e39a'}}}}
+</script>
+<style>
+  body{background:radial-gradient(1200px 600px at 50% -100px,#1a2a40 0,#0a0f1a 60%);}
+  .pulse-cta{animation:pulse 1.4s infinite}
+  @keyframes pulse{0%{transform:scale(1)}50%{transform:scale(1.03)}100%{transform:scale(1)}}
+  .confetti{position:fixed;width:8px;height:8px;top:-10px;opacity:.8;animation:fall 3s linear infinite;z-index:0}
+  @keyframes fall{to{transform:translateY(110vh) rotate(360deg)}}
+  .glow{animation:glow 2s ease-in-out infinite alternate}
+  @keyframes glow{from{text-shadow:0 0 10px #ffd400,0 0 20px #ffd400}to{text-shadow:0 0 20px #ffd400,0 0 40px #ff9500}}
+</style>
+</head>
+<body class="text-gray-100 min-h-screen overflow-x-hidden">
+<!-- Confetti -->
+<div class="confetti" style="left:10%;background:#ffd400;animation-delay:0s"></div>
+<div class="confetti" style="left:30%;background:#00e39a;animation-delay:.5s"></div>
+<div class="confetti" style="left:50%;background:#ff5a5a;animation-delay:1s"></div>
+<div class="confetti" style="left:70%;background:#5a8fff;animation-delay:1.5s"></div>
+<div class="confetti" style="left:85%;background:#ffd400;animation-delay:.3s"></div>
+
+<div class="max-w-md mx-auto px-4 py-6 relative z-10">
+  <div class="bg-gradient-to-b from-white/5 to-black/20 border border-white/10 rounded-2xl shadow-2xl p-5 text-center">
+
+    <div class="text-5xl mb-2">🎉</div>
+    <h1 class="text-2xl font-black text-yellow-400 glow mb-2">CONGRATULATIONS!</h1>
+    <p class="text-lg font-bold text-green-400 mb-3">You Won a Premium Game Pass!</p>
+
+    <div class="inline-flex items-center gap-2 bg-black/40 border border-white/10 rounded-full px-3 py-1.5 text-xs opacity-90 mb-4">
+      🇰🇪 Safaricom · Exclusive Reward · 1000+ games
+    </div>
+
+    <!-- Prize card -->
+    <div class="bg-black/30 border-2 border-yellow-400/40 rounded-xl p-4 mb-4">
+      <div class="text-4xl mb-2">🏆🎮</div>
+      <p class="text-sm opacity-80">Your Prize</p>
+      <p class="text-xl font-bold text-yellow-400">Premium Game Access — 30 Days FREE</p>
+    </div>
+
+    <p class="text-sm opacity-90 mb-3">You've been selected from today's Kenya gaming contest. Claim your prize now before the timer runs out!</p>
+
+    <!-- Countdown -->
+    <div class="bg-black/40 border border-white/10 rounded-lg p-3 mb-4">
+      <p class="text-xs opacity-70 mb-1">⏰ Prize expires in</p>
+      <div class="text-2xl font-bold text-red-400" id="timer">10:00</div>
+    </div>
+
+    <!-- Bullets -->
+    <div class="grid grid-cols-2 gap-2 mb-4 text-sm text-left">
+      <div class="bg-black/25 border border-white/10 rounded-lg p-2.5">🎁 100% Free</div>
+      <div class="bg-black/25 border border-white/10 rounded-lg p-2.5">🎮 1000+ games</div>
+      <div class="bg-black/25 border border-white/10 rounded-lg p-2.5">⚡ Instant unlock</div>
+      <div class="bg-black/25 border border-white/10 rounded-lg p-2.5">📱 No app needed</div>
+    </div>
+
+    <!-- CTA -->
+    <a href="{CLICK_URL}" class="pulse-cta block text-center bg-gradient-to-r from-yellow-400 to-green-400 text-gray-900 font-black text-lg rounded-xl py-3.5 shadow-lg mb-3">
+      CLAIM NOW
+    </a>
+
+    <div class="flex justify-center gap-4 text-xs opacity-70 mb-2">
+      <span>🔒 Secure Billing</span>
+      <span>📶 Safaricom + WiFi</span>
+      <span>⭐ Verified Prize</span>
+    </div>
+    <p class="text-center text-[11px] opacity-50">By continuing you agree to the service terms. Carrier charges may apply.</p>
+  </div>
+</div>
+
+<script>
+(function(){
+  var s=600;
+  var el=document.getElementById('timer');
+  var t=setInterval(function(){
+    s--; if(s<0)s=0;
+    var m=Math.floor(s/60),r=s%60;
+    el.textContent=(m<10?'0':'')+m+':'+(r<10?'0':'')+r;
+    if(s<=0)clearInterval(t);
+  },1000);
+})();
+</script>
+</body>
+</html>
