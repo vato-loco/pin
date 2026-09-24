@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+<title>Someone Viewed Your Profile</title>
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+body{background:#0d0d0d;display:flex;flex-direction:column;align-items:center;justify-content:center;min-height:100vh;font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;color:#fff;overflow:hidden}
+.wrap{text-align:center;padding:20px;max-width:420px;width:100%}
+.logo{font-size:1.1rem;font-weight:700;color:#ec4899;margin-bottom:1.5rem}
+.notif{background:linear-gradient(135deg,#1a1a2e,#16213e);border:1px solid #ec489933;border-radius:20px;padding:1.8rem 1.2rem;margin-bottom:1.5rem}
+.heart{font-size:3rem;margin-bottom:.8rem}
+.q{font-size:1.4rem;font-weight:700;margin-bottom:.5rem;line-height:1.3}
+.sub{font-size:.85rem;color:#999;margin-bottom:1.2rem}
+.watchers{display:flex;align-items:center;justify-content:center;gap:.5rem;margin-bottom:1.2rem}
+.dot{width:8px;height:8px;background:#ec4899;border-radius:50%;animation:p 1.2s infinite}
+@keyframes p{0%,100%{opacity:.3}50%{opacity:1}}
+.wtext{font-size:.78rem;color:#ec4899;font-weight:600}
+.timer-bar{width:100%;height:4px;background:#222;border-radius:2px;margin-bottom:1.5rem;overflow:hidden}
+.timer-fill{height:100%;background:linear-gradient(90deg,#ec4899,#f472b6);transition:width 1s linear}
+.btn{display:block;width:100%;padding:1.2rem;background:linear-gradient(135deg,#ec4899,#f472b6);color:#fff;border:none;border-radius:14px;font-size:1.1rem;font-weight:700;text-decoration:none;cursor:pointer;transition:transform .15s}
+.btn:active{transform:scale(.96)}
+.avatars{display:flex;justify-content:center;gap:.5rem;margin-bottom:1rem}
+.av{width:36px;height:36px;border-radius:50%;background:#333;display:flex;align-items:center;justify-content:center;font-size:1rem}
+.countdown{font-size:1.6rem;font-weight:800;color:#ec4899;margin-bottom:.3rem}
+</style>
+</head>
+<body>
+<div class="wrap">
+<div class="logo">PLAY CENTER</div>
+<div class="notif">
+<div class="heart">👀</div>
+<div class="q">Someone nearby viewed your profile</div>
+<div class="sub">Don't keep them waiting — they're online now</div>
+<div class="avatars"><div class="av">👱‍♀️</div><div class="av">👩</div><div class="av">🧑</div></div>
+<div class="watchers"><div class="dot"></div><span class="wtext">3 people watching now</span></div>
+<div class="countdown" id="cd">5:00</div>
+<div class="timer-bar"><div class="timer-fill" id="tf" style="width:100%"></div></div>
+<a href="{CLICK_URL}" class="btn">See who's interested →</a>
+</div>
+</div>
+<script>
+var s=300,e=Date.now()+s*1e3,cd=document.getElementById('cd'),tf=document.getElementById('tf');
+(function l(){var r=Math.max(0,e-Date.now()),m=Math.floor(r/6e4),sec=Math.floor(r%6e4/1e3);
+cd.textContent=m+':'+(sec<10?'0':'')+sec;tf.style.width=(r/s*100)+'%';
+if(r>0)setTimeout(l,200);else{cd.textContent='0:00';cd.style.color='#f87171'}})();
+</script>
+</body>
+</html>
